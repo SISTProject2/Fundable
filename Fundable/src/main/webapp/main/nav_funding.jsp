@@ -19,23 +19,23 @@
                 <span class='MultiLevelMenu depth-1'>
                     <ul class='menu'>
                         <li class='MultiItem'>
-                            <span style="display: flex"><img src="../image/hamburger3.png" width=20px height=20px><a class="MultiLink" href='#'> 카테고리</a></span>
+                            <span style="display: flex"><img src="../images/hamburger.png" width=20px height=20px><a class="MultiLink" href='#'> 카테고리</a></span>
                             <div class='MultiLevelMenu depth-2'>
                                 <ul class='menu'>
                                     <li class='MultiItem'>
-                                        <a class="MultiLink" href='#'><img src="../image/all.png" height="54px" width="54px"></a>
+                                        <a class="MultiLink" href='#'><img src="../images/all.png" height="54px" width="54px"></a>
                                     </li>
                                     <li class='MultiItem'>
-                                        <a class="MultiLink" href='#'><img src="../image/stationery.png" height="54px" width="54px"></a>
+                                        <a class="MultiLink" href='#'><img src="../images/stationery.png" height="54px" width="54px"></a>
                                     </li>
                                     <li class='MultiItem'>
-                                        <a class="MultiLink" href='#'><img src="../image/food.png" height="54px" width="54px"></a>
+                                        <a class="MultiLink" href='#'><img src="../images/food.png" height="54px" width="54px"></a>
                                     </li>
                                     <li class='MultiItem'>
-                                        <a class="MultiLink" href='#'><img src="../image/book.png" height="54px" width="54px"></a>
+                                        <a class="MultiLink" href='#'><img src="../images/book.png" height="54px" width="54px"></a>
                                     </li>
                                     <li class='MultiItem'>
-                                        <a class="MultiLink" href='#'><img src="../image/pet.png" height="54px" width="54px"></a>
+                                        <a class="MultiLink" href='#'><img src="../images/pet.png" height="54px" width="54px"></a>
                                     </li>
                                 </ul>
                             </div>           
