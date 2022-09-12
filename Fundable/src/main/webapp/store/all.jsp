@@ -31,7 +31,8 @@
               <p style>어디어디 주식회사</p>
               <p style="color: black; font-size: 11.5pt">999,999원</p>
               <img src="images/list/star.png" width="22px" height="22px"><span style="color: black; font-size: 7pt">4.5</span>
-              <footer class="more"><a href="#">Read More &raquo;</a></footer>
+              <span style="float: right">
+              <img src="images/list/person.png" width="20px" height="20px"><span style="color: grey; font-size: 7pt">9999명 참여</span></span>
             </figcaption>
           </figure>
         </article>
