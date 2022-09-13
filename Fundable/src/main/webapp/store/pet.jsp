@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -8,6 +9,8 @@
 
 <!-- css -->
 <link rel="stylesheet" href="css/layout.css" type="text/css">
+<link rel="stylesheet" type="text/css" href="../main/css/demo.css" />
+<link rel="stylesheet" type="text/css" href="../main/css/multilevelnav.css" />
 
 <!-- include -->
 <jsp:include page="../main/nav_store.jsp" />
@@ -23,19 +26,19 @@
     
       <!-- Services -->
       <section id="services" class="clear">
-        <article class="one_third">
-          <figure><img src="images/list/290x180.gif" width="290" height="180" alt="">
-            <figcaption>
-              <h2 style="font-style: regular">상품이름 상품이름 상품 이름</h2>
-              <p>
-              <p style>어디어디 주식회사</p>
-              <p style="color: black; font-size: 11.5pt">999,999원</p>
-              <img src="images/list/star.png" width="22px" height="22px"><span style="color: black; font-size: 7pt">4.5</span>
-              <span style="float: right">
-              <img src="images/list/person.png" width="20px" height="20px"><span style="color: grey; font-size: 7pt">9999명 참여</span></span>
-            </figcaption>
-          </figure>
-        </article>
+      <c:forEach var="vo" items="${list }">
+	        <article class="one_third">
+	          <img src="${vo.img }" width="290" height="180" alt="">
+	            <figcaption>
+	              <h2 style="font-style: regular; color: black; font-size: 12pt; font-weight: bold">${vo.title }</h2>
+	              <div style="font-size: 8pt">어디어디 주식회사</div>
+	              <div style="color: black; font-size: 11.5pt">${vo.price }</div>
+	              <img src="images/list/star.png" width="20px" height="20px"><span style="color: #FF8C00; font-size: 10pt;">${vo.rate }</span>
+	              <span style="float: right">
+	              <img src="images/list/person.png" width="20px" height="20px"><span style="color: grey; font-size: 8pt">${vo.sponsor }명 참여</span></span>
+	            </figcaption>
+	        </article>
+        </c:forEach>
 
 
       </section>

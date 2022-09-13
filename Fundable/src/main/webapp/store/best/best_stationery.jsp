@@ -8,9 +8,11 @@
 
 <!-- css -->
 <link rel="stylesheet" href="../css/layout.css" type="text/css">
+<link rel="stylesheet" type="text/css" href="../../main/css/demo.css" />
+<link rel="stylesheet" type="text/css" href="../../main/css/multilevelnav.css" />
 
 <!-- include -->
-<jsp:include page="../../main/nav_best.jsp" />
+<jsp:include page="../../main/nav_store.jsp" />
 </head>
 <body>
 <div class="wrapper row2">

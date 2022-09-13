@@ -20,23 +20,23 @@
                 <span class='MultiLevelMenu depth-1'>
                     <ul class='menu'>
                         <li class='MultiItem'>
-                            <span style="display: flex"><img src="images/hamburger.png" width=20px height=20px><a class="MultiLink" href='#'> 카테고리</a></span>
+                            <span style="display: flex"><a class="MultiLink" href='#'> 카테고리</a></span>
                             <div class='MultiLevelMenu depth-2'>
                                 <ul class='menu'>
                                     <li class='MultiItem'>
-                                        <a class="MultiLink" href='#'><img src="images/all.png" height="54px" width="54px"></a>
+                                        <a class="MultiLink" href='../store/list.do?sc_no=1'><img src="https://i.postimg.cc/5NV6ZJg3/all.png" height="54px" width="54px"></a>
                                     </li>
                                     <li class='MultiItem'>
-                                        <a class="MultiLink" href='#'><img src="images/stationery.png" height="54px" width="54px"></a>
+                                        <a class="MultiLink" href='../store/list.do?sc_no=2'><img src="https://i.postimg.cc/FFGMQggB/stationery.png" height="54px" width="54px"></a>
                                     </li>
                                     <li class='MultiItem'>
-                                        <a class="MultiLink" href='#'><img src="images/food.png" height="54px" width="54px"></a>
+                                        <a class="MultiLink" href='../store/list.do?sc_no=3'><img src="https://i.postimg.cc/htHF5Db4/food.png" height="54px" width="54px"></a>
                                     </li>
                                     <li class='MultiItem'>
-                                        <a class="MultiLink" href='#'><img src="images/book.png" height="54px" width="54px"></a>
+                                        <a class="MultiLink" href='../store/list.do?sc_no=4'><img src="https://i.postimg.cc/cCXy9fTP/book.png" height="54px" width="54px"></a>
                                     </li>
                                     <li class='MultiItem'>
-                                        <a class="MultiLink" href='#'><img src="images/pet.png" height="54px" width="54px"></a>
+                                        <a class="MultiLink" href='../store/list.do?sc_no=5'><img src="https://i.postimg.cc/rszQTWMB/pet.png" height="54px" width="54px"></a>
                                     </li>
                                 </ul>
                             </div>           
