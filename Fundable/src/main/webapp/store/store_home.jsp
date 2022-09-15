@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+    <!-- Slider -->
+    <section id="slider"><a href="#"><img src="images/list/slider2.png" alt=""></a></section>
 </body>
 </html>

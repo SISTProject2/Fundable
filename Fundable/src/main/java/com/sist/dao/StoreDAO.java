@@ -19,17 +19,33 @@ public class StoreDAO {
 	
 	
 	
-	// 스토어 목록 페이지
+	// 목록 페이지
 	public List<StoreVO> storeListData(Map map)
 	{
 		return mapper.storeListData(map);
 	}
 	
 	
+	// 카테고리 페이지
+	public List<StoreVO> storeCategoryListData(Map map)
+	{
+		return mapper.storeCategoryListData(map);
+	}
 	
-	// 총 페이지
+	
+	
+	
+	
+	// 목록 총 페이지
 	public int storeTotalPage(Map map)
 	{
 		return mapper.storeTotalPage(map);
+	}
+	
+	
+	// 카테고리 총 페이지
+	public int storeCategoryTotalPage(Map map)
+	{
+		return mapper.storeCategoryTotalPage(map);
 	}
 }

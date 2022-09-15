@@ -44,13 +44,13 @@
 		    <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/ojdbc8.jar</systemPath>
 		</dependency>
 		
-		<dependency>
+<!-- 		<dependency>
 		    <groupId>org.snu.ids</groupId>
 		    <artifactId>ha</artifactId>
 		    <version>1.0</version>
 		    <scope>system</scope>
 		    <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/org.snu.ids.ha.jar</systemPath>
-		</dependency>
+		</dependency> -->
 		
 		<!-- Spring -->
 		<dependency>

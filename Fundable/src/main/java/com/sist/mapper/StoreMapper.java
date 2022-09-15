@@ -10,19 +10,33 @@ import com.sist.vo.*;
 public interface StoreMapper {
 
 	
-	//===== 스토어 목록 페이지
-	@Select("SELECT sg_no, sc_no, title, price, img, sponsor, id, num "
-			+ "FROM (SELECT sg_no, sc_no, title, price, img, sponsor, id, rownum as num "
-			+ "FROM (SELECT sg_no, sc_no, title, price, img, sponsor, id "
-			+ "FROM store_goods2_2 WHERE sc_no=#{sc_no} ORDER BY sg_no ASC)) "
+	//===== 목록 페이지
+	@Select("SELECT sg_no, rate, title, price, img, sponsor, user_no, num "
+			+ "FROM (SELECT sg_no, rate, title, price, img, sponsor, user_no, rownum as num "
+			+ "FROM (SELECT sg_no, rate, title, price, img, sponsor, user_no "
+			+ "FROM store_goods2_2 ORDER BY	${column} )) "
 			+ "WHERE num BETWEEN #{start} AND #{end}")
 	public List<StoreVO> storeListData(Map map);
 	
 	
+	//===== 카테고리 페이지
+	@Select("SELECT sg_no, sc_no, rate, title, price, img, sponsor, user_no, num "
+			+ "FROM (SELECT sg_no, sc_no, rate, title, price, img, sponsor, user_no, rownum as num "
+			+ "FROM (SELECT sg_no, sc_no, rate, title, price, img, sponsor, user_no "
+			+ "FROM store_goods2_2 WHERE sc_no=#{sc_no} ORDER BY ${column} )) "
+			+ "WHERE num BETWEEN #{start} AND #{end}")
+	public List<StoreVO> storeCategoryListData(Map map);
 	
-	//===== 총 페이지
-	@Select("SELECT CEIL(COUNT(*)/12.0) FROM ${table_name}")
+	
+	
+	//===== 목록 총 페이지
+	@Select("SELECT CEIL(COUNT(*)/12.0) FROM store_goods2_2")
 	public int storeTotalPage(Map map);
+	
+	
+	//===== 카테고리 총 페이지
+	@Select("SELECT CEIL(COUNT(*)/12.0) FROM store_goods2_2")
+	public int storeCategoryTotalPage(Map map);
 	
 	
 }

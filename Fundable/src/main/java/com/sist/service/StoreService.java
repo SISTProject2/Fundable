@@ -9,4 +9,6 @@ public interface StoreService {
 
 	public List<StoreVO> storeListData(Map map);
 	public int storeTotalPage(Map map);
+	public List<StoreVO> storeCategoryListData(Map map);
+	public int storeCategoryTotalPage(Map map);
 }
