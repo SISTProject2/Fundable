@@ -6,7 +6,7 @@
 <html lang="en" dir="ltr">
 <head>
 <title>Basic 88</title>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <meta charset="UTF-8">
 
 <!-- css -->
@@ -46,25 +46,27 @@
       <!-- Services -->
       <section id="services" class="clear">
       
-      <span class="word">전체</span>
-      
-      <span id="sort">
-      	<a href="list.do?no=1">인기 순</a> &nbsp;
-      	<a href="list.do?no=2">서포터 많은 순</a> &nbsp;
-      	<a href="list.do?no=3">최신 순</a> &nbsp;
-      	<a href="list.do?no=4">가격 높은 순</a> &nbsp;
-      	<a href="list.do?no=5">가격 낮은 순</a>
-      </span>
+      <span class="word">실시간 조회 수 TOP 15</span>
 
       <hr>
      
-      <c:forEach var="vo" items="${list }" varStatus="s">
+      <c:forEach var="vo" items="${slist }" varStatus="s">
       	<c:if test="${s.index>=0 && s.index<15 }">
 	        <article class="one_third">
-	          <a href="detail.do?sg_no=${vo.sg_no }"><img src="${vo.img }" width="320" height="230" alt=""></a><p>
+	        	<!-- 1-3위 왕관 이미지 -->
+		        <c:if test="${s.index == 0 }">
+	                <img src="images/gold.png" width="80" height="80">
+	             </c:if>
+	             <c:if test="${s.index == 1}">
+	                <img src="images/silver.png" width="80" height="80">
+	             </c:if>
+	             <c:if test="${s.index == 2}">
+	                <img src="images/bronze.png" width="80" height="80">
+	             </c:if>
+	          <a href="detail.do?sg_no=${vo.sg_no }"><img src="${vo.img }" width="320" height="210" alt=""></a><p>
 	            <figcaption>
-	              <a href="detail.do?sg_no=${vo.sg_no }"><h2 style="font-style: regular; color: black; font-size: 12pt; font-weight: bold">${vo.title }</h2></a><p>
-	              <div style="font-size: 9pt">${vo.id }</div><p>
+	              <a href="detail.do?sg_no=${sg_no }"><h2 style="font-style: regular; color: black; font-size: 12pt; font-weight: bold">${vo.title }</h2></a><p>
+	              <div style="font-size: 8pt">어디어디 주식회사</div><p>
 	              <a href="detail.do?sg_no=${vo.sg_no }" style="color:black; font-size: 14pt"><fmt:formatNumber pattern="#,###" value="${vo.price }"/>원<p>
 	              
 	              <c:if test="${vo.rate!=0.0}">
@@ -85,42 +87,13 @@
 	       	 </article>
 	        </c:if>
         </c:forEach>
-        
-        
 
 
       </section>
-      
-       <!-- pagination -->
-    <div class="text-center">
-	         <ul class="pagination">
-	          <li><a href="list.do?no=${no }&page=1">&lt;&lt;</a></li>
-	          <c:if test="${startPage>1 }"><%-- 1 11 21... --%>
-			    <li><a href="list.do?no=${no }&page=${startPage-1 }">&lt;</a></li>
-			  </c:if>
-			  <c:forEach var="i" begin="${startPage }" end="${endPage }">
-			    <c:if test="${curpage==i }">
-			      <c:set var="style" value="class=active"/>
-			    </c:if>
-			    <c:if test="${curpage!=i }">
-			      <c:set var="style" value=""/>
-			    </c:if>
-			    <li ${style }><a href="list.do?no=${no }&page=${i }">${i }</a></li>
-			  </c:forEach>
-			  <c:if test="${endPage<totalpage }">
-			    <li><a href="list.do?no=${no }&page=${endPage+1 }">&gt;</a></li>
-			  </c:if>
-			  <li><a href="list.do?no=${no }&page=${totalpage }">&gt;&gt;</a></li>
-			</ul>
-       </div>
 
     </div>
     
-    
-    
-   
-       
-       
+
     <!-- content body -->
     
     

@@ -41,14 +41,12 @@ div.wrapper{display:block; width:100%; margin:0; padding:0; text-align:left;}
 
 .row1, .row1 a{color:#C0BAB6; background-color:#333333;}
 .row2{color:#979797; background-color:#FFFFFF;}
-.row2 a{color:#FF9900; background-color:#FFFFFF;}
 .row3{color:#989898; background-color:#333333;}
-.row3 a{color:#FF9900; background-color:#333333;}
 .row4, .row4 a{color:#919191; background-color:#232323;}
 
 /*----------------------------------------------Generalise-------------------------------------*/
 
-#header, #container, #footer, #copyright{display:block; width:1400px; margin:0 auto;}
+#header, #container, #footer, #copyright{display:block; width:1300px; margin:0 auto;}
 
 nav ul{margin:0; padding:0; list-style:none;}
 
@@ -123,6 +121,11 @@ input, textarea, select{font-size:12px; font-family:Georgia,"Times New Roman",Ti
 #container #homepage #intro article figure figcaption{float:left; width:460px;}
 #container #homepage #intro article figure h2{}
 #container #homepage #intro article figure footer{}
+
+
+
+
+
 
 /*----------------------------------------------Footer-------------------------------------*/
 

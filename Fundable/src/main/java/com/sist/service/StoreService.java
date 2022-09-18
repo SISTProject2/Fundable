@@ -11,4 +11,9 @@ public interface StoreService {
 	public int storeTotalPage(Map map);
 	public List<StoreVO> storeCategoryListData(Map map);
 	public int storeCategoryTotalPage(Map map);
+	public StoreVO storeDetailData(int sg_no);
+	public List<StoreVO> storeBest(Map map);
+	public List<StoreVO> storeFindData(Map map);
+	public int storeSearchTotalPage(String title);
+	
 }

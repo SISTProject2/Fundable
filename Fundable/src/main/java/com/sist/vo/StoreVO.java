@@ -24,8 +24,8 @@ USER_NO   NOT NULL NUMBER
 @Setter
 public class StoreVO {
 
-	private int sg_no, price, success, sponsor, stock, sc_no, user_no;
+	private int sg_no, price, success, sponsor, stock, sc_no, user_no, hit;
 	private double rate;
-	private String title, img, sub_img;
+	private String title, img, sub_img, id;
 	private Date open_date;
 }

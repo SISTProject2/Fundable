@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <!-- Slider -->
-    <section id="slider"><a href="#"><img src="images/slider2.png" alt=""></a></section>
+	<h1>상품 상세</h1>
 </body>
 </html>

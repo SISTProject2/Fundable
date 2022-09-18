@@ -46,6 +46,34 @@ public class StoreServiceImpl implements StoreService {
 		// TODO Auto-generated method stub
 		return dao.storeCategoryTotalPage(map);
 	}
+
+
+	@Override
+	public List<StoreVO> storeBest(Map map) {
+		// TODO Auto-generated method stub
+		return dao.storeBest(map);
+	}
+
+
+	@Override
+	public StoreVO storeDetailData(int sg_no) {
+		// TODO Auto-generated method stub
+		return dao.storeDetailData(sg_no);
+	}
+
+
+	@Override
+	public List<StoreVO> storeFindData(Map map) {
+		// TODO Auto-generated method stub
+		return dao.storeFindData(map);
+	}
+
+
+	@Override
+	public int storeSearchTotalPage(String title) {
+		// TODO Auto-generated method stub
+		return dao.storeSearchTotalPage(title);
+	}
 	
 	
 	

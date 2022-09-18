@@ -33,6 +33,15 @@ public class StoreDAO {
 	}
 	
 	
+	// 상세 페이지
+	public StoreVO storeDetailData(int sg_no)
+	{
+		mapper.hitIncrement(sg_no);
+		
+		return mapper.storeDetailData(sg_no);
+	}
+	
+	
 	
 	
 	
@@ -48,4 +57,30 @@ public class StoreDAO {
 	{
 		return mapper.storeCategoryTotalPage(map);
 	}
+	
+	
+	
+	
+	// 베스트 페이지
+	public List<StoreVO> storeBest(Map map)
+	{
+		return mapper.storeBest(map);
+	}
+	
+	
+	
+	// 검색
+	public List<StoreVO> storeFindData(Map map)
+	{
+		return mapper.storeFindData(map);
+	}
+	
+	
+	// 검색 총 페이지
+	public int storeSearchTotalPage(String title)
+	{
+		return mapper.storeSearchTotalPage(title);
+	}
+	
+	
 }

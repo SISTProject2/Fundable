@@ -20,7 +20,7 @@
                 <span class='MultiLevelMenu depth-1'>
                     <ul class='menu'>
                         <li class='MultiItem'>
-                            <span style="display: flex"><a class="MultiLink" href='#'> 카테고리</a></span>
+                            <span style="display: flex"><a class="MultiLink" href='../store/list.do'> 카테고리</a></span>
                             <div class='MultiLevelMenu depth-2'>
                                 <ul class='menu'>
                                     <li class='MultiItem'>
@@ -51,14 +51,11 @@
                             <a class="MultiLink" href='../store/store_main.do'>스토어</a>                           
                         </li>
                         <li class='MultiItem'>
-                            <a class="MultiLink" href='#'>베스트</a>                           
+                            <a class="MultiLink" href='../store/best.do'>베스트</a>                           
                         </li>
-                        <li style="display: flex; float: right">
-					     <input class="form-control mr-sm-2" type="search" placeholder="검색어를 입력해주세요." aria-label="Search" width=30px>
-						 <button type="submit" class="searchButton">
-					        <i class="fa fa-search"></i>
-					     </button>
-						</li>					     
+                        <li class='MultiItem'>
+                            <a class="MultiLink" href='../store/find.do'>상품 검색</a>                           
+                        </li>				     
                     </ul>                   
                 </span>               
             </nav>           
