@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-  <jsp:include page="${ main_jsp }"></jsp:include>
+  <jsp:include page="../main/header.jsp"></jsp:include>
+  <%-- <jsp:include page="../main/navbar.jsp"></jsp:include> --%>
+  <jsp:include page="${main_jsp }"></jsp:include> 
+  <jsp:include page="../main/footer.jsp"></jsp:include>
 </body>
 </html>
