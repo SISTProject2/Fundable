@@ -13,7 +13,7 @@
 <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
 </head>
 <body class="u-body u-xl-mode" data-lang="en">
-<header class="u-clearfix u-header u-header" id="sec-a3bc">
+<header class="u-clearfix u-header u-header" id="sec-a3bc" style="height: 110px;">
 <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
   <a href="../main/main.do" class="u-image u-logo u-image-1">
   <img src="../css/img/fundable.PNG" class="u-logo-image u-logo-image-1" style="width: 170px; height: 30px; margin-top: 25px; margin-left: 50px;">

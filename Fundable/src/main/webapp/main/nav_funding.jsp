@@ -15,7 +15,7 @@
 .section {
     float: left;
     width: 100%;
-    margin-top: 0px;
+    margin-top: -20px;
     margin-bottom: 0px;
 }
 </style>
@@ -28,7 +28,7 @@
                 <span class='MultiLevelMenu depth-1' style="padding-left: 100px; padding-right: 30px;">
                     <ul class='menu' style="max-width: 100%;">
                         <li class='MultiItem'>
-                            <span style="display: flex"><a class="MultiLink" href='#'> 카테고리</a></span>
+                            <span style="display: flex"><a class="MultiLink" href='#' style="font-size: 20px;"> 카테고리</a></span>
                             <div class='MultiLevelMenu depth-2'>
                                 <ul class='menu' style="padding-left: 140px; margin-top: 0px; max-width: 100%;">
                                     <li class='MultiItem'>
@@ -50,13 +50,13 @@
                             </div>           
                         </li>
                         <li class='MultiItem'>
-                            <a class="MultiLink" href='../funding/list.do'>펀딩 예정</a>
+                            <a class="MultiLink" href='../funding/list.do' style="font-size: 20px;">펀딩 예정</a>
                         </li>
                         <li class='MultiItem'>
-                            <a class="MultiLink" href='#'>펀딩</a>
+                            <a class="MultiLink" href='#' style="font-size: 20px;">펀딩</a>
                         </li>
                         <li class='MultiItem'>
-                            <a class="MultiLink" href='store/store_main.do'>스토어</a>                           
+                            <a class="MultiLink" href='store/store_main.do' style="font-size: 20px;">스토어</a>                           
                         </li>
                         <li style="display: flex; float: right">
 					     <input class="form-control mr-sm-2" type="search" placeholder="검색어를 입력해주세요." aria-label="Search" width=30px>
