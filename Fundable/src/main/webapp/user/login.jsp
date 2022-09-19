@@ -110,7 +110,7 @@ function kakaoLogout() {
 				  	naver_id_login.setPopup();
 				  	naver_id_login.init_naver_id_login();
 				</script>
-				<div style="display: flex; margin-left: 228px; width: 100%; margin-top: -55px; margin-bottom: 50px;">
+				<div style="display: flex; margin-left: 228px; width: 100%; margin-top: -50px; margin-bottom: 50px;">
 					<button class="join_submit_k" class="kakao" onclick="kakaoLogin();"
 						type="button" style="width: 49%; height: 50px; font-size: 15px; border-radius: 5px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;카카오로 로그인</button>
 				</div>

@@ -11,8 +11,6 @@
 <link rel="stylesheet" href="../css/funding/list.css" media="screen">
 <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
 <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
-<link rel="stylesheet" type="text/css" href="../main/css/demo.css" />
-<link rel="stylesheet" type="text/css" href="../main/css/multilevelnav.css" />
 <style type="text/css">
 .u-section-1 .u-repeater-1 {
     grid-template-columns: 25% 25% 25% 25%;
