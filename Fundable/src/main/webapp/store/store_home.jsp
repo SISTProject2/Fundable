@@ -8,6 +8,6 @@
 </head>
 <body>
     <!-- Slider -->
-    <section id="slider"><a href="#"><img src="images/slider2.png" alt=""></a></section>
+    <section id="slider" style="margin-top: 100px;"><a href="#"><img src="images/slider2.png" alt=""></a></section>
 </body>
 </html>

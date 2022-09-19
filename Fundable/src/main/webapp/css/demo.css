@@ -19,7 +19,7 @@ html {
 article, header, section, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
     display: block;
 }
-body {
+/* body {
 
     color: #222;
     font-family: Roboto;
@@ -29,7 +29,7 @@ body {
     margin: 0;
 	padding:0;
 
-}
+} */
 a{
 	font-family: Roboto;
 	text-decoration: none;
@@ -160,11 +160,11 @@ h2 span {
 	Responsive Grids
 *********************************************************/
 
-.rt-container {
+/* .rt-container {
 	margin: 0 auto;
 	padding-left:12px;
 	padding-right:12px;
-}
+} */
 .rt-row:before, .rt-row:after {
   display: table;
   line-height: 0;

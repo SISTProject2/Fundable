@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="../css/footer.css" media="screen">
 </head>
 <body>
-  <footer style="margin-top: 200px;">
+  <footer style="margin-top: 1500px;">
 		<div>
 			<button type="button" onclick="location.href='../cs/cs_notice.do'">공지사항</button>
 			<button type="button" id='footer_right' onclick="location.href='../cs/cs_QnA.do'">1:1 문의</button>

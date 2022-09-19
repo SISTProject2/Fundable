@@ -19,6 +19,14 @@
     margin-bottom: 0px;
 }
 </style>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#store').click(function(){
+		$('#nav_funding').hide();
+	})
+})
+</script>
 </head>
 <body>
 <section class="section">
@@ -28,7 +36,7 @@
                 <span class='MultiLevelMenu depth-1' style="padding-left: 100px; padding-right: 30px;">
                     <ul class='menu' style="max-width: 100%;">
                         <li class='MultiItem'>
-                            <span style="display: flex"><a class="MultiLink" href='#' style="font-size: 20px;"> 카테고리</a></span>
+                            <span style="display: flex"><a class="MultiLink" href='#' style="font-size: 20px; cursor: pointer;"> 카테고리</a></span>
                             <div class='MultiLevelMenu depth-2'>
                                 <ul class='menu' style="padding-left: 140px; margin-top: 0px; max-width: 100%;">
                                     <li class='MultiItem'>
@@ -50,13 +58,13 @@
                             </div>           
                         </li>
                         <li class='MultiItem'>
-                            <a class="MultiLink" href='../funding/list.do' style="font-size: 20px;">펀딩 예정</a>
+                            <a class="MultiLink" href='../funding/list.do' style="font-size: 20px; cursor: pointer;">펀딩 예정</a>
                         </li>
                         <li class='MultiItem'>
-                            <a class="MultiLink" href='#' style="font-size: 20px;">펀딩</a>
+                            <a class="MultiLink" href='#' style="font-size: 20px; cursor: pointer;">펀딩</a>
                         </li>
-                        <li class='MultiItem'>
-                            <a class="MultiLink" href='store/store_main.do' style="font-size: 20px;">스토어</a>                           
+                        <li class='MultiItem' id="store">
+                            <a class="MultiLink" href='../store/store_main.do' style="font-size: 20px; cursor: pointer;">스토어</a>                           
                         </li>
                         <li style="display: flex; float: right">
 					     <input class="form-control mr-sm-2" type="search" placeholder="검색어를 입력해주세요." aria-label="Search" width=30px>

@@ -11,16 +11,24 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/demo.css" />
 <link rel="stylesheet" type="text/css" href="../css/multilevelnav.css" />
+<style type="text/css">
+.section {
+    float: left;
+    width: 100%;
+    margin-top: -20px;
+    margin-bottom: 0px;
+}
+</style>
 </head>
 <body>
 <section>
-    <div class="rt-container">
+    <div class="rt-container" style="width: 100%;">
           <div class="col-rt-12">
              <nav>
-                <span class='MultiLevelMenu depth-1'>
-                    <ul class='menu'>
+                <span class='MultiLevelMenu depth-1' style="padding-left: 100px; padding-right: 30px;">
+                    <ul class='menu' style="max-width: 100%;">
                         <li class='MultiItem'>
-                            <span style="display: flex"><a class="MultiLink" href='../store/list.do'> 카테고리</a></span>
+                            <span style="display: flex"><a class="MultiLink" href='../store/list.do' style="font-size: 20px;"> 카테고리</a></span>
                             <div class='MultiLevelMenu depth-2'>
                                 <ul class='menu'>
                                     <li class='MultiItem'>
@@ -42,19 +50,19 @@
                             </div>           
                         </li>
                         <li class='MultiItem'>
-                            <a class="MultiLink" href='#'>펀딩 예정</a>
+                            <a class="MultiLink" href='../funding/list.do' style="font-size: 20px;">펀딩 예정</a>
                         </li>
                         <li class='MultiItem'>
-                            <a class="MultiLink" href='#'>펀딩</a>
+                            <a class="MultiLink" href='#' style="font-size: 20px;">펀딩</a>
                         </li>
                         <li class='MultiItem'>
-                            <a class="MultiLink" href='../store/store_main.do'>스토어</a>                           
+                            <a class="MultiLink" href='../store/store_main.do' style="font-size: 20px;">스토어</a>                           
                         </li>
                         <li class='MultiItem'>
-                            <a class="MultiLink" href='../store/best.do'>베스트</a>                           
+                            <a class="MultiLink" href='../store/best.do' style="font-size: 20px;">베스트</a>                           
                         </li>
                         <li class='MultiItem'>
-                            <a class="MultiLink" href='../store/find.do'>상품 검색</a>                           
+                            <a class="MultiLink" href='../store/find.do' style="font-size: 20px;">상품 검색</a>                           
                         </li>				     
                     </ul>                   
                 </span>               
