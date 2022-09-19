@@ -11,18 +11,26 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/demo.css" />
 <link rel="stylesheet" type="text/css" href="css/multilevelnav.css" />
+<style type="text/css">
+.section {
+    float: left;
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+</style>
 </head>
 <body>
-<section>
-    <div class="rt-container">
+<section class="section">
+    <div class="rt-container" style="width: 100%;">
           <div class="col-rt-12">
              <nav>
-                <span class='MultiLevelMenu depth-1'>
-                    <ul class='menu'>
+                <span class='MultiLevelMenu depth-1' style="padding-left: 100px; padding-right: 30px;">
+                    <ul class='menu' style="max-width: 100%;">
                         <li class='MultiItem'>
                             <span style="display: flex"><a class="MultiLink" href='#'> 카테고리</a></span>
                             <div class='MultiLevelMenu depth-2'>
-                                <ul class='menu'>
+                                <ul class='menu' style="padding-left: 140px; margin-top: 0px; max-width: 100%;">
                                     <li class='MultiItem'>
                                         <a class="MultiLink" href='#'><img src="https://i.postimg.cc/5NV6ZJg3/all.png" height="54px" width="54px"></a>
                                     </li>
@@ -42,7 +50,7 @@
                             </div>           
                         </li>
                         <li class='MultiItem'>
-                            <a class="MultiLink" href='#'>펀딩 예정</a>
+                            <a class="MultiLink" href='../funding/list.do'>펀딩 예정</a>
                         </li>
                         <li class='MultiItem'>
                             <a class="MultiLink" href='#'>펀딩</a>
