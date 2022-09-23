@@ -5,19 +5,52 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
+<style type="text/css" >
+input.ui-corner-all {
+  width: 500px;
+  height: 40px;
+  font-size: 40px;
+}
+
+label {
+	font-size: 14pt;
+}
+
+</style>
+
 <!-- css -->
 <link rel="stylesheet" href="css/admin-css.css" type="text/css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+<!-- vue  -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<!-- jquery -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script>
+$(function() {
+	$('#update').click(function(){ 
+		
+	})
+	
+	
+} );
+</script>
+
+
 <body>
 
 <div class="sidebar">
-  <a class="active" href="#home">유저 관리</a>
-  <a href="#news">펀딩 상품 관리</a>
-  <a href="#news">스토어 상품 관리</a>
-  <a href="#news">상품 승인</a>
-  <a href="#news">홈으로</a>
+  <a class="active" href="user_list.do">유저 관리</a>
+  <a href="funding_list.do">펀딩 상품 관리</a>
+  <a href="store_list.do">스토어 상품 관리</a>
+  <a href="approve.do">상품 승인</a>
 </div>
 
 
@@ -26,38 +59,126 @@
 <hr>
 <p>
 
-<li style="display: flex">
-  <input class="form-control mr-sm-2" type="search" placeholder="검색어를 입력해주세요." aria-label="Search" width=30px>
-</li>
+
+<!-- 검색 창 -->
+<div class="word" style="display: flex">
+  <span class="search_bar" style="display: flex">
+	  <input type="search" class="form-control rounded" placeholder="유저 아이디를 입력하세요" aria-label="Search" aria-describedby="search-addon" value="ss" ref="ss" v-model="ss" />
+	  &nbsp;&nbsp;&nbsp;
+	  <button type="button" class="w3-button w3-green" v-on:click="userFind()">검색</button>
+  </span>
+</div>
 
 <p></p>
   
-<table class="w3-table w3-bordered">
+  <table class="w3-table w3-bordered">
     <tr>
+      <th>아이디</th>
       <th>이름</th>
-      <th>이메일</th>
+      <th>생일</th>
       <th>전화번호</th>
+      <th>이메일</th>
+      <th></th>
+
     </tr>
-    <tr>
-      <td>Jill</td>
-      <td>Smith</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <td>Eve</td>
-      <td>Jackson</td>
-      <td>94</td>
-    </tr>
-    <tr>
-      <td>Adam</td>
-      <td>Johnson</td>
-      <td>67</td>
+    <tr v-for="vo in user_list">
+      <td>{{vo.id}}</td>
+      <td>{{vo.name}}</td>
+      <td>{{vo.bday}}</td>
+      <td>{{vo.tel}}</td>
+      <td>{{vo.email}}</td>
+   	  <td>
+	   	  <a :href="'user_update.do?user_no='+vo.user_no"><button class="w3-button w3-red">상세보기</button></a>
+	   	  <a onclick="return confirm('정말로 삭제하시겠습니까?')" :href="'user_delete.do?user_no='+vo.user_no"><button class="w3-button w3-red">삭제</button></a>
+   	  </td>
     </tr>
   </table>
   
+  
+
+  
+  
+  
+  <!-- pagination -->
+  <div style="height: 20px;"></div>
+    <div class="row">
+      <div class="text-center">
+        <button class="w3-button w3-green" v-on:click="prev()">이전</button>
+          {{curpage}} page / {{totalpage}} pages
+        <button class="w3-button w3-green" v-on:click="next()">다음</button>
+      </div>
+    </div>
   	
 	
 </div>
 
+<script>
+	new Vue({
+		el:'.content',
+		data:{
+			curpage : 1,
+			totalpage : 0,
+			ss : '',
+			user_list : [],
+			id : ''
+		},
+		mounted:function(){
+			// window.onload => main
+			this.send(); // 첫 화면 띄우기
+		},
+		methods:{
+			// 반복되면 함수화
+			send:function(){
+				axios.get('http://localhost:8080/web/admin/user_list.do',{
+					params:{
+						ss : this.ss,
+						page : this.curpage
+					}
+				}).then(result=>{
+					console.log(result)
+					this.user_list = result.data;
+					this.curpage = this.user_list[0].curpage;
+					this.totalpage = this.user_list[0].totalpage;
+				})
+
+			},
+			userFind:function(){
+				if(this.ss===""){
+					alert("검색어를 입력하세요!!");
+					this.$refs.ss.focus();
+					return;
+				}
+				else if(this.ss.length < 2){
+					alert("2자 이상 입력하세요!!");
+					this.$refs.ss.value = "";
+					this.$refs.ss.focus();
+					return;
+				}
+				this.send();
+			},
+			prev:function(){
+				this.curpage=this.curpage>1?this.curpage-1:this.curpage;
+				this.send();
+			},
+			next:function(){
+				this.curpage=this.curpage<this.totalpage?this.curpage+1:this.curpage;
+				this.send();
+			},
+			
+			userUpdate:function(id){
+				this.id = id;
+				$("#dialog").dialog({ 
+					autoOpen: false,
+					width: 600,
+					height: 700,
+					modal: true
+				}).dialog("open");
+			}
+			
+			
+
+		}
+	})
+  </script>
 </body>
 </html>

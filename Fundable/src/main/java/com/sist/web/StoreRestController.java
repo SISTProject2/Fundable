@@ -7,14 +7,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.*;
-import com.sist.service.*;
+
+import com.sist.dao.StoreDAO;
+import com.sist.dao.*;
 import com.sist.vo.*;
 
 @RestController
 public class StoreRestController {
 
 	@Autowired
-	private StoreService service;
+	private StoreDAO dao;
 	
 	//=============
 	
@@ -43,7 +45,7 @@ public class StoreRestController {
 			map.put("end", end);
 			map.put("title", ss);
 			
-			List<StoreVO> list = service.storeFindData(map);
+			List<StoreVO> list = dao.storeFindData(map);
 			
 			//======= 긴 글자 자르기
 			for(StoreVO vo:list)
@@ -57,7 +59,7 @@ public class StoreRestController {
 				vo.setTitle(s);
 			}
 			
-			int totalpage = service.storeSearchTotalPage(ss);
+			int totalpage = dao.storeSearchTotalPage(ss);
 			
 			JSONArray arr = new JSONArray(); // List => [] => 자바스크립트 객체 표현법
 			// FoodVO ==> JSONObject => {}
@@ -100,7 +102,7 @@ public class StoreRestController {
 		
 		try
 		{
-			StoreVO vo = service.storeDetailData(sg_no);
+			StoreVO vo = dao.storeDetailData(sg_no);
 			JSONObject obj = new JSONObject();
 			
 			obj.put("sg_no", vo.getSg_no());

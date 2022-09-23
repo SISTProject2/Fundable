@@ -11,14 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sist.dao.StoreDAO;
-import com.sist.service.StoreService;
 import com.sist.vo.StoreVO;
 
 @Controller
 public class StoreController {
-
-	@Autowired
-	private StoreService service;	
 	
 	@Autowired
 	private StoreDAO dao;
@@ -65,7 +61,7 @@ public class StoreController {
 		map.put("no", no);
 		map.put("column", column);
 		
-		List<StoreVO> list = service.storeListData(map);
+		List<StoreVO> list = dao.storeListData(map);
 		
 		
 		
@@ -84,7 +80,7 @@ public class StoreController {
 		
 		
 		//===== 총 페이지
-		int totalpage = service.storeTotalPage(map);
+		int totalpage = dao.storeTotalPage(map);
 		
 		
 		
@@ -171,7 +167,7 @@ public class StoreController {
 		map.put("no", no);
 		map.put("column", column);
 		
-		List<StoreVO> list = service.storeCategoryListData(map);
+		List<StoreVO> list = dao.storeCategoryListData(map);
 		
 		
 		
@@ -190,7 +186,7 @@ public class StoreController {
 		
 		
 		//===== 총 페이지
-		int totalpage = service.storeCategoryTotalPage(map);
+		int totalpage = dao.storeCategoryTotalPage(map);
 		
 		
 		
@@ -228,7 +224,7 @@ public class StoreController {
 		Map map = new HashMap();
 		map.put("sg_no", sg_no);
 		
-		StoreVO vo = service.storeDetailData(sg_no);
+		StoreVO vo = dao.storeDetailData(sg_no);
 		model.addAttribute("vo", vo);
 		
 		model.addAttribute("store_main_jsp", "../store/detail.jsp");
@@ -244,7 +240,7 @@ public class StoreController {
      {
 		 Map map = new HashMap();
 		 
-		 List<StoreVO> slist = service.storeBest(map);
+		 List<StoreVO> slist = dao.storeBest(map);
 		 
 		 
 		//======= 긴 글자 자르기
@@ -316,7 +312,7 @@ public class StoreController {
 		 map.put("no", no);
 		 map.put("column", column);
 		
-		 List<StoreVO> flist = service.storeFindData(map);
+		 List<StoreVO> flist = dao.storeFindData(map);
 		
 		
 		
@@ -335,7 +331,7 @@ public class StoreController {
 		
 		
 		 //===== 총 페이지
-		 int totalpage = service.storeSearchTotalPage(ss);
+		 int totalpage = dao.storeSearchTotalPage(ss);
 		
 		
 		
