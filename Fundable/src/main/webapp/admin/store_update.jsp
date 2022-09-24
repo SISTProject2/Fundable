@@ -17,7 +17,15 @@
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
+	$(document).ready(function() {
+		$("#btn").click(function() {
+			$('#success-alert').removeClass('hidden');
+		});
+         $("button.close").click(function() {
+			$('#success-alert').addClass('hidden');
+		});
 
+	});
 </script>
 </head>
 <body>
@@ -40,59 +48,70 @@
  <h2>${vo.title }</h2><p>
  <a href="../store/detail.do?sg_no=${vo.sg_no }" style="z-index: -6">해당 상품 페이지 바로 가기 &gt;&gt;</a>
   <hr>
-  <form id="frm" action="user_update_ok.do" method="POST">
+  <div class="row">
+		<div class="alert alert-success hidden" id="success-alert">
+			<button type="button" class="close">x</button>
+			<span class="glyphicon glyphicon-ok"></span> 수정이 완료 되었습니다.
+		</div>
+	</div>
+  
+  <form id="frm" action="../admin/store_update_ok.do" method="POST">
   	
   	<img src="${vo.img }" style="width: 230px; height: 230px">
   	<div style="height: 20px"></div>
   	
     <div class="form-group">
       <label for="usr">상품 번호:</label>
-      <input type="text" class="form-control" id="sg_no" value="${vo.sg_no }">
+      <input type="text" class="form-control" id="sg_no" name="sg_no" value="${vo.sg_no }" readonly>
     </div>
     <div class="form-group">
       <label for="pwd">상품 이름:</label>
-      <input type="text" class="form-control" id="title" value="${vo.title }">
+      <input type="text" class="form-control" id="title" name="title" value="${vo.title }">
+    </div>
+    <div class="form-group"> <!-- 출력하지 않을 건 hidden으로 감춤 -->
+      <input type="hidden" class="form-control" id="id" name="user_no" value="${vo.user_no }">
     </div>
     <div class="form-group">
       <label for="pwd">창작자 이름:</label>
-      <input type="text" class="form-control" id="creator" value="${id }">
+      <input type="text" class="form-control" id="id" name="id" value="${id }">
     </div>
     <div class="form-group">
       <label for="pwd">가격:</label>
-      <input type="text" class="form-control" id="price" value="${vo.price }">
+      <input type="text" class="form-control" id="price" name="price" value="${vo.price }">
     </div>
     <div class="form-group">
       <label for="pwd">이미지 URL:</label>
-      <input type="text" class="form-control" id="img" value="${vo.img }">
+      <input type="text" class="form-control" id="img" name="img" value="${vo.img }">
     </div>
     <div class="form-group">
       <label for="pwd">상세 이미지 URL('^'로 구분):</label>
-      <input type="text" class="form-control" id="sub_img" value="${vo.sub_img }">
+      <input type="text" class="form-control" id="sub_img" name="sub_img" value="${vo.sub_img }">
     </div>
     <div class="form-group">
       <label for="pwd">펀딩 성공 금액:</label>
-      <input type="text" class="form-control" id="success" value="${vo.success }">
+      <input type="text" class="form-control" id="success" name="success" value="${vo.success }">
     </div>
     <div class="form-group">
       <label for="pwd">구매자 수:</label>
-      <input type="text" class="form-control" id="sponsor" value="${vo.sponsor }">
+      <input type="text" class="form-control" id="sponsor" name="sponsor" value="${vo.sponsor }">
     </div>
     <div class="form-group">
       <label for="pwd">오픈 날짜:</label>
-      <input type="text" class="form-control" id="open_date" value="${vo.open_date }">
+      <input type="text" class="form-control" id="open_date" name="open_date" value="${vo.open_date }">
     </div>
     <div class="form-group">
       <label for="pwd">재고:</label>
-      <input type="text" class="form-control" id="stock" value="${vo.stock }">
+      <input type="text" class="form-control" id="stock" name="stock" value="${vo.stock }">
     </div>
     <div class="form-group">
       <label for="pwd">상품 카테고리 넘버:</label>
-      <input type="text" class="form-control" id="sc_no" value="${vo.sc_no }">
+      <input type="text" class="form-control" id="sc_no" name= "sc_no" value="${vo.sc_no }">
     </div>
 
 
     <span id="buttons" style="float: right">
-	 <button class="w3-button w3-red" id="updateBtn" type="submit">저장</button>
+	 <button class="w3-button w3-red" id="btn" type="submit"
+	 	onclick="return confirm('정말로 수정하시겠습니까?')">저장</button>
 	 <button class="w3-button w3-red" onclick="javascript:history.back()">돌아가기</button>
 	</span>
 	</form>

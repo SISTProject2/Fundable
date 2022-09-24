@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,73 +43,78 @@
  <h2>${vo.title }</h2><p>
  <a href="../funding/detail.do?fg_no=${vo.fg_no }">해당 상품 페이지 바로 가기 &gt;&gt;</a>
   <hr>
-  <form id="frm" action="user_update_ok.do" method="POST">
-  	
-  	<img src="${vo.img }" style="width: 230px; height: 230px">
-  	<div style="height: 20px"></div>
-  	
-    <div class="form-group">
-      <label for="usr">상품 번호:</label>
-      <input type="text" class="form-control" id="fg_no" value="${vo.fg_no }">
-    </div>
-    <div class="form-group">
-      <label for="pwd">상품 이름:</label>
-      <input type="text" class="form-control" id="title" value="${vo.title }">
-    </div>
-    <div class="form-group">
-      <label for="pwd">창작자 이름:</label>
-      <input type="text" class="form-control" id="creator" value="${id }">
-    </div>
-    <div class="form-group">
-      <label for="pwd">가격:</label>
-      <input type="text" class="form-control" id="price" value="${vo.price }">
-    </div>
-    <div class="form-group">
-      <label for="pwd">이미지 URL:</label>
-      <input type="text" class="form-control" id="img" value="${vo.img }">
-    </div>
-    <div class="form-group">
-      <label for="pwd">상세 이미지 URL('^'로 구분):</label>
-      <input type="text" class="form-control" id="sub_img" value="${vo.sub_img }">
-    </div>
-    <div class="form-group">
-      <label for="pwd">상품 설명:</label>
-      <input type="content" height="1500px" class="form-control" id="content" value="${vo.content } ">
-    </div>
-    <div class="form-group">
-      <label for="pwd">목표 금액:</label>
-      <input type="text" class="form-control" id="goal_amount" value="${vo.goal_amount }">
-    </div>
-    <div class="form-group">
-      <label for="pwd">구매자 수:</label>
-      <input type="text" class="form-control" id="now_amount" value="${vo.now_amount }">
-    </div>
-    <div class="form-group">
-      <label for="pwd">오픈 예정 날짜:</label>
-      <input type="text" class="form-control" id="open_date" value="${vo.oday }">
-    </div>
-    <div class="form-group">
-      <label for="pwd">마감 날짜:</label>
-      <input type="text" class="form-control" id="close_date" value="${vo.cday }">
-    </div>
-    <div class="form-group">
-      <label for="pwd">후원자 수:</label>
-      <input type="text" class="form-control" id="sponsor" value="${vo.sponsor }">
-    </div>
-    <div class="form-group">
-      <label for="pwd">좋아요 수:</label>
-      <input type="text" class="form-control" id="like_count" value="${vo.like_count }">
-    </div>
-    <div class="form-group">
-      <label for="pwd">펀딩 카테고리 번호:</label>
-      <input type="text" class="form-control" id="fc_no" value="${vo.fc_no }">
-    </div>
-
-
-    <span id="buttons" style="float: right">
-	 <button class="w3-button w3-red" id="updateBtn" type="submit">저장</button>
-	 <button class="w3-button w3-red" onclick="javascript:history.back()">돌아가기</button>
-	</span>
+  <form id="frm" action="funding_update_ok.do" method="POST">
+	  	<img src="${vo.img }" style="width: 230px; height: 230px">
+	  	<div style="height: 20px"></div>
+	  	
+	    <div class="form-group">
+	      <label for="usr">상품 번호:</label>
+	      <input type="text" class="form-control" name="fg_no" value="${vo.fg_no }" readonly>
+	    </div>
+	    <div class="form-group">
+	      <label for="pwd">상품 이름:</label>
+	      <input type="text" class="form-control" name="title" value="${vo.title }">
+	    </div>
+	    <div class="form-group">
+	      <input type="hidden" class="form-control" name="user_no" value="${vo.user_no }">
+	    </div>
+	    <div class="form-group">
+	      <label for="pwd">창작자 이름:</label>
+	      <input type="text" class="form-control" name="id" value="${id }">
+	    </div>
+	    <div class="form-group">
+	      <label for="pwd">가격:</label>
+	      <input type="text" class="form-control" name="price" value="${vo.price }">
+	    </div>
+	    <div class="form-group">
+	      <label for="pwd">이미지 URL:</label>
+	      <input type="text" class="form-control" name="img" value="${vo.img }">
+	    </div>
+	    <div class="form-group">
+	      <label for="pwd">상세 이미지 URL('^'로 구분):</label>
+	      <input type="text" class="form-control" name="sub_img" value="${vo.sub_img }">
+	    </div>
+	    <div class="form-group">
+	      <label for="pwd">상품 설명:</label>
+	      <input type="content" height="1500px" class="form-control" name="content" value="${vo.content } ">
+	    </div>
+	    <div class="form-group">
+	      <label for="pwd">목표 금액:</label>
+	      <input type="text" class="form-control" name="goal_amount" value="${vo.goal_amount }">
+	    </div>
+	    <div class="form-group">
+	      <label for="pwd">구매자 수:</label>
+	      <input type="text" class="form-control" name="now_amount" value="${vo.now_amount }">
+	    </div>
+	    <div class="form-group">
+	      <label for="pwd">오픈 예정 날짜:</label>
+	      <input type="text" class="form-control" id="open_date" name="open_date" 
+	      	value='<fmt:formatDate pattern = "yyyy/MM/dd" value = "${vo.open_date }" />'>
+	    </div>
+	    <div class="form-group">
+	      <label for="pwd">마감 날짜:</label>
+	      <input type="text" class="form-control" id="close_date" name="close_date" 
+	      	value='<fmt:formatDate pattern = "yyyy/MM/dd" value = "${vo.close_date }" />'>
+	    </div>
+	    <div class="form-group">
+	      <label for="pwd">후원자 수:</label>
+	      <input type="text" class="form-control" name="sponsor" value="${vo.sponsor }">
+	    </div>
+	    <div class="form-group">
+	      <label for="pwd">좋아요 수:</label>
+	      <input type="text" class="form-control" name="like_count" value="${vo.like_count }">
+	    </div>
+	    <div class="form-group">
+	      <label for="pwd">펀딩 카테고리 번호:</label>
+	      <input type="text" class="form-control" name="fc_no" value="${vo.fc_no }">
+	    </div>
+	
+	
+	    <span id="buttons" style="float: right">
+		 <button class="w3-button w3-red" id="updateBtn" type="submit"
+		 	onclick="return confirm('정말로 수정하시겠습니까?')">저장</button>
+		 <button class="w3-button w3-red" onclick="javascript:history.back()">돌아가기</button>
+		</span>
 	</form>
 </div>  
 <div style="height: 30px"></div>

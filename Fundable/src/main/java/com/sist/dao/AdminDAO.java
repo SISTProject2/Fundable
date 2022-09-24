@@ -95,6 +95,10 @@ public class AdminDAO {
 	
 	
 	// 스토어 수정 처리
+	public void storeUpdate(StoreVO vo)
+	{
+		mapper.storeUpdate(vo);
+	}
 	
 	
 	// 스토어 삭제
@@ -145,6 +149,10 @@ public class AdminDAO {
 	
 	
 	// 펀딩 수정 처리
+	public void fundingUpdate(FundingGoodsVO vo)
+	{
+		mapper.fundingUpdate(vo);
+	}
 	
 	
 	// 펀딩 삭제

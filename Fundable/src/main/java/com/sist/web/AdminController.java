@@ -1,9 +1,16 @@
 package com.sist.web;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -47,18 +54,25 @@ public class AdminController {
 	}
 	
 	// 유저 정보 수정
-	@RequestMapping("admin/user_update_ok.do")
-	public String user_update_ok(UserVO vo)
+	/*@RequestMapping("admin/user_update_ok.do")
+	public String user_update_ok(UserVO vo, HttpSession session)
 	{
 		
+		System.out.println(vo.getId());
+		// DB 연동해서 수정
 		dao.userUpdate(vo);
+		session.setAttribute("id", vo.getId()); // 이름 갱신
+		session.setAttribute("name", vo.getName()); // 이름 갱신
+		
+		
 		
 		return "redirect: ../admin/user_update.do?user_no=" + vo.getUser_no();
 		
-	}
+	}*/
 	
 	
-	// 유저 삭제
+	
+	// 유저 강퇴
 	@GetMapping("admin/user_delete.do")
 	public String user_delete(int user_no, Model model)
 	{
@@ -93,6 +107,20 @@ public class AdminController {
 		model.addAttribute("id", id);
 		
 		return "admin/store_update";
+	}
+	
+	
+	
+	// 스토어 수정
+	@RequestMapping("admin/store_update_ok.do")
+	public String store_update_ok(StoreVO vo, HttpServletResponse response) throws IOException
+	{
+		// DB 연동해서 변경
+		dao.storeUpdate(vo);
+        
+		
+		
+		return "redirect: ../admin/store_list.do";
 	}
 	
 	
@@ -168,6 +196,16 @@ public class AdminController {
 		return "admin/funding_update";
 	}
 	
+	
+	// 펀딩 수정 처리
+	@RequestMapping("admin/funding_update_ok.do")
+	public String funding_update_ok(FundingGoodsVO vo, Model model)
+	{
+		// DB 연동해서 변경
+		dao.fundingUpdate(vo);
+
+		return "redirect: ../admin/funding_list.do";
+	}
 	
 	
 	

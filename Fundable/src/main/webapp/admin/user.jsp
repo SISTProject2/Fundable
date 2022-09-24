@@ -51,11 +51,14 @@ $(function() {
   <a href="funding_list.do">펀딩 상품 관리</a>
   <a href="store_list.do">스토어 상품 관리</a>
   <a href="approve.do">상품 승인</a>
+  <a href="../main/main.do">메인 홈으로</a>
 </div>
 
 
 <div class="content">
-<h2 style="color: grey">유저 관리</h2>
+<span style="display: flex">
+	<h2 style="color: grey">유저 관리</h2>
+</span>
 <hr>
 <p>
 
@@ -64,7 +67,7 @@ $(function() {
 <div class="word" style="display: flex">
   <span class="search_bar" style="display: flex">
 	  <input type="search" class="form-control rounded" placeholder="유저 아이디를 입력하세요" aria-label="Search" aria-describedby="search-addon" value="ss" ref="ss" v-model="ss" />
-	  &nbsp;&nbsp;&nbsp;
+	  &nbsp;&nbsp;
 	  <button type="button" class="w3-button w3-green" v-on:click="userFind()">검색</button>
   </span>
 </div>
@@ -73,23 +76,24 @@ $(function() {
   
   <table class="w3-table w3-bordered">
     <tr>
+      <th>유저 번호</th>
       <th>아이디</th>
       <th>이름</th>
-      <th>생일</th>
+      <th>생년월일</th>
       <th>전화번호</th>
       <th>이메일</th>
       <th></th>
 
     </tr>
     <tr v-for="vo in user_list">
+      <td>{{vo.user_no}}</td>
       <td>{{vo.id}}</td>
       <td>{{vo.name}}</td>
       <td>{{vo.bday}}</td>
       <td>{{vo.tel}}</td>
       <td>{{vo.email}}</td>
    	  <td>
-	   	  <a :href="'user_update.do?user_no='+vo.user_no"><button class="w3-button w3-red">상세보기</button></a>
-	   	  <a onclick="return confirm('정말로 삭제하시겠습니까?')" :href="'user_delete.do?user_no='+vo.user_no"><button class="w3-button w3-red">삭제</button></a>
+	   	  <a onclick="return confirm('탈퇴시키겠습니까?')" :href="'user_delete.do?user_no='+vo.user_no"><button class="w3-button w3-red">강제 탈퇴</button></a>
    	  </td>
     </tr>
   </table>

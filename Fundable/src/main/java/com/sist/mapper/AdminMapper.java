@@ -35,20 +35,12 @@ public interface AdminMapper {
 	
 	
 	// 유저 수정 처리
-	@Update("UPDATE user2_2 SET user_no=#{user_no}, "
-			+ "id=#{id}, "
-			+ "pwd=#{pwd}, "
-			+ "admin=#{admin}, "
-			+ "name=#{name}, "
-			+ "email=#{email}, "
-			+ "tel=#{tel}, "
-			+ "bday=#{bday}, "
-			+ "card_number=#{card_number}, "
-			+ "card_date=#{card_date}, "
-			+ "card_pwd=#{card_pwd}, "
-			+ "zipcode=#{zipcode}, "
-			+ "addr=#{addr}, "
-			+ "addr_detail=#{addr_detail} "
+	@Update("UPDATE user2_2 SET "
+			+ "user_no=#{user_no}, id=#{id}, pwd=#{pwd}, "
+			+ "admin=#{admin}, name=#{name}, email=#{email}, "
+			+ "tel=#{tel}, bday=#{bday}, card_number=#{card_number}, "
+			+ "card_date=#{card_date}, card_pwd=#{card_pwd}, zipcode=#{zipcode}, "
+			+ "addr=#{addr}, addr_detail=#{addr_detail} "
 			+ "WHERE user_no=#{user_no}")
 	public void userUpdate(UserVO vo);
 	
@@ -88,7 +80,13 @@ public interface AdminMapper {
 	
 	
 	// 스토어 수정 처리
-	
+	@Update("UPDATE store_goods2_2 SET "
+			+ "sg_no=#{sg_no}, title=#{title}, price=#{price}, "
+			+ "img=#{img}, sub_img=#{sub_img}, success=#{success}, "
+			+ "sponsor=#{sponsor}, open_date=#{open_date}, stock=#{stock}, "
+			+ "sc_no=#{sc_no}, user_no=#{user_no}, rate=#{rate}, hit=#{hit} "
+			+ "WHERE sg_no=#{sg_no}")
+	public void storeUpdate(StoreVO vo);
 	
 	// 스토어 삭제
 	@Delete("DELETE FROM store_goods2_2 WHERE sg_no=#{sg_no}")
@@ -129,13 +127,23 @@ public interface AdminMapper {
 	
 	
 	// 펀딩 수정 폼
-	@Select("SELECT fg_no, title, img, sub_img, price, content, goal_amount, now_amount, TO_CHAR(open_date, 'YYYY-MM-DD') as oday, TO_CHAR(close_date, 'YYYY-MM-DD') as cday, sponsor, like_count, fc_no, user_no "
+	/*@Select("SELECT fg_no, title, img, sub_img, price, content, goal_amount, now_amount, TO_CHAR(open_date, 'YYYY-MM-DD') as oday, TO_CHAR(close_date, 'YYYY-MM-DD') as cday, sponsor, like_count, fc_no, user_no "
 			+ "FROM funding_goods2_2 WHERE fg_no=#{fg_no}")
+	public FundingGoodsVO fundUpdateForm(int fg_no);*/
+	
+	@Select("SELECT * FROM funding_goods2_2 WHERE fg_no=#{fg_no}")
 	public FundingGoodsVO fundUpdateForm(int fg_no);
 
 	
 	
 	// 펀딩 수정 처리
+	@Update("UPDATE funding_goods2_2 SET "
+			+ "fg_no=#{fg_no}, title=#{title}, img=#{img}, sub_img=#{sub_img}, price=#{price}, content=#{content}, "
+			+ "goal_amount=#{goal_amount}, now_amount=#{now_amount}, open_date=#{open_date}, close_date=#{close_date}, "
+			+ "sponsor=#{sponsor}, like_count=#{like_count}, fc_no=#{fc_no}, user_no=#{user_no} "
+			+ "WHERE fg_no=#{fg_no}")
+	public void fundingUpdate(FundingGoodsVO vo);
+	
 	
 	
 	// 펀딩 삭제

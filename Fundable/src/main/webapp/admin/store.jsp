@@ -48,6 +48,7 @@ $(function() {
   <a href="funding_list.do">펀딩 상품 관리</a>
   <a class="active" href="store_list.do">스토어 상품 관리</a>
   <a href="approve.do">상품 승인</a>
+  <a href="../main/main.do">메인 홈으로</a>  
 </div>
 
 
@@ -89,7 +90,7 @@ $(function() {
 		      <td>{{vo.title}}</td>
 		      <td>{{vo.price}}</td>
 		      <td>
-			   	  <a :href="'store_update.do?sg_no='+vo.sg_no"><button class="w3-button w3-red">상세보기</button></a>
+			   	  <a :href="'store_update.do?sg_no='+vo.sg_no"><button class="w3-button w3-red">정보 수정</button></a>
 			   	  <a onclick="return confirm('정말로 삭제하시겠습니까?')" :href="'store_delete.do?sg_no='+vo.sg_no"><button class="w3-button w3-red">삭제</button></a>
 		   	  </td>
 		    </tr>

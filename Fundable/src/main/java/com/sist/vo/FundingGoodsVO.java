@@ -26,6 +26,6 @@ import lombok.Setter;
 @Setter
 public class FundingGoodsVO {
 	private int fg_no, price, goal_amount, now_amount, sponsor, like_count, fc_no, user_no;
-	private String title, img, sub_img, content, dbday, category, id, oday, cday;
+	private String title, img, sub_img, content, dbday, category, id, cday, oday;
 	private Date open_date, close_date;
 }
