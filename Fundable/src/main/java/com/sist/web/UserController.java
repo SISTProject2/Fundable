@@ -36,4 +36,52 @@ public class UserController {
 		return "redirect:../main/main2.do";
 	}
 	
+	@GetMapping("user/join.do")
+	public String user_join(Model model) {
+		model.addAttribute("main_jsp", "../user/join.jsp");
+		
+		return "main/main2";
+	}
+	
+	@PostMapping("user/join_ok.do")
+	public String user_join_ok(UserVO vo) {
+		String en=encoder.encode(vo.getPwd());
+		vo.setPwd(en);
+		dao.userJoinInsert(vo);
+		
+		return "redirect:../main/main2.do";
+	}
+	
+	@PostMapping("user/id_check.do")
+	@ResponseBody
+	public String user_id_check(String id) {
+		String result="";
+		int count=dao.userIdCount(id);
+		if(count==0) {
+			result="YES";
+		} else {
+			result="NO";
+		}
+		
+		return result;
+	}
+	
+	@PostMapping("user/tel_check.do")
+	@ResponseBody
+	public String user_tel_check(String tel) {
+		String result="";
+		int count=dao.userTelCount(tel);
+		int count2=tel.indexOf('-');
+		
+		if(count==0 && count2!=-1) {
+			result="YES";
+		} else if (count!=0) {
+			result="NO";
+		} else if (count2==-1) {
+			result="NO2";
+		}
+	
+		return result;
+	}
+	
 }

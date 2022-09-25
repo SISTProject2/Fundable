@@ -35,4 +35,20 @@ public class UserDAO {
 		return vo;
 	}
 	
+	public int userIdCount(String id) {
+		return mapper.userIdCount(id);
+	}
+	
+	public UserVO userInfoData(String id) {
+		return mapper.userInfoData(id);
+	}
+	
+	public void userJoinInsert(UserVO vo) {
+		mapper.userJoinInsert(vo);
+	}
+	
+	public int userTelCount(String tel) {
+		return mapper.userTelCount(tel);
+	}
+	
 }
