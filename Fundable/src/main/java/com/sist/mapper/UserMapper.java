@@ -11,7 +11,7 @@ public interface UserMapper {
 			+ "WHERE id=#{id}")
 	public int userIdCount(String id);
 	
-	@Select("SELECT pwd, admin FROM user2_2 "
+	@Select("SELECT user_no, pwd, admin FROM user2_2 "
 			+ "WHERE id=#{id}")
 	public UserVO userInfoData(String id);
 	

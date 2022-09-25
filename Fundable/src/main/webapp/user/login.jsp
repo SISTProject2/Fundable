@@ -132,7 +132,7 @@ function kakaoLogout() {
     	data:{
     		id:'',
     		pwd:'',
-    		ck:'',
+    		ck:false,
     		result:{}
     	},
     	mounted:function(){

@@ -14,7 +14,7 @@
 </head>
 <body class="u-body u-xl-mode" data-lang="en">
 <header class="u-clearfix u-header u-header" id="sec-a3bc" style="height: 110px;">
-<div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+<div class="u-clearfix u-valign-middle u-sheet-1">
   <a href="../main/main.do" class="u-image u-logo u-image-1">
   <img src="../css/img/fundable.PNG" class="u-logo-image u-logo-image-1" style="width: 170px; height: 30px; margin-top: 25px; margin-left: 50px;">
   </a>
@@ -23,6 +23,7 @@
       <ul class="u-nav u-unstyled u-nav-1">
       <c:if test="${sessionScope.admin=='n' }">  
         <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#" style="padding: 10px 10px; font-weight: 700; font-size: 15px;">프로젝트 올리기</a></li>
+        <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="../mypage/mypage.do" style="padding: 10px 10px; font-weight: 700; font-size: 15px;">마이페이지</a></li>
 	  </c:if>
       <c:if test="${sessionScope.admin=='y' }">
         <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="../admin/user_list.do" style="padding: 10px 10px; font-weight: 700; font-size: 15px;">관리자 페이지</a></li>
@@ -46,6 +47,7 @@
           </c:if>
           <c:if test="${sessionScope.admin=='n' }">  
             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#" >프로젝트 올리기</a></li>
+            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="../mypage/mypage.do" >마이페이지</a></li>
           </c:if>  
             
             <li class="u-nav-item"><a class="u-button-style u-nav-link" href=""><img src="../css/img/heart.png" style="width: 20px; height: 23px;"></a></li>
