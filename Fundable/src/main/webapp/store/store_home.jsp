@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/layout2.css" type="text/css">
+<link rel="stylesheet" href="css/home.css" type="text/css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
 <style type="text/css">
 .mySlides {display:none}
@@ -80,185 +81,225 @@ $(function(){
 
 <div style="height: 140px"></div>
 
-<div id="homepage">
-      <!-- One Quarter -->
-      
-      <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      	문구류</h3 style="font-weight: bold">
-	  <hr>
-      
-      <div class="homepage">
-	      <section id="latest">
-	        <article>
-	          <figure style="padding: 10px">
-	          	<c:forEach var="vo" items="${list }" varStatus="s">
-	          		<c:if test="${s.index>=0 && s.index<10 }">
-			            <ul>
-			              <li class="one_quarter"><img src="${vo.img }" width="235" height="180" alt=""><p>
-				              <span style="font-size: 13pt; font-weight: bold"><fmt:formatNumber pattern="#,###" value="${vo.sponsor }" /></span>명 참여 중<br>
-				              <span class= "condition"><fmt:formatNumber pattern="#,###" value="${vo.success }" /></span>원 달성<p><p>
-			              </li>
-			            </ul>
-		            </c:if>
-	            </c:forEach>
-	          </figure>
-	        </article>
-	        <button class="w3-btn w3-white w3-border w3-border-red w3-round-large" id="stationeryMore">더 보기</button>
-	        <article style="display: none" id="staionery2">
-	          <figure>
-	          	<c:forEach var="vo" items="${list }" varStatus="s">
-	          		<c:if test="${s.index>=10 && s.index<20 }">
-			            <ul>
-			              <li class="one_quarter"><img src="${vo.img }" width="235" height="180" alt=""><p>
-				              <span style="font-size: 13pt; font-weight: bold"><fmt:formatNumber pattern="#,###" value="${vo.sponsor }" /></span>명 참여 중<br>
-				              <span class= "condition"><fmt:formatNumber pattern="#,###" value="${vo.success }" /></span>원 달성<p><p>
-			              </li>
-			            </ul>
-		            </c:if>
-	            </c:forEach>
-	          </figure>
-	        </article>
-	        <p>
-	      </section> 
-      </div>
-      <div style="height: 20px"></div>
-      
-      
-      <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      	음식류</h3 style="font-weight: bold">
-	  <hr>
-	  
-	  <div class="homepage">
-      <section id="latest">
-        <article>
-          <figure style="padding: 10px">
-          	<c:forEach var="vo" items="${list2 }" varStatus="s">
-          		<c:if test="${s.index>=0 && s.index<10 }">
-		            <ul>
-		              <li class="one_quarter"><img src="${vo.img }" width="235" height="180" alt=""><p>
-			              <span style="font-size: 13pt; font-weight: bold"><fmt:formatNumber pattern="#,###" value="${vo.sponsor }" />명</span> 참여 중<br>
-			              <span class= "condition"><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성<p><p>
-		              </li>
-		            </ul>
+<section class="py-5">
+	<h3 class="fw-bolder">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      	문구류</h3>
+	<hr>
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <c:forEach var="vo" items="${list }" varStatus="s">
+         		<c:if test="${s.index>=0 && s.index<8 }">
+		            <div class="col mb-5">           
+		                <div class="card h-100">         	
+		                    <!-- Product image-->
+		                    <img class="card-img-top" src="${vo.img }" width="200px" height="210px" alt="..." />
+		                    <!-- Product details-->
+		                    <div class="card-body p-4">
+	                            <!-- Product name-->
+	                            <span class="fw-bolder">${vo.sponsor }명</span> 펀딩 참여 중<br>
+	                            <span class="fw-bolder"><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성
+		                    </div>
+		                    <!-- Product actions-->
+		                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+		                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="detail.do?sg_no=${vo.sg_no }">펀딩하러 가기</a></div>
+		                    </div>        
+		                </div>                    
+		            </div>
 	            </c:if>
-            </c:forEach>
-          </figure>
-        </article>
-        <button class="w3-btn w3-white w3-border w3-border-red w3-round-large" id="foodMore">더 보기</button>
-        <article id="food2">
-          <div style="display: none">
-          	<c:forEach var="vo" items="${list2 }" varStatus="s">
-          		<c:if test="${s.index>=10 && s.index<20 }">
-		            <ul>
-		              <li class="one_quarter"><img src="${vo.img }" width="235" height="180" alt=""><p>
-			              <span style="font-size: 13pt; font-weight: bold"><fmt:formatNumber pattern="#,###" value="${vo.sponsor }" />명</span> 참여 중<br>
-			              <span><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성<p><p>
-		              </li>
-		            </ul>
+              </c:forEach>
+              <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Load more</a></div>
+            </div>
+            
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <c:forEach var="vo" items="${list }" varStatus="s">
+         		<c:if test="${s.index>=8 && s.index<16 }">
+		            <div class="col mb-5" style="display: none">           
+		                <div class="card h-100">         	
+		                    <!-- Product image-->
+		                    <img class="card-img-top" src="${vo.img }" width="200px" height="210px" alt="..." />
+		                    <!-- Product details-->
+		                    <div class="card-body p-4">
+	                            <!-- Product name-->
+	                            <span class="fw-bolder">${vo.sponsor }명</span> 펀딩 참여 중<br>
+	                            <span class="fw-bolder"><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성
+		                    </div>
+		                    <!-- Product actions-->
+		                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+		                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="detail.do?sg_no=${vo.sg_no }">펀딩하러 가기</a></div>
+		                    </div>        
+		                </div>                    
+		            </div>
 	            </c:if>
-            </c:forEach>
-          </div>
-        </article>
-        <p>
-      </section>    
-      </div>
-      <div style="height: 20px"></div>
-      
-      <!-- 중간 버튼 -->
-      <span style="display: flex" class="buttons">
-	      <img src="../css/img/search.png" width="400px" height="170px" style="border-radius: 20px">
-	      <div style="width: 20px"></div>
-	      <img src="../css/img/best.png" width="400px" height="170px" style="border-radius: 20px">
-	      <div style="width: 20px"></div>
-	      <img src="../css/img/allhome.png" width="400px" height="170px" style="border-radius: 20px">
-      </span>
-      <div style="height: 20px"></div>
-      
-      <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-     	출판류</h3 style="font-weight: bold">
-	  <hr>
-      <div class="homepage">
-      <section id="latest">
-        <article>
-          <figure style="padding: 10px">
-          	<c:forEach var="vo" items="${list3 }" varStatus="s">
-          		<c:if test="${s.index>=0 && s.index<10 }">
-		            <ul>
-		              <li class="one_quarter"><img src="${vo.img }" width="235" height="180" alt=""><p>
-			              <span style="font-size: 13pt; font-weight: bold"><fmt:formatNumber pattern="#,###" value="${vo.sponsor }" />명</span> 참여 중<br>
-			              <span class= "condition"><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성<p><p>
-		              </li>
-		            </ul>
+              </c:forEach>
+              
+            </div>
+        </div>
+        
+    
+    <div style="height: 150px"></div>    
+	<h3 class="fw-bolder">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      	음식류</h3>
+	<hr>
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <c:forEach var="vo" items="${list2 }" varStatus="s">
+         		<c:if test="${s.index>=0 && s.index<8 }">
+		            <div class="col mb-5">           
+		                <div class="card h-100">         	
+		                    <!-- Product image-->
+		                    <img class="card-img-top" src="${vo.img }" width="200px" height="210px" alt="..." />
+		                    <!-- Product details-->
+		                    <div class="card-body p-4">
+	                            <!-- Product name-->
+	                            <span class="fw-bolder">${vo.sponsor }명</span> 펀딩 참여 중<br>
+	                            <span class="fw-bolder"><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성
+		                    </div>
+		                    <!-- Product actions-->
+		                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+		                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="detail.do?sg_no=${vo.sg_no }">펀딩하러 가기</a></div>
+		                    </div>        
+		                </div>                    
+		            </div>
 	            </c:if>
-            </c:forEach>
-          </figure>
-        </article>
-        <button class="w3-btn w3-white w3-border w3-border-red w3-round-large" id="bookMore">더 보기</button>
-        <article>
-          <div style="display: none" id="book2">
-          	<c:forEach var="vo" items="${list3 }" varStatus="s">
-          		<c:if test="${s.index>=10 && s.index<20 }">
-		            <ul>
-		              <li class="one_quarter"><img src="${vo.img }" width="235" height="180" alt=""><p>
-			              <span style="font-size: 13pt; font-weight: bold"><fmt:formatNumber pattern="#,###" value="${vo.sponsor }" />명</span> 참여 중<br>
-			              <span><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성<p><p>
-		              </li>
-		            </ul>
+              </c:forEach>
+              <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Load more</a></div>
+            </div>
+            
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <c:forEach var="vo" items="${list2 }" varStatus="s">
+         		<c:if test="${s.index>=8 && s.index<16 }">
+		            <div class="col mb-5" style="display: none">           
+		                <div class="card h-100">         	
+		                    <!-- Product image-->
+		                    <img class="card-img-top" src="${vo.img }" width="200px" height="210px" alt="..." />
+		                    <!-- Product details-->
+		                    <div class="card-body p-4">
+	                            <!-- Product name-->
+	                            <span class="fw-bolder">${vo.sponsor }명</span> 펀딩 참여 중<br>
+	                            <span class="fw-bolder"><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성
+		                    </div>
+		                    <!-- Product actions-->
+		                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+		                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="detail.do?sg_no=${vo.sg_no }">펀딩하러 가기</a></div>
+		                    </div>        
+		                </div>                    
+		            </div>
 	            </c:if>
-            </c:forEach>
-          </div>
-        </article>
-        <p>
-      </section>    
-      </div>
-      <div style="height: 20px"></div>
-      
-      
-      
-      <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-     	반려동물</h3 style="font-weight: bold">
-	  <hr>
-      <div class="homepage">
-      <section id="latest">
-        <article>
-          <figure style="padding: 10px">
-          	<c:forEach var="vo" items="${list4 }" varStatus="s">
-          		<c:if test="${s.index>=0 && s.index<10 }">
-		            <ul>
-		              <li class="one_quarter"><img src="${vo.img }" width="235" height="180" alt=""><p>
-			              <span style="font-size: 13pt; font-weight: bold"><fmt:formatNumber pattern="#,###" value="${vo.sponsor }" />명</span> 참여 중<br>
-			              <span class= "condition"><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성<p><p>
-		              </li>
-		            </ul>
+              </c:forEach>
+              
+            </div>
+        </div>
+        
+        
+    <div style="height: 150px"></div>    
+	<h3 class="fw-bolder">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      	출판류</h3>
+	<hr>
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <c:forEach var="vo" items="${list3 }" varStatus="s">
+         		<c:if test="${s.index>=0 && s.index<8 }">
+		            <div class="col mb-5">           
+		                <div class="card h-100">         	
+		                    <!-- Product image-->
+		                    <img class="card-img-top" src="${vo.img }" width="200px" height="210px" alt="..." />
+		                    <!-- Product details-->
+		                    <div class="card-body p-4">
+	                            <!-- Product name-->
+	                            <span class="fw-bolder">${vo.sponsor }명</span> 펀딩 참여 중<br>
+	                            <span class="fw-bolder"><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성
+		                    </div>
+		                    <!-- Product actions-->
+		                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+		                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="detail.do?sg_no=${vo.sg_no }">펀딩하러 가기</a></div>
+		                    </div>        
+		                </div>                    
+		            </div>
 	            </c:if>
-            </c:forEach>
-          </figure>
-        </article>
-        <button class="w3-btn w3-white w3-border w3-border-red w3-round-large" id="stationeryMore">더 보기</button>
-        <article>
-          <div style="display: none">
-          	<c:forEach var="vo" items="${list4 }" varStatus="s">
-          		<c:if test="${s.index>=10 && s.index<20 }">
-		            <ul>
-		              <li class="one_quarter"><img src="${vo.img }" width="235" height="180" alt=""><p>
-			              <span style="font-size: 13pt; font-weight: bold"><fmt:formatNumber pattern="#,###" value="${vo.sponsor }" />명</span> 참여 중<br>
-			              <span><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성<p><p>
-		              </li>
-		            </ul>
+              </c:forEach>
+              <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Load more</a></div>
+            </div>
+            
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <c:forEach var="vo" items="${list3 }" varStatus="s">
+         		<c:if test="${s.index>=8 && s.index<16 }">
+		            <div class="col mb-5" style="display: none">           
+		                <div class="card h-100">         	
+		                    <!-- Product image-->
+		                    <img class="card-img-top" src="${vo.img }" width="200px" height="210px" alt="..." />
+		                    <!-- Product details-->
+		                    <div class="card-body p-4">
+	                            <!-- Product name-->
+	                            <span class="fw-bolder">${vo.sponsor }명</span> 펀딩 참여 중<br>
+	                            <span class="fw-bolder"><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성
+		                    </div>
+		                    <!-- Product actions-->
+		                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+		                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="detail.do?sg_no=${vo.sg_no }">펀딩하러 가기</a></div>
+		                    </div>        
+		                </div>                    
+		            </div>
 	            </c:if>
-            </c:forEach>
-          </div>
-        </article>
-        <p>
-      </section>    
-      </div>
-      
-      
-      
-	  
-      
-
-    </div>
+              </c:forEach>
+              
+            </div>
+        </div>
+        
+        
+    <div style="height: 150px"></div>    
+	<h3 class="fw-bolder">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      	반려동물</h3>
+	<hr>
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <c:forEach var="vo" items="${list4 }" varStatus="s">
+         		<c:if test="${s.index>=0 && s.index<8 }">
+		            <div class="col mb-5">           
+		                <div class="card h-100">         	
+		                    <!-- Product image-->
+		                    <img class="card-img-top" src="${vo.img }" width="200px" height="210px" alt="..." />
+		                    <!-- Product details-->
+		                    <div class="card-body p-4">
+	                            <!-- Product name-->
+	                            <span class="fw-bolder">${vo.sponsor }명</span> 펀딩 참여 중<br>
+	                            <span class="fw-bolder"><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성
+		                    </div>
+		                    <!-- Product actions-->
+		                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+		                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="detail.do?sg_no=${vo.sg_no }">펀딩하러 가기</a></div>
+		                    </div>        
+		                </div>                    
+		            </div>
+	            </c:if>
+              </c:forEach>
+              <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Load more</a></div>
+            </div>
+            
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <c:forEach var="vo" items="${list4 }" varStatus="s">
+         		<c:if test="${s.index>=8 && s.index<16 }">
+		            <div class="col mb-5" style="display: none">           
+		                <div class="card h-100">         	
+		                    <!-- Product image-->
+		                    <img class="card-img-top" src="${vo.img }" width="200px" height="210px" alt="..." />
+		                    <!-- Product details-->
+		                    <div class="card-body p-4">
+	                            <!-- Product name-->
+	                            <span class="fw-bolder">${vo.sponsor }명</span> 펀딩 참여 중<br>
+	                            <span class="fw-bolder"><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성
+		                    </div>
+		                    <!-- Product actions-->
+		                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+		                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="detail.do?sg_no=${vo.sg_no }">펀딩하러 가기</a></div>
+		                    </div>        
+		                </div>                    
+		            </div>
+	            </c:if>
+              </c:forEach>
+              
+            </div>
+        </div>
+</section>
     
 
 
