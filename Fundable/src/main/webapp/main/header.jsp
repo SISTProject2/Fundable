@@ -22,7 +22,7 @@
     <div class="u-custom-menu u-nav-container">
       <ul class="u-nav u-unstyled u-nav-1">
       <c:if test="${sessionScope.admin=='n' }">  
-        <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#" style="padding: 10px 10px; font-weight: 700; font-size: 15px;">프로젝트 올리기</a></li>
+        <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="../register/register_main.jsp" style="padding: 10px 10px; font-weight: 700; font-size: 15px;">프로젝트 올리기</a></li>
         <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="../mypage/mypage.do" style="padding: 10px 10px; font-weight: 700; font-size: 15px;">마이페이지</a></li>
 	  </c:if>
       <c:if test="${sessionScope.admin=='y' }">
@@ -46,7 +46,7 @@
             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#" >관리자 페이지</a></li>
           </c:if>
           <c:if test="${sessionScope.admin=='n' }">  
-            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#" >프로젝트 올리기</a></li>
+            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="../register/register_main.jsp" >프로젝트 올리기</a></li>
             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="../mypage/mypage.do" >마이페이지</a></li>
           </c:if>  
             
