@@ -26,7 +26,7 @@
     <meta property="og:description" content="">
     <meta property="og:type" content="website">
   </head>
-  <body class="u-body u-xl-mode" data-lang="en"><header class="u-clearfix u-header u-palette-5-dark-2 u-header" id="sec-355c"><div class="u-clearfix u-sheet u-sheet-1"></div></header>
+  <body class="u-body u-xl-mode" data-lang="en"><jsp:include page="../main/header.jsp" />
     <section class="u-align-center u-clearfix u-section-1" id="carousel_b89c">
       <img class="u-expanded-width u-image u-image-1" src="images/c8888918bf3adef5bb4d1ea37b672e003ef9f158b5e59616d6fd765ef1d0f5a635d5310816a808dce6fa859f7de81977279aa11ad405e4f5071b67_1280.jpg" data-image-width="1280" data-image-height="960">
       <h2 class="u-text u-text-body-alt-color u-text-1"> 투명함 그리고 철저한 스크리닝</h2>
@@ -40,7 +40,7 @@
               <p class="u-file-icon u-text u-text-4">새로운 프로젝트 공개하고&nbsp;<br>목표금액을 크라우드로<br>부터 투자를 받으세요<br>&nbsp;<br>
                 <br>
               </p>
-              <a href="https://nicepage.review" class="u-border-2 u-border-active-grey-50 u-border-hover-grey-50 u-border-palette-2-base u-btn u-btn-round u-button-style u-custom-font u-font-montserrat u-none u-radius-50 u-text-body-color u-btn-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">펀딩 등록하기</a>
+              <a href="register_funding.jsp" class="u-border-2 u-border-active-grey-50 u-border-hover-grey-50 u-border-palette-2-base u-btn u-btn-round u-button-style u-custom-font u-font-montserrat u-none u-radius-50 u-text-body-color u-btn-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">펀딩 등록하기</a>
             </div>
           </div>
           <div class="u-align-center u-border-2 u-border-palette-2-base u-container-style u-list-item u-radius-30 u-repeater-item u-shape-round u-white u-list-item-2">
@@ -50,7 +50,7 @@
                 <br>
                 <br>
               </p>
-              <a href="https://nicepage.review" class="u-border-2 u-border-active-grey-50 u-border-hover-grey-50 u-border-palette-2-base u-btn u-btn-round u-button-style u-custom-font u-font-montserrat u-none u-radius-50 u-text-body-color u-btn-2" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">스토어 등록하기</a>
+              <a href="register_fundinglist.jsp" class="u-border-2 u-border-active-grey-50 u-border-hover-grey-50 u-border-palette-2-base u-btn u-btn-round u-button-style u-custom-font u-font-montserrat u-none u-radius-50 u-text-body-color u-btn-2" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">스토어 등록하기</a>
             </div>
           </div>
         </div>
@@ -58,19 +58,6 @@
     </section>
     
     
-    <footer class="u-align-center u-clearfix u-footer u-palette-5-dark-2 u-footer" id="sec-a9f8"><div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1">Sample text. Click to select the Text Element.</p>
-      </div></footer>
-    <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="https://nicepage.com/website-design" target="_blank">
-        <span>Website Design</span>
-      </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="https://nicepage.com/wysiwyg-html-editor" target="_blank">
-        <span>Visual HTML Editor</span>
-      </a>. 
-    </section>
+	<jsp:include page="../main/footer.jsp" />
   
 </body></html>

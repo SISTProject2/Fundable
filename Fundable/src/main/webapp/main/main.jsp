@@ -26,7 +26,7 @@
     <meta property="og:description" content="">
     <meta property="og:type" content="website">
   </head>
-  <body class="u-body u-xl-mode" data-lang="en"><header class="u-clearfix u-header u-palette-5-dark-2 u-header" id="sec-355c"><div class="u-clearfix u-sheet u-sheet-1"></div></header>
+  <body class="u-body u-xl-mode" data-lang="en">
     <section class="u-align-center u-clearfix u-image u-shading u-section-1" id="carousel_6540" data-image-width="1280" data-image-height="853">
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-align-left u-container-style u-group u-group-1">
@@ -52,7 +52,7 @@
               </div>
               <div class="u-container-style u-layout-cell u-shape-rectangle u-size-20 u-layout-cell-3">
                 <div class="u-container-layout u-valign-middle u-container-layout-4">
-                  <a href="mailto:hi@freedesigner.com" class="u-active-palette-4-light-1 u-border-2 u-border-active-palette-4-dark-1 u-border-hover-palette-4-dark-1 u-border-palette-4-base u-btn u-btn-round u-button-style u-hover-palette-4-light-1 u-palette-4-light-1 u-radius-50 u-text-active-black u-text-body-color u-text-hover-black u-btn-3">스토어</a>
+                  <a href="../store/store_main.do" class="u-active-palette-4-light-1 u-border-2 u-border-active-palette-4-dark-1 u-border-hover-palette-4-dark-1 u-border-palette-4-base u-btn u-btn-round u-button-style u-hover-palette-4-light-1 u-palette-4-light-1 u-radius-50 u-text-active-black u-text-body-color u-text-hover-black u-btn-3">스토어</a>
                 </div>
               </div>
             </div>
@@ -61,20 +61,5 @@
       </div>
     </section>
     
-    
-    <footer class="u-align-center u-clearfix u-footer u-palette-5-dark-2 u-footer" id="sec-a9f8"><div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1">Sample text. Click to select the Text Element.</p>
-      </div></footer>
-    <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="https://nicepage.com/website-mockup" target="_blank">
-        <span>Website Mockup</span>
-      </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="https://nicepage.com/html-website-builder" target="_blank">
-        <span>HTML Website Builder</span>
-      </a>. 
-    </section>
   
 </body></html>
