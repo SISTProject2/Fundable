@@ -38,6 +38,6 @@ public class FundingGoodsController {
 //		model.addAttribute("list", list);
 		model.addAttribute("main_jsp", "../funding/list.jsp");
 		
-		return "main/main";
+		return "main/main2";
 	}
 }

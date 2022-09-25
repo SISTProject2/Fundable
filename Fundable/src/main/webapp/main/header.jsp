@@ -27,7 +27,7 @@
       <c:if test="${sessionScope.admin=='y' }">
         <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="../admin/user_list.do" style="padding: 10px 10px; font-weight: 700; font-size: 15px;">관리자 페이지</a></li>
       </c:if>  
-	    <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#" style="padding: 10px 10px;"><img src="../css/img/heart.png" style="width: 20px; height: 23px;"></a></li>
+	    <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="" style="padding: 10px 10px;"><img src="../css/img/heart.png" style="width: 20px; height: 23px;"></a></li>
 	    <c:if test="${sessionScope.id==null }">  
 	      <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="../user/login.do" style="padding: 10px 10px; font-weight: 650; font-size: 15px;">Login</a></li>
 	    </c:if>
@@ -48,7 +48,7 @@
             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#" >프로젝트 올리기</a></li>
           </c:if>  
             
-            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#"><img src="../css/img/heart.png" style="width: 20px; height: 23px;"></a></li>
+            <li class="u-nav-item"><a class="u-button-style u-nav-link" href=""><img src="../css/img/heart.png" style="width: 20px; height: 23px;"></a></li>
 			<c:if test="${sessionScope.id==null }">
   			  <li class="u-nav-item"><a class="u-button-style u-nav-link" href="../user/login.do">Login</a></li>
 			</c:if>

@@ -42,7 +42,7 @@
             <div class="u-layout-row">
               <div class="u-align-right u-container-style u-layout-cell u-left-cell u-size-20 u-layout-cell-1">
                 <div class="u-container-layout u-valign-middle u-container-layout-2">
-                  <a href="mailto:hi@freedesigner.com" class="u-active-palette-4-light-1 u-border-2 u-border-active-palette-4-base u-border-hover-palette-4-base u-border-palette-4-base u-btn u-btn-round u-button-style u-hover-palette-4-light-1 u-palette-4-light-1 u-radius-50 u-text-active-black u-text-body-color u-text-hover-black u-btn-1">펀딩(예정)</a>
+                  <a href="../funding/list.do" class="u-active-palette-4-light-1 u-border-2 u-border-active-palette-4-base u-border-hover-palette-4-base u-border-palette-4-base u-btn u-btn-round u-button-style u-hover-palette-4-light-1 u-palette-4-light-1 u-radius-50 u-text-active-black u-text-body-color u-text-hover-black u-btn-1">펀딩(예정)</a>
                 </div>
               </div>
               <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-20 u-layout-cell-2">

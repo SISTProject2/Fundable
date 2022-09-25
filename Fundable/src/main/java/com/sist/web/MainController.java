@@ -21,12 +21,20 @@ public class MainController {
 	//==
 	
     
-    @GetMapping("main/main.do") 
-    public String main_main(Model model)
+	@GetMapping("main/main.do") 
+	public String main_main(Model model)
+	{
+		
+		model.addAttribute("main_jsp", "../funding/list.jsp");
+		return "main/main";
+	}
+	
+    @GetMapping("main/main2.do") 
+    public String main_main2(Model model)
     {
 
-    	model.addAttribute("main_jsp", "../main/home.jsp");
-    	return "main/main";
+    	model.addAttribute("main_jsp", "../funding/list.jsp");
+    	return "main/main2";
     }
     
     @GetMapping("store/store_main.do") 
