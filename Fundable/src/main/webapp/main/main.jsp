@@ -34,7 +34,7 @@
             <img class="u-image u-image-contain u-image-1" src="images/Fundable-logo-white.png" data-image-width="1920" data-image-height="592">
           </div>
         </div>
-        <h1 class="u-custom-font u-font-raleway u-text u-text-palette-4-base u-text-1">크라우딩펀딩&amp;스토어</h1>
+        <h1 class="u-custom-font u-font-raleway u-text u-text-palette-4-base u-text-1">크라우드펀딩&amp;스토어</h1>
         <h3 class="u-custom-font u-font-lato u-text u-text-body-alt-color u-text-2"> 마음 속 프로젝트 아이디어,<br>펀더블에서 현실로 실현하세요
         </h3>
         <div class="u-clearfix u-gutter-0 u-layout-wrap u-layout-wrap-1">
@@ -42,12 +42,12 @@
             <div class="u-layout-row">
               <div class="u-align-right u-container-style u-layout-cell u-left-cell u-size-20 u-layout-cell-1">
                 <div class="u-container-layout u-valign-middle u-container-layout-2">
-                  <a href="../funding/list.do" class="u-active-palette-4-light-1 u-border-2 u-border-active-palette-4-base u-border-hover-palette-4-base u-border-palette-4-base u-btn u-btn-round u-button-style u-hover-palette-4-light-1 u-palette-4-light-1 u-radius-50 u-text-active-black u-text-body-color u-text-hover-black u-btn-1">펀딩(예정)</a>
+                  <a href="../funding/soon_list.do" class="u-active-palette-4-light-1 u-border-2 u-border-active-palette-4-base u-border-hover-palette-4-base u-border-palette-4-base u-btn u-btn-round u-button-style u-hover-palette-4-light-1 u-palette-4-light-1 u-radius-50 u-text-active-black u-text-body-color u-text-hover-black u-btn-1">펀딩(예정)</a>
                 </div>
               </div>
               <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-20 u-layout-cell-2">
                 <div class="u-container-layout u-valign-middle u-container-layout-3">
-                  <a href="mailto:hi@freedesigner.com" class="u-active-palette-4-light-1 u-border-2 u-border-active-palette-4-dark-1 u-border-hover-palette-4-dark-1 u-border-palette-4-base u-btn u-btn-round u-button-style u-hover-palette-4-light-1 u-palette-4-light-1 u-radius-50 u-text-active-black u-text-hover-black u-btn-2">펀딩(진행중)</a>
+                  <a href="../funding/list.do" class="u-active-palette-4-light-1 u-border-2 u-border-active-palette-4-dark-1 u-border-hover-palette-4-dark-1 u-border-palette-4-base u-btn u-btn-round u-button-style u-hover-palette-4-light-1 u-palette-4-light-1 u-radius-50 u-text-active-black u-text-hover-black u-btn-2">펀딩(진행중)</a>
                 </div>
               </div>
               <div class="u-container-style u-layout-cell u-shape-rectangle u-size-20 u-layout-cell-3">

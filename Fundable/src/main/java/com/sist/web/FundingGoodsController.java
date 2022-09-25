@@ -17,25 +17,15 @@ public class FundingGoodsController {
 	@Autowired
 	private FundingGoodsDAO dao;
 	
+	@GetMapping("funding/soon_list.do")
+	public String funding_soon_list(Model model) {
+		model.addAttribute("main_jsp", "../funding/soon_list.jsp");
+		
+		return "main/main2";
+	}
+	
 	@GetMapping("funding/list.do")
 	public String funding_list(Model model) {
-//		if(page==null)
-//			page="1";
-//		int curpage=Integer.parseInt(page);
-//		
-//		Map map=new HashMap();
-//		int rowSize=12;
-//		int start=(rowSize*curpage)-(rowSize-1);
-//		int end=rowSize*curpage;
-//		map.put("start", start);
-//		map.put("end", end);
-//		List<FundingGoodsVO> list=dao.fundingSoonListData(map);
-//		
-//		int totalpage=dao.fundingSoonTotalPage();
-//		
-//		model.addAttribute("curpage", curpage);
-//		model.addAttribute("totalpage", totalpage);
-//		model.addAttribute("list", list);
 		model.addAttribute("main_jsp", "../funding/list.jsp");
 		
 		return "main/main2";

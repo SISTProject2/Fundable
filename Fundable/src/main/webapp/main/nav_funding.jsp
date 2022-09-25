@@ -29,11 +29,12 @@ $(function(){
 let i=0;
 $(function(){
 	$('#cateBtn').click(function(){
-		if (i==0) {
 			$('#cate').hide();
+		if (i==0) {
+			$('#cate').show();
 			i=1;
 		} else {
-			$('#cate').show();
+			$('#cate').hide();
 			i=0;
 		}
 	})
@@ -48,7 +49,7 @@ $(function(){
                 <span class='MultiLevelMenu depth-1' style="padding-left: 100px; padding-right: 30px; height: 60px;">
                     <ul class='menu' style="max-width: 100%;">
                         <li class='MultiItem'>
-                            <span style="display: flex"><a class="MultiLink" style="font-size: 20px; cursor: pointer;" id="cateBtn"> 카테고리</a></span>
+                            <span class="MultiLink" style="display: flex; font-size: 20px; cursor: pointer;" id="cateBtn"> 카테고리</span>
                             <!-- <div class='' id="cate" style="display:none;">
                                 <ul class='menu' style="padding-left: 140px; margin-top: 0px; max-width: 100%;">
                                     <li class='MultiItem' style="float: left;">
@@ -70,10 +71,10 @@ $(function(){
                             </div> -->           
                         </li>
                         <li class='MultiItem'>
-                            <a class="MultiLink" href='../funding/list.do' style="font-size: 20px; cursor: pointer;">펀딩 예정</a>
+                            <a class="MultiLink" href='../funding/soon_list.do' style="font-size: 20px; cursor: pointer;">펀딩 예정</a>
                         </li>
                         <li class='MultiItem'>
-                            <a class="MultiLink" href='#' style="font-size: 20px; cursor: pointer;">펀딩</a>
+                            <a class="MultiLink" href='../funding/list.do' style="font-size: 20px; cursor: pointer;">펀딩</a>
                         </li>
                         <li class='MultiItem' id="store">
                             <a class="MultiLink" href='../store/store_main.do' style="font-size: 20px; cursor: pointer;">스토어</a>                           
