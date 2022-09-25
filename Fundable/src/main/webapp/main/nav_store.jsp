@@ -65,10 +65,10 @@ $(function(){
                             </div> -->           
                         </li>
                         <li class='MultiItem'>
-                            <a class="MultiLink" href='../funding/list.do' style="font-size: 20px; cursor: pointer;">펀딩 예정</a>
+                            <a class="MultiLink" href='../funding/soon_list.do' style="font-size: 20px; cursor: pointer;">펀딩 예정</a>
                         </li>
                         <li class='MultiItem'>
-                            <a class="MultiLink" href='#' style="font-size: 20px; cursor: pointer;">펀딩</a>
+                            <a class="MultiLink" href='../funding/list.do' style="font-size: 20px; cursor: pointer;">펀딩</a>
                         </li>
                         <li class='MultiItem'>
                             <a class="MultiLink" href='../store/store_main.do' style="font-size: 20px; cursor: pointer;">스토어</a>                           
