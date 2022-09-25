@@ -20,6 +20,7 @@ public class UserRestController {
 	@GetMapping(value = "user/login_ok.do", produces = "text/plain;charset=utf-8")
 	public String user_login_ok(String id, String pwd, boolean ck, HttpSession session, HttpServletResponse response) {
 		String result="";
+		System.out.println(ck);
 		UserVO vo=dao.isLogin(id, pwd);
 		if(vo.getMsg().equals("OK")) {
 			session.setAttribute("user_no", vo.getUser_no());

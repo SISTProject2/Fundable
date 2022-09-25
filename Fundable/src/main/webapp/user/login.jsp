@@ -143,8 +143,8 @@ function kakaoLogout() {
     		}).then(function(result){
     			_this.id='${id}';
     			if(_this.id!='') {
-    				_this.ck='true';
-    			}
+    				_this.ck=true;
+    			} 
     		})
     		
     	},

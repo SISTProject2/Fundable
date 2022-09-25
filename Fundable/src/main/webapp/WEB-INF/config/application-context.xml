@@ -17,12 +17,15 @@
 
     <!-- MVC:한글 변환 -->
     <mvc:annotation-driven/><!-- sendRedirect : 데이터를 ?없이 전송 : RedirectAttributes -->
+    
+    <mvc:interceptors>
+	  <mvc:interceptor>
+	    <mvc:mapping path="/user/login.do"/>
+	    <bean id="autoLoginInterceptor" class="com.sist.interceptor.AutoLoginInterceptor"/>
+	  </mvc:interceptor>
+	</mvc:interceptors>
+    
     <!-- ViewResolver -->
-    <!-- 
-        return "main/main"
-        
-        => /main/main.jsp
-     -->
     <bean id="viewResolver"
        class="org.springframework.web.servlet.view.InternalResourceViewResolver"
        p:prefix="/"
