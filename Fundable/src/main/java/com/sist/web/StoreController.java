@@ -1,9 +1,13 @@
 package com.sist.web;
 
+import java.net.http.HttpResponse;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -215,6 +219,58 @@ public class StoreController {
 		
 		
 		return "store/store_main";
+	}
+	
+	
+	
+	// 쿠키 저장
+	@GetMapping("store/detail_before.do")
+	public String store_detail_before(int sg_no, HttpServletResponse response)
+	{
+		Cookie cookie = new Cookie("store" + sg_no, String.valueOf(sg_no));
+		cookie.setPath("/");
+		cookie.setMaxAge(60*60*24); // 24시간 유지
+		response.addCookie(cookie);
+		
+		return "redirect: detail.do?sg_no=" + sg_no;
+	}
+	
+	
+	// 쿠키 삭제 (상품 하나)
+	@GetMapping("store/cookie_delete.do")
+	public String store_cookie_delete(int sg_no, HttpServletRequest request, HttpServletResponse response)
+	{
+		Cookie[] cookies = request.getCookies();
+		for(int i=0; i<cookies.length; i++)
+		{
+			if(cookies[i].getName().equals("store" + sg_no))
+			{
+				cookies[i].setPath("/");
+				cookies[i].setMaxAge(0);
+				response.addCookie(cookies[i]);
+				
+				break;
+			}
+		}
+		return "redirect: ../mypage/recently_viewed.do";
+	}
+	
+	
+	// 쿠키 전체 삭제
+	@GetMapping("store/cookie_all_delete.do")
+	public String store_cookie_all_delete(HttpServletRequest request, HttpServletResponse response)
+	{
+		Cookie[] cookies = request.getCookies();
+		for(int i=0; i<cookies.length; i++)
+		{
+			if(cookies[i].getName().startsWith("store"))
+			{
+				cookies[i].setPath("/");
+				cookies[i].setMaxAge(0);
+				response.addCookie(cookies[i]);
+			}
+		}
+		return "redirect: ../mypage/recently_viewed.do";
 	}
 	
 	
