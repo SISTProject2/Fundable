@@ -92,7 +92,7 @@ $(function(){
 		            <div class="col mb-5">           
 		                <div class="card h-100">         	
 		                    <!-- Product image-->
-		                    <img class="card-img-top" src="${vo.img }" width="200px" height="210px" alt="..." />
+		                    <a href="detail.do?sg_no=${vo.sg_no }"><img class="card-img-top" src="${vo.img }" width="200px" height="210px" alt="..." /></a>
 		                    <!-- Product details-->
 		                    <div class="card-body p-4">
 	                            <!-- Product name-->
@@ -116,7 +116,7 @@ $(function(){
 		            <div class="col mb-5" style="display: none">           
 		                <div class="card h-100">         	
 		                    <!-- Product image-->
-		                    <img class="card-img-top" src="${vo.img }" width="200px" height="210px" alt="..." />
+		                    <a href="detail.do?sg_no=${vo.sg_no }"><img class="card-img-top" src="${vo.img }" width="200px" height="210px" alt="..." /></a>
 		                    <!-- Product details-->
 		                    <div class="card-body p-4">
 	                            <!-- Product name-->
@@ -147,7 +147,7 @@ $(function(){
 		            <div class="col mb-5">           
 		                <div class="card h-100">         	
 		                    <!-- Product image-->
-		                    <img class="card-img-top" src="${vo.img }" width="200px" height="210px" alt="..." />
+		                    <a href="detail.do?sg_no=${vo.sg_no }"><img class="card-img-top" src="${vo.img }" width="200px" height="210px" alt="..." /></a>
 		                    <!-- Product details-->
 		                    <div class="card-body p-4">
 	                            <!-- Product name-->
@@ -171,7 +171,7 @@ $(function(){
 		            <div class="col mb-5" style="display: none">           
 		                <div class="card h-100">         	
 		                    <!-- Product image-->
-		                    <img class="card-img-top" src="${vo.img }" width="200px" height="210px" alt="..." />
+		                    <a href="detail.do?sg_no=${vo.sg_no }"><img class="card-img-top" src="${vo.img }" width="200px" height="210px" alt="..." /></a>
 		                    <!-- Product details-->
 		                    <div class="card-body p-4">
 	                            <!-- Product name-->
@@ -202,7 +202,7 @@ $(function(){
 		            <div class="col mb-5">           
 		                <div class="card h-100">         	
 		                    <!-- Product image-->
-		                    <img class="card-img-top" src="${vo.img }" width="200px" height="210px" alt="..." />
+		                    <a href="detail.do?sg_no=${vo.sg_no }"><img class="card-img-top" src="${vo.img }" width="200px" height="210px" alt="..." /></a>
 		                    <!-- Product details-->
 		                    <div class="card-body p-4">
 	                            <!-- Product name-->
@@ -226,7 +226,7 @@ $(function(){
 		            <div class="col mb-5" style="display: none">           
 		                <div class="card h-100">         	
 		                    <!-- Product image-->
-		                    <img class="card-img-top" src="${vo.img }" width="200px" height="210px" alt="..." />
+		                    <a href="detail.do?sg_no=${vo.sg_no }"><img class="card-img-top" src="${vo.img }" width="200px" height="210px" alt="..." /></a>
 		                    <!-- Product details-->
 		                    <div class="card-body p-4">
 	                            <!-- Product name-->
@@ -257,7 +257,7 @@ $(function(){
 		            <div class="col mb-5">           
 		                <div class="card h-100">         	
 		                    <!-- Product image-->
-		                    <img class="card-img-top" src="${vo.img }" width="200px" height="210px" alt="..." />
+		                    <a href="detail.do?sg_no=${vo.sg_no }"><img class="card-img-top" src="${vo.img }" width="200px" height="210px" alt="..." /></a>
 		                    <!-- Product details-->
 		                    <div class="card-body p-4">
 	                            <!-- Product name-->
@@ -281,7 +281,7 @@ $(function(){
 		            <div class="col mb-5" style="display: none">           
 		                <div class="card h-100">         	
 		                    <!-- Product image-->
-		                    <img class="card-img-top" src="${vo.img }" width="200px" height="210px" alt="..." />
+		                    <a href="detail.do?sg_no=${vo.sg_no }"><img class="card-img-top" src="${vo.img }" width="200px" height="210px" alt="..." /></a>
 		                    <!-- Product details-->
 		                    <div class="card-body p-4">
 	                            <!-- Product name-->

@@ -42,6 +42,11 @@ public class StoreDAO {
 	}
 	
 	
+	// 비슷한 프로젝트
+	public List<StoreVO> storeSimilarProject(int ss)
+	{
+		return mapper.storeSimilarProject(ss);
+	}
 	
 	
 	

@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -219,14 +221,51 @@ public class StoreController {
 	
 	// 상세 페이지
 	@GetMapping("store/detail.do")
-	public String store_detail(int sg_no, Model model)
+	public String store_detail(int sg_no, String sc_no, HttpSession session, Model model)
 	{
+		if(sc_no == null)
+			sc_no = "1";
+		
 		Map map = new HashMap();
 		map.put("sg_no", sg_no);
 		
 		StoreVO vo = dao.storeDetailData(sg_no);
 		model.addAttribute("vo", vo);
 		
+		
+		//===== 비슷한 프로젝트
+		int ss = vo.getSc_no();
+		
+		List<StoreVO> rList = dao.storeSimilarProject(ss);
+		
+		
+		//====== 긴 글자 자르기
+		/*for(StoreVO vo2:rList)
+		{
+			String s = vo2.getTitle();
+			if(s.length() > 18)
+			{
+				s = s.substring(0, 18) + "....";
+				vo2.setTitle(s);
+			}
+			vo2.setTitle(s);
+		}*/
+		
+		//===== 카테고리 단어
+	    String title = "";
+	    
+	    if(Integer.parseInt(sc_no) == 1)
+	    	title = "문구";
+	    if(Integer.parseInt(sc_no) == 2)
+	    	title = "푸드";
+	    if(Integer.parseInt(sc_no) == 3)
+	    	title = "출판";
+	    if(Integer.parseInt(sc_no) == 4)
+	    	title = "반려 동물";
+		
+		
+	    model.addAttribute("title", title);
+		model.addAttribute("rList", rList);
 		model.addAttribute("store_main_jsp", "../store/detail.jsp");
 		
 		return "store/store_main";

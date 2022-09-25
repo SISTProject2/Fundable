@@ -50,6 +50,14 @@ public interface StoreMapper {
 	public StoreVO storeDetailData(int sg_no);	
 	
 	
+	// 비슷한 프로젝트
+	@Select("SELECT sg_no, sc_no, rate, title, price, img, sponsor, rownum "
+			+ "FROM store_goods2_2 "
+			+ "WHERE REGEXP_LIKE(sc_no, #{ss}) "
+			+ "AND rownum <= 4")
+	public List<StoreVO> storeSimilarProject(int ss);
+		
+	
 	
 	// 조회수 증가
 	@Update("UPDATE store_goods2_2 SET hit = hit+1 WHERE sg_no=#{sg_no}")
