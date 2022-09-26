@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,7 +95,7 @@
 													                        <td class="u-table-cell u-table-cell-15" rowspan="2">
 													                          <img src="${vo.img }" style="width: 90px; height:90px">
 													                        </td>
-													                        <td class="u-table-cell u-table-cell-16" style="font-size: 14px; padding: 10px 10px 0px;">[어디어디 주식회사]&nbsp;<br>
+													                        <td class="u-table-cell u-table-cell-16" style="font-size: 14px; padding: 10px 10px 0px;"><span style="color: red; font-weight: bold">${vo.sponsor }명</span> 펀딩 참여 중 &nbsp;<br>
 													                        </td>
 													                      </tr>
 													                      <tr style="height: 46px;">
@@ -104,7 +105,7 @@
 													                  </table>
 													                </div>
 										                        </td>
-										                        <td class="u-align-center u-table-cell u-table-valign-middle u-table-cell-12">${vo.price }</td>
+										                        <td class="u-align-center u-table-cell u-table-valign-middle u-table-cell-12"><fmt:formatNumber pattern="#,###" value="${vo.price }"/>원</td>
 										                        <td class="u-table-cell u-table-valign-middle u-table-cell-14" style="text-align: right;">
 										                          <a href="../store/cookie_delete.do?sg_no=${vo.sg_no }"><input type=button value="삭제" style="cursor: pointer; border: 1px solid #b9c1cc; color: black; background-color: white; font-size: 14px;"></a>
 										                        </td>				                        

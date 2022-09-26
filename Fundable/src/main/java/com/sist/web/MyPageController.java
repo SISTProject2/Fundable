@@ -53,14 +53,15 @@ public class MyPageController {
 			{
 				if(cookies[i].getName().startsWith("store"))
 				{
-					String sg_no = cookies[i].getValue();
+					String sg_no2 = cookies[i].getValue();
 					
 					// sg_no에 해당하는 데이터 읽기
-					StoreVO vo = sdao.storeDetailData(Integer.parseInt(sg_no));
+					StoreVO vo = sdao.storeDetailData(Integer.parseInt(sg_no2));
 					slist.add(vo);
 				}
 			}
 		}
+		
 		model.addAttribute("size", slist.size());
 		model.addAttribute("slist", slist);
 

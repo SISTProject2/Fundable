@@ -61,4 +61,13 @@ public class MyPageDAO {
 		return mapper.mypageLike(user_no);
 	}
 	
+	
+	
+	//=== 스토어
+	
+	public String IdSelectData(int user_no)
+	{
+		return mapper.IdSelectData(user_no);
+	}
+	
 }

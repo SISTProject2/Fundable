@@ -71,4 +71,12 @@ public interface MyPageMapper {
 	@Select("SELECT * FROM like2_2 WHERE user_no=#{user_no}")
 	public List<LikeVO> mypageLike(int user_no);
 	
+	
+	
+	//=== 스토어
+	
+	// id 가져오기
+	@Select("SELECT id FROM user2_2 WHERE user_no=#{user_no}")
+	public String IdSelectData(int user_no);
+	
 }
