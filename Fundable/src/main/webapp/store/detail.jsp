@@ -13,6 +13,20 @@
 <title>Shop Item - Start Bootstrap Template</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/reply.css">
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#account').change(function(){
+		let count = $(this).val();
+		let price = $(this).attr("data-price");
+		let total = count * price;
+		$('#total').text(total);
+		
+		$('#goods_account').val(count);
+		
+	})
+})
+</script>
 <style type="text/css">
 .mb-md-0 {
  	border-radius: 25px;
@@ -135,11 +149,16 @@ textarea {
                     </div>
                     <div style="height: 20px"></div>
                     <div class="d-flex">
-                        <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" /> 
-                        <button class="btn btn-outline-dark flex-shrink-0" type="button">
-                            <i class="bi-cart-fill me-1"></i>
-                            Add to cart
-                        </button>
+                        <input type="number" id="account" max="10" min="1" data-price="${vo.price }"> :<span style="color: blue" id="total">${vo.price }</span>원
+                        <form method="post" action="../mypage/session_insert.do">
+	                        <input type="hidden" name="sg_no" id="goods_no" value="${vo.sg_no }">
+	              			<input type="hidden" name="account" id="goods_account">
+	                        <button class="btn btn-outline-dark flex-shrink-0" type="submit">
+	                            <i class="bi-cart-fill me-1"></i>
+	                            Add to cart
+	                        </button>
+	                        <!--  <a href="../mypage/cart_list.do?sg_no=${vo.sg_no }" class="btn btn-sm btn-primary">장바구니 보기</a>-->
+                        </form>
                     </div>
                     <div style="height: 20px"></div>
                     <button class="button button4" style="font-size: 15pt; font-weight: bold">구매하기</button>
