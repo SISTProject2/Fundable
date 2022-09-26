@@ -75,46 +75,55 @@
 						                        <td class="u-align-center u-table-cell u-table-cell-8" style="font-weight: 700; font-size: 14px;">수량</td>
 						                        <td class="u-align-center u-table-cell u-table-cell-7" style="font-weight: 700; font-size: 14px;">합산가</td>
 						                        <td class="u-align-center u-table-cell u-table-cell-9" style="font-weight: 700; font-size: 14px;">주문 관리</td>
+						                        
 						                        <td class="u-align-center u-table-cell u-table-cell-9" style="font-weight: 700; font-size: 14px;">
-						                        	<input type=button value="전체 삭제" style="cursor: pointer; border: 1px solid #b9c1cc; color: black; background-color: white; font-size: 14px;">
+<%-- 						                        	<a href="cart_total_delete.do?sg_no=${vo.sg_no }">
+						                        		<input type=button value="전체 삭제" style="cursor: pointer; border: 1px solid #b9c1cc; color: black; background-color: white; font-size: 14px;">
+						                        	</a> --%>
 						                        </td>
+						                        
 						                      </tr>
-						                      <c:forEach var="vo" items="${list }">
-							                      <tr style="height: 32px; border: 1px solid lightgray;">
-							                        <td class="u-table-cell u-table-valign-middle u-table-cell-10" style="text-align: center;">
-							                        </td>
-							                        <td class="u-table-cell u-table-valign-middle u-table-cell-11">
-							                          <div class="u-expanded-width u-table u-table-responsive u-table-3">
-										                  <table class="u-table-entity">
-										                    <colgroup>
-										                      <col width="10.2%">
-										                      <col width="89.8%">
-										                    </colgroup>
-										                    <tbody class="u-table-body">
-										                      <tr>
-										                        <td class="u-table-cell u-table-cell-15" rowspan="2">
-										                          <img src="${vo.img }" style="width: 90px; height:90px">
-										                        </td>
-										                      </tr>
-										                      <tr style="bottom-margin: 150px">
-										                        <td class="u-table-cell u-table-cell-18" style="font-size: 18px; font-weight: 700; padding: 0px 10px 10px 10px">${vo.title }</td>
-										                      </tr>
-										                    </tbody>
-										                  </table>
-										                </div>
-							                        </td>
-							                        <td class="u-table-cell u-table-valign-middle u-table-cell-13" style="text-align: center;">
-							                          ${vo.account }
-							                        </td>
-							                        <td class="u-align-center u-table-cell u-table-valign-middle u-table-cell-12"><fmt:formatNumber pattern="#,###" value="${vo.price }"/>원</td></td>                     
-							                        <td class="u-table-cell u-table-valign-middle u-table-cell-14" style="text-align: center;">
-							                          <input type=button value="구매 " style="cursor: pointer; border: 1px solid #b9c1cc; color: black; background-color: white; font-size: 14px;">
-							                        </td>
-							                        <td class="u-table-cell u-table-valign-middle u-table-cell-14" style="text-align: center;">
-							                          <input type=button value="삭제" style="cursor: pointer; border: 1px solid #b9c1cc; color: black; background-color: white; font-size: 14px;">
-							                        </td>
-							                      </tr>
-						                      </c:forEach>
+						                      <%-- <c:if test="${size > 0 }"> --%>
+							                      <c:forEach var="vo" items="${list }">
+								                      <tr style="height: 32px; border: 1px solid lightgray;">
+								                        <td class="u-table-cell u-table-valign-middle u-table-cell-10" style="text-align: center;">
+								                        </td>
+								                        <td class="u-table-cell u-table-valign-middle u-table-cell-11">
+								                          <div class="u-expanded-width u-table u-table-responsive u-table-3">
+											                  <table class="u-table-entity">
+											                    <colgroup>
+											                      <col width="10.2%">
+											                      <col width="89.8%">
+											                    </colgroup>
+											                    <tbody class="u-table-body">
+											                      <tr>
+											                        <td class="u-table-cell u-table-cell-15" rowspan="2">
+											                          <img src="${vo.img }" style="width: 90px; height:90px">
+											                        </td>
+											                      </tr>
+											                      <tr style="bottom-margin: 150px">
+											                        <td class="u-table-cell u-table-cell-18" style="font-size: 18px; font-weight: 700; padding: 0px 10px 10px 10px">${vo.title }</td>
+											                      </tr>
+											                    </tbody>
+											                  </table>
+											                </div>
+								                        </td>
+								                        <td class="u-table-cell u-table-valign-middle u-table-cell-13" style="text-align: center;">
+								                          ${vo.account }
+								                        </td>
+								                        <td class="u-align-center u-table-cell u-table-valign-middle u-table-cell-12"><fmt:formatNumber pattern="#,###" value="${vo.price }"/>원</td></td>                     
+								                        <td class="u-table-cell u-table-valign-middle u-table-cell-14" style="text-align: center;">
+								                          <input type=button value="구매 " style="cursor: pointer; border: 1px solid #b9c1cc; color: black; background-color: white; font-size: 14px;">
+								                        </td>
+								                        <td class="u-table-cell u-table-valign-middle u-table-cell-14" style="text-align: center;">
+								                          <a href="cart_cancel.do?sg_no=${vo.sg_no }"><input type=button href="cart_cancel.do?sg_no=${sg_no }" value="삭제" style="cursor: pointer; border: 1px solid #b9c1cc; color: black; background-color: white; font-size: 14px;"></a>
+								                        </td>
+								                      </tr>
+							                      </c:forEach>
+						                      <%-- </c:if> --%>
+						                      <%-- <c:if test="${size < 1 }">
+						                      	<img src="images/no-history.png" width="701px" height="250px">
+						                      </c:if> --%>
 						                      <tr style="height: 50px; border: none;">
 						                      </tr>
 						                    </tbody>

@@ -79,6 +79,7 @@ public class MyPageController {
 	{
 		List<CartVO> list = (List<CartVO>)session.getAttribute("cart");
 		
+		//model.addAttribute("size", list.size());
 		model.addAttribute("list", list);
 		model.addAttribute("sg_no", sg_no);
 		
@@ -87,6 +88,7 @@ public class MyPageController {
 	
 	
 	
+	// 장바구니에 상품 넣기
 	@PostMapping("mypage/session_insert.do")
 	public String goods_session_insert(int sg_no, int account, HttpSession session, Model model)
 	{
@@ -137,5 +139,36 @@ public class MyPageController {
 	
 	
 	
+	// 장바구니 삭제 (하나만)
+	@GetMapping("mypage/cart_cancel.do")
+	public String goods_cart_cancel(int sg_no, HttpSession session)
+	{
+		List<CartVO> list = (List<CartVO>)session.getAttribute("cart");
+		
+		for(int i=0; i<list.size(); i++)
+		{
+			CartVO vo = list.get(i);
+			
+			if(vo.getSg_no() == sg_no)
+			{
+				list.remove(i);
+				break;
+			}
+		}
+		
+		return "redirect: cart_list.do?sg_no=" + sg_no;
+	}
+	
+	
+	
+	
+	// 장바구니 삭제 (전체)
+	@GetMapping("mypage/cart_total_delete.do")
+	public String cart_total_delete(int sg_no, HttpSession session)
+	{
+		session.removeAttribute("cart");
+		
+		return "redirect: cart_list.do?sg_no=" + sg_no;
+	}
 	
 }
