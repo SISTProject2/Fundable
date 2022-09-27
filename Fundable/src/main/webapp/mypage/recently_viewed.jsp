@@ -24,28 +24,19 @@
         <div class="border-end bg-white" id="sidebar-wrapper">
             <div class="sidebar-heading border-bottom bg-light">스토어 마이페이지</div>
             <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="cart_list.do">
-                
-                ">장바구니</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="cart_list.do">장바구니</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">구매 내역</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">리뷰 내역</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="recently_viewed.do">최근 본 목록</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="../store/store_main.do">스토어 홈으로</a>
             </div>
         </div>
         <!-- Page content wrapper-->
         <div id="page-content-wrapper">
-            <!-- Top navigation-->
-            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                            <li class="nav-item active"><a class="nav-link" href="../store/store_main.do">스토어 홈으로</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+			
             <!-- Page content-->
+            
+            <div style="height: 70px"></div>
             <div class="container-fluid">
 				<div class="u-container-style u-tab-active u-tab-pane" id="tab-8c3e" role="tabpanel" aria-labelledby="link-tab-8c3e">
 			              <div class="u-container-layout u-container-layout-1">		                
@@ -56,7 +47,7 @@
 				                    </colgroup>
 				                    <tbody class="u-table-body">
 				                      <tr style="height: 25px;">
-				                        <td class="u-table-cell u-table-cell-1" style="font-weight: 700; font-size: 19px; padding: 20px;">최근 <span style="color: red">${size }</span>개의 상품을 확인했습니다 </td>
+				                        <td class="u-table-cell u-table-cell-1" style="font-weight: 700; font-size: 23px; padding: 20px;">최근 <span style="color: red">${size }</span>개의 상품을 확인했습니다 </td>
 				                      </tr>			                      
 				                      <tr style="height: 45px;">				                      
 				                        <td class="u-table-cell u-table-cell-3">          

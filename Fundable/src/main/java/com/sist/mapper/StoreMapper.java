@@ -65,10 +65,28 @@ public interface StoreMapper {
 	
 	
 	// 베스트 top15
-	@Select("SELECT sg_no, title, price, img, sponsor, rate, user_no "
-			+ "FROM (SELECT sg_no, title, price, img, sponsor, rate, user_no "
-			+ "FROM store_goods2_2 ORDER BY hit DESC)")
+	@Select("SELECT sg_no, title, price, img, sponsor, rate, id, user_no "
+			+ "FROM (SELECT sg_no, title, price, img, sponsor, rate, id, user_no "
+			+ "FROM store_goods2_2, user2_2) "
+			+ "WHERE store_goods2_2.user_no = user2_2.user_no ORDER BY hit DESC")
 	public List<StoreVO> storeBest(Map map);
+	
+	
+	
+	// 결제 정보
+	/*
+	 * @Select("SELECT user_no, id, name, email, tel, card_number, card_date, addr, addr_detail "
+	 * + "FROM user2_2 " + "WHERE id=#{id}") public UserVO payInfo(String id);
+	 */
+	@Select("SELECT title, price FROM store_goods2_2 WHERE sg_no=#{sg_no}")
+	public StoreVO payInfo(int sg_no);
+	
+	
+	// id 가져오기
+	/*
+	 * @Select("SELECT id FROM user2_2 WHERE user_no=#{user_no}") public String
+	 * IdSelectData(int user_no);
+	 */
 	
 	
 	// 검색

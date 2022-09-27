@@ -44,6 +44,8 @@
     
     
       <!-- Services -->
+      
+      <div style="height: 90px"></div>
       <section id="services" class="clear">
       
       <span class="word">실시간 조회 수 TOP 15</span>
@@ -63,10 +65,12 @@
 	             <c:if test="${s.index == 2}">
 	                <img src="images/bronze.png" width="80" height="80">
 	             </c:if>
+	             
+	             aaa
 	          <a href="detail.do?sg_no=${vo.sg_no }"><img src="${vo.img }" width="320" height="210" alt=""></a><p>
 	            <figcaption>
 	              <a href="detail.do?sg_no=${sg_no }"><h2 style="font-style: regular; color: black; font-size: 12pt; font-weight: bold">${vo.title }</h2></a><p>
-	              <div style="font-size: 8pt">어디어디 주식회사</div><p>
+	              <div style="font-size: 8pt">${vo.id }</div><p>
 	              <a href="detail.do?sg_no=${vo.sg_no }" style="color:black; font-size: 14pt"><fmt:formatNumber pattern="#,###" value="${vo.price }"/>원<p>
 	              
 	              <c:if test="${vo.rate!=0.0}">

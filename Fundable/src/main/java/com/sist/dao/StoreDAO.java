@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.sist.mapper.StoreMapper;
 import com.sist.vo.StoreVO;
+import com.sist.vo.UserVO;
 
 @Repository
 public class StoreDAO {
@@ -64,6 +65,12 @@ public class StoreDAO {
 	}
 	
 	
+	// id 찾기
+	/*
+	 * public String IdSelectData(int user_no) { return
+	 * mapper.IdSelectData(user_no); }
+	 */
+	
 	
 	
 	// 베스트 페이지
@@ -87,5 +94,11 @@ public class StoreDAO {
 		return mapper.storeSearchTotalPage(title);
 	}
 	
+	
+	// 결제
+	public StoreVO payInfo(int sg_no)
+	{
+		return mapper.payInfo(sg_no);
+	}
 	
 }

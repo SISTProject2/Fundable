@@ -1,6 +1,7 @@
 package com.sist.web;
 
 import java.net.http.HttpResponse;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,7 +9,6 @@ import java.util.Map;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sist.dao.StoreDAO;
 import com.sist.vo.StoreVO;
+import com.sist.vo.UserVO;
 
 @Controller
 public class StoreController {
@@ -277,7 +278,7 @@ public class StoreController {
 	
 	// 상세 페이지
 	@GetMapping("store/detail.do")
-	public String store_detail(int sg_no, String sc_no, HttpSession session, Model model)
+	public String store_detail(int sg_no, String sc_no, Model model)
 	{
 		if(sc_no == null)
 			sc_no = "1";
@@ -329,7 +330,7 @@ public class StoreController {
 	
 	
 	
-	// 베스트 TOP 33
+	// 베스트 TOP 15
 	 @GetMapping("store/best.do") 
      public String store_best(Model model)
      {
@@ -349,12 +350,25 @@ public class StoreController {
 			}
 			vo.setTitle(s);
 		}
-		 
-		 
-		 model.addAttribute("slist", slist);
-		 model.addAttribute("store_main_jsp", "../store/best.jsp");
+		
+		
+		// 등수
+		for(int i=0; i<=15; i++)
+		{
+			
+		}
+		
+		/*
+		 * List<StoreVO> vo = dao.storeBest(map);
+		 * 
+		 * String id = dao.IdSelectData(((StoreVO) vo).getUser_no());
+		 * model.addAttribute("id", id);
+		 */
+		
+		model.addAttribute("slist", slist);
+		model.addAttribute("store_main_jsp", "../store/best.jsp");
 
-    	 return "store/store_main";
+    	return "store/store_main";
      }
 	 
 	 @GetMapping("store/find.do")
@@ -363,6 +377,22 @@ public class StoreController {
 		 model.addAttribute("store_main_jsp", "../store/find.jsp");
 
     	 return "store/store_main";
+	 }
+	 
+	 
+	 
+	 
+	 // 결제
+	 @GetMapping("store/pay.do")
+	 public String store_pay(int sg_no, Model model)
+	 {
+		 
+		 StoreVO vo = dao.payInfo(sg_no);
+		 model.addAttribute("vo", vo);
+		 
+		 model.addAttribute("store_main_jsp", "../store/pay.jsp");
+		 
+		 return "store/store_main";
 	 }
 	 
 	 

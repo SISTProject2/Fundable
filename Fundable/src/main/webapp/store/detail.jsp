@@ -176,8 +176,9 @@ textarea {
                     
                     
                     <div style="height: 180px"></div>
-                    <button class="button button4" style="font-size: 15pt; font-weight: bold">구매하기</button>
                     
+                    <a href="pay.do?sg_no=${sg_no }">
+                    <button class="button button4" style="font-size: 15pt; font-weight: bold">구매하기</button></a>
                    <div style="height: 70px"></div>
 					
 					<table class="w3-table w3-bordered">
