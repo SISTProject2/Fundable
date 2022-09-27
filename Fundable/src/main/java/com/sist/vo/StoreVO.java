@@ -26,6 +26,6 @@ public class StoreVO {
 
 	private int sg_no, success, sponsor, stock, sc_no, user_no, hit;
 	private double rate;
-	private String title, img, sub_img, id, price;
+	private String title, img, sub_img, id, price, email, tel, name;
 	private Date open_date;
 }

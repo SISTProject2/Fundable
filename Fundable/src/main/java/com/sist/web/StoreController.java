@@ -319,7 +319,7 @@ public class StoreController {
 	    	title = "출판";
 	    if(Integer.parseInt(sc_no) == 4)
 	    	title = "반려 동물";
-		
+	    
 		
 	    model.addAttribute("title", title);
 		model.addAttribute("rList", rList);

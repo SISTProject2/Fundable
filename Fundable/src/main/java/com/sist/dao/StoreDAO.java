@@ -43,6 +43,13 @@ public class StoreDAO {
 	}
 	
 	
+	// 창작자 정보
+	public List<UserVO> CreatorInfoData(int user_no)
+	{
+		return mapper.CreatorInfoData(user_no);
+	}
+	
+	
 	// 비슷한 프로젝트
 	public List<StoreVO> storeSimilarProject(int ss)
 	{

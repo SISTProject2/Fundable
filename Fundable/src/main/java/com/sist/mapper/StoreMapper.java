@@ -46,8 +46,17 @@ public interface StoreMapper {
 	
 	
 	// 상세 페이지
-	@Select("SELECT * FROM store_goods2_2 WHERE sg_no=#{sg_no}")
+	@Select("SELECT sg_no, rate, title, price, success, img, sub_img, sponsor, id, email, name, tel, rownum "
+			+ "FROM (SELECT sg_no, rate, title, price, success, img, sub_img, sponsor, id, email, name, tel "
+			+ "FROM store_goods2_2, user2_2 " 
+			+ "WHERE store_goods2_2.user_no = user2_2.user_no) "
+			+ "WHERE sg_no=#{sg_no}")
 	public StoreVO storeDetailData(int sg_no);	
+	
+	
+	// 창작자 프로필 정보
+	@Select("SELECT id, email, tel, name FROM user2_2 WHERE user_no=#{user_no}")
+	public List<UserVO> CreatorInfoData(int user_no);
 	
 	
 	// 비슷한 프로젝트
