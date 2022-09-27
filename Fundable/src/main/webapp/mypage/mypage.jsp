@@ -59,10 +59,26 @@ a.u-button-style:hover > .u-text-hover-palette-2-base, a.u-button-style:hover > 
 .progress{
 	height: 10px;
 }
+
+input::placeholder {
+  font-size: 14px;
+}
+
+p:not(.u-text-variant) {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 </style>
+<link rel="stylesheet" href="../css/mypage/modal2.css" media="screen">
+<script type="text/javascript" src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" />
+<script type="text/javascript">
+</script>
 </head>
 <body class="u-body u-xl-mode" data-lang="en">
-    <section class="u-align-center u-clearfix u-section-1" id="sec-992d" style="margin-top: 100px;">
+    <section class="u-align-center u-clearfix u-section-1" id="sec-992d">
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1" style="margin-top: 30px;">
         <div class="u-expanded-width u-tab-links-align-center u-tabs u-tabs-1">
           <ul class="u-border-1 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-light-1 u-spacing-10 u-tab-list u-unstyled" role="tablist" style="border: none;">
@@ -112,8 +128,11 @@ a.u-button-style:hover > .u-text-hover-palette-2-base, a.u-button-style:hover > 
 			                      </tr>
 			                      <tr style="height: 31px;">
 			                        <td class="u-border-1 u-border-no-left u-border-no-right u-border-no-bottom u-border-palette-5-light-1 u-table-cell" style="font-weight: 700; font-size: 19px; padding: 40px 20px 0px 20px;">이메일</td>
-			                        <td class="u-border-1 u-border-no-left u-border-no-right u-border-no-bottom u-border-palette-5-light-1 u-table-cell" style="text-align: right; padding: 40px 20px 0px 20px;">
-			                          <input type=button value="변경" style="border: none; border-radius: 14px; padding: 7px 15px; font-size: 13px; cursor: pointer; font-weight: 600;">
+			                        <td class="u-border-1 u-border-no-left u-border-no-right u-border-no-bottom u-border-palette-5-light-1 u-table-cell" style="text-align: right; padding: 40px 20px 0px 20px;" v-if="vo.email===null">
+			                          <input type=button value="+추가" style="border: none; border-radius: 14px; padding: 7px 15px; font-size: 13px; cursor: pointer; font-weight: 600;" v-on:click="modalOpen()"> <!-- id="modal-open" -->
+			                        </td>
+			                        <td class="u-border-1 u-border-no-left u-border-no-right u-border-no-bottom u-border-palette-5-light-1 u-table-cell" style="text-align: right; padding: 40px 20px 0px 20px;" v-if="vo.email!=null">
+			                          <input type=button value="변경" style="border: none; border-radius: 14px; padding: 7px 15px; font-size: 13px; cursor: pointer; font-weight: 600;" v-on:click="modalOpen()">
 			                        </td>
 			                      </tr>
 			                      <tr style="height: auto;">
@@ -124,16 +143,61 @@ a.u-button-style:hover > .u-text-hover-palette-2-base, a.u-button-style:hover > 
 			                          	{{vo.email}}
 			                        </td>
 			                      </tr>
+			                      
+									  <div class="popup-wrap" :style="{'display' : display}"> <!-- id="popup"  -->
+									    <div class="popup">	
+									     <div class="popup-head" style="text-align: right; margin-top: 5px;">	
+									          <span class="head-title pop-btn close"  style="margin-right: 3px;"><input type=button value="X" style="border: none; background-color: white; color: black" v-on:click="modalClose()"></span><!-- id="close" -->
+									      </div>
+									      <div class="popup-body">	
+									        <div class="body-content">
+									          <div class="body-contentbox">
+									            <p> 이메일</p>
+									            <p style="margin-top: 0px; margin-bottom: 0px;"> <input type="text" v-model="email" ref="email" style="width: 100%;"> </p>
+									          </div>
+									        </div>
+									      </div>
+									      <div class="popup-foot" style="text-align: right;">
+									        <span class="pop-btn confirm" id="confirm"><input type=button value="확인" style="margin-right: 30px; background: black; border: none; color: white;" v-on:click="emailUpdate()"></span>
+									      </div>
+									    </div>
+									  </div>
+			                      
 			                      <tr style="height: 80px;" class="up">
 			                        <td class="u-border-1 u-border-no-left u-border-no-right u-border-palette-5-light-1 u-table-cell" style="font-weight: 700; font-size: 19px; padding: 40px 20px;">비밀번호</td>
 			                        <td class="u-border-1 u-border-no-left u-border-no-right u-border-palette-5-light-1 u-table-cell" style="text-align: right; padding: 20px;">
-			                          <input type=submit value="변경" style="border: none; border-radius: 14px; padding: 7px 15px; font-size: 13px; cursor: pointer; font-weight: 600;">
+			                          <input type=submit value="변경" style="border: none; border-radius: 14px; padding: 7px 15px; font-size: 13px; cursor: pointer; font-weight: 600;"  v-on:click="modalOpen3()">
 			                        </td>
 			                      </tr>
+			                      
+			                      <div class="popup-wrap" :style="{'display' : display3}"> <!-- id="popup"  -->
+									    <div class="popup">	
+									     <div class="popup-head" style="text-align: right; margin-top: 5px;">	
+									          <span class="head-title pop-btn close"  style="margin-right: 3px;"><input type=button value="X" style="border: none; background-color: white; color: black" v-on:click="modalClose3()"></span><!-- id="close" -->
+									      </div>
+									      <div class="popup-body">	
+									        <div class="body-content">
+									          <div class="body-contentbox" style="max-height: 300px;">
+									            <p> 현재 비밀번호</p>
+									            <p style="margin-top: 0px; margin-bottom: 0px;"> <input type="password" v-model="nowpwd" ref="nowpwd" style="width: 100%;"> </p>
+									            <p> 새 비밀번호</p>
+									            <p style="margin-top: 0px; margin-bottom: 0px;"> <input type="password" v-model="pwd" ref="pwd" style="width: 100%;"> </p>
+									          </div>
+									        </div>
+									      </div>
+									      <div class="popup-foot" style="text-align: right;">
+									        <span class="pop-btn confirm" id="confirm"><input type=button value="확인" style="margin-right: 30px; background: black; border: none; color: white;" v-on:click="pwdUpdate()"></span>
+									      </div>
+									    </div>
+									  </div>
+			                      
 			                      <tr style="height: 26px;">
 			                        <td class="u-table-cell u-table-cell-7" style="font-weight: 700; font-size: 19px; padding: 40px 20px 0px 20px;">연락처</td>
-			                        <td class="u-table-cell" style="text-align: right; padding: 40px 20px 0px 20px;">
-			                          <input type=button value="변경" style="border: none; border-radius: 14px; padding: 7px 15px; font-size: 13px; cursor: pointer; font-weight: 600;">
+			                        <td class="u-table-cell" style="text-align: right; padding: 40px 20px 0px 20px;" v-if="vo.tel===null">
+			                          <input type=button value="+추가" style="border: none; border-radius: 14px; padding: 7px 15px; font-size: 13px; cursor: pointer; font-weight: 600;" v-on:click="modalOpen2()" >
+			                        </td>
+			                        <td class="u-table-cell" style="text-align: right; padding: 40px 20px 0px 20px;" v-if="vo.tel!=null">
+			                          <input type=button value="변경" style="border: none; border-radius: 14px; padding: 7px 15px; font-size: 13px; cursor: pointer; font-weight: 600;" v-on:click="modalOpen2()" >
 			                        </td>
 			                      </tr>
 			                      <tr style="height: auto;" >
@@ -144,6 +208,31 @@ a.u-button-style:hover > .u-text-hover-palette-2-base, a.u-button-style:hover > 
 			                         	{{vo.tel}}
 			                        </td>
 			                      </tr>
+			                      
+			                      <div class="popup-wrap" :style="{'display' : display2}"> <!-- id="popup"  -->
+									    <div class="popup">	
+									     <div class="popup-head" style="text-align: right; margin-top: 5px;">	
+									          <span class="head-title pop-btn close"  style="margin-right: 3px;"><input type=button value="X" style="border: none; background-color: white; color: black" v-on:click="modalClose2()"></span><!-- id="close" -->
+									      </div>
+									      <div class="popup-body">	
+									        <div class="body-content">
+									          <div class="body-contentbox">
+									            <p> 연락처</p>
+									            <p style="margin-top: 0px; margin-bottom: 0px;"> 
+									              <input type="text" v-model="tel1" ref="tel1" style="width: 30%;"> -
+									              <input type="text" v-model="tel2" ref="tel2" style="width: 30%;"> -
+									              <input type="text" v-model="tel3" ref="tel3" style="width: 30%;">
+									              
+									            </p>
+									          </div>
+									        </div>
+									      </div>
+									      <div class="popup-foot" style="text-align: right;">
+									        <span class="pop-btn confirm" id="confirm"><input type=button value="확인" style="margin-right: 30px; background: black; border: none; color: white;" v-on:click="telUpdate()"></span>
+									      </div>
+									    </div>
+									  </div>
+			                      
 			                      <tr style="height: 25px;">
 			                        <td class="u-border-1 u-border-no-left u-border-no-right u-border-palette-5-light-1 u-table-cell u-table-cell-11" style="font-weight: 700; font-size: 19px; padding: 40px 20px;">회원탈퇴</td>
 			                        <td class="u-border-1 u-border-no-left u-border-no-right u-border-palette-5-light-1 u-table-cell" style="text-align: right; padding: 20px;">
@@ -167,16 +256,16 @@ a.u-button-style:hover > .u-text-hover-palette-2-base, a.u-button-style:hover > 
 			                      <tr style="height: 25px;">
 			                        <td class="u-table-cell u-table-cell-13" style="font-weight: 700; font-size: 19px; padding: 20px;">등록된 결제수단</td>
 			                        <td class="u-table-cell" style="text-align: right;" v-if="vo.card_number===null">
-			                          <input type=button value="+추가" style="border: none; border-radius: 14px; padding: 7px 15px; font-size: 13px; cursor: pointer; font-weight: 600;">
+			                          <input type=button value="+추가" style="border: none; border-radius: 14px; padding: 7px 15px; font-size: 13px; cursor: pointer; font-weight: 600;" v-on:click="modalOpen4()">
 			                        </td>
 			                        <td class="u-table-cell" style="text-align: right;" v-if="vo.card_number!=null">
-			                          <input type=button value="변경" style="border: none; border-radius: 14px; padding: 7px 15px; font-size: 13px; cursor: pointer; font-weight: 600;">
+			                          <input type=button value="변경" style="border: none; border-radius: 14px; padding: 7px 15px; font-size: 13px; cursor: pointer; font-weight: 600;" v-on:click="modalOpen4()">
 			                        </td>
 			                      </tr>
 			                      <tr style="height: 45px;">
 			                        <td class="u-table-cell u-table-cell-15" colspan=2">
 			                          <div class="u-border-1 u-border-palette-5-light-1 u-container-style u-group u-radius-5 u-shape-round u-group-1">
-					                    <div class="u-container-layout u-container-layout-3" style="padding: 40px 20px; text-align: center;" v-if="vo.card_number===null">
+					                    <div class="u-container-layout-3" style="padding: 40px 20px; text-align: center; flex: 1; max-width: 100%; transition-duration: inherit;" v-if="vo.card_number===null">
 					                      <img src="../mypage/images/mark.png" style="width: 50px;"><br><br>
 					                      	<span style="color: lightgray; font-size: 18px;">
 					                      	등록된 결제수단이 없습니다.</br>
@@ -184,13 +273,77 @@ a.u-button-style:hover > .u-text-hover-palette-2-base, a.u-button-style:hover > 
 					                      	</span>
 					                    </div>
 					                    <div class="u-container-layout u-container-layout-3" style="padding: 10px 20px;" v-if="vo.card_number!=null">
-					                      <input type=button value="×" style="float: right; border-radius: 15px; padding: 0px 10px; border: none; background-color: white; font-size: 20px; cursor: pointer;">
-					                      <h6 class="u-text u-text-default u-text-1">{{vo.bank_name}}</h6>
-					                      <h6 class="u-text u-text-default u-text-2">{{vo.card_number}} / {{vo.name}} </h6>
+					                      <input type=button value="×" style="float: right; border-radius: 15px; padding: 0px 10px; border: none; background-color: white; font-size: 20px; cursor: pointer; height: 20px;" v-on:click="cardDelete()">
+					                      <table>
+					                        <tr>
+					                          <td rowspan="2" style="width: 230px; padding-top: 0px;" >
+					                            <img :src="'../mypage/images/'+vo.bank_name+'.png'" style="width:200px;">
+					                          </td>
+					                          <td style="vertical-align: bottom; font-weight: 700; font-size: 18px;">
+					                            <span class="u-text u-text-default u-text-1" style="display: inline;">{{vo.bank_name}}</span>
+					                            <span style="background-color: #db545a; color: white; font-size: 14px; padding: 3px 5px; margin: 3px;">기본</span>
+					                          </td>
+					                        </tr>
+					                          <td style="vertical-align: text-top;">
+					                            <span class="u-text u-text-default u-text-2" style="margin-top:0px; margin-bottom:0px;">{{vo.card_number}} / {{vo.name}} </span>
+					                          </td>
+					                        <tr>
+					                        </tr>
+					                      </table>
+					                      <!-- <img src="../mypage/images/국민.png">
+					                      <h6 class="u-text u-text-default u-text-1" style="display: inline;">{{vo.bank_name}}</h6>
+					                      <h6 class="u-text u-text-default u-text-2">{{vo.card_number}} / {{vo.name}} </h6> -->
 					                    </div>
 					                  </div>
 			                        </td>
 			                      </tr>
+			                      
+			                      <div class="popup-wrap" :style="{'display' : display4}"> <!-- id="popup"  -->
+									    <div class="popup">	
+									     <div class="popup-head" style="text-align: right; margin-top: 5px;">	
+									          <span class="head-title pop-btn close"  style="margin-right: 3px;"><input type=button value="X" style="border: none; background-color: white; color: black" v-on:click="modalClose4()"></span><!-- id="close" -->
+									      </div>
+									      <div class="popup-body">	
+									        <div class="body-content">
+									          <div class="body-contentbox" style="max-height: 500px;">
+									            <p> 은행 </p>
+									            <p style="margin-top: 0px; margin-bottom: 0px;"> 
+									              <!-- <input type="text" v-model="bank_name" ref="bank_name" style="width: 100%;"> -->
+									              <select v-model="bank_name" style="width: 100%;">
+												    <option value="현대카드">현대카드</option>
+												    <option value="비씨카드">비씨카드</option>
+												    <option value="삼성카드">삼성카드</option>
+												    <option value="국민카드">국민카드</option>
+												    <option value="하나카드">하나카드</option>
+												    <option value="신한카드">신한카드</option>
+												    <option value="롯데카드">롯데카드</option>
+												  </select>
+									            </p>
+									            <p> 카드 번호 </p>
+									            <p style="margin-top: 0px; margin-bottom: 0px;"> 
+									              <input type="text" v-model="cn1" ref="cn1" maxlength='4' style="width: 22%;">-
+									              <input type="password" v-model="cn2" ref="cn2" maxlength='4' style="width: 22%;">-
+									              <input type="password" v-model="cn3" ref="cn3" maxlength='4' style="width: 22%;">-
+									              <input type="text" v-model="cn4" ref="cn4" maxlength='4' style="width: 22%;">
+									            </p>
+									            <p> 카드 유효기간 </p>
+									            <p style="margin-top: 0px; margin-bottom: 0px;"> 
+									              <input type="month" v-model="card_date" ref="card_date" style="width: 100%;">
+									            </p>
+									            <p > <span style="width: 50%; ">카드 비밀번호 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span style="width: 50%;">생년월일</span></p>
+									            <p style="margin-top: 0px; margin-bottom: 0px;"> 
+									              <input type="password" v-model="card_pwd" ref="card_pwd" style="width: 49%;" placeholder="앞 2자리 입력">
+									              <input type="text" v-model="bday" ref="bday" style="width: 49%;" placeholder="예)980101">
+									            </p>
+									          </div>
+									        </div>
+									      </div>
+									      <div class="popup-foot" style="text-align: right;">
+									        <span class="pop-btn confirm" id="confirm"><input type=button value="확인" style="margin-right: 30px; background: black; border: none; color: white;" v-on:click="cardUpdate()"></span>
+									      </div>
+									    </div>
+									  </div>
+			                      
 			                    </tbody>
 			                  </table>
 			                </div>
@@ -209,10 +362,10 @@ a.u-button-style:hover > .u-text-hover-palette-2-base, a.u-button-style:hover > 
 			                      <tr style="height: 25px;">
 			                        <td class="u-table-cell u-table-cell-17" style="font-weight: 700; font-size: 19px; padding: 20px;">등록된 배송지</td>
 			                        <td class="u-table-cell" style="text-align: right;" v-if="vo.zipcode===null">
-			                          <input type=button value="+추가" style="border: none; border-radius: 14px; padding: 7px 15px; font-size: 13px; cursor: pointer; font-weight: 600;">
+			                          <input type=button value="+추가" style="border: none; border-radius: 14px; padding: 7px 15px; font-size: 13px; cursor: pointer; font-weight: 600;" v-on:click="deliUpdate()">
 			                        </td>
 			                        <td class="u-table-cell" style="text-align: right;" v-if="vo.zipcode!=null">
-			                          <input type=button value="변경" style="border: none; border-radius: 14px; padding: 7px 15px; font-size: 13px; cursor: pointer; font-weight: 600;">
+			                          <input type=button value="변경" style="border: none; border-radius: 14px; padding: 7px 15px; font-size: 13px; cursor: pointer; font-weight: 600;" id="postBtn" v-on:click="deliUpdate()">
 			                        </td>
 			                      </tr>
 			                      <tr style="height: 45px;">
@@ -226,10 +379,12 @@ a.u-button-style:hover > .u-text-hover-palette-2-base, a.u-button-style:hover > 
 					                      	</span>
 					                    </div>
 					                    <div class="u-container-layout u-container-layout-5" style="padding: 10px 20px;" v-if="vo.zipcode!=null">
-					                      <input type=button value="×" style="float: right; border-radius: 15px; padding: 0px 10px; border: none; background-color: white; font-size: 20px; cursor: pointer;">
-					                      <h6 class="u-text u-text-default u-text-3" style="font-weight: 600; font-size: 19px;">{{vo.name}}</h6>
-					                      <h6 class="u-text u-text-default u-text-4" style="font-size: 16px;">[{{vo.zipcode}}] {{vo.addr}}</h6>
-					                      <h6 class="u-text u-text-default u-text-5" style="font-size: 16px;">{{vo.tel}}</h6>
+					                      <input type=button value="×" style="float: right; border-radius: 15px; padding: 0px 10px; border: none; background-color: white; font-size: 20px; cursor: pointer;" v-on:click="deliDelete()">
+					                      <input type="hidden" name="zipcode" id="zipcode">
+					                      <input type="hidden" name="addr" id="addr">
+					                      <span class="u-text u-text-default u-text-3" style="font-weight: 700; font-size: 19px; margin: 10px 10px 15px 10px;">{{vo.name}}<span style="background-color: #db545a; color: white; font-size: 14px; padding: 3px 5px; margin: 10px;">기본</span></span>
+					                      <span class="u-text u-text-default u-text-4" style="font-size: 16px; margin: 10px 10px 5px 10px;">[{{vo.zipcode}}] {{vo.addr}}</span>
+					                      <span class="u-text u-text-default u-text-5" style="font-size: 16px; margin: 0px 10px 10px 10px;">{{vo.tel}}</span>
 					                    </div>
 					                  </div>
 			                        </td>
@@ -322,7 +477,7 @@ a.u-button-style:hover > .u-text-hover-palette-2-base, a.u-button-style:hover > 
 			                    </colgroup>
 			                    <tbody class="u-table-body">
 			                      <tr style="height: 25px;">
-			                        <td class="u-table-cell u-table-cell-14" style="font-weight: 700; font-size: 19px; padding: 20px;" colspan="2">후원 진행 중 ({{count}})</td>
+			                        <td class="u-table-cell u-table-cell-14" style="font-weight: 700; font-size: 19px; padding: 20px;" colspan="2">후원 진행 중 ({{count2}})</td>
 			                      </tr>
 			                      <tr style="height: 45px;" v-for="vo in paying_list">
 			                        <td class="u-table-cell u-table-cell-16">
@@ -366,7 +521,7 @@ a.u-button-style:hover > .u-text-hover-palette-2-base, a.u-button-style:hover > 
 			                    </colgroup>
 			                    <tbody class="u-table-body">
 			                      <tr style="height: 25px;">
-			                        <td class="u-table-cell u-table-cell-18" style="font-weight: 700; font-size: 19px; padding: 35px 20px 20px 20px;" colspan="2">후원 성공 ({{count}})</td>
+			                        <td class="u-table-cell u-table-cell-18" style="font-weight: 700; font-size: 19px; padding: 35px 20px 20px 20px;" colspan="2">후원 성공 ({{count3}})</td>
 			                      </tr>
 			                      <tr style="height: 45px;" v-for="vo in payingfin_list">
 			                        <td class="u-table-cell u-table-cell-20">
@@ -414,7 +569,7 @@ a.u-button-style:hover > .u-text-hover-palette-2-base, a.u-button-style:hover > 
 			                    </colgroup>
 			                    <tbody class="u-table-body">
 			                      <tr style="height: 25px;">
-			                        <td class="u-table-cell u-table-cell-42" style="font-weight: 700; font-size: 19px; padding: 20px;">관심 프로젝트(1)</td>
+			                        <td class="u-table-cell u-table-cell-42" style="font-weight: 700; font-size: 19px; padding: 20px;">관심 프로젝트({{count4}})</td>
 			                      </tr>
 			                    </tbody>
 			                  </table>
@@ -679,10 +834,21 @@ a.u-button-style:hover > .u-text-hover-palette-2-base, a.u-button-style:hover > 
     	el:'.profile',
     	data:{
     		vo:{},
-    		id:'${id}'
+    		id:'${id}',
+    		display:'', display2:'', display3:'', display4:'',
+    		email:'',
+    		tel1:'', tel2:'', tel3:'',
+    		nowpwd:'', pwd:'',
+    		res:'',
+    		bank_name:'', cn1:'', cn2:'', cn3:'', cn4:'', card_number:'', card_date:'', card_pwd:'', bday:'',
+    		zipcode:'', addr:''
     	},
     	mounted:function(){
     		let _this=this;
+    		_this.display='none';
+    		_this.display2='none';
+    		_this.display3='none';
+    		_this.display4='none';
     		axios.get("http://localhost:8080/web/mypage/profile.do",{
     			params:{
     				id:_this.id
@@ -691,9 +857,201 @@ a.u-button-style:hover > .u-text-hover-palette-2-base, a.u-button-style:hover > 
     			_this.vo=result.data;
     			console.log(result.data);
     		})
+    	},
+    	methods:{
+    		modalOpen:function(){
+    			let _this=this;
+    			_this.display= 'flex';
+    		},
+    		modalOpen2:function(){
+    			let _this=this;
+    			_this.display2= 'flex';
+    		},
+    		modalOpen3:function(){
+    			let _this=this;
+    			_this.display3= 'flex';
+    		},
+    		modalOpen4:function(){
+    			let _this=this;
+    			_this.display4= 'flex';
+    		},
+    		modalClose:function(){
+    			let _this=this;
+    			_this.display= 'none';
+    		},
+    		modalClose2:function(){
+    			let _this=this;
+    			_this.display2= 'none';
+    		},
+    		modalClose3:function(){
+    			let _this=this;
+    			_this.display3= 'none';
+    		},
+    		modalClose4:function(){
+    			let _this=this;
+    			_this.display4= 'none';
+    		},
+    		emailUpdate:function(){
+    			let _this=this;
+    			if(_this.email.trim()==""){
+    				_this.$refs.email.focus();
+    				retrun;
+    			}
+    			axios.get("http://localhost:8080/web/user/email_update.do",{
+    				params:{
+    					email:_this.email,
+    					id:'${id}'
+    				}
+    			}).then(function(result){
+    				location.href="../mypage/mypage.do"
+    			})
+    		},
+    		telUpdate:function(){
+    			let _this=this;
+    			if(_this.tel1.trim()==""){
+    				_this.$refs.tel1.focus();
+    				retrun;
+    			} 
+    			if(_this.tel2.trim()==""){
+    				_this.$refs.tel2.focus();
+    				retrun;
+    			} 
+    			if(_this.tel3.trim()==""){
+    				_this.$refs.tel3.focus();
+    				retrun;
+    			} 
+    			axios.get("http://localhost:8080/web/user/tel_update.do",{
+    				params:{
+    					tel1:_this.tel1,
+    					tel2:_this.tel2,
+    					tel3:_this.tel3,
+    					id:'${id}'
+    				}
+    			}).then(function(result){
+    				location.href="../mypage/mypage.do"
+    			})
+    		},
+    		pwdUpdate:function(){
+    			let _this=this;
+    			if(_this.pwd.trim()==""){
+    				_this.$refs.pwd.focus();
+    				retrun;
+    			}
+    			if(_this.nowpwd.trim()==""){
+    				_this.$refs.nowpwd.focus();
+    				retrun;
+    			}
+    			axios.get("http://localhost:8080/web/user/pwd_update.do",{
+    				params:{
+    					pwd:_this.pwd,
+    					nowpwd:_this.nowpwd,
+    					id:'${id}'
+    				}
+    			}).then(function(result){
+    				_this.res=result.data;
+    				if(_this.res==='yes'){
+    					location.href="../mypage/mypage.do"
+    				} else {
+    					alert("비밀번호가 틀렸습니다");
+    					_this.nowpwd="";
+    					_this.pwd="";
+    					_this.$refs.nowpwd.focus();
+    				}
+    			})
+    		},
+    		cardUpdate:function(){
+    			let _this=this;
+    			if(_this.bank_name.trim()==""){
+    				_this.$refs.bank_name.focus();
+    				retrun;
+    			} 
+    			if(_this.cn1.trim()==""){
+    				_this.$refs.cn1.focus();
+    				retrun;
+    			} 
+    			if(_this.cn2.trim()==""){
+    				_this.$refs.cn2.focus();
+    				retrun;
+    			} 
+    			if(_this.cn3.trim()==""){
+    				_this.$refs.cn3.focus();
+    				retrun;
+    			} 
+    			if(_this.cn4.trim()==""){
+    				_this.$refs.cn4.focus();
+    				retrun;
+    			} 
+    			if(_this.card_date.trim()==""){
+    				_this.$refs.card_date.focus();
+    				retrun;
+    			} 
+    			if(_this.card_pwd.trim()==""){
+    				_this.$refs.card_pwd.focus();
+    				retrun;
+    			} 
+    			if(_this.bday.trim()==""){
+    				_this.$refs.bday.focus();
+    				retrun;
+    			} 
+    			axios.get("http://localhost:8080/web/user/card_update.do",{
+    				params:{
+    					bank_name:_this.bank_name,
+    					cn1:_this.cn1,
+    					cn2:_this.cn2,
+    					cn3:_this.cn3,
+    					cn4:_this.cn4,
+    					card_date:_this.card_date,
+    					card_pwd:_this.card_pwd,
+    					bday:_this.bday,
+    					id:'${id}'
+    				}
+    			}).then(function(result){
+    				location.href="../mypage/mypage.do"
+    			})
+    		},
+    		cardDelete:function(){
+    			let _this=this;
+    			axios.get("http://localhost:8080/web/user/card_delete.do",{
+    				params:{
+    					id:'${id}'
+    				}
+    			}).then(function(result){
+    				location.href="../mypage/mypage.do"
+    			})
+    		},
+    		deliUpdate:function(){
+    			let _this=this;
+    			new daum.Postcode({
+    				oncomplete:function(data)
+    				{	
+    					console.log(data);
+    					axios.get("http://localhost:8080/web/user/deli_update.do",{
+    						params:{
+		    					zipcode:data.zonecode,
+		    					addr:data.address,
+		    					id:'${id}'
+    						}
+    					}).then(function(result){
+    						location.href="../mypage/mypage.do"
+    					})
+    					/* $('#zipcode').val(data.zonecode)
+    					$('#addr').val(data.address) */
+    				}
+    			}).open()
+    		},
+    		deliDelete:function(){
+    			let _this=this;
+    			axios.get("http://localhost:8080/web/user/deli_delete.do",{
+    				params:{
+    					id:'${id}'
+    				}
+    			}).then(function(result){
+    				location.href="../mypage/mypage.do"
+    			})
+    		}
     	}
       })
-     
+   
       new Vue({
     	 el:'.funding',
     	 data:{
@@ -705,7 +1063,7 @@ a.u-button-style:hover > .u-text-hover-palette-2-base, a.u-button-style:hover > 
     		 user_no:${user_no},
     		 curpage:1,
     		 totalpage:0,
-    		 count:0
+    		 count:0, count2:0, count3:0, count4:0
     	 },
     	 mounted:function(){
     		 this.send();
@@ -737,7 +1095,7 @@ a.u-button-style:hover > .u-text-hover-palette-2-base, a.u-button-style:hover > 
     				}
     			}).then(function(result){
     				_this.paying_list=result.data;
-    				_this.count=result.data[0].count;
+    				_this.count2=result.data[0].count;
     				console.log(result.data);
     			})
     		 },
@@ -749,7 +1107,7 @@ a.u-button-style:hover > .u-text-hover-palette-2-base, a.u-button-style:hover > 
     				}
     			}).then(function(result){
     				_this.payingfin_list=result.data;
-    				_this.count=result.data[0].count;
+    				_this.count3=result.data[0].count;
     				console.log(result.data);
     			})
     		 },
@@ -761,6 +1119,7 @@ a.u-button-style:hover > .u-text-hover-palette-2-base, a.u-button-style:hover > 
     				}
     			}).then(function(result){
     				_this.like_list=result.data;
+    				_this.count4=result.data[0].count;
     				console.log(result.data);
     			})
     		 },
@@ -779,6 +1138,7 @@ a.u-button-style:hover > .u-text-hover-palette-2-base, a.u-button-style:hover > 
     		 }
     	 }
      }) 
+    
     </script>
 </body>
 </html>

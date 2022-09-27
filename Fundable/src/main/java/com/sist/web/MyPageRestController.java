@@ -111,9 +111,7 @@ public class MyPageRestController {
 			int user_no=(int) session.getAttribute("user_no");
 			
 			List<PayHistoryVO> list=dao.mypagePaying(user_no);
-			System.out.println(list);
 			int count=dao.mypagePayingCount(user_no);
-			System.out.println(count);
 			
 			JSONArray arr=new JSONArray();
 			
@@ -122,7 +120,6 @@ public class MyPageRestController {
 			for(PayHistoryVO vo:list) {
 				JSONObject obj=new JSONObject();
 				FundingGoodsVO fvo=dao.fundingData(vo.getFg_no());
-				// ph_no, TO_CHAR(rg_date, 'YYYY.MM.DD') as rgday, ph_price, TO_CHAR(expect_pay, 'YYYY.MM.DD') as epday, user_no, fg_no
 				obj.put("ph_no", vo.getPh_no());
 				obj.put("rgdate", vo.getRgday());
 				obj.put("ph_price", vo.getPh_price());
@@ -195,11 +192,11 @@ public class MyPageRestController {
 			int user_no=(int) session.getAttribute("user_no");
 			
 			List<LikeVO> list=dao.mypageLike(user_no);
-			//int count=dao.mypagePayingFinCount(user_no);
+			int count=dao.mypageLikeCount(user_no);
 			
 			JSONArray arr=new JSONArray();
 			
-			//int k=0;
+			int k=0;
 			
 			for(LikeVO vo:list) {
 				JSONObject obj=new JSONObject();
@@ -217,12 +214,12 @@ public class MyPageRestController {
 				String id=fdao.fundingIdData(fvo.getUser_no());
 				obj.put("id", id);
 				
-//				if(k==0) {
-//					obj.put("count", count);
-//				}
+				if(k==0) {
+					obj.put("count", count);
+				}
 				
 				arr.add(obj);
-				//k++;
+				k++;
 			}
 			
 			result=arr.toJSONString();

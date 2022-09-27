@@ -61,6 +61,10 @@ public class MyPageDAO {
 		return mapper.mypageLike(user_no);
 	}
 	
+	public int mypageLikeCount(int user_no) {
+		return mapper.mypageLikeCount(user_no);
+	}
+	
 	
 	
 	//=== 스토어

@@ -1,5 +1,7 @@
 package com.sist.dao;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
@@ -51,4 +53,39 @@ public class UserDAO {
 		return mapper.userTelCount(tel);
 	}
 	
+	public void userEmailUpdate(UserVO vo) {
+		mapper.userEmailUpdate(vo);
+	}
+
+	public void userTelUpdate(UserVO vo) {
+		mapper.userTelUpdate(vo);
+	}
+	
+	public String userPwdUpdate(UserVO vo) {
+		String result="no";
+		
+		UserVO dbvo=mapper.userInfoData(vo.getId());
+		if(encoder.matches(vo.getNowpwd(), dbvo.getPwd())) {
+			result="yes";
+			mapper.userPwdUpdate(vo);
+		}
+		
+		return result;
+	}
+	
+	public void userCardUpdate(UserVO vo) {
+		mapper.userCardUpdate(vo);
+	}
+	
+	public void userCardDelete(UserVO vo) {
+		mapper.userCardDelete(vo);
+	}
+	
+	public void userDeliUpdate(UserVO vo) {
+		mapper.userDeliUpdate(vo);
+	}
+	
+	public void userDeliDelete(UserVO vo) {
+		mapper.userDeliDelete(vo);
+	}
 }

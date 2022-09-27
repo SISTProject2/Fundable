@@ -8,22 +8,6 @@ import org.apache.ibatis.annotations.Select;
 import com.sist.vo.UserVO;
 import com.sist.vo.*;
 
-/*
- * USER_NO     NOT NULL NUMBER        
-ID          NOT NULL VARCHAR2(200) 
-PWD         NOT NULL VARCHAR2(300) 
-ADMIN       NOT NULL VARCHAR2(50)  
-NAME                 VARCHAR2(100) 
-EMAIL                VARCHAR2(300) 
-TEL                  VARCHAR2(300) 
-BDAY                 VARCHAR2(300) 
-CARD_NUMBER          VARCHAR2(500) 
-CARD_DATE            VARCHAR2(500) 
-CARD_PWD             VARCHAR2(500) 
-ZIPCODE              VARCHAR2(100) 
-ADDR                 VARCHAR2(300) 
-ADDR_DETAIL          VARCHAR2(300) 
- */
 public interface MyPageMapper {
 	
 	@Select("SELECT user_no, id, name, email, tel, card_number, card_date, bank_name, zipcode, addr "
@@ -70,6 +54,9 @@ public interface MyPageMapper {
 	
 	@Select("SELECT * FROM like2_2 WHERE user_no=#{user_no}")
 	public List<LikeVO> mypageLike(int user_no);
+	
+	@Select("SELECT COUNT(*) FROM like2_2 WHERE user_no=#{user_no}")
+	public int mypageLikeCount(int user_no);
 	
 	
 	
