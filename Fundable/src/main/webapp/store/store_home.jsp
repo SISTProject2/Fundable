@@ -37,25 +37,27 @@
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
-let i=0;
+
 $(function(){
-	$('#foodMore').click(function(){
-		if(i==0){
-			$('#food2').show("slow");
-			$('#foodMore').hide()
-		}
+	$('#smore').click(function() {
+			$('#shidden').show("fade");
+			$('#smore').hide()
+	
 	})
-	$('#stationeryMore').click(function(){
-		if(i==0){
-			$('#stationery2').show("slow");
-			$('#stationeryMore').hide()
-		}
+	$('#fmore').click(function() {
+			$('#fhidden').show("fade");
+			$('#fmore').hide()
+	
 	})
-	$('#bookMore').click(function(){
-		if(i==0){
-			$('#book2').show("slow");
-			$('#bookMore').hide()
-		}
+	$('#bmore').click(function() {
+			$('#bhidden').show("fade");
+			$('#bmore').hide()
+	
+	})
+	$('#pmore').click(function() {
+			$('#phidden').show("fade");
+			$('#pmore').hide()
+	
 	})
 })
 
@@ -96,8 +98,8 @@ $(function(){
 		                    <!-- Product details-->
 		                    <div class="card-body p-4">
 	                            <!-- Product name-->
-	                            <span class="fw-bolder">${vo.sponsor }명</span> 펀딩 참여 중<br>
-	                            <span class="fw-bolder"><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성
+	                            <span class="fw-bolder" style="font-size: 14pt">${vo.sponsor }명</span> 펀딩 참여 중<br>
+	                            <span class="fw-bolder" style="font-size: 14pt"><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성
 		                    </div>
 		                    <!-- Product actions-->
 		                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -107,21 +109,21 @@ $(function(){
 		            </div>
 	            </c:if>
               </c:forEach>
-              <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Load more</a></div>
+              <span class="btn btn-outline-dark mt-auto text-center" id="smore">Load more</span>
             </div>
             
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" style="display: none" id="shidden">
             <c:forEach var="vo" items="${list }" varStatus="s">
          		<c:if test="${s.index>=8 && s.index<16 }">
-		            <div class="col mb-5" style="display: none">           
+		            <div class="col mb-5">           
 		                <div class="card h-100">         	
 		                    <!-- Product image-->
 		                    <a href="detail_before.do?sg_no=${vo.sg_no }"><img class="card-img-top" src="${vo.img }" width="200px" height="210px" alt="..." /></a>
 		                    <!-- Product details-->
 		                    <div class="card-body p-4">
 	                            <!-- Product name-->
-	                            <span class="fw-bolder">${vo.sponsor }명</span> 펀딩 참여 중<br>
-	                            <span class="fw-bolder"><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성
+	                            <span class="fw-bolder" style="font-size: 14pt">${vo.sponsor }명</span> 펀딩 참여 중<br>
+	                            <span class="fw-bolder" style="font-size: 14pt"><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성
 		                    </div>
 		                    <!-- Product actions-->
 		                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -151,8 +153,8 @@ $(function(){
 		                    <!-- Product details-->
 		                    <div class="card-body p-4">
 	                            <!-- Product name-->
-	                            <span class="fw-bolder">${vo.sponsor }명</span> 펀딩 참여 중<br>
-	                            <span class="fw-bolder"><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성
+	                            <span class="fw-bolder" style="font-size: 14pt">${vo.sponsor }명</span> 펀딩 참여 중<br>
+	                            <span class="fw-bolder" style="font-size: 14pt"><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성
 		                    </div>
 		                    <!-- Product actions-->
 		                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -162,21 +164,21 @@ $(function(){
 		            </div>
 	            </c:if>
               </c:forEach>
-              <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Load more</a></div>
+              <span class="btn btn-outline-dark mt-auto text-center" id="fmore">Load more</span>
             </div>
             
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" style="display: none" id="fhidden">
             <c:forEach var="vo" items="${list2 }" varStatus="s">
          		<c:if test="${s.index>=8 && s.index<16 }">
-		            <div class="col mb-5" style="display: none">           
+		            <div class="col mb-5">           
 		                <div class="card h-100">         	
 		                    <!-- Product image-->
 		                    <a href="detail_before.do?sg_no=${vo.sg_no }"><img class="card-img-top" src="${vo.img }" width="200px" height="210px" alt="..." /></a>
 		                    <!-- Product details-->
 		                    <div class="card-body p-4">
 	                            <!-- Product name-->
-	                            <span class="fw-bolder">${vo.sponsor }명</span> 펀딩 참여 중<br>
-	                            <span class="fw-bolder"><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성
+	                            <span class="fw-bolder" style="font-size: 14pt">${vo.sponsor }명</span> 펀딩 참여 중<br>
+	                            <span class="fw-bolder" style="font-size: 14pt"><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성
 		                    </div>
 		                    <!-- Product actions-->
 		                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -206,8 +208,8 @@ $(function(){
 		                    <!-- Product details-->
 		                    <div class="card-body p-4">
 	                            <!-- Product name-->
-	                            <span class="fw-bolder">${vo.sponsor }명</span> 펀딩 참여 중<br>
-	                            <span class="fw-bolder"><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성
+	                            <span class="fw-bolder" style="font-size: 14pt">${vo.sponsor }명</span> 펀딩 참여 중<br>
+	                            <span class="fw-bolder" style="font-size: 14pt"><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성
 		                    </div>
 		                    <!-- Product actions-->
 		                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -217,21 +219,21 @@ $(function(){
 		            </div>
 	            </c:if>
               </c:forEach>
-              <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Load more</a></div>
+              <span class="btn btn-outline-dark mt-auto text-center" id="bmore">Load more</span>
             </div>
             
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" style="display: none" id="bhidden">
             <c:forEach var="vo" items="${list3 }" varStatus="s">
          		<c:if test="${s.index>=8 && s.index<16 }">
-		            <div class="col mb-5" style="display: none">           
+		            <div class="col mb-5">           
 		                <div class="card h-100">         	
 		                    <!-- Product image-->
 		                    <a href="detail_before.do?sg_no=${vo.sg_no }"><img class="card-img-top" src="${vo.img }" width="200px" height="210px" alt="..." /></a>
 		                    <!-- Product details-->
 		                    <div class="card-body p-4">
 	                            <!-- Product name-->
-	                            <span class="fw-bolder">${vo.sponsor }명</span> 펀딩 참여 중<br>
-	                            <span class="fw-bolder"><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성
+	                            <span class="fw-bolder" style="font-size: 14pt">${vo.sponsor }명</span> 펀딩 참여 중<br>
+	                            <span class="fw-bolder" style="font-size: 14pt"><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성
 		                    </div>
 		                    <!-- Product actions-->
 		                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -261,8 +263,8 @@ $(function(){
 		                    <!-- Product details-->
 		                    <div class="card-body p-4">
 	                            <!-- Product name-->
-	                            <span class="fw-bolder">${vo.sponsor }명</span> 펀딩 참여 중<br>
-	                            <span class="fw-bolder"><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성
+	                            <span class="fw-bolder" style="font-size: 14pt">${vo.sponsor }명</span> 펀딩 참여 중<br>
+	                            <span class="fw-bolder" style="font-size: 14pt"><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성
 		                    </div>
 		                    <!-- Product actions-->
 		                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -272,21 +274,21 @@ $(function(){
 		            </div>
 	            </c:if>
               </c:forEach>
-              <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Load more</a></div>
+              <span class="btn btn-outline-dark mt-auto text-center" id="pmore">Load more</span>
             </div>
             
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" style="display: none" id="phidden">
             <c:forEach var="vo" items="${list4 }" varStatus="s">
          		<c:if test="${s.index>=8 && s.index<16 }">
-		            <div class="col mb-5" style="display: none">           
+		            <div class="col mb-5">           
 		                <div class="card h-100">         	
 		                    <!-- Product image-->
 		                    <a href="detail_before.do?sg_no=${vo.sg_no }"><img class="card-img-top" src="${vo.img }" width="200px" height="210px" alt="..." /></a>
 		                    <!-- Product details-->
 		                    <div class="card-body p-4">
 	                            <!-- Product name-->
-	                            <span class="fw-bolder">${vo.sponsor }명</span> 펀딩 참여 중<br>
-	                            <span class="fw-bolder"><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성
+	                            <span class="fw-bolder" style="font-size: 14pt">${vo.sponsor }명</span> 펀딩 참여 중<br>
+	                            <span class="fw-bolder" style="font-size: 14pt"><fmt:formatNumber pattern="#,###" value="${vo.success }" />원</span> 달성
 		                    </div>
 		                    <!-- Product actions-->
 		                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
