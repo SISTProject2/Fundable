@@ -13,6 +13,7 @@
 <title>Shop Item - Start Bootstrap Template</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/reply.css">
+<link rel="stylesheet" href="css/profile.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -130,21 +131,22 @@ textarea {
 </head>
 <body>
     <!-- Product section-->
+    <div style="height: 60px"></div>
     <section class="py-5">
         <div class="container px-4 px-lg-5 my-5">
         		
             <div class="row gx-4 gx-lg-5 align-items-center">
             	<div style="height: 40px"></div>
-                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="${vo.img }" width="100px" height="650px" alt="..." /></div>
+                <div class="col-md-6" style="margin-bottom: 550px"><img class="card-img-top mb-5 mb-md-0" src="${vo.img }" width="100px" height="650px" alt="..." /></div>
                 <div class="col-md-6">
                     <div class="fs-5 mb-5">
-                       <span style="font-size: 15pt; font-weight: bold">${title }</span>
+                       <span style="font-size: 22pt;">${title }</span>
                        
                        <c:if test="${vo.rate!=0.0}">
-                       	<span style="float: right; font-weight: bold"><img src="images/star.png" width="18px" height="18px">${vo.rate }</span>
+                       	<span style="float: right; font-weight: bold; font-size: 23pt"><img src="images/star.png" width="18px" height="18px">${vo.rate }</span>
                        </c:if>
                        <c:if test="${vo.rate==0.0}">
-			              <span style="color: #FF8C00; font-size: 12pt; float: right; font-weight: bold">별점 없음</span>
+			              <span style="color: #FF8C00; font-size: 16pt; float: right; font-weight: bold">별점 없음</span>
 		              </c:if>
                        	
                     </div>	
@@ -166,17 +168,17 @@ textarea {
 	                            <i class="bi-cart-fill me-1"></i>
 	                                                        장바구니에 담기
 	                        </button>
-	                        <!--  <a href="../mypage/cart_list.do?sg_no=${vo.sg_no }" class="btn btn-sm btn-primary">장바구니 보기</a>-->
+	                        <a href="../mypage/cart_list.do?sg_no=${vo.sg_no }" class="btn btn-sm btn-primary">장바구니 보기</a>
                         </form>
                         
                         
                     </div>
                     
                     
-                    <div style="height: 80px"></div>
+                    <div style="height: 180px"></div>
                     <button class="button button4" style="font-size: 15pt; font-weight: bold">구매하기</button>
                     
-                   <div style="height: 40px"></div>
+                   <div style="height: 70px"></div>
 					
 					<table class="w3-table w3-bordered">
 				    <tr>
@@ -201,8 +203,72 @@ textarea {
 				  </table>
 				  
 				  	
-				  
-
+				  <div style="height: 70px"></div>
+					
+					
+				<div class="profile-card">
+        <div class="profile-cover">
+            <div class="menu-container">
+                <a class="list-icon" title="Expand" href="javascript:void(0);"></a>
+                <ul class="profile-actions" style="display: none;">
+                    <li><a href="#">Follow</a></li>
+                    <li><a href="#">Add as Friend</a></li>
+                    <li><a href="#">Like</a></li>
+                </ul>
+            </div>
+            <div class="profile-avatar">
+                <div class="btns-container">
+                    <div class="profile-links">
+                        <a class="zoom-avatar" href="#"><img src="https://dl.dropboxusercontent.com/s/5liaxzvwbfuqzpo/zoom.png"></a>
+                        <a class="read-more" href="#"><img src="https://dl.dropboxusercontent.com/s/62dfoo9h44o58lw/more.png"></a>
+                        <a class="view-map" href="#"><img src="https://dl.dropboxusercontent.com/s/9ofmihok0h64lvn/location.png"></a>
+                    </div>
+                </div>
+                <a href="#"><img src="https://dl.dropboxusercontent.com/s/7pcnqq18skh1myk/avatar.jpg" alt="Anis M" /></a>
+            </div>
+            <div class="profile-details">
+                <h1>Anis M</h1>
+                <h6>@anismashku</h6>
+            </div>
+        </div>
+        <div class="profile-info" style="display: none;">
+            <h1>About Me</h1>
+            <div class="info-area">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.Stet clita kasd gubergren, no sea takimata sanctus est.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="profile-map" style="display: none;">
+            <iframe width="100%" height="150" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Saveology+New+York&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=40.052282,86.572266&amp;t=h&amp;ie=UTF8&amp;hq=Saveology&amp;hnear=New+York&amp;ll=40.552027,-74.420902&amp;spn=0.357117,0.912844&amp;iwloc=near&amp;output=embed"></iframe>
+            <div class="clear"></div>
+        </div>
+        <div class="profile-content">
+            <ul>
+                <li>
+                    <div class="digits">83</div>
+                    Followers
+                </li>
+                <li>
+                    <div class="digits">1507</div>
+                    Tweets
+                </li>
+                <li>
+                    <div class="digits">234</div>
+                    Friends
+                </li>
+                <li>
+                    <div class="digits">51</div>
+                    Likes
+                </li>
+                <li>
+                    <div class="digits">42</div>
+                    Gits
+                </li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+    </div>	
 				  
                     
                     

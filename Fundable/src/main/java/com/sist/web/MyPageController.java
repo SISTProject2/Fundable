@@ -75,11 +75,18 @@ public class MyPageController {
 	// 장바구니
 	// session
 	@GetMapping("mypage/cart_list.do")
-	public String cart_list(int sg_no, HttpSession session, Model model)
+	public String cart_list(String sg_no, HttpSession session, Model model)
 	{
 		List<CartVO> list = (List<CartVO>)session.getAttribute("cart");
 		
-		model.addAttribute("size", list.size());
+		// 데이터 없을 경우 에러 방지
+		int size = 0;
+		if(list == null)
+			size = 0;
+		else
+			size = list.size();
+		
+		model.addAttribute("size", size);
 		model.addAttribute("list", list);
 		model.addAttribute("sg_no", sg_no);
 		

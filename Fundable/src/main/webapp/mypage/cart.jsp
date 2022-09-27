@@ -54,7 +54,7 @@
 			                    </colgroup>
 			                    <tbody class="u-table-body">
 			                      <tr style="height: 25px;">
-			                        <td class="u-table-cell u-table-cell-1" style="font-weight: 700; font-size: 19px; padding: 20px;">장바구니 [1]</td>
+			                        <td class="u-table-cell u-table-cell-1" style="font-weight: 700; font-size: 19px; padding: 20px;"><span style="color: red">${size }</span>개의 상품을 담았습니다</td>
 			                      </tr>
 			                      <tr style="height: 45px;">
 			                        <td class="u-table-cell u-table-cell-3">
