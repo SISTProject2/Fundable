@@ -79,7 +79,7 @@ public class MyPageController {
 	{
 		List<CartVO> list = (List<CartVO>)session.getAttribute("cart");
 		
-		//model.addAttribute("size", list.size());
+		model.addAttribute("size", list.size());
 		model.addAttribute("list", list);
 		model.addAttribute("sg_no", sg_no);
 		

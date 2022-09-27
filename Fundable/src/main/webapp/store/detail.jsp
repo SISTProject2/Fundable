@@ -13,6 +13,12 @@
 <title>Shop Item - Start Bootstrap Template</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/reply.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 $(function(){
@@ -109,11 +115,12 @@ textarea {
 	margin: 0px 20px 30px 0px;
 }
 
-
-
 #Home {background-color: red;}
 #News {background-color: green;}
- </style>
+
+
+
+</style>
  <!-- Favicon-->
  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
  <!-- Bootstrap icons-->
@@ -131,7 +138,7 @@ textarea {
                 <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="${vo.img }" width="100px" height="650px" alt="..." /></div>
                 <div class="col-md-6">
                     <div class="fs-5 mb-5">
-                       <span style="font-size: 13.5pt; font-weight: bold">${title }</span>
+                       <span style="font-size: 15pt; font-weight: bold">${title }</span>
                        
                        <c:if test="${vo.rate!=0.0}">
                        	<span style="float: right; font-weight: bold"><img src="images/star.png" width="18px" height="18px">${vo.rate }</span>
@@ -142,30 +149,69 @@ textarea {
                        	
                     </div>	
                     
-                    <h1 class="display-5 fw-bolder">${vo.title }</h1>
+                    <div class="display-5 fw-bolder" style="font-size: 27pt">${vo.title }</div>
+                    <div style="height: 20px"></div>
                     <div class="fs-5 mb-5">
-                        <span style="font-size: 12pt">${vo.sponsor }명 참여</span>
-                        <h1 style="float: right; font-weight: bold"><span style="color: #000099"><fmt:formatNumber pattern="#,###" value="${vo.price }"/></span>원</h1>
+                        
+                        <div style="float: right; font-weight: bold; font-size: 30pt"><span style="color: #000099"><fmt:formatNumber pattern="#,###" value="${vo.price }"/></span>원</div>
                     </div>
                     <div style="height: 20px"></div>
                     <div class="d-flex">
-                        <input type="number" id="account" max="10" min="1" data-price="${vo.price }"> :<span style="color: blue" id="total">${vo.price }</span>원
+                        <input type="number" id="account" max="10" min="1" data-price="${vo.price }"> :<span style="color: blue; font-size: 9pt" id="total">${vo.price }</span>원<p>
                         <form method="post" action="../mypage/session_insert.do">
 	                        <input type="hidden" name="sg_no" id="goods_no" value="${vo.sg_no }">
 	              			<input type="hidden" name="account" id="goods_account">
-	                        <button class="btn btn-outline-dark flex-shrink-0" type="submit">
+	                        
+	                        <button class="btn btn-outline-dark flex-shrink-0" type="submit" style="width=60px; height: 35px; font-size: 10pt;">
 	                            <i class="bi-cart-fill me-1"></i>
-	                            Add to cart
+	                                                        장바구니에 담기
 	                        </button>
 	                        <!--  <a href="../mypage/cart_list.do?sg_no=${vo.sg_no }" class="btn btn-sm btn-primary">장바구니 보기</a>-->
                         </form>
+                        
+                        
                     </div>
-                    <div style="height: 20px"></div>
+                    
+                    
+                    <div style="height: 80px"></div>
                     <button class="button button4" style="font-size: 15pt; font-weight: bold">구매하기</button>
+                    
+                   <div style="height: 40px"></div>
+					
+					<table class="w3-table w3-bordered">
+				    <tr>
+				      <td>펀딩 성공 금액</td>
+				      <td><span style="font-size: 17pt; font-weight: bold";>
+				      	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				      	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				      	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				      	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				      	<fmt:formatNumber pattern="#,###" value="${vo.success }"/></span>원
+				      </td>
+				    </tr>
+				    <tr>
+				      <td>서포터 수</td>
+				      <td><span style="font-size: 17pt; font-weight: bold";>
+				      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			      	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			      	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			      	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			      	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				      ${vo.sponsor }</span>명</td>
+				  </table>
+				  
+				  	
+				  
+
+				  
+                    
+                    
                 </div>
             </div>
 
 		<div style="height: 500px"></div>
+		
+		
 		
 		<!-- 댓글 -->
 		
