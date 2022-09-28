@@ -325,7 +325,7 @@ public class StoreController {
 	    if(Integer.parseInt(sc_no) == 4)
 	    	title = "반려 동물";
 	    
-		
+		System.out.println(rList.size());
 	    model.addAttribute("title", title);
 		model.addAttribute("rList", rList);
 		model.addAttribute("store_main_jsp", "../store/detail.jsp");

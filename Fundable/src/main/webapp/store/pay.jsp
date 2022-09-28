@@ -121,9 +121,9 @@ span.price {
     <div class="container" style="font-size: 15pt">
       <h4>상품 정보 <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
       <%-- <c:forEach var="vo" items="list"> --%>
-	      <p><a href="#">${vo.title }</a> <span class="price">${vo.price }</span></p>
+	      <p><a href="detail.do?sg_no=${vo.sg_no }">${vo.title }</a> <span class="price"><fmt:formatNumber pattern="#,###" value="${vo.price }"/>원</span></p>
 	      <hr>
-	      <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+	      <p>Total <span class="price" style="color:black"><b><fmt:formatNumber pattern="#,###" value="${vo.price }"/>원</b></span></p>
       <%-- </c:forEach>  --%>
     </div>
   </div>
@@ -150,12 +150,9 @@ span.price {
 
           <div class="col-50">
             <h3>결제 정보</h3>
-            <div class="icon-container">
-              <i class="fa fa-cc-visa" style="color:navy;"></i>
-              <i class="fa fa-cc-amex" style="color:blue;"></i>
-              <i class="fa fa-cc-mastercard" style="color:red;"></i>
-              <i class="fa fa-cc-discover" style="color:orange;"></i>
-            </div>
+            	<div style="height: 40px"></div>
+	            <label for="cname">카드 회사명</label>
+	            <input type="text" value="${uvo.bank_name }" id="name" name="name" placeholder="카드 소유자 이름을 입력하세요">
 	            <label for="cname">카드 소유자 이름</label>
 	            <input type="text" value="${uvo.name }" id="name" name="name" placeholder="카드 소유자 이름을 입력하세요">
 	            <label for="ccnum">카드 번호</label>

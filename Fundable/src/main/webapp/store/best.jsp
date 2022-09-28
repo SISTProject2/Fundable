@@ -66,12 +66,16 @@
 	                <img src="images/bronze.png" width="80" height="80">
 	             </c:if>
 	             
-	             <span style="font-size: 27pt">${s.index+1 }</span>
-	          <a href="detail.do?sg_no=${vo.sg_no }"><img src="${vo.img }" width="320" height="210" alt=""></a><p>
+	             <!-- 1-3위 순위 번호 지우기 -->
+	             <c:if test="${s.index > 2}">
+	             	<span style="font-size: 27pt">${s.index+1 }</span>
+	             </c:if>
+	             
+	          <a href="detail_before.do?sg_no=${vo.sg_no }"><img src="${vo.img }" width="320" height="210" alt=""></a><p>
 	            <figcaption>
-	              <a href="detail.do?sg_no=${sg_no }"><h2 style="font-style: regular; color: black; font-size: 12pt; font-weight: bold">${vo.title }</h2></a><p>
+	              <a href="detail_before.do?sg_no=${vo.sg_no }"><h2 style="font-style: regular; color: black; font-size: 12pt; font-weight: bold">${vo.title }</h2></a><p>
 	              <div style="font-size: 8pt">${vo.id }</div><p>
-	              <a href="detail.do?sg_no=${vo.sg_no }" style="color:black; font-size: 14pt"><fmt:formatNumber pattern="#,###" value="${vo.price }"/>원<p>
+	              <a href="detail_before.do?sg_no=${vo.sg_no }" style="color:black; font-size: 14pt"><fmt:formatNumber pattern="#,###" value="${vo.price }"/>원<p>
 	              
 	              <c:if test="${vo.rate!=0.0}">
 	              	  <p>

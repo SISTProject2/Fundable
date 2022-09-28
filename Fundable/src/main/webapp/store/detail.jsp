@@ -354,25 +354,29 @@ textarea {
     
     
     
-    <!-- Related items section-->
+    <!-- 비슷한 프로젝트 -->
     <section class="py-5 bg-light">
         <div class="container px-4 px-lg-5 mt-5 similarp">
             <h3 class="fw-bolder mb-4">비슷한 프로젝트</h3><p>  
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
               
-              <c:forEach var="svo" items="${rList }">
+              <c:forEach var="vo" items="${rList }">
                 <div class="col mb-5">
                		
 	                    <div class="card h-100 similar" style="width: 330px; height: 280px; padding: 25px">	
 	                        <!-- Product image-->
-	                        <img class="card-img-top" src="${svo.img }" alt="..." />
-	                        <!-- Product details-->
-	                        <div class="card-body p-4">
-	                            <div>
-	                                <!-- Product name-->
-	                                <h4 class="fw-bolder">${svo.title }</h4>
-	                            </div>
-	                        </div>  
+	                        
+	                        <a href="detail_before.do?sg_no=${vo.sg_no }">
+		                        <img class="card-img-top" src="${vo.img }" width="50px" height="250px"/>
+		                        </a> 
+		                        <!-- Product details-->
+		                        <div class="card-body p-4">
+		                            <div>
+		                                <!-- Product name-->
+		                                <h4 class="fw-bolder" style="color: black;">${vo.title }</h4>
+		                            </div>
+		                        </div>
+	                         
 	                    </div>
 	                    
                     
