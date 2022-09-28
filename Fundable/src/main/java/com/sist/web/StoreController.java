@@ -9,6 +9,7 @@ import java.util.Map;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,15 +17,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.sist.dao.StoreDAO;
+import com.sist.dao.*;
 import com.sist.vo.StoreVO;
 import com.sist.vo.UserVO;
+import com.sist.vo.*;
 
 @Controller
 public class StoreController {
 	
 	@Autowired
 	private StoreDAO dao;
+	
+	@Autowired
+	private UserDAO udao;
 	
 	//===========
 	
@@ -384,12 +389,33 @@ public class StoreController {
 	 
 	 // 결제
 	 @GetMapping("store/pay.do")
-	 public String store_pay(int sg_no, Model model)
+	 public String store_pay(int sg_no, Model model, HttpSession session)
 	 {
+		 String id = (String)session.getAttribute("id");
+		 UserVO uvo = udao.userData(id);
 		 
-		 StoreVO vo = dao.payInfo(sg_no);
-		 model.addAttribute("vo", vo);
+			/*
+			 * String email = (String)session.getAttribute("email"); udao.userData(email);
+			 */
+		
+		StoreVO vo = dao.payInfo(sg_no); 
+		model.addAttribute("vo", vo);
+		
 		 
+		 /*
+		  * String id=(String) session.getAttribute("id");
+			UserVO vo=dao.mypageProfile(id);
+		  */
+		 
+		 
+		 
+		 
+		 String tel = (String)session.getAttribute("tel");
+		 String name = (String)session.getAttribute("name");
+		 String addr = (String)session.getAttribute("addr");
+		 String addr_detail = (String)session.getAttribute("addr_detail");
+		 
+		 model.addAttribute("uvo", uvo);
 		 model.addAttribute("store_main_jsp", "../store/pay.jsp");
 		 
 		 return "store/store_main";

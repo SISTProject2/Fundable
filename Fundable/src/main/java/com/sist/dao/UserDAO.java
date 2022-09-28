@@ -88,4 +88,8 @@ public class UserDAO {
 	public void userDeliDelete(UserVO vo) {
 		mapper.userDeliDelete(vo);
 	}
+	
+	public UserVO userData(String id) {
+		return mapper.userData(id);
+	}
 }

@@ -120,11 +120,11 @@ span.price {
 	<div style="height: 160px"></div>
     <div class="container" style="font-size: 15pt">
       <h4>상품 정보 <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
-      <c:forEach var="vo" items="list">
+      <%-- <c:forEach var="vo" items="list"> --%>
 	      <p><a href="#">${vo.title }</a> <span class="price">${vo.price }</span></p>
 	      <hr>
 	      <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
-      </c:forEach>
+      <%-- </c:forEach>  --%>
     </div>
   </div>
 <div class="row">
@@ -137,15 +137,15 @@ span.price {
             <h3>구매자 정보</h3>
             <div style="height: 39px"></div>     
 	            <label for="fname"><i class="fa fa-user"></i> 이름</label>
-	            <input type="text" id="name" name="name" placeholder="이름을 입력하세요">
+	            <input type="text" value="${uvo.name }" id="name" name="name" placeholder="이름을 입력하세요">
 	            <label for="email"><i class="fa fa-envelope"></i> 이메일</label>
-	            <input type="text" id="email" name="email" placeholder="이메일을 입력하세요">
+	            <input type="text" value="${uvo.email }" id="email" name="email" placeholder="이메일을 입력하세요">
 	            <label for="adr"><i class="fa fa-address-card-o"></i> 주소</label>
-	            <input type="text" id="addr" name="addr" placeholder="주소를 입력하세요">
+	            <input type="text" value="${uvo.addr }" id="addr" name="addr" placeholder="주소를 입력하세요">
 	            <label for="city"><i class="fa fa-institution"></i> 상세 주소</label>
-	            <input type="text" id="addr_detail" name="addr_detail" placeholder="상세 주소를 입력하세요">
+	            <input type="text" value="${uvo.addr_detail }" id="addr_detail" name="addr_detail" placeholder="상세 주소를 입력하세요">
 	            <label for="city"><i class="fa fa-institution"></i> 전화번호</label>
-	            <input type="text" id="tel" name="tel" placeholder="전화번호를 입력하세요">
+	            <input type="text" value="${uvo.tel }" id="tel" name="tel" placeholder="전화번호를 입력하세요">
           </div>
 
           <div class="col-50">
@@ -157,11 +157,11 @@ span.price {
               <i class="fa fa-cc-discover" style="color:orange;"></i>
             </div>
 	            <label for="cname">카드 소유자 이름</label>
-	            <input type="text" id="name" name="name" placeholder="카드 소유자 이름을 입력하세요">
+	            <input type="text" value="${uvo.name }" id="name" name="name" placeholder="카드 소유자 이름을 입력하세요">
 	            <label for="ccnum">카드 번호</label>
-	            <input type="text" id="card_number" name="card_number" placeholder="카드 번호를 입력하세요">
+	            <input type="text" value="${uvo.card_number }" id="card_number" name="card_number" placeholder="카드 번호를 입력하세요">
 	            <label for="expmonth">카드 만료 날짜</label>
-	            <input type="text" id="card_date" name="card_date" placeholder="카드 만료 날짜를 입력하세요 (YY.MM.DD)">
+	            <input type="text" value="${uvo.card_date }" id="card_date" name="card_date" placeholder="카드 만료 날짜를 입력하세요 (YY.MM.DD)">
           </div>
           
           

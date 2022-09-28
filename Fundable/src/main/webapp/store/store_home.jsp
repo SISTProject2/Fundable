@@ -85,7 +85,7 @@ $(function(){
 
 <section class="py-5">
 	<h3 class="fw-bolder">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      	문구류</h3>
+      	펀더블이 추천하는 <span style="color: #000099">#문구류</span></h3>
 	<hr>
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
@@ -140,7 +140,7 @@ $(function(){
     
     <div style="height: 150px"></div>    
 	<h3 class="fw-bolder">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      	음식류</h3>
+      	유저들이 가장 많이 펀딩한 <span style="color: #000099">#음식류</span></h3>
 	<hr>
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
@@ -195,7 +195,7 @@ $(function(){
         
     <div style="height: 150px"></div>    
 	<h3 class="fw-bolder">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      	출판류</h3>
+      	평점이 높은 <span style="color: #000099">#출판류</span></h3>
 	<hr>
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">

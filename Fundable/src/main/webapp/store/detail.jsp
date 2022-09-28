@@ -176,7 +176,7 @@ textarea {
                     
                     <div style="height: 180px"></div>
                     
-                    <a href="pay.do?sg_no=${sg_no }">
+                    <a href="pay.do?sg_no=${vo.sg_no }">
                     <button class="button button4" style="font-size: 15pt; font-weight: bold">구매하기</button></a>
                    <div style="height: 70px"></div>
 					
@@ -372,11 +372,7 @@ textarea {
 	                                <!-- Product name-->
 	                                <h4 class="fw-bolder">${vo.title }</h4>
 	                            </div>
-	                        </div>
-	                        <!-- Product actions-->
-	                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-	                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">자세히 보기</a></div>
-	                        </div>    
+	                        </div>  
 	                    </div>
 	                    
                     
