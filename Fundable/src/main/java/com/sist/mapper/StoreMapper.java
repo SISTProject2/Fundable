@@ -62,9 +62,8 @@ public interface StoreMapper {
 	// 비슷한 프로젝트
 	@Select("SELECT sg_no, sc_no, rate, title, price, img, sponsor, rownum "
 			+ "FROM store_goods2_2 "
-			+ "WHERE REGEXP_LIKE(title, #{ss}) "
-			+ "AND rownum <= 4")
-	public List<StoreVO> storeSimilarProject(int ss);
+			+ "WHERE rownum <= 4 AND sc_no=#{sc_no}")
+	public List<StoreVO> storeSimilarProject(int sc_no);
 		
 	
 	

@@ -51,11 +51,10 @@ public class StoreDAO {
 	
 	
 	// 비슷한 프로젝트
-	public List<StoreVO> storeSimilarProject(int ss)
+	public List<StoreVO> storeSimilarProject(int sc_no)
 	{
-		return mapper.storeSimilarProject(ss);
+		return mapper.storeSimilarProject(sc_no);
 	}
-	
 	
 	
 	// 목록 총 페이지

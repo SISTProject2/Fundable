@@ -231,14 +231,14 @@ public class StoreController {
 	
 	// 쿠키 저장
 	@GetMapping("store/detail_before.do")
-	public String store_detail_before(int sg_no, HttpServletResponse response)
+	public String store_detail_before(int sg_no, int sc_no, HttpServletResponse response)
 	{
 		Cookie cookie = new Cookie("store" + sg_no, String.valueOf(sg_no));
 		cookie.setPath("/");
 		cookie.setMaxAge(60*60*24); // 24시간 유지
 		response.addCookie(cookie);
 		
-		return "redirect: detail.do?sg_no=" + sg_no;
+		return "redirect: detail.do?sg_no=" + sg_no + "&sc_no=" + sc_no;
 	}
 	
 	
@@ -298,7 +298,7 @@ public class StoreController {
 		//===== 비슷한 프로젝트
 		int ss = vo.getSc_no();
 		
-		List<StoreVO> rList = dao.storeSimilarProject(ss);
+		List<StoreVO> rList = dao.storeSimilarProject(Integer.parseInt(sc_no));
 		
 		
 		//====== 긴 글자 자르기
@@ -325,7 +325,7 @@ public class StoreController {
 	    if(Integer.parseInt(sc_no) == 4)
 	    	title = "반려 동물";
 	    
-		System.out.println(rList.size());
+		
 	    model.addAttribute("title", title);
 		model.addAttribute("rList", rList);
 		model.addAttribute("store_main_jsp", "../store/detail.jsp");
