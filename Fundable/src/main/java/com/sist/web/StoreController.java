@@ -393,27 +393,9 @@ public class StoreController {
 	 {
 		 String id = (String)session.getAttribute("id");
 		 UserVO uvo = udao.userData(id);
-		 
-			/*
-			 * String email = (String)session.getAttribute("email"); udao.userData(email);
-			 */
 		
 		StoreVO vo = dao.payInfo(sg_no); 
-		model.addAttribute("vo", vo);
-		
-		 
-		 /*
-		  * String id=(String) session.getAttribute("id");
-			UserVO vo=dao.mypageProfile(id);
-		  */
-		 
-		 
-		 
-		 
-		 String tel = (String)session.getAttribute("tel");
-		 String name = (String)session.getAttribute("name");
-		 String addr = (String)session.getAttribute("addr");
-		 String addr_detail = (String)session.getAttribute("addr_detail");
+		model.addAttribute("vo", vo);	
 		 
 		 model.addAttribute("uvo", uvo);
 		 model.addAttribute("store_main_jsp", "../store/pay.jsp");

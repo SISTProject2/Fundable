@@ -36,12 +36,12 @@
 </head>
 <body>
 <!-- content -->
+
 <div class="wrapper row2">
   <div id="container" class="clear">
 
     <!-- main content -->
     <div id="homepage">
-    
     
       <!-- Services -->
       
@@ -66,7 +66,7 @@
 	                <img src="images/bronze.png" width="80" height="80">
 	             </c:if>
 	             
-	             aaa
+	             <span style="font-size: 27pt">${s.index+1 }</span>
 	          <a href="detail.do?sg_no=${vo.sg_no }"><img src="${vo.img }" width="320" height="210" alt=""></a><p>
 	            <figcaption>
 	              <a href="detail.do?sg_no=${sg_no }"><h2 style="font-style: regular; color: black; font-size: 12pt; font-weight: bold">${vo.title }</h2></a><p>

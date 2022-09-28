@@ -140,7 +140,7 @@ textarea {
                 <div class="col-md-6" style="margin-bottom: 550px"><img class="card-img-top mb-5 mb-md-0" src="${vo.img }" width="100px" height="650px" alt="..." /></div>
                 <div class="col-md-6">
                     <div class="fs-5 mb-5">
-                       <span style="font-size: 22pt;">${title }</span>
+                       <span style="font-size: 17pt;">${title }</span>
                        
                        <c:if test="${vo.rate!=0.0}">
                        	<span style="float: right; font-weight: bold; font-size: 23pt"><img src="images/star.png" width="18px" height="18px">${vo.rate }</span>
@@ -151,11 +151,11 @@ textarea {
                        	
                     </div>	
                     
-                    <div class="display-5 fw-bolder" style="font-size: 27pt">${vo.title }</div>
+                    <div class="display-5 fw-bolder" style="font-size: 20pt">${vo.title }</div>
                     <div style="height: 20px"></div>
                     <div class="fs-5 mb-5">
                         
-                        <div style="float: right; font-weight: bold; font-size: 30pt"><span style="color: #000099"><fmt:formatNumber pattern="#,###" value="${vo.price }"/></span>원</div>
+                        <div style="float: right; font-weight: bold; font-size: 23pt"><span style="color: #000099"><fmt:formatNumber pattern="#,###" value="${vo.price }"/></span>원</div>
                     </div>
                     <div style="height: 20px"></div>
                     <div class="d-flex">
@@ -360,17 +360,17 @@ textarea {
             <h3 class="fw-bolder mb-4">비슷한 프로젝트</h3><p>  
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
               
-              <c:forEach var="vo" items="${rList }">
+              <c:forEach var="svo" items="${rList }">
                 <div class="col mb-5">
                		
 	                    <div class="card h-100 similar" style="width: 330px; height: 280px; padding: 25px">	
 	                        <!-- Product image-->
-	                        <img class="card-img-top" src="${vo.img }" alt="..." />
+	                        <img class="card-img-top" src="${svo.img }" alt="..." />
 	                        <!-- Product details-->
 	                        <div class="card-body p-4">
 	                            <div>
 	                                <!-- Product name-->
-	                                <h4 class="fw-bolder">${vo.title }</h4>
+	                                <h4 class="fw-bolder">${svo.title }</h4>
 	                            </div>
 	                        </div>  
 	                    </div>
@@ -380,12 +380,7 @@ textarea {
                </c:forEach>
             </div>		
             </div>
-    </section>
-    
-    
-    
-
-   
+    </section> 
     
     
     <!-- Bootstrap core JS-->
