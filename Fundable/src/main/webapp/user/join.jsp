@@ -46,6 +46,23 @@
 				}
 			})
 		});
+
+		$('#input_name').focusout(function() {
+			let input_name = $('#input_name').val();
+			if (input_name.trim() != "") {
+				$('#checkName').text("");
+				$('#checkName').css("color", "red");
+				return;
+			}
+		});
+		$('#input_pwd').focusout(function() {
+			let input_pwd = $('#input_pwd').val();
+			if (input_pwd.trim() != "") {
+				$('#checkPwd').text("");
+				$('#checkPwd').css("color", "red");
+				return;
+			}
+		});
 		
 		//전화번호 중복체크
 		$('#input_tel').focusout(function() {
@@ -103,7 +120,35 @@
 		});
 		
 
-		$('#joinBtn').click(function() {
+		$('#joinBtn2').click(function() {
+			let input_id = $('#input_id').val();
+			if (input_id.trim() == "") {
+				$("#input_id").focus();
+				$('#checkId').text("아이디를 입력하세요");
+				$('#checkId').css("color", "red");
+				return;
+			}
+			let input_pwd = $('#input_pwd').val();
+			if (input_pwd.trim() == "") {
+				$("#input_pwd").focus();
+				$('#checkPwd').text("비밀번호를 입력하세요");
+				$('#checkPwd').css("color", "red");
+				return;
+			}
+			let input_name = $('#input_name').val();
+			if (input_name.trim() == "") {
+				$("#input_name").focus();
+				$('#checkName').text("이름을 입력하세요");
+				$('#checkName').css("color", "red");
+				return;
+			}
+			let input_tel = $('#input_tel').val();
+			if (input_tel.trim() == "") {
+				$("#input_tel").focus();
+				$('#checkTel').text("핸드폰번호를 입력하세요");
+				$('#checkTel').css("color", "red");
+				return;
+			}
 			// 체크(유효성 검사)
 			//비밀번호 유효성 검사 패턴식 찾아서 하기 jsp
 			$('#join_frm').submit(); //<input type=submit>
@@ -174,13 +219,15 @@ function kakaoLogout() {
 					</p>
 					<div class="pwd_eye">
 						<input class="eye" type="password"
-							placeholder="비밀번호 (영문, 숫자, 특수문자 조합 최소 8자)" id="eye" name="pwd">
+							placeholder="비밀번호 (영문, 숫자, 특수문자 조합 최소 8자)" id="input_pwd" name="pwd">
+						<font id="checkPwd" size="2" style="display: block; margin: 10px;"></font>
 					</div>
 					
 					<p>
 						<label class="join_label">이름</label>
 					</p>
-					<input type="text" placeholder="ex)홍길동" name="name">
+					<input type="text" placeholder="ex)홍길동" name="name" id="input_name">
+					<font id="checkName" size="2" style="display: block; margin: 10px;"></font>
 
 					<p>
 						<label class="join_label">핸드폰번호</label>
@@ -204,7 +251,7 @@ function kakaoLogout() {
 
 				</div>
 				<div>
-					<input class="join_submit" type="submit" value="회원가입" id="joinBtn" style="font-size: 14px;">
+					<input class="join_submit" type="button" value="회원가입" id="joinBtn2" style="font-size: 14px;">
 				</div>
 				<div>
 					<input class="join_submit_k" onclick="kakaoLogin();" class="kakao" type="submit"
