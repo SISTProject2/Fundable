@@ -83,6 +83,12 @@ public class FundingGoodsController {
 		for(FundingGoodsVO vo:cList) {
 			String category=dao.fundingCategoryData(vo.getFc_no());
 			String id=dao.fundingIdData(vo.getUser_no());
+			
+			String t=vo.getTitle();
+			if(t.length()>25) {
+				t=t.substring(0, 25)+"...";
+				vo.setTitle(t);
+			}
 			vo.setCategory(category);
 			vo.setId(id);
 		}

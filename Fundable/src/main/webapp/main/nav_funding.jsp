@@ -71,6 +71,9 @@ $(function(){
                             </div> -->           
                         </li>
                         <li class='MultiItem'>
+                            <a class="MultiLink" href='../funding/home.do' style="font-size: 20px; cursor: pointer;">홈</a>
+                        </li>
+                        <li class='MultiItem'>
                             <a class="MultiLink" href='../funding/soon_list.do' style="font-size: 20px; cursor: pointer;">펀딩 예정</a>
                         </li>
                         <li class='MultiItem'>
