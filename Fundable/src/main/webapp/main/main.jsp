@@ -40,19 +40,19 @@
         <div class="u-clearfix u-gutter-0 u-layout-wrap u-layout-wrap-1">
           <div class="u-layout">
             <div class="u-layout-row">
-              <div class="u-align-right u-container-style u-layout-cell u-left-cell u-size-20 u-layout-cell-1">
+              <!-- <div class="u-align-right u-container-style u-layout-cell u-left-cell u-size-20 u-layout-cell-1">
                 <div class="u-container-layout u-valign-middle u-container-layout-2">
-                  <a href="../funding/soon_list.do" class="u-active-palette-4-light-1 u-border-2 u-border-active-palette-4-base u-border-hover-palette-4-base u-border-palette-4-base u-btn u-btn-round u-button-style u-hover-palette-4-light-1 u-palette-4-light-1 u-radius-50 u-text-active-black u-text-body-color u-text-hover-black u-btn-1">펀딩(예정)</a>
+                  <a href="../funding/soon_list.do" class="u-active-palette-4-light-1 u-border-2 u-border-active-palette-4-base u-border-hover-palette-4-base u-border-palette-4-base u-btn u-btn-round u-button-style u-hover-palette-4-light-1 u-palette-4-light-1 u-radius-50 u-text-active-black u-text-body-color u-text-hover-black u-btn-1">펀딩</a>
+                </div>
+              </div> -->
+              <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-1">
+                <div class="u-container-layout u-valign-middle u-container-layout-2">
+                  <a href="../funding/home.do" class="u-active-palette-4-light-1 u-border-2 u-border-active-palette-4-dark-1 u-border-hover-palette-4-dark-1 u-border-palette-4-base u-btn u-btn-round u-button-style u-hover-palette-4-light-1 u-palette-4-light-1 u-radius-50 u-text-active-black u-text-hover-black u-btn-2" style="width: 80%;">펀딩</a>
                 </div>
               </div>
-              <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-20 u-layout-cell-2">
+              <div class="u-container-style u-layout-cell u-shape-rectangle u-size-30 u-layout-cell-2">
                 <div class="u-container-layout u-valign-middle u-container-layout-3">
-                  <a href="../funding/list.do" class="u-active-palette-4-light-1 u-border-2 u-border-active-palette-4-dark-1 u-border-hover-palette-4-dark-1 u-border-palette-4-base u-btn u-btn-round u-button-style u-hover-palette-4-light-1 u-palette-4-light-1 u-radius-50 u-text-active-black u-text-hover-black u-btn-2">펀딩(진행중)</a>
-                </div>
-              </div>
-              <div class="u-container-style u-layout-cell u-shape-rectangle u-size-20 u-layout-cell-3">
-                <div class="u-container-layout u-valign-middle u-container-layout-4">
-                  <a href="../store/store_main.do" class="u-active-palette-4-light-1 u-border-2 u-border-active-palette-4-dark-1 u-border-hover-palette-4-dark-1 u-border-palette-4-base u-btn u-btn-round u-button-style u-hover-palette-4-light-1 u-palette-4-light-1 u-radius-50 u-text-active-black u-text-body-color u-text-hover-black u-btn-3">스토어</a>
+                  <a href="../store/store_main.do" class="u-active-palette-4-light-1 u-border-2 u-border-active-palette-4-dark-1 u-border-hover-palette-4-dark-1 u-border-palette-4-base u-btn u-btn-round u-button-style u-hover-palette-4-light-1 u-palette-4-light-1 u-radius-50 u-text-active-black u-text-body-color u-text-hover-black u-btn-3" style="width: 80%;">스토어</a>
                 </div>
               </div>
             </div>

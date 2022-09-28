@@ -157,7 +157,7 @@
                 <div style="width: 100%" class="info">
                   <h3 class="u-custom-font u-font-open-sans u-text u-text-palette-2-base u-text-5" style="display: inline; margin: 0px;"><div class="rate" style="display:inline;" :data-no="vo.fg_no">{{vo.rate}}</div>% &nbsp;</h3>
                   <h3 class="u-custom-font u-font-open-sans u-text u-text-5" style="display: inline; margin: 0px; color: black; font-weight: 500; font-size: 1.0rem;" :key="vo.now_amount">{{vo.now_amount | comma}}원</h3>
-                  <h3 class="u-custom-font u-font-open-sans u-text u-text-5" style="display: inline; margin: 0px; float: right; color: gray; font-size: 1.0rem;">{{vo.left_day}}일 남음</h3>
+                  <h3 class="u-custom-font u-font-open-sans u-text u-text-5" style="display: inline; margin: 0px; float: right; color: gray; font-size: 1.0rem;">{{vo.leftday}}일 남음</h3>
                 </div>
                 <div style="height: 10px;"></div>
                 <div class="progress">

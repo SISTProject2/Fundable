@@ -176,7 +176,7 @@ function kakaoLogout() {
     					alert("비밀번호가 틀립니다")
     					this.pwd="";
     				} else {
-    					location.href="../main/main2.do";
+    					location.href="../funding/home.do";
     				}
     				console.log(ck);
     			})

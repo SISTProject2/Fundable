@@ -33,7 +33,7 @@ public class UserController {
 	public String user_logout(HttpSession session) {
 		session.invalidate();
 		
-		return "redirect:../main/main2.do";
+		return "redirect:../funding/home.do";
 	}
 	
 	@GetMapping("user/join.do")
@@ -49,7 +49,7 @@ public class UserController {
 		vo.setPwd(en);
 		dao.userJoinInsert(vo);
 		
-		return "redirect:../main/main2.do";
+		return "redirect:../funding/home.do";
 	}
 	
 	@PostMapping("user/id_check.do")

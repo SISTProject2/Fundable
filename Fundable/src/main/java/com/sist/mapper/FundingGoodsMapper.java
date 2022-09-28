@@ -41,4 +41,25 @@ public interface FundingGoodsMapper {
 	
 	@Select("SELECT COUNT(*) FROM funding_goods2_2 WHERE open_date<=SYSDATE")
 	public int fundingCount();
+	
+	@Select("SELECT fg_no, title, img, user_no, CEIL((now_amount/goal_amount)*100) as rate, fc_no, rownum "
+			+ "FROM (SELECT fg_no, title, img, user_no, now_amount, goal_amount, fc_no "
+			+ "FROM funding_goods2_2 WHERE open_date<SYSDATE ORDER BY CEIL(now_amount/goal_amount)*100 DESC) "
+			+ "WHERE rownum <=8")
+	public List<FundingGoodsVO> fundingMainPop();
+
+	@Select("SELECT fg_no, title, img, user_no, CEIL((now_amount/goal_amount)*100) as rate, fc_no, rownum "
+			+ "FROM (SELECT fg_no, title, img, user_no, now_amount, goal_amount, fc_no "
+			+ "FROM funding_goods2_2 WHERE open_date<SYSDATE ORDER BY close_date-SYSDATE ASC) "
+			+ "WHERE rownum <=8")
+	public List<FundingGoodsVO> fundingMainFin();
+	
+	@Select("SELECT fg_no, title, img, user_no, fc_no, TO_CHAR(open_date, 'YYYY/MM/DD') as dbday, rownum "
+			+ "FROM (SELECT fg_no, title, img, user_no, fc_no, open_date "
+			+ "FROM funding_goods2_2 WHERE open_date>=SYSDATE ORDER BY open_date ASC) "
+			+ "WHERE rownum <=8")
+	public List<FundingGoodsVO> fundingMainSoon();
+	
+	@Select("SELECT fg_no, title, img, user_no, CEIL((now_amount/goal_amount)*100) as rate, TO_CHAR(open_date, 'YYYY/MM/DD') as dbday, fc_no FROM funding_goods2_2 WHERE fg_no=#{fg_no}")
+	public FundingGoodsVO fundingDetailData(int fg_no);
 }

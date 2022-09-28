@@ -45,4 +45,20 @@ public class FundingGoodsDAO {
 	public int fundingCount() {
 		return mapper.fundingCount();
 	}
+	
+	public List<FundingGoodsVO> fundingMainPop() {
+		return mapper.fundingMainPop();
+	}
+	
+	public List<FundingGoodsVO> fundingMainFin() {
+		return mapper.fundingMainFin();
+	}
+	
+	public List<FundingGoodsVO> fundingMainSoon() {
+		return mapper.fundingMainSoon();
+	}
+	
+	public FundingGoodsVO fundingDetailData(int fg_no) {
+		return mapper.fundingDetailData(fg_no);
+	}
 }
