@@ -19,7 +19,7 @@ p:not(.u-text-variant) {
 </head>
 <body>
   <div style="height: 100px;"></div>
-  <div class="container-fluid" style="width: 83%;">
+  <div class="container-fluid" style="width: 83%; display: flow-root;">
     <div class="row">
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
 	    <!-- Indicators -->

@@ -42,7 +42,7 @@ $(function(){
 </script>
 </head>
 <body>
-<section class="section">
+<section class="">
     <div class="rt-container" style="width: 100%;">
           <div class="col-rt-12">
              <nav>
