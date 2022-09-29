@@ -21,10 +21,12 @@
   <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1" style="margin-right: 50px;">
     <div class="u-custom-menu u-nav-container">
       <ul class="u-nav u-unstyled u-nav-1">
-      <c:if test="${sessionScope.admin=='n' }">  
-        <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="../register/register_main.jsp" style="padding: 10px 10px; font-weight: 700; font-size: 15px;">프로젝트 올리기</a></li>
-        <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="../mypage/mypage.do" style="padding: 10px 10px; font-weight: 700; font-size: 15px;">마이페이지(펀딩)</a></li>
-        <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="../mypage/cart_list.do" style="padding: 10px 10px; font-weight: 700; font-size: 15px;">마이페이지(스토어)</a></li>
+      <c:if test="${sessionScope.admin=='n' }">
+    	<li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="../register/register_main.jsp" style="padding: 10px 10px; font-weight: 700; font-size: 15px;">프로젝트 올리기</a></li>
+        <a href="../mypage/mypage.do"><img src="../css/img/funding4.png" style="height: 65px; width: 65px"></a>
+        <a href="../mypage/cart_list.do"><img src="../css/img/store3.png" style="height: 65px; width: 65px"></a> 
+                 
+        <!-- <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="../register/register_main.jsp" style="padding: 10px 10px; font-weight: 700; font-size: 15px;">프로젝트 올리기</a></li> -->       
 	  </c:if>
       <c:if test="${sessionScope.admin=='y' }">
         <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="../admin/user_list.do" style="padding: 10px 10px; font-weight: 700; font-size: 15px;">관리자 페이지</a></li>

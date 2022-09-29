@@ -391,16 +391,17 @@ public class StoreController {
 	 @GetMapping("store/pay.do")
 	 public String store_pay(int sg_no, Model model, HttpSession session)
 	 {
-		 String id = (String)session.getAttribute("id");
-		 UserVO uvo = udao.userData(id);
+		 // id 세션 가져와서
+		String id = (String)session.getAttribute("id");
+		UserVO uvo = udao.userData(id); // 해당 id의 모든 유저 데이터 불러오고 uvo 변수에 담는다
 		
-		StoreVO vo = dao.payInfo(sg_no); 
-		model.addAttribute("vo", vo);	
+		StoreVO vo = dao.payInfo(sg_no); // 상품 정보 불러와서 vo 변수에 담는다
+		model.addAttribute("vo", vo);
 		 
-		 model.addAttribute("uvo", uvo);
-		 model.addAttribute("store_main_jsp", "../store/pay.jsp");
+		model.addAttribute("uvo", uvo);
+		model.addAttribute("store_main_jsp", "../store/pay.jsp");
 		 
-		 return "store/store_main";
+		return "store/store_main";
 	 }
 	 
 	 

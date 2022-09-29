@@ -85,11 +85,7 @@ public interface StoreMapper {
 	 * @Select("SELECT user_no, id, name, email, tel, card_number, card_date, addr, addr_detail "
 	 * + "FROM user2_2 " + "WHERE id=#{id}") public UserVO payInfo(String id);
 	 */
-	@Select("SELECT sg_no, title, price, name, email, addr, addr_detail, tel, card_number, card_date, rownum "
-			+ "FROM (SELECT sg_no, title, price, name, email, addr, addr_detail, tel, card_number, card_date "
-			+ "FROM store_goods2_2, user2_2 "
-			+ "WHERE store_goods2_2.user_no = user2_2.user_no) "
-			+ "WHERE sg_no=#{sg_no}")
+	@Select("SELECT sg_no, title, price FROM store_goods2_2 WHERE sg_no=#{sg_no}")
 	public StoreVO payInfo(int sg_no);
 	
 	
