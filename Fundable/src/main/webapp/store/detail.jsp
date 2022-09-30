@@ -22,7 +22,11 @@
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
+let u = 0;
+let r = 0;
+
 $(function(){
+	
 	$('#account').change(function(){
 		let count = $(this).val();
 		let price = $(this).attr("data-price");
@@ -32,7 +36,34 @@ $(function(){
 		$('#goods_account').val(count);
 		
 	})
+	
+	
+	$('.updates').hide();
+	$('.replys').hide();
+	
+	$('.up').click(function(){
+		
+		$('.updates').hide();
+		$('.replys').hide();
+		$('.up').text("수정");
+		
+		let s_no = $(this).attr("data-no");
+		if(u == 0)
+		{
+			$('#u'+s_no).show();
+			$('#up'+s_no).text("취소");
+			u = 1;
+		}
+		else
+		{
+			$('#u' + s_no).hide();
+			$('#up' + s_no).text("수정");
+			u = 0;
+		}
+	
+	})
 })
+
 </script>
 <style type="text/css">
 .mb-md-0 {
@@ -158,6 +189,7 @@ textarea {
                         <div style="float: right; font-weight: bold; font-size: 23pt"><span style="color: #000099"><fmt:formatNumber pattern="#,###" value="${vo.price }"/></span>원</div>
                     </div>
                     <div style="height: 20px"></div>
+                    
                     <div class="d-flex">
                         <input type="number" id="account" max="10" min="1" data-price="${vo.price }"> :<span style="color: blue; font-size: 9pt" id="total">${vo.price }</span>원<p>
                         <form method="post" action="../mypage/session_insert.do">
@@ -283,31 +315,44 @@ textarea {
                         <h2>댓글(6)</h2>
                     </div>
                     
-                    <c:forEach var="vo" items="${list }">
+                    <c:forEach var="rvo" items="${list }">
 	                    <div class="card p-3">
 	                        <div class="d-flex justify-content-between align-items-center">
 	                      <div class="user d-flex flex-row align-items-center">
 	                        <img src="images/profile.jpg" width="60" class="user-img rounded-circle mr-2">
-	                        <span><small class="font-weight-bold text-primary">${vo.user_no }</small> <small class="font-weight-bold">${vo.content }</small></span>                       
+	                        <span><small class="font-weight-bold text-primary">${rvo.user_no }</small> <small class="font-weight-bold">${rvo.content }</small></span>                       
 	                      </div>
-	                      <small>${vo.dbday }</small>
+	                      <small>${rvo.dbday }</small>
 	                      </div>
 	                     <div class="action d-flex justify-content-between mt-2 align-items-center">
 	                        <div class="reply px-4">
-	                            <small>답글</small>
+	                            <small class="re" data-no="${rvo.s_no }" id="re${rvo.s_no }">답글</small>
 	                            <span class="dots"></span>
-	                            <small>수정</small>
+	                            <small class="up" data-no="${rvo.s_no } id="up${rvo.s_no }">수정</small>
 	                            <span class="dots"></span>
 	                            <small>삭제</small>                           
 	                        </div>
 	                      </div>                      
 	                    </div>
+	                    
+	                    
 	                    <form method="post" action="">
-							<span style="display: none; font-size: 15pt">
+	                    	<!-- 댓글 수정 창 -->
+							<span style="display: none; font-size: 15pt" class="updates" id="u${rvo.s_no }">
 								<textarea name="content"></textarea><div style="width: 15px"></div>
 								<input type="submit" value="댓글" class="button button5"></input>
 							</span>
 						</form>
+						
+	                    <form method="post" action="">
+	                    	<!-- 답글 창 -->
+							<span style="display: none; font-size: 15pt" class="replys">
+								<textarea name="content"></textarea><div style="width: 15px"></div>
+								<input type="submit" value="댓글" class="button button5"></input>
+							</span>
+						</form>
+						
+						
                     </c:forEach>                  
                 </div>                
             </div>          
