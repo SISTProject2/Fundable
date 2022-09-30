@@ -263,8 +263,9 @@ textarea {
 		
 		
 			
-		<form method="post" action="../store/comment_insert.do">
+		<form method="post" action="insert_ok.do?sg_no=${vo.sg_no }&sc_no=1">
 			<span style="display: flex; font-size: 15pt">
+				<input type="hidden" name="sg_no" value="${vo.sg_no }">
 				<input type="hidden" name="sc_no" value="${vo.sc_no }">
 				<input type="hidden" name="user_no" value="${vo.user_no }">
 				<img src="images/profile.jpg" style="width: 100px; height: 80px"><div style="width: 15px"></div>
@@ -281,24 +282,33 @@ textarea {
                     <div class="headings d-flex justify-content-between align-items-center mb-3">
                         <h2>댓글(6)</h2>
                     </div>
-                    <div class="card p-3">
-                        <div class="d-flex justify-content-between align-items-center">
-                      <div class="user d-flex flex-row align-items-center">
-                        <img src="images/profile.jpg" width="60" class="user-img rounded-circle mr-2">
-                        <span><small class="font-weight-bold text-primary">james_olesenn</small> <small class="font-weight-bold">Hmm, This poster looks cool</small></span>                       
-                      </div>
-                      <small>2 days ago</small>
-                      </div>
-                     <div class="action d-flex justify-content-between mt-2 align-items-center">
-                        <div class="reply px-4">
-                            <small>답글</small>
-                            <span class="dots"></span>
-                            <small>수정</small>
-                            <span class="dots"></span>
-                            <small>삭제</small>                           
-                        </div>
-                      </div>                      
-                    </div>                  
+                    
+                    <c:forEach var="vo" items="${list }">
+	                    <div class="card p-3">
+	                        <div class="d-flex justify-content-between align-items-center">
+	                      <div class="user d-flex flex-row align-items-center">
+	                        <img src="images/profile.jpg" width="60" class="user-img rounded-circle mr-2">
+	                        <span><small class="font-weight-bold text-primary">${vo.user_no }</small> <small class="font-weight-bold">${vo.content }</small></span>                       
+	                      </div>
+	                      <small>${vo.dbday }</small>
+	                      </div>
+	                     <div class="action d-flex justify-content-between mt-2 align-items-center">
+	                        <div class="reply px-4">
+	                            <small>답글</small>
+	                            <span class="dots"></span>
+	                            <small>수정</small>
+	                            <span class="dots"></span>
+	                            <small>삭제</small>                           
+	                        </div>
+	                      </div>                      
+	                    </div>
+	                    <form method="post" action="">
+							<span style="display: none; font-size: 15pt">
+								<textarea name="content"></textarea><div style="width: 15px"></div>
+								<input type="submit" value="댓글" class="button button5"></input>
+							</span>
+						</form>
+                    </c:forEach>                  
                 </div>                
             </div>          
         </div>		

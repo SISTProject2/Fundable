@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sist.dao.*;
@@ -30,6 +31,9 @@ public class StoreController {
 	
 	@Autowired
 	private UserDAO udao;
+	
+	@Autowired
+	private CommentDAO cdao;
 	
 	//===========
 	
@@ -283,13 +287,30 @@ public class StoreController {
 	
 	// 상세 페이지
 	@GetMapping("store/detail.do")
-	public String store_detail(int sg_no, String sc_no, Model model)
+	public String store_detail(String page, int sg_no, String sc_no, String s_no, Model model)
 	{
 		if(sc_no == null)
 			sc_no = "1";
 		
+		//=== 댓글 목록
+		if(page == null)
+			page = "1";
+		
+		int curpage= Integer.parseInt(page);
+		
 		Map map = new HashMap();
-		map.put("sg_no", sg_no);
+		//map.put("sc_no", sc_no);
+		map.put("start", (curpage*5)-4);
+		map.put("end", curpage*5);
+		
+		List<CommentVO> list = cdao.commentListData(map);
+		int totalpage = cdao.commentTotalPage();
+		
+		
+		model.addAttribute("curpage", curpage);
+		model.addAttribute("totalpage", totalpage);
+		model.addAttribute("list", list);
+		
 		
 		StoreVO vo = dao.storeDetailData(sg_no);
 		model.addAttribute("vo", vo);
@@ -356,13 +377,6 @@ public class StoreController {
 			vo.setTitle(s);
 		}
 		
-		
-		// 등수
-		for(int i=0; i<=15; i++)
-		{
-			
-		}
-		
 		/*
 		 * List<StoreVO> vo = dao.storeBest(map);
 		 * 
@@ -403,6 +417,25 @@ public class StoreController {
 		 
 		return "store/store_main";
 	 }
+	 
+	 
+	 
+	 // 작성 처리
+	 @PostMapping("store/insert_ok.do")
+	 public String comment_insert_ok(CommentVO vo, int sg_no, Model model, HttpSession session)
+	 {	
+		 int user_no = (int)(session.getAttribute("user_no"));
+		 vo.setUser_no(user_no);
+		 
+		 int sc_no = cdao.storeGetScno(vo.getSg_no());
+		 model.addAttribute("sc_no", sc_no);
+		 
+		 cdao.commentInsert(vo);
+		 
+		 return "redirect: detail.do?sg_no=" + sg_no;
+	 }
+	 
+	 
 	 
 	 
 	 // 검색
