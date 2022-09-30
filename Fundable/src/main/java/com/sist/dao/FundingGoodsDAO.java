@@ -61,4 +61,16 @@ public class FundingGoodsDAO {
 	public FundingGoodsVO fundingDetailData(int fg_no) {
 		return mapper.fundingDetailData(fg_no);
 	}
+	
+	public List<FundingGoodsVO> fundingCateList(Map map) {
+		return mapper.fundingCateList(map);
+	}
+	
+	public int fundingCateTotalPage(int fc_no) {
+		return mapper.fundingCateTotalPage(fc_no);
+	}
+	
+	public int fundingCateCount(int fc_no) {
+		return mapper.fundingCateCount(fc_no);
+	}
 }

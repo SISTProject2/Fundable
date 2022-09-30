@@ -90,22 +90,22 @@ $(function(){
 						</li>					     
                     </ul>                   
                 </span>
-                <div class='' id="cate" style="display:none;">
+                <div class='' id="cate" style="display:none; position: relative; z-index:1;">
                    <ul class='menu' style="padding-left: 140px; margin-top: 0px; max-width: 100%;">
                        <li class='MultiItem' style="float: left;">
-                           <a class="MultiLink" href='#'><img src="https://i.postimg.cc/5NV6ZJg3/all.png" height="54px" width="54px"></a>
+                           <a class="MultiLink" href='../funding/list.do'><img src="https://i.postimg.cc/5NV6ZJg3/all.png" height="54px" width="54px"></a>
                        </li>
                        <li class='MultiItem' style="float: left;">
-                           <a class="MultiLink" href='#'><img src="https://i.postimg.cc/FFGMQggB/stationery.png" height="54px" width="54px"></a>
+                           <a class="MultiLink" href='../funding/cate_list.do?fc_no=1'><img src="https://i.postimg.cc/FFGMQggB/stationery.png" height="54px" width="54px"></a>
                        </li>
                        <li class='MultiItem' style="float: left;">
-                           <a class="MultiLink" href='#'><img src="https://i.postimg.cc/htHF5Db4/food.png" height="54px" width="54px"></a>
+                           <a class="MultiLink" href='../funding/cate_list.do?fc_no=2'><img src="https://i.postimg.cc/htHF5Db4/food.png" height="54px" width="54px"></a>
                        </li>
                        <li class='MultiItem' style="float: left;">
-                           <a class="MultiLink" href='#'><img src="https://i.postimg.cc/cCXy9fTP/book.png" height="54px" width="54px"></a>
+                           <a class="MultiLink" href='../funding/cate_list.do?fc_no=3'><img src="https://i.postimg.cc/cCXy9fTP/book.png" height="54px" width="54px"></a>
                        </li>
                        <li class='MultiItem' style="float: left;">
-                           <a class="MultiLink" href='#'><img src="https://i.postimg.cc/rszQTWMB/pet.png" height="54px" width="54px"></a>
+                           <a class="MultiLink" href='../funding/cate_list.do?fc_no=4'><img src="https://i.postimg.cc/rszQTWMB/pet.png" height="54px" width="54px"></a>
                        </li>
                    </ul>
                 </div>                

@@ -62,4 +62,18 @@ public interface FundingGoodsMapper {
 	
 	@Select("SELECT fg_no, title, img, user_no, CEIL((now_amount/goal_amount)*100) as rate, TO_CHAR(open_date, 'YYYY/MM/DD') as dbday, fc_no FROM funding_goods2_2 WHERE fg_no=#{fg_no}")
 	public FundingGoodsVO fundingDetailData(int fg_no);
+	
+	@Select("SELECT fg_no, title, img, sponsor, CEIL(close_date-SYSDATE) as leftday, now_amount, CEIL((now_amount/goal_amount)*100) as rate, fc_no, user_no, num "
+			+ "FROM (SELECT fg_no, title, img, sponsor, close_date, now_amount, goal_amount, fc_no, user_no, rownum as num "
+			+ "FROM (SELECT fg_no, title, img, sponsor, close_date, now_amount, goal_amount, fc_no, user_no "
+			+ "FROM funding_goods2_2 WHERE open_date<SYSDATE AND fc_no=#{fc_no} ORDER BY ${order_by})) "
+			+ "WHERE num BETWEEN #{start} AND #{end}")
+	public List<FundingGoodsVO> fundingCateList(Map map);
+	
+	@Select("SELECT CEIL(COUNT(*)/12.0) FROM funding_goods2_2 WHERE open_date<=SYSDATE AND fc_no=#{fc_no}")
+	public int fundingCateTotalPage(int fc_no);
+	
+	@Select("SELECT COUNT(*) FROM funding_goods2_2 WHERE open_date<=SYSDATE AND fc_no=#{fc_no}")
+	public int fundingCateCount(int fc_no);	
+	
 }

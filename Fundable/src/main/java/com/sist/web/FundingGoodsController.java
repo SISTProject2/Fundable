@@ -116,4 +116,12 @@ public class FundingGoodsController {
 		
 		return "redirect:home.do";
 	}
+	
+	@GetMapping("funding/cate_list.do")
+	public String funding_cate_list(int fc_no, Model model) {
+		model.addAttribute("fc_no", fc_no);
+		model.addAttribute("main_jsp", "../funding/cate_list.jsp");
+		
+		return "main/main2";
+	}
 }
