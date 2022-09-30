@@ -73,9 +73,9 @@
 	             
 	          <a href="detail_before.do?sg_no=${vo.sg_no }&sc_no=${vo.sc_no}"><img src="${vo.img }" width="320" height="210" alt=""></a><p>
 	            <figcaption>
-	              <a href="detail_before.do?sg_no=${vo.sg_no }"><h2 style="font-style: regular; color: black; font-size: 12pt; font-weight: bold">${vo.title }</h2></a><p>
+	              <a href="detail_before.do?sg_no=${vo.sg_no }&sc_no=${vo.sc_no}"><h2 style="font-style: regular; color: black; font-size: 12pt; font-weight: bold">${vo.title }</h2></a><p>
 	              <div style="font-size: 8pt">${vo.id }</div><p>
-	              <a href="detail_before.do?sg_no=${vo.sg_no }" style="color:black; font-size: 14pt"><fmt:formatNumber pattern="#,###" value="${vo.price }"/>원<p>
+	              <a href="detail_before.do?sg_no=${vo.sg_no }&sc_no=${vo.sc_no}" style="color:black; font-size: 14pt"><fmt:formatNumber pattern="#,###" value="${vo.price }"/>원<p>
 	              
 	              <c:if test="${vo.rate!=0.0}">
 	              	  <p>

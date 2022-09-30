@@ -22,8 +22,7 @@
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
-let u = 0;
-let r = 0;
+
 
 $(function(){
 	
@@ -42,7 +41,7 @@ $(function(){
 	let u = 0;
 	$('.up').click(function(){
 		$('.updates').hide();
-		let sg_no = $(this).attr("data_no");
+		let sg_no = $(this).attr("data-no");
 		if(u == 0)
 		{
 			$('#update' + sg_no).show();
@@ -56,6 +55,29 @@ $(function(){
 			u = 0;
 		}
 	})
+	
+	// 답글
+	let i = 0;
+	$('.replyb').click(function(){
+		$('.replys').hide();
+		let sg_no = $(this).attr("data-no");
+		if(i == 0)
+		{
+			$('#reply' + sg_no).show();
+			$('#rebtn' + sg_no).text("취소");
+			i = 1;
+		}
+		else
+		{
+			$('#reply' + sg_no).hide();
+			$('#rebtn' + sg_no).text("답글");
+			i = 0;
+		}
+	})
+	
+	
+
+	
 
 })
 
@@ -140,6 +162,14 @@ textarea {
 
 .similar {
 	margin: 0px 20px 30px 0px;
+}
+
+.updates {
+	display: flex;
+}
+
+.replys {
+	display: flex;
 }
 
 #Home {background-color: red;}
@@ -321,7 +351,7 @@ textarea {
 	                      </div>
 	                     <div class="action d-flex justify-content-between mt-2 align-items-center">
 	                        <div class="reply px-4">
-	                            <small class="re" data-no="${rvo.s_no }" id="re${rvo.s_no }">답글</small>
+	                            <small class="replyb" data-no="${rvo.s_no }" id="rebtn${rvo.s_no }">답글</small>
 	                            <span class="dots"></span>
 	                            <small class="up" data-no="${rvo.s_no }" id="up${rvo.s_no }">수정</small>
 	                            <span class="dots"></span>
@@ -333,16 +363,16 @@ textarea {
 	                    
 	                    <form method="post" action="">
 	                    	<!-- 댓글 수정 창 -->
-							<span style="display: none; font-size: 15pt" class="updates" id="update${rvo.s_no }">
-								<textarea name="content"></textarea><div style="width: 15px"></div>
-								<input type="submit" value="댓글" class="button button5"></input>
+							<span style="display: none; font-size: 15pt;" class="updates" id="update${rvo.s_no }">
+								<textarea name="content"></textarea><div style="width: 5px"></div>
+								<input type="submit" value="댓글" class="button button5" style="size: 10px"></input>
 							</span>
 						</form>
 						
 	                    <form method="post" action="">
 	                    	<!-- 답글 창 -->
-							<span style="display: none; font-size: 15pt" class="replys">
-								<textarea name="content"></textarea><div style="width: 15px"></div>
+							<span style="display: none; font-size: 15pt" class="replys" id="reply${rvo.s_no }">
+								<textarea name="content"></textarea><div style="width: 5px"></div>
 								<input type="submit" value="댓글" class="button button5"></input>
 							</span>
 						</form>
