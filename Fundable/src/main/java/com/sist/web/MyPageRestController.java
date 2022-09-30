@@ -98,14 +98,14 @@ public class MyPageRestController {
 				k++;
 			}
 			
-//			if (list.size()==0) {
-//				JSONObject obj=new JSONObject();
-//				obj.put("curpage", 0);
-//				obj.put("totalpage", 0);
-//				System.out.println("curpage="+curpage);
-//				
-//				arr.add(obj);
-//			}
+			if (list.size()==0) {
+				JSONObject obj=new JSONObject();
+				obj.put("curpage", 0);
+				obj.put("totalpage", 0);
+				obj.put("count", 0);
+				
+				arr.add(obj);
+			}
 			
 			result=arr.toJSONString();
 		} catch(Exception ex) {}

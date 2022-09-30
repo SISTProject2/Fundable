@@ -430,7 +430,7 @@ p:not(.u-text-variant) {
 			                      <tr style="height: 45px;" v-for="vo in project_list">
 			                        <td class="u-table-cell u-table-cell-3">
 			                          <div class="u-expanded-width u-table u-table-responsive u-table-2" style="border: 1px solid darkgray; border-radius: 5px;">
-						                  <table class="u-table-entity">
+						                  <table class="u-table-entity" v-if="vo.title!=null">
 						                    <colgroup>
 						                      <col width="20%">
 						                      <col width="80%">
@@ -450,6 +450,13 @@ p:not(.u-text-variant) {
 						                      </tr>
 						                    </tbody>
 						                  </table>
+						                  <div class="u-container-layout u-container-layout-5" style="padding: 40px 20px; text-align: center;" >
+					                      <img src="../mypage/images/mark.png" style="width: 50px;"><br><br>
+					                      	<span style="color: lightgray; font-size: 18px;">
+					                      	올린 프로젝트가 없습니다.</br>
+					                      	프로젝트를 올려주세요.
+					                      	</span>
+					                    </div>
 						                </div>
 			                        </td>
 			                      </tr>
