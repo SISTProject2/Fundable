@@ -81,8 +81,8 @@ p:not(.u-text-variant) {
 	  </div>
     </div>
   </div>
-  <div class="container-fluid">
-    <div class="col-sm-9" style="padding-left: 180px; width: 70%;">
+  <div class="container-fluid" style="width: 85%;">
+    <div class="col-sm-9">
     <div style="height: 30px;"></div>
   <div style="height: 30px;"></div>  
   <div class="row">
@@ -140,26 +140,26 @@ p:not(.u-text-variant) {
   </div>
   <div style="height: 30px;"></div>  
   </div>
-  <div class="col-sm-3" style="padding-left: 50px; padding-right: 70px;">
+  <div class="col-sm-3" style="padding-left: 50px;">
   <div style="height: 80px;"></div>
   <table class="table">
       <h3 style="font-weight: 700; font-size: 20px; padding-left: 10px;">최근 본 프로젝트</h3>
 	    <c:forEach var="vo" items="${cList }" varStatus="s">
 	    <c:if test="${s.index>=0 && s.index<8 }">
 	      <tr>
-	        <td rowspan="3" style="border: none;"><img src="${vo.img }" style="width: 130px; height: 130px;"></td>
 	        <td rowspan="3" style="font-size: 20px; font-weight: 700; color: rgba(240, 80, 62, 0.9); border: none;">${s.index+1 }.</td>
+	        <td rowspan="3" style="border: none;"><img src="${vo.img }" style="width: 100px; height: 100px;"></td>
 	        <td style="border: none; padding: 0px 0px 0px 8px;"><p style="color: gray; font-weight: 700; font-size: 12px; margin-top: 10px;">${vo.category} | ${vo.id }</p></td>
 	      </tr>
 	      <tr>
-	        <td class="text-left" style="border: none;"><a href="" target="_blank" style="font-size: 18px; color: black; font-weight: 700;">${vo.title }</a></td>
+	        <td class="text-left" style="border: none;"><a href="" target="_blank" style="font-size: 16px; color: black; font-weight: 700;">${vo.title }</a></td>
 	      </tr>
 	      <tr>
 	        <c:if test="${vo.dbday>=today }">
-	          <td style="border: none;"><p style="color: #478ac9;; font-weight: 700; font-size: 16px; margin-top: 15px;">${vo.dbday } 오픈 예정</p></td>
+	          <td style="border: none;"><p style="color: #478ac9;; font-weight: 700; font-size: 14px;">${vo.dbday } 오픈 예정</p></td>
             </c:if>
             <c:if test="${vo.dbday<today }">
-	          <td style="border: none;"><p style="color: #cb3b3b; font-weight: 700; font-size: 16px; margin-top: 15px;"><fmt:formatNumber pattern="#,###" value="${vo.rate }"/>% 달성</p></td>
+	          <td style="border: none;"><p style="color: #cb3b3b; font-weight: 700; font-size: 14px;"><fmt:formatNumber pattern="#,###" value="${vo.rate }"/>% 달성</p></td>
             </c:if>
 	      </tr>
 	      </c:if>

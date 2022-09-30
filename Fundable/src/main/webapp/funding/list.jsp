@@ -110,7 +110,7 @@
 </script>
 </head>
 <body class="u-body u-xl-mode" data-lang="en">
-    <section class="u-clearfix u-section-1" id="sec-36b6" style="margin-top: 150px;">
+    <section class="u-clearfix u-section-1" id="sec-36b6" style="margin-top: 70px;">
       <div class="u-clearfix u-sheet u-sheet-1">
         <!-- <div class="u-align-right u-form u-form-1" style="width: 180px; margin-left: 1680px; margin-top:0px; margin-bottom: -10px; height: 10px;">
           <form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
@@ -134,14 +134,16 @@
           </form>
         </div> -->
         <div class="u-expanded-width u-list u-list-1">
-          <div class="dropdown">
-            <span style="margin-left: 350px; float: left;"><span style="color: red;">{{count}}</span>개의 프로젝트가 있습니다</span>
-			<input type=button v-on:click="myFunction()" class="dropbtn" value="정렬 ▼" style="cursor: pointer; float: right; margin-right: 300px;" ref="drop">
-			<div id="myDropdown" class="dropdown-content" style="width: 115px; margin-left: 1705px; margin-top: 43px;" v-show="isShow">
+          <div class="dropdown" style="width: 1530px; margin: 0px auto;">
+            <!-- <span style="margin-left: 350px;"><span style="color: red;">{{count}}</span>개의 프로젝트가 있습니다</span> -->
+			<input type=button v-on:click="myFunction()" class="dropbtn" value="정렬 ▼" style="cursor: pointer; float: right; " ref="drop">
+			<div class="row" style="width: 1530px; float: right;">
+			<div id="myDropdown" class="dropdown-content" style="width: 120px; float: right; margin-left: 1400px;" v-show="isShow">
 			  <span v-on:click="pop()" style="cursor: pointer">인기순</span>
   			  <span v-on:click="recent()" style="cursor: pointer">최신순</span>
   			  <span v-on:click="goal()" style="cursor: pointer">달성률순</span>
   			  <span v-on:click="end()" style="cursor: pointer">마감임박순</span>
+		    </div>
 		    </div>
 		  </div>
 		  <div style="height: 25px"></div>

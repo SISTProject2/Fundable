@@ -85,8 +85,8 @@ public class FundingGoodsController {
 			String id=dao.fundingIdData(vo.getUser_no());
 			
 			String t=vo.getTitle();
-			if(t.length()>25) {
-				t=t.substring(0, 25)+"...";
+			if(t.length()>20) {
+				t=t.substring(0, 20)+"...";
 				vo.setTitle(t);
 			}
 			vo.setCategory(category);

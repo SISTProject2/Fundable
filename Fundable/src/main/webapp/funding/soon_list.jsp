@@ -78,35 +78,17 @@
 </style>
 </head>
 <body class="u-body u-xl-mode" data-lang="en">
-    <section class="u-clearfix u-section-1" id="sec-36b6" style="margin-top: 150px;">
-      <div class="u-clearfix u-sheet u-sheet-1">
-<!--         <div class="u-align-right u-form u-form-1" style="width: 180px; margin-left: 1680px; margin-top:0px; margin-bottom: -10px;">
-          <form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
-            <div class="u-form-group u-form-select u-form-group-1">
-              <label for="select-2c7a" class="u-form-control-hidden u-label"></label>
-              <div class="u-form-select-wrapper">
-                <select id="select-2c7a" name="select" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" onchange="location.href=this.value">
-                  <option :value="'../funding/soon_list.do?ord=1'">인기순</option>
-                  <option :value="'../funding/soon_list.do" v-on:click="recent()">최신순</option>
-                  <option :value="'../funding/soon_list.do'" >최신순</option>
-                </select>
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
-              </div>
-            </div>
-            <div class="u-align-left u-form-group u-form-submit" style="display: none;">
-              <a href="#" class="u-btn u-btn-submit u-button-style">Submit</a>
-              <input type="submit" value="submit" class="u-form-control-hidden">
-            </div>
-            <input type="hidden" value="" name="recaptchaResponse">
-          </form>
-        </div> -->
+    <section class="u-clearfix u-section-1" id="sec-36b6" style="margin-top: 70px;">
+      <div class="u-clearfix u-sheet u-sheet-1" >
         <div class="u-expanded-width u-list u-list-1">
-          <div class="dropdown">
-            <span style="margin-left: 350px;"><span style="color: red;">{{count}}</span>개의 프로젝트가 있습니다</span>
-			<input type=button v-on:click="myFunction()" class="dropbtn" value="정렬 ▼" style="cursor: pointer; float: right; margin-right: 300px;" ref="drop">
-			<div id="myDropdown" class="dropdown-content" style="width: 100px; margin-left: 1715px; margin-top: 18px;" v-show="isShow">
+          <div class="dropdown" style="width: 1530px; margin: 0px auto;">
+            <!-- <span style="margin-left: 350px;"><span style="color: red;">{{count}}</span>개의 프로젝트가 있습니다</span> -->
+			<input type=button v-on:click="myFunction()" class="dropbtn" value="정렬 ▼" style="cursor: pointer; float: right; " ref="drop">
+			<div class="row" style="width: 1530px; float: right;">
+			<div id="myDropdown" class="dropdown-content" style="width: 100px; float: right; margin-left: 1420px;" v-show="isShow">
 			  <span v-on:click="pop()" style="cursor: pointer">인기순</span>
   			  <span v-on:click="recent()" style="cursor: pointer">최신순</span>
+			</div>
 			</div>
 		  </div>
 		  <div style="height: 25px"></div>
