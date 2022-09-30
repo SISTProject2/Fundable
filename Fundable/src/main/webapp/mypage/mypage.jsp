@@ -78,7 +78,7 @@ p:not(.u-text-variant) {
 </script>
 </head>
 <body class="u-body u-xl-mode" data-lang="en">
-    <section class="u-align-center u-clearfix u-section-1" id="sec-992d">
+    <section class="u-align-center u-clearfix u-section-1" id="sec-992d" style="margin-top: 70px;">
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1" style="margin-top: 30px;">
         <div class="u-expanded-width u-tab-links-align-center u-tabs u-tabs-1">
           <ul class="u-border-1 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-light-1 u-spacing-10 u-tab-list u-unstyled" role="tablist" style="border: none;">
@@ -87,9 +87,6 @@ p:not(.u-text-variant) {
             </li>
             <li class="u-tab-item" role="presentation">
               <a class="u-button-style u-tab-link u-text-active-palette-5-dark-3 u-text-hover-palette-5-dark-3 u-text-palette-5-light-1 u-tab-link-2 tab" id="link-tab-db87" href="#tab-db87" role="tab" aria-controls="tab-db87" aria-selected="false">펀딩</a>
-            </li>
-            <li class="u-tab-item" role="presentation">
-              <a class="u-button-style u-tab-link u-text-active-palette-5-dark-3 u-text-hover-palette-5-dark-3 u-text-palette-5-light-1 u-tab-link-3 tab" id="link-tab-b22d" href="#tab-b22d" role="tab" aria-controls="tab-b22d" aria-selected="false">스토어</a>
             </li>
           </ul>
           <div class="u-tab-content">
@@ -245,7 +242,7 @@ p:not(.u-text-variant) {
 			              </div>
 			            </div>
 			            <div class="u-container-style u-tab-pane" id="tab-22fd" role="tabpanel" aria-labelledby="link-tab-22fd">
-			              <div class="u-container-layout u-container-layout-1">
+			              <div class="u-container-layout u-valign-bottom u-container-layout-1">
 			                <div class="u-expanded-width u-table u-table-responsive u-table-2">
 			                  <table class="u-table-entity">
 			                    <colgroup>
@@ -606,7 +603,7 @@ p:not(.u-text-variant) {
 			      </div>
               </div>
             </div>
-            <div class="u-align-center u-container-style u-tab-pane u-tab-pane-3" id="tab-b22d" role="tabpanel" aria-labelledby="link-tab-b22d">
+            <%-- <div class="u-align-center u-container-style u-tab-pane u-tab-pane-3" id="tab-b22d" role="tabpanel" aria-labelledby="link-tab-b22d">
               <div class="u-container-layout u-container-layout-1">
                 <div class="u-align-left u-clearfix u-sheet u-valign-middle u-sheet-1">
 			        <div class="u-expanded-width u-tabs u-tabs-1">
@@ -824,7 +821,7 @@ p:not(.u-text-variant) {
 			        </div>
 			      </div>
               </div>
-            </div>
+            </div> --%>
           </div>
         </div>
       </div>
