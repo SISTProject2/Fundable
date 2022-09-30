@@ -302,6 +302,7 @@ public class StoreController {
 		//map.put("sc_no", sc_no);
 		map.put("start", (curpage*5)-4);
 		map.put("end", curpage*5);
+		map.put("sg_no", sg_no);
 		
 		List<CommentVO> list = cdao.commentListData(map);
 		int totalpage = cdao.commentTotalPage();

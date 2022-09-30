@@ -376,7 +376,7 @@ textarea {
 	                    <div class="card h-100 similar" style="width: 330px; height: 280px; padding: 25px">	
 	                        <!-- Product image-->
 	                        
-	                        <a href="detail_before.do?sg_no=${vo.sg_no }">
+	                        <a href="detail_before.do?sg_no=${vo.sg_no }&sc_no=${vo.sc_no}">
 		                        <img class="card-img-top" src="${vo.img }" width="50px" height="250px"/>
 		                        </a> 
 		                        <!-- Product details-->

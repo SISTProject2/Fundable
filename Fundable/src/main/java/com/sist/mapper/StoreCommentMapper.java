@@ -16,7 +16,7 @@ public interface StoreCommentMapper {
 	@Select("SELECT s_no, content, TO_CHAR(c_date, 'YYYY-MM-DD') as dbday, img, user_no, sg_no, group_id, group_step, group_tab, root, depth, num "
 			+ "FROM (SELECT s_no, content, c_date, img, user_no, sg_no, group_id, group_step, group_tab, root, depth, rownum as num "
 			+ "FROM (SELECT s_no, content, c_date, img, user_no, sg_no, group_id, group_step, group_tab, root, depth "
-			+ "FROM store_comment2_2 ORDER BY s_no DESC )) "
+			+ "FROM store_comment2_2 WHERE sg_no=#{sg_no} ORDER BY s_no DESC ))"
 			+ "WHERE num BETWEEN #{start} AND #{end}" )
 	public List<CommentVO> commentListData(Map map);
 	

@@ -71,7 +71,7 @@
 	             	<span style="font-size: 27pt">${s.index+1 }</span>
 	             </c:if>
 	             
-	          <a href="detail_before.do?sg_no=${vo.sg_no }"><img src="${vo.img }" width="320" height="210" alt=""></a><p>
+	          <a href="detail_before.do?sg_no=${vo.sg_no }&sc_no=${vo.sc_no}"><img src="${vo.img }" width="320" height="210" alt=""></a><p>
 	            <figcaption>
 	              <a href="detail_before.do?sg_no=${vo.sg_no }"><h2 style="font-style: regular; color: black; font-size: 12pt; font-weight: bold">${vo.title }</h2></a><p>
 	              <div style="font-size: 8pt">${vo.id }</div><p>
