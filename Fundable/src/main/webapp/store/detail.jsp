@@ -38,30 +38,25 @@ $(function(){
 	})
 	
 	
-	$('.updates').hide();
-	$('.replys').hide();
-	
+	// 수정
+	let u = 0;
 	$('.up').click(function(){
-		
 		$('.updates').hide();
-		$('.replys').hide();
-		$('.up').text("수정");
-		
-		let s_no = $(this).attr("data-no");
+		let sg_no = $(this).attr("data_no");
 		if(u == 0)
 		{
-			$('#u'+s_no).show();
-			$('#up'+s_no).text("취소");
+			$('#update' + sg_no).show();
+			$('#up' + sg_no).text("취소")
 			u = 1;
 		}
 		else
 		{
-			$('#u' + s_no).hide();
-			$('#up' + s_no).text("수정");
+			$('#update' + sg_no).hide();
+			$('#up' + sg_no).text("수정")
 			u = 0;
 		}
-	
 	})
+
 })
 
 </script>
@@ -328,7 +323,7 @@ textarea {
 	                        <div class="reply px-4">
 	                            <small class="re" data-no="${rvo.s_no }" id="re${rvo.s_no }">답글</small>
 	                            <span class="dots"></span>
-	                            <small class="up" data-no="${rvo.s_no } id="up${rvo.s_no }">수정</small>
+	                            <small class="up" data-no="${rvo.s_no }" id="up${rvo.s_no }">수정</small>
 	                            <span class="dots"></span>
 	                            <small>삭제</small>                           
 	                        </div>
@@ -338,7 +333,7 @@ textarea {
 	                    
 	                    <form method="post" action="">
 	                    	<!-- 댓글 수정 창 -->
-							<span style="display: none; font-size: 15pt" class="updates" id="u${rvo.s_no }">
+							<span style="display: none; font-size: 15pt" class="updates" id="update${rvo.s_no }">
 								<textarea name="content"></textarea><div style="width: 15px"></div>
 								<input type="submit" value="댓글" class="button button5"></input>
 							</span>
