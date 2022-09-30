@@ -91,11 +91,21 @@ public class MyPageRestController {
 					obj.put("curpage", curpage);
 					obj.put("totalpage", totalpage);
 					obj.put("count", count);
+					System.out.println("curpage="+curpage);
 				}
 				
 				arr.add(obj);
 				k++;
 			}
+			
+//			if (list.size()==0) {
+//				JSONObject obj=new JSONObject();
+//				obj.put("curpage", 0);
+//				obj.put("totalpage", 0);
+//				System.out.println("curpage="+curpage);
+//				
+//				arr.add(obj);
+//			}
 			
 			result=arr.toJSONString();
 		} catch(Exception ex) {}
