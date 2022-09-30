@@ -450,7 +450,7 @@ p:not(.u-text-variant) {
 						                      </tr>
 						                    </tbody>
 						                  </table>
-						                  <div class="u-container-layout u-container-layout-5" style="padding: 40px 20px; text-align: center;" >
+						                  <div class="u-container-layout u-container-layout-5" style="padding: 40px 20px; text-align: center;" v-if="vo.title===null">
 					                      <img src="../mypage/images/mark.png" style="width: 50px;"><br><br>
 					                      	<span style="color: lightgray; font-size: 18px;">
 					                      	올린 프로젝트가 없습니다.</br>
