@@ -287,7 +287,7 @@ public class StoreController {
 	
 	// 상세 페이지
 	@GetMapping("store/detail.do")
-	public String store_detail(String page, int sg_no, String sc_no, String s_no, Model model)
+	public String store_detail(CommentVO vo2, String page, int sg_no, String sc_no, String s_no, Model model)
 	{
 		if(sc_no == null)
 			sc_no = "1";
@@ -306,6 +306,11 @@ public class StoreController {
 		
 		List<CommentVO> list = cdao.commentListData(map);
 		int totalpage = cdao.commentTotalPage();
+		
+		//== id
+		String id = cdao.idSelectData(vo2.getUser_no());
+		model.addAttribute("id", id);
+		
 		
 		
 		model.addAttribute("curpage", curpage);

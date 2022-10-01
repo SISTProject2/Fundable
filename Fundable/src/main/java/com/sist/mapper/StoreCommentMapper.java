@@ -36,4 +36,7 @@ public interface StoreCommentMapper {
 	
 	@Select("SELECT sc_no FROM store_goods2_2 WHERE sg_no=#{sg_no}")
 	public int storeGetScno(int sg_no);
+	
+	@Select("SELECT id FROM user2_2 WHERE user_no=#{user_no}")
+	public String idSelectData(int user_no);
 }

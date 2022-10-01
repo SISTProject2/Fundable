@@ -34,4 +34,9 @@ public class CommentDAO {
 	public int storeGetScno(int sg_no) {
 		return mapper.storeGetScno(sg_no);
 	}
+	
+	public String idSelectData(int user_no)
+	{
+		return mapper.idSelectData(user_no);
+	}
 }

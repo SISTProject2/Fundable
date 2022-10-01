@@ -345,7 +345,7 @@ textarea {
 	                        <div class="d-flex justify-content-between align-items-center">
 	                      <div class="user d-flex flex-row align-items-center">
 	                        <img src="images/profile.jpg" width="60" class="user-img rounded-circle mr-2">
-	                        <span><small class="font-weight-bold text-primary">${rvo.user_no }</small> <small class="font-weight-bold">${rvo.content }</small></span>                       
+	                        <span><small class="font-weight-bold text-primary">${id }</small> <small class="font-weight-bold">${rvo.content }</small></span>                       
 	                      </div>
 	                      <small>${rvo.dbday }</small>
 	                      </div>
