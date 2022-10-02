@@ -178,4 +178,41 @@ public class MyPageController {
 		return "redirect: cart_list.do?sg_no=" + sg_no;
 	}
 	
+	
+	
+	// 올린 프로젝트
+	@GetMapping("mypage/myproject.do")
+	public String mypage_myproject(String page, Model model, HttpSession session)
+	{
+		
+		int user_no = (int)(session.getAttribute("user_no"));
+		
+		if(page == null)
+			page = "1";
+		
+		int curpage = Integer.parseInt(page);
+		int totalpage = dao.myStoreProjectTotalPage();
+		int count = dao.myStoreProjectCount(user_no);
+		
+		Map map = new HashMap();
+		int rowSize = 12;
+		int start = (rowSize*curpage)-(rowSize-1);
+		int end = rowSize*curpage;
+		
+		map.put("start", start);
+		map.put("end", end);
+		map.put("user_no", user_no);
+		
+		List<StoreVO> list = dao.myProjectList(map);
+		
+		model.addAttribute("curpage", curpage);
+		model.addAttribute("totalpage", totalpage);
+		model.addAttribute("list", list);
+		model.addAttribute("user_no", user_no);
+		model.addAttribute("count", count);
+		
+		
+		return "mypage/myproject";
+	}
+	
 }

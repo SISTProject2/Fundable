@@ -66,4 +66,25 @@ public interface MyPageMapper {
 	@Select("SELECT id FROM user2_2 WHERE user_no=#{user_no}")
 	public String IdSelectData(int user_no);
 	
+	
+	// 올린 프로젝트
+	@Select("SELECT sg_no, title, price, img, sponsor, rate, num "
+			+ "FROM (SELECT sg_no, title, price, img, sponsor, rate, rownum as num "
+			+ "FROM (SELECT sg_no, title, price, img, sponsor, rate "
+			+ "FROM store_goods2_2 WHERE user_no=#{user_no} ORDER BY open_date ASC)) "
+			+ "WHERE num BETWEEN #{start} AND #{end}")
+	public List<StoreVO> myProjectList(Map map);
+	
+	
+	// 올린 프로젝트 총 페이지 
+	@Select("SELECT CEIL(COUNT(*)/12.0) FROM store_goods2_2")
+	public int myStoreProjectTotalPage();
+	
+	
+	// 올린 프로젝트 개수
+	@Select("SELECT COUNT(*) FROM funding_goods2_2 WHERE user_no=#{user_no}")
+	public int myStoreProjectCount(int user_no);
+
+	
+	
 }

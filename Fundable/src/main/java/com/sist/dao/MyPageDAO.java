@@ -10,6 +10,7 @@ import com.sist.mapper.MyPageMapper;
 import com.sist.vo.FundingGoodsVO;
 import com.sist.vo.LikeVO;
 import com.sist.vo.PayHistoryVO;
+import com.sist.vo.StoreVO;
 import com.sist.vo.UserVO;
 
 @Repository
@@ -72,6 +73,21 @@ public class MyPageDAO {
 	public String IdSelectData(int user_no)
 	{
 		return mapper.IdSelectData(user_no);
+	}
+	
+	public List<StoreVO> myProjectList(Map map)
+	{
+		return mapper.myProjectList(map);
+	}
+	
+	public int myStoreProjectTotalPage()
+	{
+		return mapper.myStoreProjectTotalPage();
+	}
+	
+	public int myStoreProjectCount(int user_no)
+	{
+		return mapper.myStoreProjectCount(user_no);
 	}
 	
 }
