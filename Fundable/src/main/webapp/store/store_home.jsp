@@ -8,6 +8,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&family=Nanum+Gothic:wght@700&family=Noto+Sans+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&family=Noto+Sans+KR:wght@700&family=Noto+Sans+Mono&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="css/layout2.css" type="text/css">
 <link rel="stylesheet" href="css/home.css" type="text/css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
@@ -34,6 +40,15 @@
 	margin:20px 50px 50px 120px;
 	border-radius: 25px;
 }
+a {
+	text-decoration-line: none;
+}
+
+.cards {
+	justify-content: center;
+	font-family: 'Noto Sans Mono', monospace;
+}
+
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
@@ -68,20 +83,95 @@ $(function(){
    <!--  <section id="slider" style="margin-top: 100px;"><a href="#"><img src="images/slider2.png" alt=""></a></section> -->
 
 <div style="height: 100px"></div>
- <div class="w3-content w3-display-container" style="max-width:1400px">
-  <img class="mySlides" src="images/002.png" style="width:100%">
-  <img class="mySlides" src="images/003.png" style="width:100%">
-  <img class="mySlides" src="images/004.png" style="width:100%">
-  <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
-    <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
-    <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
-    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
-    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
-    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
-  </div>
-</div> 
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="images/002.png"  style="width:100%;">
+      </div>
+
+      <div class="item">
+        <img src="images/003.png"  style="width:100%;">
+      </div>
+    
+      <div class="item">
+        <img src="images/004.png"  style="width:100%;">
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div> 
 
 <div style="height: 140px"></div>
+
+
+<span class="cards" style="display: flex;">
+
+<!-- 펀딩 뉴스 -->
+<div class="w3-card w3-margin">
+	<div style="height: 20px"></div>
+    <div class="w3-container w3-padding">
+      <h3>
+      <span>#펀더블은&nbsp;</span>
+      <span>#지금&nbsp;</span>
+      <span>#On-Media</span>
+      </h3>
+      ${now } 기준
+    </div>
+    <ul class="w3-ul w3-hoverable w3-white">
+      <li class="w3-padding-16">
+      	<c:forEach var="nvo" items="${newsList }" varStatus="s">
+        <span class="w3-large">
+		<a href="${nvo.link }" target="_blank">${s.index+1 }.&nbsp;<span style="color: black;">${nvo.title }</span></a></span><br>
+        </c:forEach>
+      </li> 
+    </ul>
+  </div>
+  
+<!-- 인기 상품 -->
+<div class="w3-card w3-margin">
+	<div style="height: 20px"></div>
+    <div class="w3-container w3-padding">
+      <h3>
+      <span>#가장많이본&nbsp;</span>
+      <span>#실시간</span>
+      <span>#인기상품</span>
+      </h3>
+      ${now } 기준
+    </div>
+    <ul class="w3-ul w3-hoverable w3-white">
+      <li class="w3-padding-16">
+      	<c:forEach var="vo" items="${slist }" varStatus="s">
+      		<c:if test="${s.index>=0 && s.index<10 }">
+		        <span class="w3-large">
+				<a href="detail_before.do?sg_no=${vo.sg_no }&sc_no=${vo.sc_no}" target="_blank">${s.index+1 }.&nbsp;<span style="color: black;">${vo.title }</span></a></span><br>
+        	</c:if>
+        </c:forEach>
+      </li> 
+    </ul>
+  </div>
+
+
+
+  </span>
+
+
+
 
 <section class="py-5">
 	<h3 class="fw-bolder">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

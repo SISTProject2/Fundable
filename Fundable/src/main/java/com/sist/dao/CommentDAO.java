@@ -39,4 +39,9 @@ public class CommentDAO {
 	{
 		return mapper.idSelectData(user_no);
 	}
+	
+	public void commentUpdate(CommentVO vo)
+	{
+		mapper.commentUpdate(vo);
+	}
 }

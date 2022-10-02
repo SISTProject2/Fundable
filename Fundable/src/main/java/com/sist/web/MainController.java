@@ -18,6 +18,9 @@ public class MainController {
 
 	@Autowired
 	private MainDAO dao;
+	
+	@Autowired
+	private StoreDAO sdao;
 	//==
 	
     
@@ -51,6 +54,30 @@ public class MainController {
     	model.addAttribute("list2", list2);
     	model.addAttribute("list3", list3);
     	model.addAttribute("list4", list4);
+    	
+    	
+    	//== 인기상품
+    	
+    	Map map2 = new HashMap();
+		 
+		 List<StoreVO> slist = sdao.storeBest(map);
+		 
+		 
+		//== 긴 글자 자르기
+		for(StoreVO vo:slist)
+		{
+			String s = vo.getTitle();
+			if(s.length() > 37)
+			{
+				s = s.substring(0, 37) + "....";
+				vo.setTitle(s);
+			}
+			vo.setTitle(s);
+		}
+		
+		model.addAttribute("slist", slist);
+    	
+    	
     	model.addAttribute("store_main_jsp", "../store/store_home.jsp");
     	
     	return "store/store_main";

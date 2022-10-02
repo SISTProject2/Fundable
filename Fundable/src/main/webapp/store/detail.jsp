@@ -361,11 +361,11 @@ textarea {
 	                    </div>
 	                    
 	                    
-	                    <form method="post" action="">
+	                    <form method="post" action="update_ok.do?sg_no=${vo.sg_no }&sc_no=1">
 	                    	<!-- 댓글 수정 창 -->
 							<span style="display: none; font-size: 15pt;" class="updates" id="update${rvo.s_no }">
-								<textarea name="content"></textarea><div style="width: 5px"></div>
-								<input type="submit" value="댓글" class="button button5" style="size: 10px"></input>
+								<textarea name="content">${rvo.content }</textarea><div style="width: 5px"></div>
+								<input type="submit" value="수정" class="button button5" style="size: 10px"></input>
 							</span>
 						</form>
 						

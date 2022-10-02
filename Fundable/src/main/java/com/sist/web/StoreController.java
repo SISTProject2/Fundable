@@ -443,6 +443,25 @@ public class StoreController {
 	 
 	 
 	 
+	 // 수정 처리
+	 @PostMapping("store/update_ok.do")
+	 public String comment_reply(CommentVO vo, int sg_no, Model model, HttpSession session, String content)
+	 {
+		 int user_no = (int)(session.getAttribute("user_no"));
+		 vo.setUser_no(user_no);
+		 vo.setContent(content);
+		 
+		 int sc_no = cdao.storeGetScno(vo.getSg_no());
+		 model.addAttribute("sc_no", sc_no);
+		 
+		 
+		 cdao.commentUpdate(vo);
+		 
+		 return "redirect: detail.do?sg_no=" + vo.getSg_no();
+	 }
+	 
+	 
+	 
 	 
 	 // 검색
 	 /*@RequestMapping("store/find.do")

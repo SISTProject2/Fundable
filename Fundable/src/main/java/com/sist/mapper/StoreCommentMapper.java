@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectKey;
+import org.apache.ibatis.annotations.Update;
 
 import com.sist.vo.CommentVO;
 
@@ -39,4 +40,9 @@ public interface StoreCommentMapper {
 	
 	@Select("SELECT id FROM user2_2 WHERE user_no=#{user_no}")
 	public String idSelectData(int user_no);
+	
+	
+	// 댓글 수정
+	@Update("UPDATE store_comment2_2 SET content=#{content} WHERE s_no=#{s_no}")
+	public void commentUpdate(CommentVO vo);
 }

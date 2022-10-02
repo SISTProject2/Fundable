@@ -81,7 +81,7 @@ $(function(){
                         </li>
                         <li class='MultiItem'>
                             <a class="MultiLink" href='../store/find.do' style="font-size: 20px; cursor: pointer;">상품 검색</a>                           
-                        </li>				     
+                        </li>				     			     
                     </ul>                   
                 </span>
                 <div class='' id="cate" style="display:none;">
