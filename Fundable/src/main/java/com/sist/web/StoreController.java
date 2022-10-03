@@ -304,18 +304,41 @@ public class StoreController {
 		map.put("end", curpage*5);
 		map.put("sg_no", sg_no);
 		
+		int rowSize = 5;
+		int start = (rowSize*curpage)-(rowSize-1);
+		int end = rowSize*curpage;
+		
+		// 댓글 목록
 		List<CommentVO> list = cdao.commentListData(map);
+		
+		// 댓글 총 페이지
 		int totalpage = cdao.commentTotalPage();
 		
-		//== id
-		String id = cdao.idSelectData(vo2.getUser_no());
-		model.addAttribute("id", id);
 		
+		// 블록 나누기
+		final int BLOCK = 10;
+		int startPage = ((curpage-1) / BLOCK*BLOCK)+1;
+		int endPage = ((curpage-1)/BLOCK*BLOCK) + BLOCK;
 		
+		if(endPage > totalpage) endPage = totalpage;
 		
 		model.addAttribute("curpage", curpage);
 		model.addAttribute("totalpage", totalpage);
+		model.addAttribute("startPage", startPage);
+		model.addAttribute("endPage", endPage);
 		model.addAttribute("list", list);
+		
+		
+		
+		//== id 가져오기 => 댓글 작성자
+		/*
+		 * String id = cdao.idSelectData(vo2.getUser_no()); model.addAttribute("id",
+		 * id);
+		 */
+		
+		
+		
+		
 		
 		
 		StoreVO vo = dao.storeDetailData(sg_no);

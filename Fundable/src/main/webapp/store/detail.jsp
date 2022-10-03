@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/reply.css">
 <link rel="stylesheet" href="css/profile.css">
+<link rel="stylesheet" href="css/tabs.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -175,6 +176,9 @@ textarea {
 #Home {background-color: red;}
 #News {background-color: green;}
 
+a { 
+	text-decoration:none !important 
+}
 
 
 </style>
@@ -186,6 +190,7 @@ textarea {
  <link href="css/styles.css" rel="stylesheet" />
 </head>
 <body>
+	<div style="height: 40px"></div>
     <!-- Product section-->
     <div style="height: 60px"></div>
     <section class="py-5">
@@ -230,8 +235,28 @@ textarea {
                         
                     </div>
                     
+                    <div style="height: 100px"></div>
                     
-                    <div style="height: 180px"></div>
+                    <!-- 배송 정보 -->
+                    <table class="w3-table w3-bordered">
+					    <tr>
+					      <td>
+					      	<img src="images/storee3.png" style="width: 35px; height: 35px">
+					      	<span style="font-weight: bold; font-size: 14pt">스토어 상품</span>&nbsp;&nbsp; ✔서포터가 인정한 ✔즉시 구매 가능한
+					      </td>
+					    </tr>
+					    <tr>
+					      <td>
+					      	<img src="images/car.png" style="width: 30px; height: 30px">
+					      	구매 후 2일 내 발송(주말, 공휴일 제외)
+					      </td>
+					    </tr>
+					    <tr>
+					      <td>배송비 무료</td>
+				  	</table>
+                    
+                    
+                    <div style="height: 60px"></div>
                     
                     <a href="pay.do?sg_no=${vo.sg_no }">
                     <button class="button button4" style="font-size: 15pt; font-weight: bold">구매하기</button></a>
@@ -267,7 +292,7 @@ textarea {
 				<div class="profile-card">
 			        <div class="profile-cover">
 			            <div class="profile-avatar">
-			                <span><img src="images/person.png" style="width: 130px; height: 130px" /></span>
+			                <span><img src="images/profile.jpg" style="width: 150px; height: 150px; " /></span>
 			            </div>
 			            <div class="profile-details">
 			                <h2>${vo.id }</h2>
@@ -311,134 +336,117 @@ textarea {
                 </div>
             </div>
 
-		<div style="height: 150px"></div>
+		<div style="height: 70px"></div>
 		
 		
-		
-		<!-- 댓글 -->
-		
-		
-		
-			
-		<form method="post" action="insert_ok.do?sg_no=${vo.sg_no }&sc_no=1">
-			<span style="display: flex; font-size: 15pt">
-				<input type="hidden" name="sg_no" value="${vo.sg_no }">
-				<input type="hidden" name="sc_no" value="${vo.sc_no }">
-				<input type="hidden" name="user_no" value="${vo.user_no }">
-				<img src="images/profile.jpg" style="width: 100px; height: 80px"><div style="width: 15px"></div>
-				<textarea name="content"></textarea><div style="width: 15px"></div>
-				<input type="submit" value="댓글" class="button button5"></input>
-			</span>
-		</form>
-		<!-- -->
-		
-		<hr>
-		<div class="container mt-5">
-            <div class="row  d-flex justify-content-center">
-                <div class="col-md-8">
-                    <div class="headings d-flex justify-content-between align-items-center mb-3">
-                        <h2>댓글(6)</h2>
-                    </div>
-                    
-                    <c:forEach var="rvo" items="${list }">
-	                    <div class="card p-3">
-	                        <div class="d-flex justify-content-between align-items-center">
-	                      <div class="user d-flex flex-row align-items-center">
-	                        <img src="images/profile.jpg" width="60" class="user-img rounded-circle mr-2">
-	                        <span><small class="font-weight-bold text-primary">${id }</small> <small class="font-weight-bold">${rvo.content }</small></span>                       
-	                      </div>
-	                      <small>${rvo.dbday }</small>
-	                      </div>
-	                     <div class="action d-flex justify-content-between mt-2 align-items-center">
-	                        <div class="reply px-4">
-	                            <small class="replyb" data-no="${rvo.s_no }" id="rebtn${rvo.s_no }">답글</small>
-	                            <span class="dots"></span>
-	                            <small class="up" data-no="${rvo.s_no }" id="up${rvo.s_no }">수정</small>
-	                            <span class="dots"></span>
-	                            <a href="delete_ok.do?s_no=${rvo.s_no }"><small>삭제</small></a>                           
-	                        </div>
-	                      </div>                      
-	                    </div>
-	                    
-	                    <form method="post" action="update_ok.do?sg_no=${vo.sg_no }&sc_no=1">
-	                    	<!-- 댓글 수정 창 -->
-							<span style="display: none; font-size: 15pt;" class="updates" id="update${rvo.s_no }">
-								<textarea name="content">${rvo.content }</textarea><div style="width: 5px"></div>
-								<input type="submit" value="수정" class="button button5" style="size: 10px"></input>
-							</span>
-						</form>
-						
-	                    <form method="post" action="">
-	                    	<!-- 답글 창 -->
-							<span style="display: none; font-size: 15pt" class="replys" id="reply${rvo.s_no }">
-								<textarea name="content"></textarea><div style="width: 5px"></div>
-								<input type="submit" value="댓글" class="button button5"></input>
-							</span>
-						</form>
-						
-						
-                    </c:forEach>
-                    
-                                    
-                </div>
-                 <span class="buttons">
-		                  <a href="detail.do?sg_no=${vo.sg_no }&sc_no=${sc_no2 }&page=${curpage>1?curpage-1:curpage }"><button>이전</button></a>
-						  &nbsp; / &nbsp;
-			              <a href="detail.do?sg_no=${vo.sg_no }&sc_no=${sc_no2 }&page=${curpage<totalpage?curpage+1:curpage }"><button>다음</button></a>
-		              </span>                 
-            </div>          
-        </div>		
-        </div>
-        
-        
-        
-        
-    </section>
-    
-    
-    
-    <!-- 상세 이미지 -->
-    <!-- <div class="container">
-      <div class="row">
-        <div class="col">
-            <ul class="nav nav-tabs">
-              <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#qwe">스토리</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#asd">댓글</a>
-              </li>
-            </ul>
-            <div class="tab-content">
-              <div class="tab-pane fade show active" id="qwe">
-                <c:forTokens items="${vo.sub_img }" delims="^" var="image">
+		<!-- tabs -->
+		<div class="tabset">
+		  <!-- Tab 1 -->
+		  <input type="radio" name="tabset" id="tab1" aria-controls="marzen">
+		  <label for="tab1">상세 설명</label>
+		  <!-- Tab 2 -->
+		  <input type="radio" name="tabset" id="tab2" aria-controls="rauchbier" checked>
+		  <label for="tab2">댓글</label>
+		  
+		  <div class="tab-panels">
+		    <section id="marzen" class="tab-panel">
+				<!-- 상세 이미지 -->      
+				<c:forTokens items="${vo.sub_img }" delims="^" var="image">
 					<td>
 						<img src="${image }">
 					</td>
 				</c:forTokens>
-              </div>
-              
-              <!-- 댓글 -->
-              <!-- <div class="tab-pane fade" id="asd">
-                <p>Nunc vitae turpis id nibh sodales commodo et non augue. Proin fringilla ex nunc. Integer tincidunt risus ut facilisis tristique.</p>
-            </div>
-        </div>
-      </div>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>*/
-	
-	
-	
-    
-    
-    	
-    
-    
-   
-    
-    
+		
+		  </section>
+		    <section id="rauchbier" class="tab-panel">
+				<!-- 댓글 -->
+				  <form method="post" action="insert_ok.do?sg_no=${vo.sg_no }&sc_no=1">
+				  	<c:if test="${sessionScope.user_no!=null }"> <!-- 로그인 한 사람만 댓글 작성 -->
+						<span style="display: flex; font-size: 15pt">
+							<input type="hidden" name="sg_no" value="${vo.sg_no }">
+							<input type="hidden" name="sc_no" value="${vo.sc_no }">
+							<input type="hidden" name="user_no" value="${vo.user_no }">
+							<img src="images/profile.jpg" style="width: 100px; height: 80px"><div style="width: 15px"></div>
+							<textarea name="content"></textarea><div style="width: 15px"></div>
+							<input type="submit" value="댓글" class="button button5"></input>
+						</span>
+					</c:if>
+				</form>	
+		
+				<div class="container mt-5">
+		            <div class="row  d-flex justify-content-center">
+		                <div class="col-md-8">         
+		                    <c:forEach var="rvo" items="${list }">
+			                    <div class="card p-3">
+			                        <div class="d-flex justify-content-between align-items-center">
+			                      <div class="user d-flex flex-row align-items-center">
+			                        <img src="images/profile.jpg" width="60" class="user-img rounded-circle mr-2">
+			                        <span><small class="font-weight-bold text-primary">${rvo.id }</small> <small class="font-weight-bold">${rvo.content }</small></span>                       
+			                      </div>
+			                      <small>${rvo.dbday }</small>
+			                      </div>
+			                     <div class="action d-flex justify-content-between mt-2 align-items-center">
+			                        <c:if test="${sessionScope.id == rvo.id }"> <!-- 작성자만 수정, 삭제 -->
+				                        <div class="reply px-4">
+				                            <small class="up" data-no="${rvo.s_no }" id="up${rvo.s_no }">수정</small>
+				                            <span class="dots"></span>
+				                            <a href="delete_ok.do?s_no=${rvo.s_no }"><small>삭제</small></a>                           
+				                        </div>
+			                        </c:if>
+			                      </div>                      
+			                    </div>                  
+			                    <form method="post" action="update_ok.do?sg_no=${vo.sg_no }&sc_no=1">
+			                    	<!-- 댓글 수정 창 -->
+									<span style="display: none; font-size: 15pt;" class="updates" id="update${rvo.s_no }">
+										<textarea name="content">${rvo.content }</textarea><div style="width: 5px"></div>
+										<input type="submit" value="수정" class="button button5" style="size: 10px"></input>
+									</span>
+								</form>
+								
+			                    <form method="post" action="">
+			                    	<!-- 답글 창 -->
+									<span style="display: none; font-size: 15pt" class="replys" id="reply${rvo.s_no }">
+										<textarea name="content"></textarea><div style="width: 5px"></div>
+										<input type="submit" value="댓글" class="button button5"></input>
+									</span>
+								</form>					
+		                    </c:forEach>                       
+		                </div>
+		                
+
+						<ul class="pagination">
+							<c:if test="${startPage>1 }">
+								<li><a href="../recipe/list.do?page=${startPage-1 }">&lt;</a></li>
+							</c:if>
+							<c:forEach var="i" begin="${startPage }" end="${endPage }">
+								<c:choose>
+									<c:when test="${i == curpage }">
+										<c:set var="style" value="class=active" />
+									</c:when>
+									<c:otherwise>
+										<c:set var="style" value="" />
+									</c:otherwise>
+								</c:choose>
+							<li ${style }><a href="detail.do?sg_no=${vo.sg_no }&sc_no=${sc_no2 }&page=${i }">${i }</a></li>
+							</c:forEach>
+							<c:if test="${endPage<totalpage }">
+								<li><a href="detail.do?sg_no=${vo.sg_no }&sc_no=${sc_no2 }&page=${endPage+1 }">&gt;</a></li>
+							</c:if>
+						</ul>                         
+		            </div>          
+		        </div>    
+		
+		    </section>
+		  </div>
+		  
+		</div>
+
+ 
+		  </div>
+		</div>		
+        </div>   
+    </section>
+
     
     <!-- 비슷한 프로젝트 -->
     <section class="py-5 bg-light">

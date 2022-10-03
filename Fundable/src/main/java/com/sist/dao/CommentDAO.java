@@ -35,10 +35,10 @@ public class CommentDAO {
 		return mapper.storeGetScno(sg_no);
 	}
 	
-	public String idSelectData(int user_no)
-	{
-		return mapper.idSelectData(user_no);
-	}
+	/*
+	 * public String idSelectData(int user_no) { return
+	 * mapper.idSelectData(user_no); }
+	 */
 	
 	public void commentUpdate(CommentVO vo)
 	{

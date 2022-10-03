@@ -15,12 +15,15 @@ public interface StoreCommentMapper {
 
 	
 	// 댓글 목록
-	@Select("SELECT s_no, content, TO_CHAR(c_date, 'YYYY-MM-DD') as dbday, img, user_no, sg_no, group_id, group_step, group_tab, root, depth, num "
-			+ "FROM (SELECT s_no, content, c_date, img, user_no, sg_no, group_id, group_step, group_tab, root, depth, rownum as num "
-			+ "FROM (SELECT s_no, content, c_date, img, user_no, sg_no, group_id, group_step, group_tab, root, depth "
-			+ "FROM store_comment2_2 WHERE sg_no=#{sg_no} ORDER BY s_no DESC ))"
-			+ "WHERE num BETWEEN #{start} AND #{end}" )
+	@Select("SELECT s_no, id, content, TO_CHAR(c_date, 'YYYY-MM-DD') as dbday, img, sg_no, num "
+			+ "FROM (SELECT s_no, id, content, c_date, img, sg_no, rownum as num "
+			+ "FROM (SELECT s_no, id, content, c_date, img, sg_no "
+			+ "FROM store_comment2_2, user2_2 "
+			+ "WHERE store_comment2_2.user_no = user2_2.user_no) "
+			+ "WHERE sg_no=#{sg_no} ORDER BY s_no DESC) "
+			+ "WHERE num BETWEEN #{start} AND #{end}")
 	public List<CommentVO> commentListData(Map map);
+	
 	
 	
 	// 댓글 전체 페이지
@@ -39,8 +42,10 @@ public interface StoreCommentMapper {
 	@Select("SELECT sc_no FROM store_goods2_2 WHERE sg_no=#{sg_no}")
 	public int storeGetScno(int sg_no);
 	
-	@Select("SELECT id FROM user2_2 WHERE user_no=#{user_no}")
-	public String idSelectData(int user_no);
+	/*
+	 * @Select("SELECT id FROM user2_2 WHERE user_no=#{user_no}") public String
+	 * idSelectData(int user_no);
+	 */
 	
 	
 	// 댓글 수정 처리
