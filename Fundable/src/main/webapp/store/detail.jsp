@@ -360,7 +360,6 @@ textarea {
 	                      </div>                      
 	                    </div>
 	                    
-	                    
 	                    <form method="post" action="update_ok.do?sg_no=${vo.sg_no }&sc_no=1">
 	                    	<!-- 댓글 수정 창 -->
 							<span style="display: none; font-size: 15pt;" class="updates" id="update${rvo.s_no }">
@@ -378,8 +377,15 @@ textarea {
 						</form>
 						
 						
-                    </c:forEach>                  
-                </div>                
+                    </c:forEach>
+                    
+                                    
+                </div>
+                 <span class="buttons">
+		                  <a href="detail.do?sg_no=${vo.sg_no }&sc_no=${sc_no2 }&page=${curpage>1?curpage-1:curpage }"><button>이전</button></a>
+						  &nbsp; / &nbsp;
+			              <a href="detail.do?sg_no=${vo.sg_no }&sc_no=${sc_no2 }&page=${curpage<totalpage?curpage+1:curpage }"><button>다음</button></a>
+		              </span>                 
             </div>          
         </div>		
         </div>

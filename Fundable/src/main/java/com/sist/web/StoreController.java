@@ -352,6 +352,10 @@ public class StoreController {
 	    if(Integer.parseInt(sc_no) == 4)
 	    	title = "반려 동물";
 	    
+	    
+	    int sc_no2 = cdao.storeGetScno(vo.getSg_no());
+		model.addAttribute("sc_no2", sc_no2);
+	    
 		
 	    model.addAttribute("title", title);
 		model.addAttribute("rList", rList);

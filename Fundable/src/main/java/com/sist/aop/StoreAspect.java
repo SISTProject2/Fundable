@@ -33,7 +33,7 @@ public class StoreAspect {
 		try {
 			HttpServletRequest request=((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();
 			// task
-			String json=mgr.newsFind("텀블벅");
+			String json=mgr.newsFind("펀더블");
 			JSONParser jp=new JSONParser();
 			JSONObject obj=(JSONObject)jp.parse(json);
 			JSONArray arr=(JSONArray)obj.get("items");

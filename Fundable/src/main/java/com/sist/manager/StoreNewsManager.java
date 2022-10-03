@@ -16,7 +16,7 @@ public class StoreNewsManager {
 	
 	public static void main(String[] args) {
 		StoreNewsManager n = new StoreNewsManager();
-		String s = n.newsFind("텀블벅");
+		String s = n.newsFind("펀더블");
 	}
 
 	public String newsFind(String ss) {
