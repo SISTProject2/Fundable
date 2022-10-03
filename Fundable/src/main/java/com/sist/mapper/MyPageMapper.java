@@ -90,7 +90,7 @@ public interface MyPageMapper {
 	
 	
 	// 올린 프로젝트 수정 폼
-	@Select("SELECT title, price, img, sub_img, sc_no FROM store_goods2_2 WHERE sg_no=#{sg_no}")
+	@Select("SELECT sg_no, title, price, img, sub_img, sc_no FROM store_goods2_2 WHERE sg_no=#{sg_no}")
 	public StoreVO myStoreProjectUpdateForm(int sg_no);
 	
 	

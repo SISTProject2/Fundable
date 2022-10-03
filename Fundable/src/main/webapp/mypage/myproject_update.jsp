@@ -9,13 +9,14 @@
 <link rel="stylesheet" href="css/mypage.css" type="text/css">
 <link rel="stylesheet" href="../css/mypage/nicepage.css" media="screen">
 <link rel="stylesheet" href="../css/mypage/mypage.css" media="screen">
+<jsp:include page="../main/header.jsp"></jsp:include>
 </head>
 <body>
 
 	<div class="d-flex" id="wrapper">
 	  <!-- Sidebar-->
       <div class="border-end bg-white" id="sidebar-wrapper">
-          <div class="sidebar-heading border-bottom bg-light">스토어 마이페이지</div>
+          <div class="sidebar-heading border-bottom bg-light"><span style="font-weight: bold">${id}</span>님의 <br>스토어 마이페이지</div>
           <div class="list-group list-group-flush">
               <a class="list-group-item list-group-item-action list-group-item-light p-3" href="myproject.do">올린 프로젝트</a>
               <a class="list-group-item list-group-item-action list-group-item-light p-3" href="cart_list.do">장바구니</a>
@@ -37,7 +38,7 @@
 		  	<div style="height: 20px"></div>
 		  	
 		    <div class="form-group">
-		      <label for="pwd">상품 이름:</label>
+		      <label for="pwd">상품 이름</label>
 		      <input type="text" class="form-control" id="title" name="title" value="${vo.title }">
 		    </div>
 		    <p>
@@ -46,22 +47,22 @@
 		      <input type="hidden" class="form-control" id="sg_no" name="sg_no" value="${vo.sg_no }">
 		    </div> 
 		    <div class="form-group">
-		      <label for="pwd">가격:</label>
+		      <label for="pwd">가격(숫자만 입력)</label>
 		      <input type="text" class="form-control" id="price" name="price" value="${vo.price }">
 		    </div>
 		    <p>
 		    <div class="form-group">
-		      <label for="pwd">이미지 URL:</label>
+		      <label for="pwd">이미지 URL</label>
 		      <input type="text" class="form-control" id="img" name="img" value="${vo.img }">
 		    </div>
 		    <p>
 		    <div class="form-group">
-		      <label for="pwd">상세 이미지 URL('^'로 구분):</label>
+		      <label for="pwd">상세 이미지 URL('^'로 구분)</label>
 		      <input type="text" class="form-control" id="sub_img" name="sub_img" value="${vo.sub_img }">
 		    </div>
 		    <p>
 		    <div class="form-group">
-		      <label for="pwd">상품 카테고리 넘버:</label>
+		      <label for="pwd">상품 카테고리 넘버(1: 문구, 2: 푸드, 3: 출판, 4: 반려동물)</label>
 		      <input type="text" class="form-control" id="sc_no" name= "sc_no" value="${vo.sc_no }">
 		    </div>
 		

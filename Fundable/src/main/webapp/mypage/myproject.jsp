@@ -18,13 +18,14 @@
 <link rel="stylesheet" href="../css/mypage/nicepage.css" media="screen">
 <link rel="stylesheet" href="../css/mypage/mypage.css" media="screen">
 
+<jsp:include page="../main/header.jsp"></jsp:include>
 
 </head>
 <body>
     <div class="d-flex" id="wrapper">
         <!-- Sidebar-->
         <div class="border-end bg-white" id="sidebar-wrapper">
-            <div class="sidebar-heading border-bottom bg-light">스토어 마이페이지</div>
+            <div class="sidebar-heading border-bottom bg-light"><span style="font-weight: bold">${id}</span>님의 <br>스토어 마이페이지</div>
             <div class="list-group list-group-flush">
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="myproject.do">올린 프로젝트</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="cart_list.do">장바구니</a>

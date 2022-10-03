@@ -24,7 +24,7 @@
       <c:if test="${sessionScope.admin=='n' }">
     	<li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="../register/register_main.jsp" style="padding: 10px 10px; font-weight: 700; font-size: 15px;">프로젝트 올리기</a></li>
         <a href="../mypage/mypage.do"><img src="../css/img/funding4.png" style="height: 65px; width: 65px"></a>
-        <a href="../mypage/cart_list.do"><img src="../css/img/store3.png" style="height: 65px; width: 65px"></a> 
+        <a href="../mypage/myproject.do"><img src="../css/img/store3.png" style="height: 65px; width: 65px"></a> 
                  
         <!-- <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="../register/register_main.jsp" style="padding: 10px 10px; font-weight: 700; font-size: 15px;">프로젝트 올리기</a></li> -->       
 	  </c:if>
@@ -50,7 +50,7 @@
           <c:if test="${sessionScope.admin=='n' }">  
             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="../register/register_main.jsp" >프로젝트 올리기</a></li>
             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="../mypage/mypage.do" >마이페이지(펀딩)</a></li>
-            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="../mypage/cart.do" >마이페이지(스토어)</a></li>
+            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="../mypage/myproject.do" >마이페이지(스토어)</a></li>
           </c:if>  
             
 			<c:if test="${sessionScope.id==null }">

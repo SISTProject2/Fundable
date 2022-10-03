@@ -182,8 +182,10 @@ public class MyPageController {
 	
 	// 올린 프로젝트 목록
 	@GetMapping("mypage/myproject.do")
-	public String mypage_myproject(String page, Model model, HttpSession session)
+	public String mypage_myproject(StoreVO vo, String page, Model model, HttpSession session)
 	{
+		String id = dao.IdSelectData(vo.getUser_no());
+		model.addAttribute("id", id);
 		
 		int user_no = (int)(session.getAttribute("user_no"));
 		
