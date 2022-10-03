@@ -90,4 +90,18 @@ public class MyPageDAO {
 		return mapper.myStoreProjectCount(user_no);
 	}
 	
+	public StoreVO myStoreProjectUpdateForm(int sg_no)
+	{
+		return mapper.myStoreProjectUpdateForm(sg_no);
+	}
+	
+	public void myStoreProjectUpdate(StoreVO vo)
+	{
+		mapper.myStoreProjectUpdate(vo);
+	}
+	
+	public void myStoreProjectDelete(int sg_no)
+	{
+		mapper.myStoreProjectDelete(sg_no);
+	}
 }

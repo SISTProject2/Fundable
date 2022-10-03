@@ -3,7 +3,9 @@ package com.sist.mapper;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.sist.vo.UserVO;
 import com.sist.vo.*;
@@ -84,6 +86,25 @@ public interface MyPageMapper {
 	// 올린 프로젝트 개수
 	@Select("SELECT COUNT(*) FROM funding_goods2_2 WHERE user_no=#{user_no}")
 	public int myStoreProjectCount(int user_no);
+	
+	
+	
+	// 올린 프로젝트 수정 폼
+	@Select("SELECT title, price, img, sub_img, sc_no FROM store_goods2_2 WHERE sg_no=#{sg_no}")
+	public StoreVO myStoreProjectUpdateForm(int sg_no);
+	
+	
+	// 올린 프로젝트 수정
+	@Update("UPDATE store_goods2_2 SET "
+			+ "sg_no=#{sg_no}, user_no=#{user_no}, "
+			+ "title=#{title}, price=#{price}, img=#{img}, sub_img=#{sub_img}, sc_no=#{sc_no} "
+			+ "WHERE sg_no=#{sg_no}")
+	public void myStoreProjectUpdate(StoreVO vo);
+	
+	
+	// 올린 프로젝트 삭제
+	@Delete("DELETE FROM store_goods2_2 WHERE sg_no=#{sg_no}")
+	public void myStoreProjectDelete(int sg_no);
 
 	
 	

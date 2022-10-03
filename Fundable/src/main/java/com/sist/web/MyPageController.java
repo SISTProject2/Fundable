@@ -180,7 +180,7 @@ public class MyPageController {
 	
 	
 	
-	// 올린 프로젝트
+	// 올린 프로젝트 목록
 	@GetMapping("mypage/myproject.do")
 	public String mypage_myproject(String page, Model model, HttpSession session)
 	{
@@ -195,7 +195,7 @@ public class MyPageController {
 		int count = dao.myStoreProjectCount(user_no);
 		
 		Map map = new HashMap();
-		int rowSize = 12;
+		int rowSize = 5;
 		int start = (rowSize*curpage)-(rowSize-1);
 		int end = rowSize*curpage;
 		
@@ -214,5 +214,40 @@ public class MyPageController {
 		
 		return "mypage/myproject";
 	}
+	
+	
+	
+	// 올린 프로젝트 수정 폼
+	@GetMapping("mypage/myproject_update.do")
+	public String myproject_update_form(int sg_no, Model model)
+	{
+		StoreVO vo = dao.myStoreProjectUpdateForm(sg_no);
+		
+		model.addAttribute("vo", vo);
+		
+		return "mypage/myproject_update";
+	}
+	
+	
+	// 올린 프로젝트 수정 처리
+	@PostMapping("mypage/myproject_update_ok.do")
+	public String myproject_update_ok(StoreVO vo, Model model)
+	{
+		dao.myStoreProjectUpdate(vo);
+		
+		return "redirect: ../mypage/myproject.do";
+	}
+	
+	
+	
+	// 스토어 삭제
+	@GetMapping("mypage/myproject_delete_ok.do")
+	public String myproject_delete_ok(int sg_no, Model model)
+	{
+		dao.myStoreProjectDelete(sg_no);
+		
+		return "redirect: myproject.do";
+	}
+	
 	
 }

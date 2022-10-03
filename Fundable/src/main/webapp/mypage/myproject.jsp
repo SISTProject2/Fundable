@@ -17,6 +17,8 @@
 <link rel="stylesheet" href="css/mypage.css" type="text/css">
 <link rel="stylesheet" href="../css/mypage/nicepage.css" media="screen">
 <link rel="stylesheet" href="../css/mypage/mypage.css" media="screen">
+
+
 </head>
 <body>
     <div class="d-flex" id="wrapper">
@@ -104,10 +106,10 @@
 								                        </td>                     
 
 								                        <td class="u-table-cell u-table-valign-middle u-table-cell-14" style="text-align: center;">
-								                          <a href="cart_cancel.do?sg_no=${vo.sg_no }"><input type=button href="cart_cancel.do?sg_no=${sg_no }" value="수정" style="cursor: pointer; border: 1px solid #b9c1cc; color: black; background-color: white; font-size: 14px;"></a>
+								                          <a href="myproject_update.do?sg_no=${vo.sg_no }"><input type=button value="수정" style="cursor: pointer; border: 1px solid #b9c1cc; color: black; background-color: white; font-size: 14px;"></a>
 								                        </td>
 								                        <td class="u-table-cell u-table-valign-middle u-table-cell-14" style="text-align: center;">
-								                          <a href="cart_cancel.do?sg_no=${vo.sg_no }"><input type=button href="cart_cancel.do?sg_no=${sg_no }" value="삭제" style="cursor: pointer; border: 1px solid #b9c1cc; color: black; background-color: white; font-size: 14px;"></a>
+								                          <a href="myproject_delete_ok.do?sg_no=${vo.sg_no }"><input type=button onclick="return confirm('정말로 삭제하시겠습니까?')" value="삭제" style="cursor: pointer; border: 1px solid #b9c1cc; color: black; background-color: white; font-size: 14px;"></a>
 								                        </td>
 								                      </tr>
 							                      </c:forEach>
@@ -118,19 +120,28 @@
 						                      </tr>
 						                    </tbody>
 						                  </table>
-						                  <!-- 상품이 없을 때 -->
-					                      <c:if test="${size < 1 }">
-					                      	<img src="images/cart.png" width="701px" height="250px">
-					                      </c:if>
+			
+
 						                </div>
 			                        </td>
 			                      </tr>
 			                    </tbody>
+			                    
 			                  </table>
+			                  <span class="buttons">
+				                  <a href="myproject.do?page=${curpage>1?curpage-1:curpage }"><button>이전</button></a>
+								  ${curpage } page / ${totalpage } pages
+					              <a href="myproject.do?page=${curpage<totalpage?curpage+1:curpage }"><button>다음</button></a>
+				              </span>
 			                </div>
 			              </div>
 			            </div>
+			            
 			          </div>
+			          
+			         
+			          
+			          
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
