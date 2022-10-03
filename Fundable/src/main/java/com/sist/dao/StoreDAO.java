@@ -107,4 +107,6 @@ public class StoreDAO {
 		return mapper.payInfo(sg_no);
 	}
 	
+	
+	
 }

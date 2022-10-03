@@ -44,4 +44,14 @@ public class CommentDAO {
 	{
 		mapper.commentUpdate(vo);
 	}
+	
+	public void commentDelete(int s_no)
+	{
+		mapper.commentDelete(s_no);
+	}
+	
+	public String sgNoSelectData(int user_no)
+	{
+		return mapper.sgNoSelectData(user_no);
+	}
 }

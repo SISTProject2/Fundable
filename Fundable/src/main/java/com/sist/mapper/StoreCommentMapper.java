@@ -3,6 +3,7 @@ package com.sist.mapper;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectKey;
@@ -27,7 +28,7 @@ public interface StoreCommentMapper {
 	public int commentTotalPage();
 	
 	
-	// 댓글 작성
+	// 댓글 작성 처리
 	@SelectKey(keyProperty = "s_no", resultType = int.class, before = true, 
 				statement = "SELECT NVL(MAX(s_no)+1, 1) as s_no FROM store_comment2_2")
 	
@@ -42,7 +43,17 @@ public interface StoreCommentMapper {
 	public String idSelectData(int user_no);
 	
 	
-	// 댓글 수정
+	// 댓글 수정 처리
 	@Update("UPDATE store_comment2_2 SET content=#{content} WHERE s_no=#{s_no}")
 	public void commentUpdate(CommentVO vo);
+	
+	
+	// sg_no 가져오기
+	@Select("SELECT sg_no FROM store_goods2_2 WHERE user_no=#{user_no}")
+	public String sgNoSelectData(int user_no);
+	
+	
+	// 댓글 삭제 처리
+	@Delete("DELETE FROM store_comment2_2 WHERE s_no=#{s_no}")
+	public void commentDelete(int s_no);
 }

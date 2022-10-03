@@ -355,7 +355,7 @@ textarea {
 	                            <span class="dots"></span>
 	                            <small class="up" data-no="${rvo.s_no }" id="up${rvo.s_no }">수정</small>
 	                            <span class="dots"></span>
-	                            <small>삭제</small>                           
+	                            <a href="delete_ok.do?s_no=${rvo.s_no }"><small>삭제</small></a>                           
 	                        </div>
 	                      </div>                      
 	                    </div>
