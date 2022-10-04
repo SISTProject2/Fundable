@@ -233,9 +233,29 @@ p:not(.u-text-variant) {
 			                      <tr style="height: 25px;">
 			                        <td class="u-border-1 u-border-no-left u-border-no-right u-border-palette-5-light-1 u-table-cell u-table-cell-11" style="font-weight: 700; font-size: 19px; padding: 40px 20px;">회원탈퇴</td>
 			                        <td class="u-border-1 u-border-no-left u-border-no-right u-border-palette-5-light-1 u-table-cell" style="text-align: right; padding: 20px;">
-			                          <input type=button value="탈퇴" style="border: none; border-radius: 14px; padding: 7px 15px; font-size: 13px; cursor: pointer; font-weight: 600;">
+			                          <input type=button value="탈퇴" style="border: none; border-radius: 14px; padding: 7px 15px; font-size: 13px; cursor: pointer; font-weight: 600;" v-on:click="modalOpen5()">
 			                        </td>
 			                      </tr>
+			                      
+			                      <div class="popup-wrap" :style="{'display' : display5}"> <!-- id="popup"  -->
+									<div class="popup">	
+									 <div class="popup-head" style="text-align: right; margin-top: 5px;">	
+									      <span class="head-title pop-btn close"  style="margin-right: 3px;"><input type=button value="X" style="border: none; background-color: white; color: black" v-on:click="modalClose5()"></span><!-- id="close" -->
+									  </div>
+									  <div class="popup-body">	
+									    <div class="body-content">
+									      <div class="body-contentbox" style="max-height: 300px;">
+									        <p> 비밀번호 확인</p>
+									        <p style="margin-top: 0px; margin-bottom: 0px;"> <input type="password" v-model="nowpwd2" ref="nowpwd2" style="width: 100%;"> </p>
+									      </div>
+									    </div>
+									  </div>
+									  <div class="popup-foot" style="text-align: right;">
+									    <span class="pop-btn confirm" id="confirm"><input type=button value="탈퇴" style="margin-right: 30px; background: black; border: none; color: white;" v-on:click="userDelete()"></span>
+									  </div>
+									</div>
+								  </div>
+			                      
 			                    </tbody>
 			                  </table>
 			                </div>
@@ -872,11 +892,11 @@ p:not(.u-text-variant) {
     	data:{
     		vo:{},
     		id:'${id}',
-    		display:'', display2:'', display3:'', display4:'',
+    		display:'', display2:'', display3:'', display4:'', display5:'',
     		email:'',
     		tel1:'', tel2:'', tel3:'',
-    		nowpwd:'', pwd:'',
-    		res:'',
+    		nowpwd:'', nowpwd2:'', pwd:'',
+    		res:'', res2:'',
     		bank_name:'', cn1:'', cn2:'', cn3:'', cn4:'', card_number:'', card_date:'', card_pwd:'', bday:'',
     		zipcode:'', addr:''
     	},
@@ -886,6 +906,7 @@ p:not(.u-text-variant) {
     		_this.display2='none';
     		_this.display3='none';
     		_this.display4='none';
+    		_this.display5='none';
     		axios.get("http://localhost:8080/web/mypage/profile.do",{
     			params:{
     				id:_this.id
@@ -912,6 +933,10 @@ p:not(.u-text-variant) {
     			let _this=this;
     			_this.display4= 'flex';
     		},
+    		modalOpen5:function(){
+    			let _this=this;
+    			_this.display5= 'flex';
+    		},
     		modalClose:function(){
     			let _this=this;
     			_this.display= 'none';
@@ -927,6 +952,10 @@ p:not(.u-text-variant) {
     		modalClose4:function(){
     			let _this=this;
     			_this.display4= 'none';
+    		},
+    		modalClose5:function(){
+    			let _this=this;
+    			_this.display5= 'none';
     		},
     		emailUpdate:function(){
     			let _this=this;
@@ -1084,6 +1113,25 @@ p:not(.u-text-variant) {
     				}
     			}).then(function(result){
     				location.href="../mypage/mypage.do"
+    			})
+    		},
+    		userDelete:function(){
+    			let _this=this;
+    			axios.get("http://localhost:8080/web/user/user_delete.do",{
+    				params:{
+    					nowpwd:_this.nowpwd2,
+    					id:'${id}'
+    				}
+    			}).then(function(result){
+    				_this.res2=result.data;
+    				console.log(_this.res2);
+    				if(_this.res2==='yes'){
+    					location.href="../main/main.do"
+    				} else {
+    					alert("비밀번호가 틀렸습니다");
+    					_this.nowpwd2="";
+    					_this.$refs.nowpwd2.focus();
+    				}
     			})
     		}
     	}

@@ -92,4 +92,18 @@ public class UserDAO {
 	public UserVO userData(String id) {
 		return mapper.userData(id);
 	}
+	
+	public String userDelete(UserVO vo) {
+		String result="no";
+		
+		UserVO dbvo=mapper.userInfoData(vo.getId());
+		if(encoder.matches(vo.getNowpwd(), dbvo.getPwd())) {
+			System.out.println("nowPwd:"+vo.getNowpwd()+", pwd:"+dbvo.getPwd());
+			result="yes";
+			mapper.userDelete(vo.getId());
+		}
+		System.out.println("result="+result);
+		
+		return result;
+	}
 }

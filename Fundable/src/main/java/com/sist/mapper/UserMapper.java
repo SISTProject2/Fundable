@@ -50,4 +50,7 @@ public interface UserMapper {
 	@Select("SELECT * FROM user2_2 WHERE id=#{id}")
 	public UserVO userData(String id);
 	
+	@Delete("DELETE FROM user2_2 WHERE id=#{id}")
+	public void userDelete(String id);
+	
 }
