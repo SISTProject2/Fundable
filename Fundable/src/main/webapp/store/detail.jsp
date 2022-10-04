@@ -390,7 +390,7 @@ a {
 				                        <div class="reply px-4">
 				                            <small class="up" data-no="${rvo.s_no }" id="up${rvo.s_no }">수정</small>
 				                            <span class="dots"></span>
-				                            <a href="delete_ok.do?s_no=${rvo.s_no }&sg_no=${rvo.sg_no}&sc_no=${sc_no}"><small>삭제</small></a>                           
+				                            <a onclick="return confirm('정말로 삭제하시겠습니까?')" href="delete_ok.do?s_no=${rvo.s_no }&sg_no=${rvo.sg_no}&sc_no=${sc_no}"><small>삭제</small></a>                           
 				                        </div>
 			                        </c:if>
 			                      </div>                      

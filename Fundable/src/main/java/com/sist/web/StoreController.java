@@ -432,8 +432,14 @@ public class StoreController {
 	 
 	 // 결제
 	 @GetMapping("store/pay.do")
-	 public String store_pay(int sg_no, Model model, HttpSession session)
+	 public String store_pay(int sg_no, Model model, HttpSession session, HttpServletRequest request)
 	 {
+		// 미로그인시 로그인 창으로 redirect
+		if(request.getSession().getAttribute("user_no") == null) {
+			return "user/login";
+		}
+		
+		 
 		 // id 세션 가져와서
 		String id = (String)session.getAttribute("id");
 		UserVO uvo = udao.userData(id); // 해당 id의 모든 유저 데이터 불러오고 uvo 변수에 담는다

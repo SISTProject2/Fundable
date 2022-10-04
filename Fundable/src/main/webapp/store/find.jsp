@@ -72,10 +72,10 @@
             <figcaption>
 	            <h2 style="font-style: regular; color: black; font-size: 12pt; font-weight: bold">{{vo.title }}</h2>
            		<div style="font-size: 8pt">{{vo.id }}</div>
-           		<div style="color: black; font-size: 11.5pt">{{vo.price }}</div>
-           		<img src="images/star.png" width="18px" height="18px"><span style="color: #FF8C00; font-size: 10pt;">{{vo.rate }}</span>
+           		<div style="color: black; font-size: 13pt">{{vo.price | comma }}원</div>
+           		<img src="images/star.png" width="18px" height="18px"><span style="color: #FF8C00; font-size: 14pt;">{{vo.rate }}</span>
 		        <span style="float: right">
-		        <img src="images/person.png" width="15px" height="15px"><span style="color: grey; font-size: 5pt">{{vo.sponsor }}명 참여</span></span>
+		        <img src="images/person.png" width="15px" height="15px"><span style="color: grey; font-size: 11pt">{{vo.sponsor }}명 참여</span></span>
             </figcaption>
           </a>
       </article>
@@ -144,6 +144,11 @@
 				this.curpage=this.curpage<this.totalpage?this.curpage+1:this.curpage;
 				this.send();
 			}
+		},
+		filters:{
+	   		comma (val) {
+	   		      return String(val).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+	   		}
 		}
 	})
   </script>

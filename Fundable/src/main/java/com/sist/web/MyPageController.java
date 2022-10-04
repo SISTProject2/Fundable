@@ -77,8 +77,14 @@ public class MyPageController {
 	// 장바구니
 	// session
 	@GetMapping("mypage/cart_list.do")
-	public String cart_list(String sg_no, HttpSession session, Model model)
+	public String cart_list(String sg_no, HttpSession session, Model model, HttpServletRequest request)
 	{
+		// 미로그인시 로그인 창으로 redirect
+		if(request.getSession().getAttribute("user_no") == null) {
+			return "user/login";
+		}
+		
+		
 		List<CartVO> list = (List<CartVO>)session.getAttribute("cart");
 		
 		// 데이터 없을 경우 에러 방지

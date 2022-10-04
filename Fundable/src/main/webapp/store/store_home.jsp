@@ -193,7 +193,7 @@ $(function(){
 		                    </div>
 		                    <!-- Product actions-->
 		                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-		                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="detail_before.do?sg_no=${vo.sg_no }">펀딩하러 가기</a></div>
+		                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="detail_before.do?sg_no=${vo.sg_no }&sc_no=${vo.sc_no}">펀딩하러 가기</a></div>
 		                    </div>        
 		                </div>                    
 		            </div>
