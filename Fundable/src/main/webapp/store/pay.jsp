@@ -7,6 +7,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<!-- iamport.payment.js -->
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <style type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
@@ -114,12 +118,46 @@ span.price {
   }
 }
 </style>
+<script>
+function request() {
+	var IMP = window.IMP;
+	IMP.init('imp68206770');
+	IMP.request_pay({
+	    pg : 'html5_inicis',
+	    pay_method : 'vbank',
+	    merchant_uid : 'merchant_' + new Date().getTime(),
+	    name : '${vo.title}',
+	    amount : ${vo.price},
+	    buyer_email : 'iamport@siot.do',
+	    buyer_name : '${vo.name}',
+	    buyer_tel : '${vo.tel}',
+	    buyer_addr : '서울특별시 강남구 삼성동',
+	    buyer_postcode : '123-456'
+	}, function(rsp) {
+	    if ( rsp.success ) {
+	        var msg = '결제가 완료되었습니다.';
+	        msg += '고유ID : ' + rsp.imp_uid;
+	        msg += '상점 거래ID : ' + rsp.merchant_uid;
+	        msg += '결제 금액 : ' + rsp.paid_amount;
+	        msg += '카드 승인번호 : ' + rsp.apply_num;
+	    } else {
+	    	var msg = '결제가 완료되었습니다.';
+	        msg += '고유ID : ' + rsp.imp_uid;
+	        msg += '상점 거래ID : ' + rsp.merchant_uid;
+	        msg += '결제 금액 : ' + rsp.paid_amount;
+	        msg += '카드 승인번호 : ' + rsp.apply_num;
+	    }
+	
+	    alert(msg);
+	});
+}
+</script>
 </head>
 <body>
 <div class="col-25">
 	<div style="height: 160px"></div>
     <div class="container" style="font-size: 15pt">
-      <h4>상품 정보 <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
+      <h4>상품 정보 <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>1</b></span></h4>
       <%-- <c:forEach var="vo" items="list"> --%>
 	      <p><a href="detail.do?sg_no=${vo.sg_no }">${vo.title }</a> <span class="price"><fmt:formatNumber pattern="#,###" value="${vo.price }"/>원</span></p>
 	      <hr>
@@ -136,35 +174,35 @@ span.price {
           <div class="col-50">
             <h3>구매자 정보</h3>
             <div style="height: 39px"></div>     
-	            <label for="fname"><i class="fa fa-user"></i> 이름</label>
+	            <label for="fname"><i class="fa fa-user"></i> 이름<span style="color: red; font-weight: bold">*</span></label>
 	            <input type="text" value="${uvo.name }" id="name" name="name" placeholder="이름을 입력하세요">
-	            <label for="email"><i class="fa fa-envelope"></i> 이메일</label>
+	            <label for="email"><i class="fa fa-envelope"></i> 이메일<span style="color: red; font-weight: bold">*</span></label>
 	            <input type="text" value="${uvo.email }" id="email" name="email" placeholder="이메일을 입력하세요">
-	            <label for="adr"><i class="fa fa-address-card-o"></i> 주소</label>
+	            <label for="adr"><i class="fa fa-address-card-o"></i> 주소<span style="color: red; font-weight: bold">*</span></label>
 	            <input type="text" value="${uvo.addr }" id="addr" name="addr" placeholder="주소를 입력하세요">
-	            <label for="city"><i class="fa fa-institution"></i> 상세 주소</label>
+	            <label for="city"><i class="fa fa-institution"></i> 상세 주소<span style="color: red; font-weight: bold">*</span></label>
 	            <input type="text" value="${uvo.addr_detail }" id="addr_detail" name="addr_detail" placeholder="상세 주소를 입력하세요">
-	            <label for="city"><i class="fa fa-institution"></i> 전화번호</label>
+	            <label for="city"><i class="fa fa-institution"></i> 전화번호<span style="color: red; font-weight: bold">*</span></label>
 	            <input type="text" value="${uvo.tel }" id="tel" name="tel" placeholder="전화번호를 입력하세요">
           </div>
 
           <div class="col-50">
             <h3>결제 정보</h3>
             	<div style="height: 40px"></div>
-	            <label for="cname">카드 회사명</label>
+	            <label for="cname">카드 회사명<span style="color: red; font-weight: bold">*</span></label>
 	            <input type="text" value="${uvo.bank_name }" id="name" name="name" placeholder="카드 소유자 이름을 입력하세요">
-	            <label for="cname">카드 소유자 이름</label>
+	            <label for="cname">카드 소유자 이름<span style="color: red; font-weight: bold">*</span></label>
 	            <input type="text" value="${uvo.name }" id="name" name="name" placeholder="카드 소유자 이름을 입력하세요">
-	            <label for="ccnum">카드 번호</label>
+	            <label for="ccnum">카드 번호<span style="color: red; font-weight: bold">*</span></label>
 	            <input type="text" value="${uvo.card_number }" id="card_number" name="card_number" placeholder="카드 번호를 입력하세요">
-	            <label for="expmonth">카드 만료 날짜</label>
+	            <label for="expmonth">카드 만료 날짜<span style="color: red; font-weight: bold">*</span></label>
 	            <input type="text" value="${uvo.card_date }" id="card_date" name="card_date" placeholder="카드 만료 날짜를 입력하세요 (YY.MM.DD)">
           </div>
           
           
         </div>
         <div style="height: 80px"></div>
-        <input type="submit" value="결제하기" class="btn">
+        <input type="button" value="결제하기" class="btn" onclick="request()">
       </form>
     </div>
   </div>
