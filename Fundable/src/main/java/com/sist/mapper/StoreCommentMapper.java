@@ -19,8 +19,8 @@ public interface StoreCommentMapper {
 			+ "FROM (SELECT s_no, id, content, c_date, img, sg_no, rownum as num "
 			+ "FROM (SELECT s_no, id, content, c_date, img, sg_no "
 			+ "FROM store_comment2_2, user2_2 "
-			+ "WHERE store_comment2_2.user_no = user2_2.user_no) "
-			+ "WHERE sg_no=#{sg_no} ORDER BY s_no DESC) "
+			+ "WHERE store_comment2_2.user_no = user2_2.user_no "
+			+ "AND sg_no=#{sg_no} ORDER BY s_no DESC)) "
 			+ "WHERE num BETWEEN #{start} AND #{end}")
 	public List<CommentVO> commentListData(Map map);
 	
