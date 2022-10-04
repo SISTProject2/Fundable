@@ -462,9 +462,9 @@ p:not(.u-text-variant) {
 			                      </tr>
 			                      <tr colspan="2">
 			                        <td style="text-align: center; font-weight: 600;">
-				                        <button v-on:click="prev()" style="background-color: black; color: white; border: none; border-radius: 20px; padding: 3px 10px;">&lt;</button>
+				                        <button v-on:click="prev()" style="background-color: white; color: black; border: 1px solid black; border-radius: 20px; padding: 3px 10px;">&lt;</button>
 										  &nbsp;{{curpage}} page / {{totalpage}} pages &nbsp;
-							            <button v-on:click="next()" style="background-color: black; color: white; border: none; border-radius: 20px; padding: 3px 10px;">&gt;</button>
+							            <button v-on:click="next()" style="background-color: white; color: black; border: 1px solid black; border-radius: 20px; padding: 3px 10px;">&gt;</button>
 			                        </td>
 			                      </tr>
 			                    </tbody>
