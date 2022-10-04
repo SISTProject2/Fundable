@@ -40,6 +40,14 @@ public class MainController {
     	return "main/main2";
     }
     
+    @GetMapping("chat/chat.do")
+	public String chat_chat(Model model) {
+		
+		model.addAttribute("main_jsp", "../site/chat/chat.jsp");
+		
+		return "main/main2";
+	}
+    
     @GetMapping("store/store_main.do") 
     public String store_main(Model model, String sc_no)
     {
