@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.sist.dao.MyPageDAO;
 import com.sist.dao.StoreDAO;
 import com.sist.vo.CartVO;
+import com.sist.vo.CommentVO;
 import com.sist.vo.StoreVO;
 
 @Controller
@@ -250,6 +251,16 @@ public class MyPageController {
 		
 		return "redirect: myproject.do";
 	}
+	
+	
+	
+	// 올린 댓글
+	@GetMapping("mypage/mycomment.do")
+	public String mypage_mycomment(CommentVO vo, String page, Model model)
+	{
+		return "mypage/comment_history";
+	}
+	
 	
 	
 }

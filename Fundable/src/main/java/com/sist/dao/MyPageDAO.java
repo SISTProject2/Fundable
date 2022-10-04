@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.sist.mapper.MyPageMapper;
+import com.sist.vo.CommentVO;
 import com.sist.vo.FundingGoodsVO;
 import com.sist.vo.LikeVO;
 import com.sist.vo.PayHistoryVO;
@@ -103,5 +104,10 @@ public class MyPageDAO {
 	public void myStoreProjectDelete(int sg_no)
 	{
 		mapper.myStoreProjectDelete(sg_no);
+	}
+	
+	public List<CommentVO> myCommentList(Map map)
+	{
+		return mapper.myCommentList(map);
 	}
 }

@@ -25,7 +25,7 @@ public class StoreRestController {
 	
 	// 검색
 	@GetMapping(value = "store/find.do", produces = "text/plain;charset=UTF-8")// JSON
-	public String store_find(String ss, String page) {
+	public String store_find(String ss, String page, String sc_no) {
 		String result = "";
 		try {
 			if(page == null) {

@@ -12,9 +12,9 @@ public interface StoreMapper {
 
 	
 	// 목록 페이지
-	@Select("SELECT sg_no, rate, title, price, img, sponsor, id, num "
-			+ "FROM (SELECT sg_no, rate, title, price, img, sponsor, id, rownum as num "
-			+ "FROM (SELECT sg_no, rate, title, price, img, sponsor, id "
+	@Select("SELECT sg_no, sc_no, rate, title, price, img, sponsor, id, num "
+			+ "FROM (SELECT sg_no, sc_no, rate, title, price, img, sponsor, id, rownum as num "
+			+ "FROM (SELECT sg_no, sc_no, rate, title, price, img, sponsor, id "
 			+ "FROM store_goods2_2, user2_2 "
 			+ "WHERE store_goods2_2.user_no = user2_2.user_no)) "
 			+ "WHERE num BETWEEN #{start} AND #{end}")
@@ -73,8 +73,8 @@ public interface StoreMapper {
 	
 	
 	// 베스트 top15
-	@Select("SELECT sg_no, title, price, img, sponsor, rate, user_no "
-			+ "FROM (SELECT sg_no, title, price, img, sponsor, rate, user_no "
+	@Select("SELECT sg_no, sc_no, title, price, img, sponsor, rate, user_no "
+			+ "FROM (SELECT sg_no, sc_no, title, price, img, sponsor, rate, user_no "
 			+ "FROM store_goods2_2 ORDER BY hit DESC)")
 	public List<StoreVO> storeBest(Map map);
 	
@@ -97,9 +97,9 @@ public interface StoreMapper {
 	
 	
 	// 검색
-	@Select("SELECT sg_no, title, price, img, sponsor, rate, user_no, num "
-			+ "FROM (SELECT sg_no, title, price, img, sponsor, rate, user_no, rownum as num "
-			+ "FROM (SELECT sg_no, title, price, img, sponsor, rate, user_no "
+	@Select("SELECT sg_no, sc_no, title, price, img, sponsor, rate, user_no, num "
+			+ "FROM (SELECT sg_no, sc_no, title, price, img, sponsor, rate, user_no, rownum as num "
+			+ "FROM (SELECT sg_no, sc_no, title, price, img, sponsor, rate, user_no "
 			+ "FROM store_goods2_2 WHERE title LIKE '%'||#{title}||'%')) "
 			+ "WHERE num BETWEEN #{start} AND #{end}")
 	public List<StoreVO> storeFindData(Map map);

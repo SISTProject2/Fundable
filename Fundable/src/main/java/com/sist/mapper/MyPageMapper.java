@@ -105,6 +105,12 @@ public interface MyPageMapper {
 	// 올린 프로젝트 삭제
 	@Delete("DELETE FROM store_goods2_2 WHERE sg_no=#{sg_no}")
 	public void myStoreProjectDelete(int sg_no);
+	
+	
+	
+	// 올린 댓글
+	@Select("SELECT s_no, content FROM store_comment2_2 WHERE sg_no=#{sg_no")
+	public List<CommentVO> myCommentList(Map map);
 
 	
 	

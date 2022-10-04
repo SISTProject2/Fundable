@@ -340,7 +340,7 @@ $(function(){
         
     <div style="height: 150px"></div>    
 	<h3 class="fw-bolder">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      	반려동물</h3>
+      	펀딩 금액이 높은 <span style="color: #000099">#반려동물</span></h3></h3>
 	<hr>
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">

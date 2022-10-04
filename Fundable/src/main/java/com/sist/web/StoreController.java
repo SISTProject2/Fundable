@@ -40,7 +40,7 @@ public class StoreController {
 	
 	// 목록 페이지
 	@GetMapping("store/list.do") // list.do로 모든 목록 페이지 처리
-	public String store_list(String page,  String no, Model model)
+	public String store_list(String page, String sc_no, String no, Model model)
 	{
 		if(page == null)
 			page = "1";
@@ -327,6 +327,7 @@ public class StoreController {
 		model.addAttribute("startPage", startPage);
 		model.addAttribute("endPage", endPage);
 		model.addAttribute("list", list);
+		model.addAttribute("sc_no", sc_no);
 		
 		
 		
@@ -391,7 +392,7 @@ public class StoreController {
 	
 	// 베스트 TOP 15
 	 @GetMapping("store/best.do") 
-     public String store_best(Model model)
+     public String store_best(Model model, String sc_no)
      {
 		 Map map = new HashMap();
 		 

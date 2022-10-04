@@ -67,6 +67,7 @@
     <div style="height: 50px;"></div>
       <article class="one_third" v-for="vo in store_list">
           <a :href="'../store/detail_before.do?sg_no=' + vo.sg_no + '&sc_no=' + vo.sc_no">
+          <!-- detail_before.do?sg_no=${vo.sg_no }&sc_no=${vo.sc_no} -->
             <img :src="vo.img" width="320" height="210" alt="">
             <figcaption>
 	            <h2 style="font-style: regular; color: black; font-size: 12pt; font-weight: bold">{{vo.title }}</h2>

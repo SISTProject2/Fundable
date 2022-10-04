@@ -301,7 +301,7 @@ a {
 			        <div class="profile-content" style="font-size: 13.5pt">
 			            <ul>
 			                <li>
-			                    <div class="digits">이름</div>
+			                    <div class="digits">이름 </div>
 			                    	${vo.name }
 			                </li>
 			                <c:if test="${vo.email!=null}">
@@ -390,16 +390,19 @@ a {
 				                        <div class="reply px-4">
 				                            <small class="up" data-no="${rvo.s_no }" id="up${rvo.s_no }">수정</small>
 				                            <span class="dots"></span>
-				                            <a href="delete_ok.do?s_no=${rvo.s_no }"><small>삭제</small></a>                           
+				                            <a href="delete_ok.do?s_no=${rvo.s_no }&sg_no=${rvo.sg_no}&sc_no=${sc_no}"><small>삭제</small></a>                           
 				                        </div>
 			                        </c:if>
 			                      </div>                      
 			                    </div>                  
-			                    <form method="post" action="update_ok.do?sg_no=${vo.sg_no }&sc_no=1">
+			                    <form method="post" action="update_ok.do">
 			                    	<!-- 댓글 수정 창 -->
 									<span style="display: none; font-size: 15pt;" class="updates" id="update${rvo.s_no }">
 										<textarea name="content">${rvo.content }</textarea><div style="width: 5px"></div>
 										<input type="submit" value="수정" class="button button5" style="size: 10px"></input>
+										<input type="hidden" name="s_no" value="${rvo.s_no }">
+										<input type="hidden" name="sc_no" value="${sc_no }">
+										<input type="hidden" name="sg_no" value="${rvo.sg_no }">
 									</span>
 								</form>
 								
