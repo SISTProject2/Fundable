@@ -21,9 +21,9 @@ public class CommentDAO {
 		return mapper.commentListData(map);
 	}
 	
-	public int commentTotalPage()
+	public int commentTotalPage(int sg_no)
 	{
-		return mapper.commentTotalPage();
+		return mapper.commentTotalPage(sg_no);
 	}
 	
 	public void commentInsert(CommentVO vo)

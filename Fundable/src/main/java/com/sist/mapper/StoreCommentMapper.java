@@ -27,8 +27,8 @@ public interface StoreCommentMapper {
 	
 	
 	// 댓글 전체 페이지
-	@Select("SELECT CEIL(COUNT(*)/5.0) FROM store_comment2_2")
-	public int commentTotalPage();
+	@Select("SELECT CEIL(COUNT(*)/5.0) FROM store_comment2_2 WHERE sg_no=#{sg_no}")
+	public int commentTotalPage(int sg_no);
 	
 	
 	// 댓글 작성 처리

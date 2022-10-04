@@ -312,11 +312,11 @@ public class StoreController {
 		List<CommentVO> list = cdao.commentListData(map);
 		
 		// 댓글 총 페이지
-		int totalpage = cdao.commentTotalPage();
+		int totalpage = cdao.commentTotalPage(sg_no);
 		
 		
 		// 블록 나누기
-		final int BLOCK = 10;
+		final int BLOCK = 5;
 		int startPage = ((curpage-1) / BLOCK*BLOCK)+1;
 		int endPage = ((curpage-1)/BLOCK*BLOCK) + BLOCK;
 		
