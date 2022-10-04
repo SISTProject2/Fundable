@@ -989,7 +989,7 @@ p:not(.u-text-variant) {
     				if(_this.res==='yes'){
     					location.href="../mypage/mypage.do"
     				} else {
-    					alert("비밀번호가 틀렸습니다");
+    					alert("현재 비밀번호가 틀렸습니다");
     					_this.nowpwd="";
     					_this.pwd="";
     					_this.$refs.nowpwd.focus();
