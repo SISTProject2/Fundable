@@ -110,4 +110,19 @@ public class MyPageDAO {
 	{
 		return mapper.myCommentList(map);
 	}
+	
+	public int myCommentTotalPage(int user_no)
+	{
+		return mapper.myCommentTotalPage(user_no);
+	}
+	
+	public void myCommentDelete(int s_no)
+	{
+		mapper.myCommentDelete(s_no);
+	}
+	
+	public int myCommentCount(int user_no)
+	{
+		return mapper.myCommentCount(user_no);
+	}
 }

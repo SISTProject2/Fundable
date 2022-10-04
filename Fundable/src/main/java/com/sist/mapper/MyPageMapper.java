@@ -109,8 +109,29 @@ public interface MyPageMapper {
 	
 	
 	// 올린 댓글
-	@Select("SELECT s_no, content FROM store_comment2_2 WHERE sg_no=#{sg_no")
+	@Select("SELECT s_no, sg_no, sc_no, title, content, TO_CHAR(c_date, 'YYYY-MM-DD') as dbday, num " // 여기랑
+			+ "FROM (SELECT s_no, sg_no, sc_no, title, content, c_date, rownum as num " // 여기는 테이블 없는 상태
+			+ "FROM (SELECT s_no, store_comment2_2.sg_no, sc_no, title, content, c_date " // 테이블 있는 sql문에서부터 테이블명 씀
+			+ "FROM store_comment2_2, store_goods2_2 "
+			+ "WHERE store_comment2_2.sg_no = store_goods2_2.sg_no  "
+			+ "AND store_comment2_2.user_no=#{user_no} ORDER BY c_date DESC)) "
+			+ "WHERE num BETWEEN #{start} AND #{end}")
 	public List<CommentVO> myCommentList(Map map);
+	
+	
+	// 올린 댓글 총 페이지 
+	@Select("SELECT CEIL(COUNT(*)/5.0) FROM store_comment2_2 WHERE user_no=#{user_no}")
+	public int myCommentTotalPage(int user_no);
+	
+	
+	// 올린 댓글 삭제
+	@Delete("DELETE FROM store_comment2_2 WHERE s_no=#{s_no}")
+	public void myCommentDelete(int s_no);
+	
+	
+	// 올린 댓글 개수
+	@Select("SELECT COUNT(*) FROM store_comment2_2 WHERE user_no=#{user_no}")
+	public int myCommentCount(int user_no);
 
 	
 	

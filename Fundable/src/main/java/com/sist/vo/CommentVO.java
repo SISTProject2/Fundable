@@ -23,7 +23,7 @@ import lombok.Setter;
 @Setter
 public class CommentVO {
 
-	private int s_no, user_no, sg_no, group_id, group_step, group_tab, root, depth;
-	private String img, id, dbday, content;
+	private int s_no, user_no, sg_no, group_id, group_step, group_tab, root, depth, sc_no;
+	private String img, id, dbday, content, title;
 	private Date c_date;
 }

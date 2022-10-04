@@ -256,11 +256,54 @@ public class MyPageController {
 	
 	// 올린 댓글
 	@GetMapping("mypage/mycomment.do")
-	public String mypage_mycomment(CommentVO vo, String page, Model model)
+	public String mypage_mycomment(CommentVO vo, String page, Model model, HttpSession session)
 	{
-		return "mypage/comment_history";
+		String id = dao.IdSelectData(vo.getUser_no());
+		model.addAttribute("id", id);
+		
+		int user_no = (int)(session.getAttribute("user_no"));
+		
+		if(page == null)
+			page = "1";
+		
+		int curpage = Integer.parseInt(page);
+		
+		int totalpage = dao.myCommentTotalPage(user_no);
+		
+		Map map = new HashMap();
+		int rowSize = 5;
+		int start = (rowSize*curpage)-(rowSize-1);
+		int end = rowSize*curpage;
+		
+		map.put("start", start);
+		map.put("end", end);
+		map.put("user_no", user_no);
+		
+		List<CommentVO> list = dao.myCommentList(map);
+		
+		model.addAttribute("curpage", curpage);
+		model.addAttribute("totalpage", totalpage);
+		model.addAttribute("list", list);
+		model.addAttribute("user_no", user_no);
+		
+		// 댓글 개수
+		int count = dao.myCommentCount(user_no);
+		
+		model.addAttribute("count", count);
+		
+		return "mypage/mycomment";
 	}
 	
+	
+	// 올린 댓글 삭제 처리
+	@GetMapping("mypage/comment_delete.do")
+	public String myproject_comment_delete(int s_no, Model model)
+	{
+		dao.myCommentDelete(s_no);
+		
+		return "redirect: mycomment.do";
+	}
+
 	
 	
 }

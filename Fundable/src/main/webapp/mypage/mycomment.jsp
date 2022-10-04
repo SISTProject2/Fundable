@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +23,7 @@
             	<a class="list-group-item list-group-item-action list-group-item-light p-3" href="myproject.do">올린 프로젝트</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="cart_list.do"><span style="font-weight: bold">장바구니</span></a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">구매 내역</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">리뷰 내역</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="mycomment.do">리뷰 내역</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="recently_viewed.do">최근 본 목록</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="../store/store_main.do">스토어 홈으로</a>
             </div>
@@ -41,7 +43,7 @@
 			                    </colgroup>
 			                    <tbody class="u-table-body">
 			                      <tr style="height: 25px;">
-			                        <td class="u-table-cell u-table-cell-1" style="font-weight: 700; font-size: 23px; padding: 20px;"><span style="color: red">${size }</span>개의 상품을 담았습니다</td>
+			                        <td class="u-table-cell u-table-cell-1" style="font-weight: 700; font-size: 23px; padding: 20px;">총 <span style="color: red">${count }</span>개의 댓글을 업로드 했습니다</td>
 			                      </tr>
 			                      <tr style="height: 45px;">
 			                        <td class="u-table-cell u-table-cell-3">
@@ -67,7 +69,7 @@
 						                        </td>
 						                        
 						                      </tr>
-						                      <c:if test="${size > 0 }">
+						                      <%-- <c:if test="${size > 0 }"> --%>
 							                      <c:forEach var="vo" items="${list }">
 								                      <tr style="height: 32px; border: 1px solid lightgray;">
 								                        <td class="u-table-cell u-table-valign-middle u-table-cell-10" style="text-align: center;">
@@ -79,31 +81,40 @@
 											                      <col width="10.2%">
 											                      <col width="89.8%">
 											                    </colgroup>
+											                    
 											                    <tbody class="u-table-body">
 											                      <tr>
 																	<!-- 댓글 내용 -->
-																	
+																	${id} | ${vo.dbday }<br>
+																	<b>${vo.content }</b><br>
 																	<!-- 상품 이름 -->
-											                      </tr>
-											                      <tr style="bottom-margin: 150px">
-											                        <td class="u-table-cell u-table-cell-18" style="font-size: 18px; font-weight: 700; padding: 0px 10px 10px 10px">${vo.title }</td>
+																	<a href="../store/detail.do?sg_no=${vo.sg_no }&sc_no=${vo.sc_no}">
+																	${vo.title }</a>
 											                      </tr>
 											                    </tbody>
 											                  </table>
 											                </div>
 								                        </td>                    
 								                        <td class="u-table-cell u-table-valign-middle u-table-cell-14" style="text-align: center;">
-								                          <input type=button value="삭제" style="cursor: pointer; border: 1px solid #b9c1cc; color: black; background-color: white; font-size: 14px;">
+								                          <a href="comment_delete.do?s_no=${vo.s_no }"><input type=button value="삭제" style="cursor: pointer; border: 1px solid #b9c1cc; color: black; background-color: white; font-size: 14px;">
+								                        	</a>
 								                        </td>
 								                      </tr>
 							                      </c:forEach>
-						                      </c:if>
+						                      <%-- </c:if> --%>
+						                      
+						                      
 						                      
 						                      
 						                      <tr style="height: 50px; border: none;">
 						                      </tr>
 						                    </tbody>
 						                  </table>
+						                  <span class="buttons">
+								                  <a href="mycomment.do?page=${curpage>1?curpage-1:curpage }"><button>이전</button></a>
+												  ${curpage } page / ${totalpage } pages
+									              <a href="mycomment.do?page=${curpage<totalpage?curpage+1:curpage }"><button>다음</button></a>
+								              </span>
 						                </div>
 			                        </td>
 			                      </tr>
