@@ -19,6 +19,7 @@ import com.sist.dao.MyPageDAO;
 import com.sist.dao.StoreDAO;
 import com.sist.vo.CartVO;
 import com.sist.vo.CommentVO;
+import com.sist.vo.PayHistoryVO;
 import com.sist.vo.StoreVO;
 
 @Controller
@@ -302,6 +303,30 @@ public class MyPageController {
 		dao.myCommentDelete(s_no);
 		
 		return "redirect: mycomment.do";
+	}
+	
+	
+	
+	// 결제 후 폼
+	@GetMapping("store/after_pay.do")
+	public String store_after_pay_form()
+	{
+		return "store/after_pay";
+	}
+	
+	
+	
+	
+	// 결제 정보 테이블 추가
+	@PostMapping("mypage/pay_ok.do")
+	public String store_pay_ok(PayHistoryVO vo, Model model, HttpSession session)
+	{
+		int user_no = (int)(session.getAttribute("user_no"));
+		vo.setUser_no(user_no);
+		
+		dao.payInsert(vo);
+		
+		return "redirect: ../store/after_pay.do";
 	}
 
 	

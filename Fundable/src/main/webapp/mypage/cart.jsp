@@ -107,7 +107,9 @@
 								                        </td>
 								                        <td class="u-align-center u-table-cell u-table-valign-middle u-table-cell-12"><fmt:formatNumber pattern="#,###" value="${vo.price*vo.account }"/>원</td></td>                     
 								                        <td class="u-table-cell u-table-valign-middle u-table-cell-14" style="text-align: center;">
-								                          <input type=button value="구매 " style="cursor: pointer; border: 1px solid #b9c1cc; color: black; background-color: white; font-size: 14px;">
+								                          <a href="../store/pay.do?sg_no=${vo.sg_no }">
+								                          	<input type=button value="구매 " style="cursor: pointer; border: 1px solid #b9c1cc; color: black; background-color: white; font-size: 14px;">
+								                          </a>
 								                        </td>
 								                        <td class="u-table-cell u-table-valign-middle u-table-cell-14" style="text-align: center;">
 								                          <a href="cart_cancel.do?sg_no=${vo.sg_no }"><input type=button href="cart_cancel.do?sg_no=${sg_no }" value="삭제" style="cursor: pointer; border: 1px solid #b9c1cc; color: black; background-color: white; font-size: 14px;"></a>

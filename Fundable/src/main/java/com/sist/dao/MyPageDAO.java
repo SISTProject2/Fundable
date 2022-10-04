@@ -133,4 +133,9 @@ public class MyPageDAO {
 	{
 		return mapper.myCommentCount(user_no);
 	}
+	
+	public void payInsert(PayHistoryVO vo)
+	{
+		mapper.payInsert(vo);
+	}
 }

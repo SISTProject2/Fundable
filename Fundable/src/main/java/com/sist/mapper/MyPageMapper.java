@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectKey;
 import org.apache.ibatis.annotations.Update;
 
 import com.sist.vo.*;
@@ -73,6 +75,7 @@ public interface MyPageMapper {
 	@Select("SELECT id FROM user2_2 WHERE user_no=#{user_no}")
 	public String IdSelectData(int user_no);
 	
+	//================= 올린 프로젝트
 	
 	// 올린 프로젝트
 	@Select("SELECT sg_no, title, price, img, sponsor, rate, num "
@@ -112,6 +115,8 @@ public interface MyPageMapper {
 	
 	
 	
+	//================= 올린 댓글
+	
 	// 올린 댓글
 	@Select("SELECT s_no, sg_no, sc_no, title, content, TO_CHAR(c_date, 'YYYY-MM-DD') as dbday, num " // 여기랑
 			+ "FROM (SELECT s_no, sg_no, sc_no, title, content, c_date, rownum as num " // 여기는 테이블 없는 상태
@@ -137,6 +142,17 @@ public interface MyPageMapper {
 	@Select("SELECT COUNT(*) FROM store_comment2_2 WHERE user_no=#{user_no}")
 	public int myCommentCount(int user_no);
 
+	
+	
+	//================= 결제
+	
+	@SelectKey(keyProperty = "ph_no", resultType = int.class, before = true, 
+				statement = "SELECT NVL(MAX(ph_no)+1, 1) as ph_no FROM pay_history2_2")
+	
+	@Insert("INSERT INTO pay_history2_2(ph_no, rgdate, ph_price, name, user_no, sg_no) "
+			+ "VALUES(#{ph_no}, SYSDATE, #{ph_price}, #{name}, #{user_no}, #{sg_no})")
+	public void payInsert(PayHistoryVO vo);
+	
 	
 	
 }

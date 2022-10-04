@@ -138,18 +138,48 @@ function request() {
 	        var msg = '결제가 완료되었습니다.';
 	        msg += '고유ID : ' + rsp.imp_uid;
 	        msg += '상점 거래ID : ' + rsp.merchant_uid;
-	        msg += '결제 금액 : ' + rsp.paid_amount;
+	        msg += '결제 금액 : ' + ${vo.price};
 	        msg += '카드 승인번호 : ' + rsp.apply_num;
+	        $.ajax({
+	        	type:'post',
+	        	url:'../store/after_pay.do',
+	        	data:{"ph_price": ph_price, "name":name, "user_no":user_no, "sg_no":sg_no},
+	        	success:function(result){
+	        		location.href="../store/after_pay.do";
+	        	}
+	         })
+	        
+	        
 	    } else {
 	    	var msg = '결제가 완료되었습니다.';
 	        msg += '고유ID : ' + rsp.imp_uid;
 	        msg += '상점 거래ID : ' + rsp.merchant_uid;
-	        msg += '결제 금액 : ' + rsp.paid_amount;
+	        msg += '결제 금액 : ' + ${vo.price};
 	        msg += '카드 승인번호 : ' + rsp.apply_num;
+	        
+	        $.ajax({
+	        	type:'post',
+	        	url:'../store/after_pay.do',
+	        	data:{"ph_price": ph_price, "name":name, "user_no":user_no, "sg_no":sg_no},
+	        	success:function(result){
+	        		location.href="../store/after_pay.do";
+	        	}
+	         })
+	        
+	        
+	        
 	    }
 	
 	    alert(msg);
 	});
+	
+	$('#btn').click(function(){
+		ph_price =$('#ph_price').val();
+		name =$('#name').val();
+		user_no =$('#user_no').val();
+		sg_no =$('#sg_no').val();
+		request();
+	})
 }
 </script>
 </head>
@@ -157,18 +187,22 @@ function request() {
 <div class="col-25">
 	<div style="height: 160px"></div>
     <div class="container" style="font-size: 15pt">
-      <h4>상품 정보 <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>1</b></span></h4>
+      <h1>상품 정보</h1>
+      <p>
+      <hr>
       <%-- <c:forEach var="vo" items="list"> --%>
-	      <p><a href="detail.do?sg_no=${vo.sg_no }">${vo.title }</a> <span class="price"><fmt:formatNumber pattern="#,###" value="${vo.price }"/>원</span></p>
-	      <hr>
-	      <p>Total <span class="price" style="color:black"><b><fmt:formatNumber pattern="#,###" value="${vo.price }"/>원</b></span></p>
+	      <label for="fname">상품 이름</label>
+	      <input type="text" value="${vo.title }" id="name" name="name" readonly>
+	      <label for="fname">상품 가격</label>
+	      <input type="text" value="${vo.price }원" id="ph_price" name="ph_price" readonly>
+	      <input type="hidden" value="${vo.sg_no }" id="sg_no" name="sg_no" readonly>
       <%-- </c:forEach>  --%>
     </div>
   </div>
 <div class="row">
   <div class="col-75">
     <div class="container" style="font-size: 14pt">
-      <form action="/action_page.php">
+      <!-- <form action="/action_page.php"> -->
       	
         <div class="row">
           <div class="col-50">
@@ -184,6 +218,7 @@ function request() {
 	            <input type="text" value="${uvo.addr_detail }" id="addr_detail" name="addr_detail" placeholder="상세 주소를 입력하세요">
 	            <label for="city"><i class="fa fa-institution"></i> 전화번호<span style="color: red; font-weight: bold">*</span></label>
 	            <input type="text" value="${uvo.tel }" id="tel" name="tel" placeholder="전화번호를 입력하세요">
+	            <input type="hidden" value="${uvo.user_no }" id="user_no" name="user_no">
           </div>
 
           <div class="col-50">
@@ -202,8 +237,8 @@ function request() {
           
         </div>
         <div style="height: 80px"></div>
-        <input type="button" value="결제하기" class="btn" onclick="request()">
-      </form>
+        <button class="btn" id="btn">결제하기</button>
+      <!-- </form> -->
     </div>
   </div>
   

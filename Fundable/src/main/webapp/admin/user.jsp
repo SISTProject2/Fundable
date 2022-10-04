@@ -50,7 +50,6 @@ $(function() {
   <a class="active" href="user_list.do">유저 관리</a>
   <a href="funding_list.do">펀딩 상품 관리</a>
   <a href="store_list.do">스토어 상품 관리</a>
-  <a href="approve.do">상품 승인</a>
   <a href="../main/main.do">메인 홈으로</a>
 </div>
 
