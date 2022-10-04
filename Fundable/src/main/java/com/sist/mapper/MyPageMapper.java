@@ -7,7 +7,6 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import com.sist.vo.UserVO;
 import com.sist.vo.*;
 
 public interface MyPageMapper {
@@ -54,10 +53,16 @@ public interface MyPageMapper {
 	@Select("SELECT * FROM user2_2 WHERE user_no=#{user_no}")
 	public UserVO userData(int user_no);
 	
-	@Select("SELECT * FROM like2_2 WHERE user_no=#{user_no}")
+	@Select("SELECT * FROM like2_2 WHERE user_no=#{user_no} AND (SELECT open_date FROM funding_goods2_2 WHERE fg_no=like2_2.fg_no)>SYSDATE")
+	public List<LikeVO> mypageBell(int user_no);
+	
+	@Select("SELECT COUNT(*) FROM like2_2 WHERE user_no=#{user_no} AND (SELECT open_date FROM funding_goods2_2 WHERE fg_no=like2_2.fg_no)>SYSDATE")
+	public int mypageBellCount(int user_no);
+
+	@Select("SELECT * FROM like2_2 WHERE user_no=#{user_no} AND (SELECT open_date FROM funding_goods2_2 WHERE fg_no=like2_2.fg_no)<=SYSDATE")
 	public List<LikeVO> mypageLike(int user_no);
 	
-	@Select("SELECT COUNT(*) FROM like2_2 WHERE user_no=#{user_no}")
+	@Select("SELECT COUNT(*) FROM like2_2 WHERE user_no=#{user_no} AND (SELECT open_date FROM funding_goods2_2 WHERE fg_no=like2_2.fg_no)<=SYSDATE")
 	public int mypageLikeCount(int user_no);
 	
 	

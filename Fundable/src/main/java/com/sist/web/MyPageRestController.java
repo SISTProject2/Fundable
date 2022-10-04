@@ -194,6 +194,53 @@ public class MyPageRestController {
 		return result;
 	}
 
+	@GetMapping(value = "mypage/bell.do", produces = "text/plain;charset=utf-8")
+	public String mypage_bell(HttpSession session) {
+		String result="";
+		
+		try {
+			int user_no=(int) session.getAttribute("user_no");
+			
+			List<LikeVO> list=dao.mypageBell(user_no);
+			int count=dao.mypageBellCount(user_no);
+			
+			JSONArray arr=new JSONArray();
+			
+			int k=0;
+			
+			for(LikeVO vo:list) {
+				JSONObject obj=new JSONObject();
+				FundingGoodsVO fvo=dao.fundingData(vo.getFg_no());
+				obj.put("like_no", vo.getLike_no());
+				obj.put("user_no", vo.getUser_no());
+				obj.put("fg_no", vo.getFg_no());
+				obj.put("title", fvo.getTitle());
+				obj.put("img", fvo.getImg());
+				obj.put("dbday", fvo.getDbday());
+				String category=fdao.fundingCategoryData(fvo.getFc_no());
+				obj.put("category", category);
+				String id=fdao.fundingIdData(fvo.getUser_no());
+				obj.put("id", id);
+				int bellcount=fdao.fundingBell(fvo.getFg_no());
+				obj.put("bellcount", bellcount);
+				
+				int bell=fdao.fundingBellCount(vo);
+				obj.put("bell", bell);
+				
+				if(k==0) {
+					obj.put("count", count);
+				}
+				
+				arr.add(obj);
+				k++;
+			}
+			
+			result=arr.toJSONString();
+		} catch(Exception ex) {}
+		
+		return result;
+	}
+
 	@GetMapping(value = "mypage/like.do", produces = "text/plain;charset=utf-8")
 	public String mypage_like(HttpSession session) {
 		String result="";

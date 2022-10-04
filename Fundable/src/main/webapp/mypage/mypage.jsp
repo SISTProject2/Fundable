@@ -412,7 +412,7 @@ p:not(.u-text-variant) {
 			              <a class="u-button-style u-tab-link u-text-active-palette-2-base u-text-hover-palette-2-base u-tab-link-3" id="link-tab-fd16" href="#tab-fd16" style="font-size: 1.3rem;" role="tab" aria-controls="tab-fd16" aria-selected="false">관심목록</a>
 			            </li>
 			            <li class="u-tab-item" role="presentation">
-			              <a class="u-button-style u-tab-link u-text-hover-palette-2-base u-tab-link-4" id="link-tab-01b9" href="#tab-01b9" style="font-size: 1.3rem;" role="tab" aria-controls="tab-01b9" aria-selected="false">리뷰</a>
+			              <a class="u-button-style u-tab-link u-text-hover-palette-2-base u-tab-link-4" id="link-tab-01b9" href="#tab-01b9" style="font-size: 1.3rem;" role="tab" aria-controls="tab-01b9" aria-selected="false">알림신청</a>
 			            </li>
 			          </ul>
 			          <div class="u-tab-content funding">
@@ -573,7 +573,7 @@ p:not(.u-text-variant) {
 			                    </colgroup>
 			                    <tbody class="u-table-body">
 			                      <tr style="height: 25px;">
-			                        <td class="u-table-cell u-table-cell-42" style="font-weight: 700; font-size: 19px; padding: 20px;">관심 프로젝트({{count4}})</td>
+			                        <td class="u-table-cell u-table-cell-42" style="font-weight: 700; font-size: 19px; padding: 20px;">관심 프로젝트({{count5}})</td>
 			                      </tr>
 			                    </tbody>
 			                  </table>
@@ -603,7 +603,40 @@ p:not(.u-text-variant) {
 			              </div>
 			            </div>
 			            <div class="u-container-style u-tab-pane" id="tab-01b9" role="tabpanel" aria-labelledby="link-tab-01b9">
-			              <div class="u-container-layout u-container-layout-5"></div>
+			              <div class="u-container-layout u-valign-bottom u-container-layout-1">
+			                <div class="u-expanded-width u-table u-table-responsive u-table-7">
+			                  <table class="u-table-entity">
+			                    <colgroup>
+			                      <col width="100">
+			                    </colgroup>
+			                    <tbody class="u-table-body">
+			                      <tr style="height: 25px;">
+			                        <td class="u-table-cell u-table-cell-42" style="font-weight: 700; font-size: 19px; padding: 20px;">알림신청 프로젝트({{count4}})</td>
+			                      </tr>
+			                    </tbody>
+			                  </table>
+			                  <div class="u-repeater u-repeater-1" style="margin-top: 0px; margin: 0px auto; justify-items: center; grid-gap: 30px 20px; grid-template-columns: 33.3333% 33.3333% 33.3333%; min-height: 466px; grid-gap: 0px 0px;">
+					            <div class="u-container-style u-list-item u-repeater-item" style="width: 350px; height: auto;" v-for="vo in bell_list">
+					              <div class="u-container-layout u-similar-container u-container-layout-1" style="width: 350px; height: auto; padding: 9px 10px;">
+					                <img alt="" class="u-expanded-width u-image u-image-default u-image-1" :src="vo.img" style="object-fit: fill;">
+					                <div class="u-clearfix u-group-elements u-group-elements-1" style="width: 100%; min-height: 23px; margin: 19px auto 0 0;">
+					                  <p class="" style="width: 100%;  margin-top: 0px; margin-bottom: 5px; font-size: 0.9rem;">&nbsp;{{vo.category}} | {{vo.id}} </p>
+					                </div>
+					                <h3 class="u-custom-font u-font-open-sans u-text u-text-4" style="height: 54px; width: 100%; font-size: 1.1rem; font-weight: 700; margin: 12px 0px 0 3px;">{{vo.title}}</h3>
+					                <h3 class="u-custom-font u-font-open-sans u-text u-text-5" style="font-weight: 700; font-size: 18px; color: #a7a7a7; width: 100%; margin: 11px 0px 0 3px;">{{vo.dbday}} 오픈 예정</h3>
+					                <div style="height: 3px"></div>
+					                <h3 class="u-custom-font u-font-open-sans u-text u-text-palette-2-base u-text-5" style="width: 100%; font-size: 1.0rem; font-weight: 700; margin: 11px 0px 0 3px;">{{vo.bellcount}}명 알림신청 중</h3>
+					                <c:if test="${sessionScope.id!=null }">
+					                  <span v-if="vo.bell==0" v-on:click="bellOn()" :data-no="vo.fg_no" class="u-border-1 u-btn u-button-style u-none u-text-black u-btn-2" style="width: 100%; padding: 4px; border: 1px solid #b9c1cc; font-weight: 500;" ><span class="u-file-icon u-icon u-text-black u-icon-1"><img src="../css/img/1827422.png" alt=""></span>&nbsp;알림신청
+					                  </span>
+					                  <span v-if="vo.bell==1" v-on:click="bellOff()" :data-no="vo.fg_no" class="u-border-1 u-btn u-none u-text-black u-btn-2" style="width: 100%; padding: 4px; border: 1px solid #b9c1cc; background-color: #ebe9e9; font-weight: 500;"><span class="u-file-icon u-icon u-text-black u-icon-1"><img src="../css/img/4305482.png" alt=""></span>&nbsp;알림신청완료
+					                  </span>
+					                </c:if>
+					              </div>
+					            </div>
+					          </div>
+			                </div>
+			              </div>
 			            </div>
 			          </div>
 			        </div>
@@ -1062,18 +1095,20 @@ p:not(.u-text-variant) {
     		 project_list:[],
     		 paying_list:[],
     		 payingfin_list:[],
+    		 bell_list:[],
     		 like_list:[],
     		 project_detail:{},
     		 user_no:${user_no},
     		 curpage:1,
     		 totalpage:0,
-    		 count:0, count2:0, count3:0, count4:0
+    		 count:0, count2:0, count3:0, count4:0, count5:0
     	 },
     	 mounted:function(){
     		 this.send();
     		 this.send2();
     		 this.send3();
     		 this.send4();
+    		 this.send5();
     	 },
     	 methods:{
     		 send:function(){
@@ -1116,17 +1151,29 @@ p:not(.u-text-variant) {
     			})
     		 },
     		 send4:function(){
-    			let _this=this;
-    			axios.get("http://localhost:8080/web/mypage/like.do",{
-    				params:{
-    					user_no:_this.user_no
-    				}
-    			}).then(function(result){
-    				_this.like_list=result.data;
-    				_this.count4=result.data[0].count;
-    				console.log(result.data);
-    			})
-    		 },
+     			let _this=this;
+     			axios.get("http://localhost:8080/web/mypage/bell.do",{
+     				params:{
+     					user_no:_this.user_no
+     				}
+     			}).then(function(result){
+     				_this.bell_list=result.data;
+     				_this.count4=result.data[0].count;
+     				console.log(result.data);
+     			})
+     		 },
+     		 send5:function(){
+      			let _this=this;
+      			axios.get("http://localhost:8080/web/mypage/like.do",{
+      				params:{
+      					user_no:_this.user_no
+      				}
+      			}).then(function(result){
+      				_this.like_list=result.data;
+      				_this.count5=result.data[0].count;
+      				console.log(result.data);
+      			})
+      		 },
     		 prev:function(){
  				this.curpage=this.curpage>1 ? this.curpage-1:this.curpage;
  				this.send();
@@ -1134,7 +1181,31 @@ p:not(.u-text-variant) {
  			next:function(){
  				this.curpage=this.curpage<this.totalpage ? this.curpage+1:this.curpage;
  				this.send(); 
- 			}
+ 			},
+			bellOff:function(){
+				let _this=this;
+				axios.get("http://localhost:8080/web/funding/bellOff.do",{
+					params:{
+						fg_no:event.target.getAttribute('data-no'),
+    					user_no:'${user_no}'
+					}
+				}).then(function(result){
+					location.href="../mypage/mypage.do";
+					console.log(result.data)
+				})
+			},
+			bellOn:function(){
+				let _this=this;
+				axios.get("http://localhost:8080/web/funding/bellOn.do",{
+					params:{
+						fg_no:event.target.getAttribute('data-no'),
+						user_no:'${user_no}'
+					}
+				}).then(function(result){
+					location.href="../mypage/mypage.do";
+					console.log(result.data)
+				})
+			}
     	 },
     	 filters:{
     		 comma(val){

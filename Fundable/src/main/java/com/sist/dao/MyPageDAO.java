@@ -59,6 +59,14 @@ public class MyPageDAO {
 		return mapper.userData(user_no);
 	}
 	
+	public List<LikeVO> mypageBell(int user_no) {
+		return mapper.mypageBell(user_no);
+	}
+	
+	public int mypageBellCount(int user_no) {
+		return mapper.mypageBellCount(user_no);
+	}
+	
 	public List<LikeVO> mypageLike(int user_no) {
 		return mapper.mypageLike(user_no);
 	}
