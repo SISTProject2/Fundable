@@ -5,7 +5,9 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.sist.mapper.FundingGoodsMapper;
 import com.sist.mapper.StoreMapper;
 import com.sist.vo.StoreVO;
 import com.sist.vo.UserVO;
@@ -17,7 +19,8 @@ public class StoreDAO {
 	private StoreMapper mapper;
 	
 	//============= 기본
-	
+	@Autowired
+	private FundingGoodsMapper fundingMapper;
 	
 	
 	// 목록 페이지
@@ -107,6 +110,10 @@ public class StoreDAO {
 		return mapper.payInfo(sg_no);
 	}
 	
-	
+	@Transactional
+	public void insertStore(StoreVO storeVO,int fg_no) {
+		mapper.insertStore(storeVO);
+		fundingMapper.fundingDelete(fg_no);
+	}
 	
 }

@@ -3,6 +3,7 @@ package com.sist.mapper;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -110,6 +111,9 @@ public interface StoreMapper {
 	public int storeSearchTotalPage(String title);
 	
 	
+	@Insert("INSERT INTO store_goods2_2(sg_no, title, price,success, open_date,sub_img,stock,img,user_no,sc_no) VALUES( "
+			+ "(SELECT NVL(MAX(sg_no)+1, 1) FROM store_goods2_2), #{title},#{price}, #{success}, #{open_date},#{sub_img},#{stock},#{img},#{user_no},#{sc_no}) ")
+	void insertStore(StoreVO storeVO);
 	
 	
 	

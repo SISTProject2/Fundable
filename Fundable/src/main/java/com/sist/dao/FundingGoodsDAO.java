@@ -91,4 +91,19 @@ public class FundingGoodsDAO {
 		return mapper.fundingBell(fg_no);
 	}
 	
+	public void insertFunding(FundingGoodsVO fundingGoodsVO) {
+		mapper.insertFunding(fundingGoodsVO);
+	}
+	public void fundingDelete(int fg_no) {
+		mapper.fundingDelete(fg_no);
+	}
+	public FundingGoodsVO findById(int fundingId) {
+		return mapper.findById(fundingId);
+	}
+	public List<FundingGoodsVO> fundingMyListData(Map map) {
+		return mapper.fundingMyListData(map);
+	}
+	public int fundingToMyTalPage(int user_no) {
+		return mapper.fundingToMyTalPage(user_no);
+	}
 }

@@ -14,8 +14,8 @@
     <meta name="generator" content="Nicepage 4.18.5, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
-    
-    
+
+
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
 		"@type": "Organization",
@@ -40,7 +40,7 @@
               <p class="u-file-icon u-text u-text-4">새로운 프로젝트 공개하고&nbsp;<br>목표금액을 크라우드로<br>부터 투자를 받으세요<br>&nbsp;<br>
                 <br>
               </p>
-              <a href="register_funding.jsp" class="u-border-2 u-border-active-grey-50 u-border-hover-grey-50 u-border-palette-2-base u-btn u-btn-round u-button-style u-custom-font u-font-montserrat u-none u-radius-50 u-text-body-color u-btn-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">펀딩 등록하기</a>
+              <a href="../register/register.do" class="u-border-2 u-border-active-grey-50 u-border-hover-grey-50 u-border-palette-2-base u-btn u-btn-round u-button-style u-custom-font u-font-montserrat u-none u-radius-50 u-text-body-color u-btn-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">펀딩 등록하기</a>
             </div>
           </div>
           <div class="u-align-center u-border-2 u-border-palette-2-base u-container-style u-list-item u-radius-30 u-repeater-item u-shape-round u-white u-list-item-2">
@@ -50,14 +50,14 @@
                 <br>
                 <br>
               </p>
-              <a href="register_fundinglist.jsp" class="u-border-2 u-border-active-grey-50 u-border-hover-grey-50 u-border-palette-2-base u-btn u-btn-round u-button-style u-custom-font u-font-montserrat u-none u-radius-50 u-text-body-color u-btn-2" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">스토어 등록하기</a>
+              <a href="../register/list.do" class="u-border-2 u-border-active-grey-50 u-border-hover-grey-50 u-border-palette-2-base u-btn u-btn-round u-button-style u-custom-font u-font-montserrat u-none u-radius-50 u-text-body-color u-btn-2" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">스토어 등록하기</a>
             </div>
           </div>
         </div>
       </div>
     </section>
-    
-    
+
+
 	<jsp:include page="../main/footer.jsp" />
-  
+
 </body></html>

@@ -23,6 +23,10 @@
 	    <mvc:mapping path="/user/login.do"/>
 	    <bean id="autoLoginInterceptor" class="com.sist.interceptor.AutoLoginInterceptor"/>
 	  </mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/register/*"/>
+			<bean id="loginInterceptor" class="com.sist.interceptor.LoginInterceptor"/>
+		</mvc:interceptor>
 	</mvc:interceptors>
     
     <!-- ViewResolver -->

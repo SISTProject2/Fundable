@@ -93,4 +93,25 @@ public interface FundingGoodsMapper {
 	@Select("SELECT COUNT(*) FROM like2_2 WHERE fg_no=#{fg_no}")
 	public int fundingBell(int fg_no);
 	
+	@Select("SELECT CEIL(COUNT(*)/3) FROM funding_goods2_2  where user_no=#{user_no}")
+	 int fundingToMyTalPage(int user_no);
+
+	@Select("SELECT k.*, num "
+			+ "FROM (SELECT a.*, rownum as num "
+			+ "FROM (SELECT * "
+			+ "FROM funding_goods2_2  where user_no=#{user_no} ORDER BY open_date) a)k "
+			+ "WHERE num BETWEEN #{start} AND #{end}")
+	 List<FundingGoodsVO> fundingMyListData(Map map);
+
+	@Insert("INSERT INTO funding_goods2_2(fg_no, title, price,goal_amount, close_date, open_date, content,sub_img,fc_no,img,user_no) VALUES( "
+			+ "(SELECT NVL(MAX(fg_no)+1, 1) FROM funding_goods2_2), #{title},#{price}, #{goal_amount}, #{close_date}, #{open_date},#{content},#{sub_img},#{fc_no},#{img},#{user_no}) ")
+	 void insertFunding(FundingGoodsVO fundingGoodsVO);
+
+	@Delete("DELETE FROM funding_goods2_2 WHERE fg_no=#{fg_no}")
+	 void fundingDelete(int fg_no);
+
+	@Select("SELECT * FROM funding_goods2_2 "
+			+ "WHERE fg_no=#{fundingId}")
+	 FundingGoodsVO findById(int fundingId);
+	
 }
