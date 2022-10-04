@@ -87,4 +87,8 @@ public class FundingGoodsDAO {
 		mapper.fundingBellDelete(vo);
 	}
 	
+	public int fundingBell(int fg_no) {
+		return mapper.fundingBell(fg_no);
+	}
+	
 }

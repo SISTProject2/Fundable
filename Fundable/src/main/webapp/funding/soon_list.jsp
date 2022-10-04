@@ -104,15 +104,15 @@
                 <h3 class="u-custom-font u-font-open-sans u-text u-text-4" style="height: 54px; width: 100%; font-size: 1.1rem;">{{vo.title}}</h3>
                 <h3 class="u-custom-font u-font-open-sans u-text u-text-5" style="font-weight: 700; font-size: 18px; color: #a7a7a7; width: 100%">{{vo.dbday}} 오픈 예정</h3>
                 <div style="height: 3px"></div>
-                <h3 class="u-custom-font u-font-open-sans u-text u-text-palette-2-base u-text-5" style="width: 100%; font-size: 1.0rem;">123​명 알림신청 중</h3>
+                <h3 class="u-custom-font u-font-open-sans u-text u-text-palette-2-base u-text-5" style="width: 100%; font-size: 1.0rem;">{{vo.bellcount}}​명 알림신청 중</h3>
                 <c:if test="${sessionScope.id==null }"> 
-                  <span v-on:click="bellOn2()" :data-no="vo.fg_no" class="u-border-1 u-btn u-button-style u-none u-text-black u-btn-2" style="width: 100%; padding: 4px; border: 1px solid black;" ><span class="u-file-icon u-icon u-text-black u-icon-1"><img src="../css/img/1827422.png" alt=""></span>&nbsp; <span style="font-weight: 700;"></span>알림신청
+                  <span v-on:click="bellOn2()" :data-no="vo.fg_no" class="u-border-1 u-btn u-button-style u-none u-text-black u-btn-2" style="width: 100%; padding: 4px; border: 1px solid #b9c1cc; font-weight: 500;" ><span class="u-file-icon u-icon u-text-black u-icon-1"><img src="../css/img/1827422.png" alt=""></span>&nbsp;알림신청
                   </span>
                 </c:if>
                 <c:if test="${sessionScope.id!=null }">
-                  <span v-if="vo.bell==0" v-on:click="bellOn()" :data-no="vo.fg_no" class="u-border-1 u-btn u-button-style u-none u-text-black u-btn-2" style="width: 100%; padding: 4px; border: 1px solid black;" ><span class="u-file-icon u-icon u-text-black u-icon-1"><img src="../css/img/1827422.png" alt=""></span>&nbsp; <span style="font-weight: 700;"></span>알림신청
+                  <span v-if="vo.bell==0" v-on:click="bellOn()" :data-no="vo.fg_no" class="u-border-1 u-btn u-button-style u-none u-text-black u-btn-2" style="width: 100%; padding: 4px; border: 1px solid #b9c1cc; font-weight: 500;" ><span class="u-file-icon u-icon u-text-black u-icon-1"><img src="../css/img/1827422.png" alt=""></span>&nbsp;알림신청
                   </span>
-                  <span v-if="vo.bell==1" v-on:click="bellOff()" :data-no="vo.fg_no" class="u-border-1 u-btn u-button-style u-none u-text-black u-btn-2" style="width: 100%; padding: 4px; border: 1px solid black;"><span class="u-file-icon u-icon u-text-black u-icon-1"><img src="../css/img/4305482.png" alt=""></span>&nbsp; <span style="font-weight: 700;"></span>알림신청완료
+                  <span v-if="vo.bell==1" v-on:click="bellOff()" :data-no="vo.fg_no" class="u-border-1 u-btn u-none u-text-black u-btn-2" style="width: 100%; padding: 4px; border: 1px solid #b9c1cc; background-color: #ebe9e9; font-weight: 500;"><span class="u-file-icon u-icon u-text-black u-icon-1"><img src="../css/img/4305482.png" alt=""></span>&nbsp;알림신청완료
                   </span>
                 </c:if>
               </div>

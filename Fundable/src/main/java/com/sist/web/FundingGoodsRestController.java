@@ -59,6 +59,9 @@ public class FundingGoodsRestController {
 				String id=dao.fundingIdData(vo.getUser_no());
 				obj.put("id", id);
 				
+				int bellcount=dao.fundingBell(vo.getFg_no());
+				obj.put("bellcount", bellcount);
+				
 				LikeVO lvo=new LikeVO();
 				lvo.setFg_no(vo.getFg_no());
 				try {

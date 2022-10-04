@@ -90,4 +90,7 @@ public interface FundingGoodsMapper {
 	@Delete("DELETE FROM like2_2 WHERE user_no=#{user_no} AND fg_no=#{fg_no}")
 	public void fundingBellDelete(LikeVO vo);
 	
+	@Select("SELECT COUNT(*) FROM like2_2 WHERE fg_no=#{fg_no}")
+	public int fundingBell(int fg_no);
+	
 }
