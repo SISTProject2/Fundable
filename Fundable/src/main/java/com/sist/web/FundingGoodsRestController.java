@@ -58,18 +58,24 @@ public class FundingGoodsRestController {
 				obj.put("category", category);
 				String id=dao.fundingIdData(vo.getUser_no());
 				obj.put("id", id);
+				
 				LikeVO lvo=new LikeVO();
 				lvo.setFg_no(vo.getFg_no());
-				int user_no=(int) session.getAttribute("user_no");
-				lvo.setUser_no(user_no);
+				try {
+					lvo.setUser_no((int)session.getAttribute("user_no"));
+				} catch(Exception ex) {
+					lvo.setUser_no(0);
+				}
 				int bell=dao.fundingBellCount(lvo);
 				obj.put("bell", bell);
+				
 				if(k==0) {
 					obj.put("curpage", curpage);
 					obj.put("totalpage", totalpage);
 					obj.put("count", count);
 					obj.put("ord", ord);
 				}
+				
 				arr.add(obj);
 				k++;
 			}
