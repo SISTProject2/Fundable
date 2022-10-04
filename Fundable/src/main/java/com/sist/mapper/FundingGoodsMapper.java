@@ -64,7 +64,8 @@ public interface FundingGoodsMapper {
 			+ "WHERE rownum <=8")
 	public List<FundingGoodsVO> fundingMainSoon();
 	
-	@Select("SELECT fg_no, title, img, user_no, CEIL((now_amount/goal_amount)*100) as rate, TO_CHAR(open_date, 'YYYY/MM/DD') as dbday, fc_no FROM funding_goods2_2 WHERE fg_no=#{fg_no}")
+	//상세페이지
+	@Select("SELECT fg_no, title, img, sub_img, price, content, goal_amount, now_amount, sponsor, like_count, user_no, CEIL((now_amount/goal_amount)*100) as rate, CEIL(close_date-SYSDATE) as leftday, TO_CHAR(open_date, 'YYYY/MM/DD') as dbday, TO_CHAR(close_date, 'YYYY/MM/DD') as cday, fc_no FROM funding_goods2_2 WHERE fg_no=#{fg_no}")
 	public FundingGoodsVO fundingDetailData(int fg_no);
 	
 	@Select("SELECT fg_no, title, img, sponsor, CEIL(close_date-SYSDATE) as leftday, now_amount, CEIL((now_amount/goal_amount)*100) as rate, fc_no, user_no, num "

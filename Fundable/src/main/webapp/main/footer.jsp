@@ -10,13 +10,13 @@
 <body>
   <footer style="margin-top: 300px;">
 		<div>
-			<button type="button" onclick="location.href='../cs/cs_notice.do'">공지사항</button>
-			<button type="button" id='footer_right' onclick="location.href='../cs/cs_QnA.do'">1:1 문의</button>
+			<button type="button" onclick="location.href='../cs/cs_notice.do'">고객서비스</button>
+			<button type="button" class='footer_right' onclick="location.href='../cs/cs_QnA.do'">1:1 문의</button>
 		</div>
 		<div>
 			<hr>
 		</div>
-		<div id='footer_right'>COPYRIGHT © 2022.FUNDABLE.All rights reserved.</div>
+		<div class='footer_right'>COPYRIGHT © 2022.FUNDABLE.All rights reserved.</div>
 	</footer>
 </body>
 </html>

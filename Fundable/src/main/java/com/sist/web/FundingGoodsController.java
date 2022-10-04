@@ -10,6 +10,7 @@ import java.util.Map;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,12 +18,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.sist.dao.FundingGoodsDAO;
+import com.sist.dao.UserDAO;
 import com.sist.vo.FundingGoodsVO;
+import com.sist.vo.UserVO;
 
 @Controller
 public class FundingGoodsController {
 	@Autowired
 	private FundingGoodsDAO dao;
+	
+	@Autowired
+	private UserDAO udao;
 	
 	@GetMapping("funding/soon_list.do")
 	public String funding_soon_list(Model model) {
@@ -108,13 +114,13 @@ public class FundingGoodsController {
 	}
 	
 	@GetMapping("funding/detail_before.do")
-	public String funding_detail_before(int fg_no, HttpServletResponse response) {
+	public String funding_detail_before(int fg_no, int fc_no, HttpServletResponse response) {
 		Cookie cookie=new Cookie("funding"+fg_no, String.valueOf(fg_no));
 		cookie.setPath("/");
 		cookie.setMaxAge(60*60*24);
 		response.addCookie(cookie);
 		
-		return "redirect:home.do";
+		return "redirect: detail.do?fg_no=" + fg_no + "&fc_no=" + fc_no;
 	}
 	
 	@GetMapping("funding/cate_list.do")
@@ -124,4 +130,32 @@ public class FundingGoodsController {
 		
 		return "main/main2";
 	}
+
+	// 상페 ing
+	@GetMapping("funding/detail.do")
+	public String funding_detail(int fg_no, Integer fc_no, Model model, HttpSession session)
+    {
+		
+    	Map map=new HashMap();
+    	map.put("fg_no", fg_no);
+    	map.put("fc_no", fc_no);
+
+        FundingGoodsVO vo=dao.fundingDetailData(fg_no);
+		model.addAttribute("vo", vo);
+		
+		String id=dao.fundingIdData(vo.getUser_no());
+		vo.setId(id);
+		UserVO uvo = udao.userData(id);
+		
+		
+		
+		
+		model.addAttribute("fc_no", fc_no);
+		
+		String category=dao.fundingCategoryData(vo.getFc_no());
+		model.addAttribute("cvo", category);
+		model.addAttribute("uvo", uvo);
+    	model.addAttribute("main_jsp", "../funding/detail.jsp");
+    	return "main/main2";
+    }
 }
