@@ -100,8 +100,7 @@ public interface MyPageMapper {
 	
 	
 	// 올린 프로젝트 수정
-	@Update("UPDATE store_goods2_2 SET "
-			+ "sg_no=#{sg_no}, user_no=#{user_no}, "
+	@Update("UPDATE store_goods2_2 SET " // 필요한 컬럼만 수정한다 
 			+ "title=#{title}, price=#{price}, img=#{img}, sub_img=#{sub_img}, sc_no=#{sc_no} "
 			+ "WHERE sg_no=#{sg_no}")
 	public void myStoreProjectUpdate(StoreVO vo);
