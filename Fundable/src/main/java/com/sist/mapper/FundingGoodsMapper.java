@@ -3,9 +3,13 @@ package com.sist.mapper;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectKey;
 
 import com.sist.vo.FundingGoodsVO;
+import com.sist.vo.LikeVO;
 
 public interface FundingGoodsMapper {
 	@Select("SELECT fg_no, title, img, sponsor, TO_CHAR(open_date, 'YYYY/MM/DD') as dbday, like_count, fc_no, user_no, num "
@@ -75,5 +79,15 @@ public interface FundingGoodsMapper {
 	
 	@Select("SELECT COUNT(*) FROM funding_goods2_2 WHERE open_date<=SYSDATE AND fc_no=#{fc_no}")
 	public int fundingCateCount(int fc_no);	
+	
+	@SelectKey(keyProperty = "like_no", resultType = int.class, before = true, statement = "SELECT NVL(MAX(like_no)+1,1) as like_no FROM like2_2")
+	@Insert("INSERT INTO like2_2 VALUES(#{like_no}, #{user_no}, #{fg_no})")
+	public void fundingBellInsert(LikeVO vo);
+
+	@Select("SELECT COUNT(*) FROM like2_2 WHERE user_no=#{user_no} AND fg_no=#{fg_no}")
+	public int fundingBellCount(LikeVO vo);
+	
+	@Delete("DELETE FROM like2_2 WHERE user_no=#{user_no} AND fg_no=#{fg_no}")
+	public void fundingBellDelete(LikeVO vo);
 	
 }

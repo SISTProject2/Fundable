@@ -104,8 +104,10 @@
                 <h3 class="u-custom-font u-font-open-sans u-text u-text-5" style="font-weight: 700; font-size: 18px; color: #a7a7a7; width: 100%">{{vo.dbday}} 오픈 예정</h3>
                 <div style="height: 3px"></div>
                 <h3 class="u-custom-font u-font-open-sans u-text u-text-palette-2-base u-text-5" style="width: 100%; font-size: 1.0rem;">123​명 알림신청 중</h3>
-                <a href="#" class="u-active-grey-5 u-border-1 u-border-hover-palette-5-base u-border-palette-5-base u-btn u-button-style u-none u-text-active-black u-text-black u-text-hover-black u-btn-2" style="width: 100%; padding: 4px;"><span class="u-file-icon u-icon u-text-black u-icon-1"><img src="../css/img/1827422.png" alt=""></span>&nbsp; <span style="font-weight: 700;"></span>알림신청
-                </a>
+                <span v-if="vo.bell==0" v-on:click="bellOn()" :data-no="vo.fg_no" class="u-border-1 u-btn u-button-style u-none u-text-black u-btn-2" style="width: 100%; padding: 4px; border: 1px solid black;" ><span class="u-file-icon u-icon u-text-black u-icon-1"><img src="../css/img/1827422.png" alt=""></span>&nbsp; <span style="font-weight: 700;"></span>알림신청
+                </span>
+                <span v-if="vo.bell==1" v-on:click="bellOff()" :data-no="vo.fg_no" class="u-border-1 u-btn u-button-style u-none u-text-black u-btn-2" style="width: 100%; padding: 4px; border: 1px solid black;"><span class="u-file-icon u-icon u-text-black u-icon-1"><img src="../css/img/4305482.png" alt=""></span>&nbsp; <span style="font-weight: 700;"></span>알림신청완료
+                </span>
               </div>
             </div>
           </div>
@@ -129,7 +131,8 @@
 			funding_detail:{},
 			fg_no:0,
 			ord:1,
-			isShow:false
+			isShow:false,
+			bell:0
 		},
 		mounted:function(){
 			this.send();
@@ -180,6 +183,30 @@
 					i=0;
 				}
 				console.log(i);
+			},
+			bellOff:function(){
+				let _this=this;
+				axios.get("http://localhost:8080/web/funding/bellOff.do",{
+					params:{
+						fg_no:event.target.getAttribute('data-no'),
+    					user_no:'${user_no}'
+					}
+				}).then(function(result){
+					location.href="../funding/soon_list.do";
+					console.log(result.data)
+				})
+			},
+			bellOn:function(){
+				let _this=this;
+				axios.get("http://localhost:8080/web/funding/bellOn.do",{
+					params:{
+						fg_no:event.target.getAttribute('data-no'),
+    					user_no:'${user_no}'
+					}
+				}).then(function(result){
+					location.href="../funding/soon_list.do";
+					console.log(result.data)
+				})
 			}
 		}
 	  })

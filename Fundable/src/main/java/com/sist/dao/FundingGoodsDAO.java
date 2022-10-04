@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.sist.mapper.FundingGoodsMapper;
 import com.sist.vo.FundingGoodsVO;
+import com.sist.vo.LikeVO;
 
 @Repository
 public class FundingGoodsDAO {
@@ -73,4 +74,17 @@ public class FundingGoodsDAO {
 	public int fundingCateCount(int fc_no) {
 		return mapper.fundingCateCount(fc_no);
 	}
+	
+	public void fundingBellInsert(LikeVO vo) {
+		mapper.fundingBellInsert(vo);
+	}
+	
+	public int fundingBellCount(LikeVO vo) {
+		return mapper.fundingBellCount(vo);
+	}
+	
+	public void fundingBellDelete(LikeVO vo) {
+		mapper.fundingBellDelete(vo);
+	}
+	
 }

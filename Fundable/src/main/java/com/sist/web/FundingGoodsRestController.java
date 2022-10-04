@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sist.dao.FundingGoodsDAO;
 import com.sist.vo.FundingGoodsVO;
+import com.sist.vo.LikeVO;
 
 @RestController
 public class FundingGoodsRestController {
@@ -19,7 +22,7 @@ public class FundingGoodsRestController {
 	private FundingGoodsDAO dao;
 	
 	@GetMapping(value="funding/soon_list.do", produces = "text/plain;charset=utf-8")
-	public String funding_soon_list(String page, int ord) {
+	public String funding_soon_list(String page, int ord, HttpSession session) {
 		String[] order_by= {"", "fg_no ASC", "open_date DESC", "like_count DESC"};
 		
 		String result="";
@@ -55,6 +58,12 @@ public class FundingGoodsRestController {
 				obj.put("category", category);
 				String id=dao.fundingIdData(vo.getUser_no());
 				obj.put("id", id);
+				LikeVO lvo=new LikeVO();
+				lvo.setFg_no(vo.getFg_no());
+				int user_no=(int) session.getAttribute("user_no");
+				lvo.setUser_no(user_no);
+				int bell=dao.fundingBellCount(lvo);
+				obj.put("bell", bell);
 				if(k==0) {
 					obj.put("curpage", curpage);
 					obj.put("totalpage", totalpage);
@@ -187,6 +196,22 @@ public class FundingGoodsRestController {
 		
 		return result;
 		
+	}
+	
+	@GetMapping(value="funding/bellOn.do", produces = "text/plain;charset=utf-8")
+	public String funding_bellOn(LikeVO vo) {
+		String result="";
+		dao.fundingBellInsert(vo);
+		
+		return result;
+	}
+
+	@GetMapping(value="funding/bellOff.do", produces = "text/plain;charset=utf-8")
+	public String funding_bellOff(LikeVO vo) {
+		String result="";
+		dao.fundingBellDelete(vo);
+		
+		return result;
 	}
 	
 }
