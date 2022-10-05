@@ -150,7 +150,7 @@
           <div class="u-repeater u-repeater-1" style="margin-top: 0px; margin: 0px auto; grid-gap: 30px 20px;">
             <div class="u-container-style u-list-item u-repeater-item" v-for="vo in funding_data" style="width: 350px; height: auto;">
               <div class="u-container-layout u-similar-container u-container-layout-1" style="width: 350px; height: auto;">
-                <img alt="" class="u-expanded-width u-image u-image-default u-image-1" :src="vo.img" style="object-fit: fill;">
+                <a :href="'../funding/detail_before.do?fg_no='+vo.fg_no+'&fc_no='+vo.fc_no "><img alt="" class="u-expanded-width u-image u-image-default u-image-1" :src="vo.img" style="object-fit: fill;"></a>
                 <div class="u-clearfix u-group-elements u-group-elements-1" style="width: 100%;">
                   <p class="" style="width: 100%;  margin-top: 0px; margin-bottom: 5px; font-size: 0.9rem;">&nbsp;{{vo.category}} | {{vo.id}}</p>
                 </div>

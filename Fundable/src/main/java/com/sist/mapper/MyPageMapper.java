@@ -18,9 +18,9 @@ public interface MyPageMapper {
 			+ "WHERE id=#{id}")
 	public UserVO mypageProfile(String id);
 	
-	@Select("SELECT fg_no, title, img, goal_amount, TO_CHAR(close_date, 'YYYY.MM.DD') as dbday, num "
-			+ "FROM (SELECT fg_no, title, img, goal_amount, close_date, rownum as num "
-			+ "FROM (SELECT fg_no, title, img, goal_amount, close_date "
+	@Select("SELECT fg_no, fc_no, title, img, goal_amount, TO_CHAR(close_date, 'YYYY.MM.DD') as dbday, num "
+			+ "FROM (SELECT fg_no, fc_no, title, img, goal_amount, close_date, rownum as num "
+			+ "FROM (SELECT fg_no, fc_no, title, img, goal_amount, close_date "
 			+ "FROM funding_goods2_2 WHERE user_no=#{user_no} ORDER BY open_date ASC)) "
 			+ "WHERE num BETWEEN #{start} AND #{end}")
 	public List<FundingGoodsVO> mypageProject(Map map);

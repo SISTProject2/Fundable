@@ -84,6 +84,7 @@ public class MyPageRestController {
 				obj.put("fg_no", vo.getFg_no());
 				obj.put("title", vo.getTitle());
 				obj.put("img", vo.getImg());
+				obj.put("fc_no", vo.getFc_no());
 				obj.put("goal_amount", vo.getGoal_amount());
 				obj.put("close_date", vo.getDbday());
 				
@@ -138,6 +139,7 @@ public class MyPageRestController {
 				obj.put("fg_no", vo.getFg_no());
 				obj.put("title", fvo.getTitle());
 				obj.put("img", fvo.getImg());
+				obj.put("fc_no", fvo.getFc_no());
 				
 				if(k==0) {
 					obj.put("count", count);
@@ -179,6 +181,7 @@ public class MyPageRestController {
 				obj.put("fg_no", vo.getFg_no());
 				obj.put("title", fvo.getTitle());
 				obj.put("img", fvo.getImg());
+				obj.put("fc_no", fvo.getFc_no());
 				
 				if(k==0) {
 					obj.put("count", count);
@@ -214,6 +217,7 @@ public class MyPageRestController {
 				obj.put("like_no", vo.getLike_no());
 				obj.put("user_no", vo.getUser_no());
 				obj.put("fg_no", vo.getFg_no());
+				obj.put("fc_no", fvo.getFc_no());
 				obj.put("title", fvo.getTitle());
 				obj.put("img", fvo.getImg());
 				obj.put("dbday", fvo.getDbday());
@@ -261,6 +265,7 @@ public class MyPageRestController {
 				obj.put("like_no", vo.getLike_no());
 				obj.put("user_no", vo.getUser_no());
 				obj.put("fg_no", vo.getFg_no());
+				obj.put("fc_no", fvo.getFc_no());
 				obj.put("title", fvo.getTitle());
 				obj.put("img", fvo.getImg());
 				obj.put("left_day", fvo.getLeftday());
