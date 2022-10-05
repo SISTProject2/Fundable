@@ -179,7 +179,70 @@ function request() {
 
 // jquery => js와 jquery는 따로 작성하고 동작한다
 $(function(){
+	
+	// 공백 칸 확인
 	$('#btn').click(function(){
+		let name=$('#name').val();
+		if(name.trim()=="")
+		{
+			$('#name').focus();
+			return;
+		}
+		
+		let addr=$('#addr').val();
+		if(addr.trim()=="")
+		{
+			$('#addr').focus();
+			return;
+		}
+		
+		let addr_detail=$('#addr_detail').val();
+		if(addr_detail.trim()=="")
+		{
+			$('#addr_detail').focus();
+			return;
+		}
+		
+		let tel=$('#tel').val();
+		if(tel.trim()=="")
+		{
+			$('#tel').focus();
+			return;
+		}
+		
+		let email=$('#email').val();
+		if(email.trim()=="")
+		{
+			$('#email').focus();
+			return;
+		}
+		
+		let bank_name=$('#bank_name').val();
+		if(bank_name.trim()=="")
+		{
+			$('#bank_name').focus();
+			return;
+		}
+		
+		let card_number=$('#card_number').val();
+		if(card_number.trim()=="")
+		{
+			$('#card_number').focus();
+			return;
+		}
+		
+		let card_date=$('#card_date').val();
+		if(card_date.trim()=="")
+		{
+			$('#card_date').focus();
+			return;
+		}
+
+		
+		$('#btn').submit();
+
+		
+		// 공백 칸 없을 시 결제 실행
 		ph_price =$('#ph_price').val();
 		name =$('#name').val();
 		user_no =$('#user_no').val();
@@ -196,6 +259,10 @@ $(function(){
     	}
      })
 })
+
+	
+
+
 })
 
 </script>
@@ -242,9 +309,9 @@ $(function(){
             <h3>결제 정보</h3>
             	<div style="height: 40px"></div>
 	            <label for="cname">카드 회사명<span style="color: red; font-weight: bold">*</span></label>
-	            <input type="text" value="${uvo.bank_name }" id="name" name="name" placeholder="카드 소유자 이름을 입력하세요">
+	            <input type="text" value="${uvo.bank_name }" id="bank_name" name="bank_name" placeholder="카드 소유자 이름을 입력하세요">
 	            <label for="cname">카드 소유자 이름<span style="color: red; font-weight: bold">*</span></label>
-	            <input type="text" value="${uvo.name }" id="name" name="name" placeholder="카드 소유자 이름을 입력하세요">
+	            <input type="text" value="${uvo.name }" id="card_owner" name="name" placeholder="카드 소유자 이름을 입력하세요">
 	            <label for="ccnum">카드 번호<span style="color: red; font-weight: bold">*</span></label>
 	            <input type="text" value="${uvo.card_number }" id="card_number" name="card_number" placeholder="카드 번호를 입력하세요">
 	            <label for="expmonth">카드 만료 날짜<span style="color: red; font-weight: bold">*</span></label>

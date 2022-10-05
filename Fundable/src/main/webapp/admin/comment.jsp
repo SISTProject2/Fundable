@@ -97,7 +97,7 @@ $(function() {
 			      <img src="image/original.png" width="55px" height="55px"> | <a href="../store/detail_before.do?sg_no=${vo.sg_no }&sc_no=${vo.sc_no}" target="_blank">${vo.title }</a><br>
 			      </td>
 			      <td>
-				   	  <a href="comment_delete.do?s_no=${vo.s_no }"><button class="w3-button w3-red">삭제</button></a>
+				   	  <a onclick="return confirm('정말로 삭제하시겠습니까?')" href="comment_delete.do?s_no=${vo.s_no }"><button class="w3-button w3-red">삭제</button></a>
 			   	  </td>
 			    </tr>
 		    </c:forEach>
