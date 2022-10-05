@@ -109,6 +109,11 @@ span.price {
   color: grey;
 }
 
+img {
+	width: 330px;
+	height: 330px;
+}
+
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
 @media (max-width: 800px) {
   .row {
@@ -275,6 +280,8 @@ $(function(){
       <p>
       <hr>
       <%-- <c:forEach var="vo" items="list"> --%>
+      	  <img src="${vo.img }">
+ 		  <p>	
 	      <label for="fname">상품 이름</label>
 	      <input type="text" value="${vo.title }" id="name" name="name" readonly>
 	      <label for="fname">상품 가격</label>
