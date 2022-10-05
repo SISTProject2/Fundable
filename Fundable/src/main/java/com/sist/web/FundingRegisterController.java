@@ -54,7 +54,7 @@ public class FundingRegisterController {
         int size = 3;
         int start = (size * page) - (size - 1);
         int end = size * page;
-        //페이징은 Map이아니고 Dto로 만드는게 좋아보임.
+
         map.put("start", start);
         map.put("end", end);
         map.put("user_no", user_no);
