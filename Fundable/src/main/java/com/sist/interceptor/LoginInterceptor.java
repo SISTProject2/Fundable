@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @Slf4j
-//인터셉터들도 좀더 패턴을 관리하기 편하게 xml 말고 java 코드인  webmvcconfigurer로 등록하는 방법도 한번 고려해보세요
+
 public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
