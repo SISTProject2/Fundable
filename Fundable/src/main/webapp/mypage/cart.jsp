@@ -125,7 +125,8 @@
 						                  </table>
 						                  <!-- 상품이 없을 때 -->
 					                      <c:if test="${size < 1 }">
-					                      	<img src="images/cart.png" width="701px" height="250px">
+					                      	<h1>담은 상품이 없습니다</h1>
+					                      	<!-- <img src="images/cart.png" width="701px" height="250px"> -->
 					                      </c:if>
 						                </div>
 			                        </td>

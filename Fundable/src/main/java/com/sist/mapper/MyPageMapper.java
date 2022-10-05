@@ -78,9 +78,9 @@ public interface MyPageMapper {
 	//================= 올린 프로젝트
 	
 	// 올린 프로젝트
-	@Select("SELECT sg_no, title, price, img, sponsor, rate, num "
-			+ "FROM (SELECT sg_no, title, price, img, sponsor, rate, rownum as num "
-			+ "FROM (SELECT sg_no, title, price, img, sponsor, rate "
+	@Select("SELECT sg_no, sc_no, title, price, img, sponsor, rate, num "
+			+ "FROM (SELECT sg_no, sc_no, title, price, img, sponsor, rate, rownum as num "
+			+ "FROM (SELECT sg_no, sc_no, title, price, img, sponsor, rate "
 			+ "FROM store_goods2_2 WHERE user_no=#{user_no} ORDER BY open_date ASC)) "
 			+ "WHERE num BETWEEN #{start} AND #{end}")
 	public List<StoreVO> myProjectList(Map map);
@@ -117,7 +117,7 @@ public interface MyPageMapper {
 	
 	//================= 올린 댓글
 	
-	// 올린 댓글
+	// 올린 댓글 목록
 	@Select("SELECT s_no, sg_no, sc_no, title, content, TO_CHAR(c_date, 'YYYY-MM-DD') as dbday, num " // 여기랑
 			+ "FROM (SELECT s_no, sg_no, sc_no, title, content, c_date, rownum as num " // 여기는 테이블 없는 상태
 			+ "FROM (SELECT s_no, store_comment2_2.sg_no, sc_no, title, content, c_date " // 테이블 있는 sql문에서부터 테이블명 씀

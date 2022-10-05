@@ -20,6 +20,12 @@
 
 <jsp:include page="../main/header.jsp"></jsp:include>
 
+<style type="text/css">
+a {
+	color: black;
+}
+</style>
+
 </head>
 <body>
     <div class="d-flex" id="wrapper">
@@ -92,11 +98,17 @@
 											                    <tbody class="u-table-body">
 											                      <tr>
 											                        <td class="u-table-cell u-table-cell-15" rowspan="2">
+											                        <a href="../store/detail_before.do?sg_no=${vo.sg_no }&sc_no=${vo.sc_no}">
 											                          <img src="${vo.img }" style="width: 90px; height:90px">
+											                        </a>
 											                        </td>
 											                      </tr>
 											                      <tr style="bottom-margin: 150px">
-											                        <td class="u-table-cell u-table-cell-18" style="font-size: 18px; font-weight: 700; padding: 0px 10px 10px 10px">${vo.title }</td>
+											                        <td class="u-table-cell u-table-cell-18" style="font-size: 18px; font-weight: 700; padding: 0px 10px 10px 10px">
+												                        <a href="../store/detail_before.do?sg_no=${vo.sg_no }&sc_no=${vo.sc_no}">
+												                        ${vo.title }
+												                        </a>
+											                        </td>
 											                      </tr>
 											                    </tbody>
 											                  </table>

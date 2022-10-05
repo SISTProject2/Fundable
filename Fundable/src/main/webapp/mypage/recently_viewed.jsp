@@ -116,7 +116,8 @@
 				                  </table>
 				                  <!-- 최근 본 기록 없을 시 -->
 				                  <c:if test="${size < 1 }">
-			                      	<img src="images/no-history.png" width="701px" height="250px">
+			                      	<!-- <img src="images/no-history.png" width="701px" height="250px"> -->
+			                      	<h1>최근 본 상품이 없습니다</h1>
 			                      </c:if>			                  
 				                </div>
 			                
