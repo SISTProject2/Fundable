@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sist.dao.AdminDAO;
+import com.sist.dao.MyPageDAO;
+import com.sist.vo.CommentVO;
 import com.sist.vo.FundingGoodsVO;
 import com.sist.vo.StoreVO;
 import com.sist.vo.UserVO;
@@ -29,6 +31,9 @@ public class AdminController {
 
 	@Autowired
 	AdminDAO dao;
+	
+	@Autowired
+	MyPageDAO mdao;
 	
 	//===========
 	
@@ -210,12 +215,48 @@ public class AdminController {
 	
 	
 	
-	@GetMapping("admin/approve.do")
-	public String admin_approve()
-	{
-		return "admin/approve";
+	//============ 댓글
+	
+	
+	
+	// 유저 댓글 목록
+	@GetMapping("admin/comment.do")
+	public String admin_comment(CommentVO vo, String page, Model model, HttpSession session)
+	{	
+		if(page == null)
+			page = "1";
+		
+		int curpage = Integer.parseInt(page);
+		
+		int totalpage = dao.AdminCommentTotalPage();
+		
+		Map map = new HashMap();
+		int rowSize = 15;
+		int start = (rowSize*curpage)-(rowSize-1);
+		int end = rowSize*curpage;
+		
+		map.put("start", start);
+		map.put("end", end);
+		
+		List<CommentVO> list = dao.AdminCommentList(map);
+		
+		model.addAttribute("curpage", curpage);
+		model.addAttribute("totalpage", totalpage);
+		model.addAttribute("list", list);
+		
+		return "admin/comment";
 	}
 	
+	
+	
+	// 유저 댓글 삭제
+	@GetMapping("admin/comment_delete.do")
+	public String comment_delete(int s_no, Model model)
+	{
+		dao.AdminCommentDelete(s_no);
+		
+		return "redirect: comment.do";
+	}
 	
 	
 	

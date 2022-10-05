@@ -28,6 +28,7 @@
   <a href="user_list.do">유저 관리</a>
   <a class="active" href="funding_list.do">펀딩 상품 관리</a>
   <a href="store_list.do">스토어 상품 관리</a>
+  <a href="comment.do">유저 댓글 관리</a>
 </div>
 
 

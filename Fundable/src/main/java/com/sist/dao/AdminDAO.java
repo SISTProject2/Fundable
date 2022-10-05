@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.sist.mapper.AdminMapper;
 import com.sist.mapper.UserMapper;
+import com.sist.vo.CommentVO;
 import com.sist.vo.FundingGoodsVO;
 import com.sist.vo.StoreVO;
 import com.sist.vo.UserVO;
@@ -159,6 +160,27 @@ public class AdminDAO {
 	public void fundDelete(int fg_no)
 	{
 		mapper.fundDelete(fg_no);
+	}
+	
+	
+	
+	//================ 댓글
+	
+	
+	public List<CommentVO> AdminCommentList(Map map)
+	{
+		return mapper.AdminCommentList(map);
+	}
+	
+	
+	public int AdminCommentTotalPage()
+	{
+		return mapper.AdminCommentTotalPage();
+	}
+	
+	public void AdminCommentDelete(int s_no)
+	{
+		mapper.AdminCommentDelete(s_no);
 	}
 
 }

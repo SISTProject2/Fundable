@@ -149,7 +149,30 @@ public interface AdminMapper {
 	// 펀딩 삭제
 	@Delete("DELETE FROM funding_goods2_2 WHERE fg_no=#{fg_no}")
 	public void fundDelete(int fg_no);
-
+	
+	
+	
+	
+	//=============== 댓글
+	
+	// 유저 댓글 목록
+	@Select("SELECT s_no, sg_no, sc_no, title, content, TO_CHAR(c_date, 'YYYY-MM-DD') as dbday, num " // 여기랑
+			+ "FROM (SELECT s_no, sg_no, sc_no, title, content, c_date, rownum as num " // 여기는 테이블 없는 상태
+			+ "FROM (SELECT s_no, store_comment2_2.sg_no, sc_no, title, content, c_date " // 테이블 있는 sql문에서부터 테이블명 씀
+			+ "FROM store_comment2_2, store_goods2_2 "
+			+ "WHERE store_comment2_2.sg_no = store_goods2_2.sg_no ORDER BY c_date DESC)) "
+			+ "WHERE num BETWEEN #{start} AND #{end}")
+	public List<CommentVO> AdminCommentList(Map map);
+	
+	
+	// 유저 댓글 총 페이지 
+	@Select("SELECT CEIL(COUNT(*)/15.0) FROM store_comment2_2")
+	public int AdminCommentTotalPage();
+	
+	
+	// 유저 댓글 삭제
+	@Delete("DELETE FROM store_comment2_2 WHERE s_no=#{s_no}")
+	public void AdminCommentDelete(int s_no);
 
 	
 }
