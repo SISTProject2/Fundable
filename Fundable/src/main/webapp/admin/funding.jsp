@@ -94,7 +94,7 @@ $(function() {
 			      <td>${vo.price}</td>
 			      <td>
 				   	  <a href="../admin/fund_update.do?fg_no=${vo.fg_no }"><button class="w3-button w3-red">정보 수정</button></a>
-				   	  <a onclick="return confirm('정말로 삭제하시겠습니까?')" href="'store_delete.do?sg_no='+vo.sg_no"><button class="w3-button w3-red">삭제</button></a>
+				   	  <a onclick="return confirm('정말로 삭제하시겠습니까?')" href="funding_delete.do?fg_no=${vo.fg_no }"><button class="w3-button w3-red">삭제</button></a>
 			   	  </td>
 			    </tr>
 		    </c:forEach>

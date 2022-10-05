@@ -214,6 +214,16 @@ public class AdminController {
 	
 	
 	
+	// 펀딩 삭제 처리
+	@GetMapping("admin/funding_delete.do")
+	public String funding_delete(int fg_no, Model model)
+	{
+		dao.fundDelete(fg_no);
+		
+		return "redirect: ../admin/funding_list.do";
+	}
+	
+	
 	
 	//============ 댓글
 	
