@@ -1,0 +1,351 @@
+body {
+    width: 100%;
+}
+
+main {
+    margin: 0 2%;
+    padding-top: 100px;
+}
+
+.category_location {
+    text-align: end;
+    color: #707070;
+    font-size: 12px;
+}
+
+.detail_top {
+    width: 100%;
+    display: flex;
+}
+
+
+/*상품 이미지*/
+.detail_img {
+    background-color: white;  
+    width: 65%;
+    height: auto;
+    float: left;
+}
+
+.detail_img div {
+    top:0px;
+    width: 100%;
+    height: 700px;
+    text-align: center;
+}
+
+.detail_img img {
+    width: 95%;
+}
+
+
+
+/* 상품 판매 정보*/
+.detail_info {
+	width: 100%;
+    box-shadow: 0 0 0 1px black inset;
+    background-color: white;
+    padding: 3%;
+    overflow: visible;
+    height: auto;
+    float: left;
+}
+
+.detail_info_p {
+    position: sticky;
+}
+
+/*브랜드 및 상품명*/
+.detail_name {
+    margin-bottom: 80px;
+}
+
+.d_brand {
+    font-size: 15px;
+    color: black;
+    font-weight: 800;
+    margin: 10px 0;
+}
+
+.d_brand a:visited { 
+    color:black; 
+}
+
+.d_name {
+    width: 94%;
+    float: left;
+    font-family: Na;
+    font-size: 20px;
+    color: #707070;
+    font-weight: bold;
+    color: black;
+}
+
+
+.detail_size {
+    width: 100%;
+    float: left;
+    justify-content: space-between;
+    display: flex;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #D6D6D6;
+    font-size: 13px;
+    color: #707070;
+    font-weight: 600;
+}
+
+.d_size {
+    
+    font-size: 16px;
+    font-weight: 800;
+    color: black;
+    cursor: pointer; /* 커서 올렸때 손가락 모양으로 바꾸기 */
+}
+
+.size_select {
+	border: none;
+	border-radius: 0;
+}
+
+/*모달창 추가 */
+.layer-popup {
+	display: none;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 100;
+}
+
+.layer-popup.show {
+	display: block;
+}
+
+.modal-dialog {
+	width: 300px;
+	margin: 40px auto;
+	background-color: #fff;
+}
+
+.modal-content {
+	padding:10px 15px;
+	text-align: center;
+	line-height: 100px;
+}
+    
+    
+
+.detail_price {
+    width: 100%;
+    float: left;
+    justify-content: space-between;
+    padding: 18px 0 5px 0;
+    font-size: 13px;
+    color: #707070;
+    font-weight: 600;
+}
+
+.d_price {
+    font-size: 18px;
+    font-weight: 800;
+    color: black;
+}
+
+#id{
+	color: red; 
+}
+.variance {
+    text-align: right;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: crimson;
+    margin-bottom: 20px;
+}
+
+
+/*구매,판매 버튼 구역*/
+.detail_amount {
+    width: 100%;
+    height: 60px;
+    justify-content: space-between;
+    display: flex;
+}
+
+/*구매,판매 버튼*/
+.d_price_button {
+    width: 84%;
+    height: 60px;
+    line-height: 60px;
+    background-color: #000047;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+
+.dpb_title {
+    width: 30%;
+    height: 68px;
+    box-shadow: 0 3px 6px 1px rgba(255, 255, 255, 0.42);
+    float: left;
+    line-height: 68px;
+}
+
+.dpb_title smail {
+    font-size: 11px;
+    font-weight: normal;
+}
+
+.dpb {
+    line-height: normal;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+/*관심목록*/
+.detail_like {
+    width: 12%;
+    box-shadow: 0 0 0 1px #ADADAD inset;
+    background-color: white;
+    text-align: center;
+}
+
+.detail_like img {
+	width: 30px;
+    margin: 10px 0 3px 0;
+    letter-spacing: -1px;
+    color: #707070;
+}
+
+.detail_like div {
+    color: #707070;
+    font-size: 13px;
+    padding-bottom: 9px;
+    font-weight: 800;
+}
+
+
+/* 상품 정보 */
+.goods_info {
+    margin: 30px 0;
+    background-color: #F8F8F8;
+    width: 100%;
+}
+
+
+.goods_h1 {
+	font-size: 18px;
+    font-weight: 800;
+    color: black;
+    padding: 4% 4% 3% 4%;
+}
+
+.GI_detail {
+    justify-content: space-between;
+    display: flex;
+    padding: 0 4% 4% 4%;
+}
+
+.GI_title {
+    width: 25%;
+    font-size: 13px;
+    line-height: 22px;
+    color: #707070;
+}
+
+.GI_contents {
+    width: 80%;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 1px;
+}
+
+.GI_contents span {
+    color: #707070;
+    font-weight: 200;
+}
+
+
+details {
+    padding: 0 10px;
+}
+
+/* 구매 전 꼭 확인해주세요! */
+
+.buy_h1 {
+	font-size: 18px;
+    font-weight: 800;
+    color: black;
+    padding: 4% 4% 3% 1.5%;
+}
+summary {
+    outline: none; /* 선택 시 검정색 외곽라인 없애기 */
+    cursor: pointer; /* 커서 올렸때 손가락 모양으로 바꾸기 */
+    color: #707070;
+    padding: 16px 0;
+    border-top: 1px solid #D6D6D6;
+    background: url("../images/shoes_detail/down_arrow.png") right no-repeat;
+    background-size: 13px;
+    font-size: 14px;
+    list-style: none;
+}
+
+details[open] summary {
+    background: url("../images/shoes_detail/up_arrow.png") right no-repeat;
+    background-size: 13px;
+    color: black;
+    font-weight: 600;
+    border-bottom: 1px solid black;
+}
+
+details p {
+    font-size: 13px;
+    letter-spacing: -1px;
+    color: #707070;
+}
+
+details p:first-of-type {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    color: #707070;
+}
+
+/*리스트*/
+.detail_list {
+	padding: 0 4%;
+	width: 250px;
+	height: auto;
+}
+
+.list_brand {
+	margin: 5px 0;
+	font-weight: 800;
+}
+
+.list_img img {
+	background-color: white;
+    width: 100%;
+    height: auto;
+}
+
+.list_price {
+	margin: 5px 0;
+	font-weight: 800;
+}
+
+.list_price_name {
+	font-size: 13px;
+    color: #707070;
+    font-weight: 600;
+}
+
+.list_price_name a:visited { 
+    color:black; 
+}
