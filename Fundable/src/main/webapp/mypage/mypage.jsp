@@ -449,6 +449,7 @@ p:not(.u-text-variant) {
 			                      </tr>
 			                      <tr style="height: 45px;" v-for="vo in project_list">
 			                        <td class="u-table-cell u-table-cell-3">
+			                          <a :href="'../funding/detail_before.do?fg_no='+vo.fg_no+'&fc_no='+vo.fc_no " style="color: black;">
 			                          <div class="u-expanded-width u-table u-table-responsive u-table-2" style="border: 1px solid darkgray; border-radius: 5px;">
 						                  <table class="u-table-entity" v-if="vo.title!=null">
 						                    <colgroup>
@@ -458,7 +459,7 @@ p:not(.u-text-variant) {
 						                    <tbody class="u-table-body">
 						                      <tr style="height: 84px;">
 						                        <td class="u-table-cell" rowspan="3">
-						                          <img :src="vo.img" style="width: 250px;">
+						                          <a :href="'../funding/detail_before.do?fg_no='+vo.fg_no+'&fc_no='+vo.fc_no "><img :src="vo.img" style="width: 250px;"></a>
 						                        </td>
 						                        <td class="u-table-cell u-table-cell-6" style="font-size: 18px; font-weight: 700;">{{vo.title}}</td>
 						                      </tr>
@@ -478,6 +479,7 @@ p:not(.u-text-variant) {
 					                      	</span>
 					                    </div>
 						                </div>
+						                </a>
 			                        </td>
 			                      </tr>
 			                      <tr colspan="2">
@@ -505,6 +507,7 @@ p:not(.u-text-variant) {
 			                      </tr>
 			                      <tr style="height: 45px;" v-for="vo in paying_list">
 			                        <td class="u-table-cell u-table-cell-16">
+			                         <a :href="'../funding/detail_before.do?fg_no='+vo.fg_no+'&fc_no='+vo.fc_no " style="color: black;">
 			                          <div class="u-expanded-width u-table u-table-responsive u-table-5" style="border: 1px solid darkgray; border-radius: 5px;">
 						                  <table class="u-table-entity">
 						                    <colgroup>
@@ -514,7 +517,7 @@ p:not(.u-text-variant) {
 						                    <tbody class="u-table-body">
 						                      <tr style="height: 29px;">
 						                        <td class="u-table-cell" rowspan="5">
-						                          <img :src="vo.img" style="width: 250px;">
+						                          <a :href="'../funding/detail_before.do?fg_no='+vo.fg_no+'&fc_no='+vo.fc_no "><img :src="vo.img" style="width: 250px;"></a>
 						                        </td>
 						                        <td class="u-table-cell u-table-valign-bottom u-table-cell-23" style="font-size: 14px; padding: 15px 10px 0px 10px;">후원일 [{{vo.rgdate}}]</td>
 						                      </tr>
@@ -533,6 +536,7 @@ p:not(.u-text-variant) {
 						                    </tbody>
 						                  </table>
 						                </div>
+						                </a>
 			                        </td>
 			                      </tr>
 			                    </tbody>
@@ -549,6 +553,7 @@ p:not(.u-text-variant) {
 			                      </tr>
 			                      <tr style="height: 45px;" v-for="vo in payingfin_list">
 			                        <td class="u-table-cell u-table-cell-20">
+			                         <a :href="'../funding/detail_before.do?fg_no='+vo.fg_no+'&fc_no='+vo.fc_no " style="color: black;">
 			                          <div class="u-expanded-width u-table u-table-responsive u-table-6" style="border: 1px solid darkgray; border-radius: 5px;">
 						                  <table class="u-table-entity">
 						                    <colgroup>
@@ -558,7 +563,7 @@ p:not(.u-text-variant) {
 						                    <tbody class="u-table-body">
 						                      <tr style="height: 25px;">
 						                        <td class="u-table-cell" rowspan="5">
-						                          <img :src="vo.img" style="width: 250px;">
+						                          <a :href="'../funding/detail_before.do?fg_no='+vo.fg_no+'&fc_no='+vo.fc_no "><img :src="vo.img" style="width: 250px;"></a>
 						                        </td>
 						                        <td class="u-table-cell u-table-valign-bottom u-table-cell-33" style="font-size: 14px; padding: 15px 10px 0px 10px;">결제완료일 [{{vo.expect_pay}}]</td>
 						                      </tr>
@@ -577,6 +582,7 @@ p:not(.u-text-variant) {
 						                    </tbody>
 						                  </table>
 						                </div>
+						               </a> 
 			                        </td>
 			                      </tr>
 			                    </tbody>
@@ -600,7 +606,7 @@ p:not(.u-text-variant) {
 			                  <div class="u-repeater u-repeater-1" style="margin-top: 0px; margin: 0px auto; grid-gap: 30px 20px; grid-template-columns: 33.3333% 33.3333% 33.3333%; min-height: 466px; grid-gap: 0px 0px;">
 					            <div class="u-container-style u-list-item u-repeater-item" style="width: 350px; height: auto;" v-for="vo in like_list">
 					              <div class="u-container-layout u-similar-container u-container-layout-1" style="width: 350px; height: auto;  padding: 9px 10px;">
-					                <img alt="" class="u-expanded-width u-image u-image-default u-image-1" :src="vo.img" style="object-fit: fill; height: 305px; margin: 2px 0 0;">
+					                <a :href="'../funding/detail_before.do?fg_no='+vo.fg_no+'&fc_no='+vo.fc_no "><img alt="" class="u-expanded-width u-image u-image-default u-image-1" :src="vo.img" style="object-fit: fill; height: 305px; margin: 2px 0 0;"></a>
 					                <div class="u-clearfix u-group-elements u-group-elements-1" style="width: 100%; min-height: 23px; margin: 19px auto 0 0;">
 					                  <p class="" style="width: 100%;  margin-top: 0px; margin-bottom: 5px; font-size: 0.9rem;">&nbsp;{{vo.category}} | {{vo.id}}</p>
 					                </div>
@@ -638,7 +644,7 @@ p:not(.u-text-variant) {
 			                  <div class="u-repeater u-repeater-1" style="margin-top: 0px; margin: 0px auto; justify-items: center; grid-gap: 30px 20px; grid-template-columns: 33.3333% 33.3333% 33.3333%; min-height: 466px; grid-gap: 0px 0px;">
 					            <div class="u-container-style u-list-item u-repeater-item" style="width: 350px; height: auto;" v-for="vo in bell_list">
 					              <div class="u-container-layout u-similar-container u-container-layout-1" style="width: 350px; height: auto; padding: 9px 10px;">
-					                <img alt="" class="u-expanded-width u-image u-image-default u-image-1" :src="vo.img" style="object-fit: fill;">
+					                <a :href="'../funding/detail_before.do?fg_no='+vo.fg_no+'&fc_no='+vo.fc_no "><img alt="" class="u-expanded-width u-image u-image-default u-image-1" :src="vo.img" style="object-fit: fill;"></a>
 					                <div class="u-clearfix u-group-elements u-group-elements-1" style="width: 100%; min-height: 23px; margin: 19px auto 0 0;">
 					                  <p class="" style="width: 100%;  margin-top: 0px; margin-bottom: 5px; font-size: 0.9rem;">&nbsp;{{vo.category}} | {{vo.id}} </p>
 					                </div>
