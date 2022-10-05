@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="css/mypage.css" type="text/css">
 <link rel="stylesheet" href="../css/mypage/nicepage.css" media="screen">
 <link rel="stylesheet" href="../css/mypage/mypage.css" media="screen">
+<jsp:include page="../main/header.jsp"></jsp:include>
 </head>
 <body>
 <div class="d-flex" id="wrapper">
@@ -88,7 +89,7 @@
 																	<b>${vo.content }</b><br>
 																	<!-- 상품 이름 -->
 																	<a href="../store/detail.do?sg_no=${vo.sg_no }&sc_no=${vo.sc_no}">
-																	 ${vo.title }</a>
+																	 <img src="images/original.png" width="55px" height="55px"> | ${vo.title }</a>
 											                      </tr>
 											                    </tbody>
 											                  </table>
