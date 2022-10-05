@@ -35,7 +35,6 @@ a {
             <div class="list-group list-group-flush">
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="myproject.do"><span style="font-weight: bold">올린 프로젝트</span></a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="cart_list.do">장바구니</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">구매 내역</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="mycomment.do">리뷰 내역</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="recently_viewed.do">최근 본 목록</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="../store/store_main.do">스토어 홈으로</a>

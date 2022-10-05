@@ -42,14 +42,14 @@
         </span>
         <h1>주문이 완료되었습니다!</h1>
         <p>
-        <h4>주문 상세는 마이페이지에서 확인하실 수 있습니다!</h4>                 
+        <h4>상품은 영업일 2-3일 내 배송됩니다!</h4>                 
   </div>
   </div>
 </div>
 
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class="accordion active" id="Details">
-    <h4 class="accordion-toggle">마이페이지 결제 정보 바로 가기 <i class="fa fa-chevron-down"></i></h4>
+    <h4 class="accordion-toggle"><i class="fa fa-chevron-down"></i></h4>
     <div class="panel-body">
       <div class="form-group">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 menuitem">
