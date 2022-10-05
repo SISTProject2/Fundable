@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sist.dao.MyPageDAO;
 import com.sist.dao.StoreDAO;
@@ -314,7 +315,7 @@ public class MyPageController {
 	
 	
 	// 결제 후 폼
-	@GetMapping("store/after_pay.do")
+	@RequestMapping("store/after_pay.do")
 	public String store_after_pay_form()
 	{
 		return "store/after_pay";
@@ -324,7 +325,7 @@ public class MyPageController {
 	
 	
 	// 결제 정보 테이블 추가
-	@PostMapping("mypage/pay_ok.do")
+	@RequestMapping("mypage/pay_ok.do")
 	public String store_pay_ok(PayHistoryVO vo, Model model, HttpSession session)
 	{
 		int user_no = (int)(session.getAttribute("user_no"));

@@ -8,10 +8,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- jQuery -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery.js" ></script>
 <!-- iamport.payment.js -->
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <style type="text/css">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 body {
@@ -140,6 +141,8 @@ function request() {
 	        msg += '상점 거래ID : ' + rsp.merchant_uid;
 	        msg += '결제 금액 : ' + ${vo.price};
 	        msg += '카드 승인번호 : ' + rsp.apply_num;
+	        
+	        alert(msg);
 	        $.ajax({
 	        	type:'post',
 	        	url:'../store/after_pay.do',
@@ -157,6 +160,7 @@ function request() {
 	        msg += '결제 금액 : ' + ${vo.price};
 	        msg += '카드 승인번호 : ' + rsp.apply_num;
 	        
+	        alert(msg);
 	        $.ajax({
 	        	type:'post',
 	        	url:'../store/after_pay.do',
@@ -164,23 +168,36 @@ function request() {
 	        	success:function(result){
 	        		location.href="../store/after_pay.do";
 	        	}
-	         })
-	        
-	        
+	         })        
 	        
 	    }
 	
-	    alert(msg);
+	    
 	});
 	
+}
+
+// jquery => js와 jquery는 따로 작성하고 동작한다
+$(function(){
 	$('#btn').click(function(){
 		ph_price =$('#ph_price').val();
 		name =$('#name').val();
 		user_no =$('#user_no').val();
 		sg_no =$('#sg_no').val();
 		request();
-	})
-}
+		
+		alert(msg);
+		$.ajax({
+    	type:'post',
+    	url:'../store/after_pay.do',
+    	data:{"ph_price": ph_price, "name":name, "user_no":user_no, "sg_no":sg_no},
+    	success:function(result){
+    		location.href="../store/after_pay.do";
+    	}
+     })
+})
+})
+
 </script>
 </head>
 <body>
