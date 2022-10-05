@@ -70,7 +70,7 @@ p:not(.u-text-variant) {
 }
 
 </style>
-<link rel="stylesheet" href="../css/mypage/modal2.css" media="screen">
+<link rel="stylesheet" href="../css/mypage/modal.css" media="screen">
 <script type="text/javascript" src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" />

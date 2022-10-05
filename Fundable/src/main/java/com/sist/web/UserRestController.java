@@ -117,10 +117,11 @@ public class UserRestController {
 	}
 	
 	@GetMapping(value = "user/user_delete.do", produces = "text/plain;charset=utf-8")
-	public String user_user_delete(UserVO vo) {
+	public String user_user_delete(UserVO vo, HttpSession session) {
 		String result="";
 		
 		result=dao.userDelete(vo);
+		session.invalidate();
 		
 		return result;
 	}
