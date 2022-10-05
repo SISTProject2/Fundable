@@ -13,19 +13,19 @@ public interface StoreMapper {
 
 	
 	// 목록 페이지
-	@Select("SELECT sg_no, sc_no, rate, title, price, img, sponsor, id, num "
-			+ "FROM (SELECT sg_no, sc_no, rate, title, price, img, sponsor, id, rownum as num "
-			+ "FROM (SELECT sg_no, sc_no, rate, title, price, img, sponsor, id "
+	@Select("SELECT sg_no, sc_no, rate, title, price, img, open_date, sponsor, id, num "
+			+ "FROM (SELECT sg_no, sc_no, rate, title, price, img, open_date, sponsor, id, rownum as num "
+			+ "FROM (SELECT sg_no, sc_no, rate, title, price, img, open_date, sponsor, id "
 			+ "FROM store_goods2_2, user2_2 "
-			+ "WHERE store_goods2_2.user_no = user2_2.user_no)) "
+			+ "WHERE store_goods2_2.user_no = user2_2.user_no ORDER BY ${column})) "
 			+ "WHERE num BETWEEN #{start} AND #{end}")
 	public List<StoreVO> storeListData(Map map);
 	
 	
 	// 카테고리 페이지
 	@Select("SELECT sg_no, sc_no, rate, title, price, img, sponsor, id, num "
-			+ "FROM (SELECT sg_no, sc_no, rate, title, price, img, sponsor, id, rownum as num "
-			+ "FROM (SELECT sg_no, sc_no, rate, title, price, img, sponsor, id "
+			+ "FROM (SELECT sg_no, sc_no, rate, title, price, img, open_date, sponsor, id, rownum as num "
+			+ "FROM (SELECT sg_no, sc_no, rate, title, price, img, open_date, sponsor, id "
 			+ "FROM store_goods2_2, user2_2 "
 			+ "WHERE store_goods2_2.user_no = user2_2.user_no) "
 			+ "WHERE sc_no=#{sc_no} ORDER BY ${column}) "

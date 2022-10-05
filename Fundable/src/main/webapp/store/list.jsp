@@ -21,13 +21,18 @@
 	color: black;
 }
 #sort {
-	margin:0px 20px 30px 680px;
-	font-size: 10pt;
-	font-color: black;
+	margin:0px 20px 30px 570px;
+	font-size: 13pt;
+	color: black !important;
+	font-weight: bold;
 }
 
 .pagination {
 	size: 200px;
+}
+
+.price {
+	font-weight: bold;
 }
 
 </style>
@@ -49,10 +54,10 @@
       <span class="word">전체</span>
       
       <span id="sort">
-      	<a href="list.do?no=1">인기 순</a> &nbsp;
-      	<a href="list.do?no=2">서포터 많은 순</a> &nbsp;
-      	<a href="list.do?no=3">최신 순</a> &nbsp;
-      	<a href="list.do?no=4">가격 높은 순</a> &nbsp;
+      	<a href="list.do?no=1">인기 순 &nbsp;|&nbsp;</a>
+      	<a href="list.do?no=2">서포터 많은 순 &nbsp;|&nbsp;</a>
+      	<a href="list.do?no=3">최신 순 &nbsp;|&nbsp;</a>
+      	<a href="list.do?no=4">가격 높은 순 &nbsp;|&nbsp;</a>
       	<a href="list.do?no=5">가격 낮은 순</a>
       </span>
 
@@ -64,9 +69,9 @@
 	          <a href="detail_before.do?sg_no=${vo.sg_no }&sc_no=${vo.sc_no}"><img src="${vo.img }" width="320" height="230" alt=""></a><p>
 	            <figcaption>
 	              <a href="detail_before.do?sg_no=${vo.sg_no }&sc_no=${vo.sc_no}"><h2 style="font-style: regular; color: black; font-size: 12pt; font-weight: bold">${vo.title }</h2></a>
-	              <div style="font-size: 12pt">${vo.id }</div>
-	              <a href="detail_before.do?sg_no=${vo.sg_no }" style="color:black; font-size: 14pt"><fmt:formatNumber pattern="#,###" value="${vo.price }"/>원<p>
-	              
+	              <div style="font-size: 12pt">창작자 | ${vo.id }</div>
+	              <span class="price"><a href="detail_before.do?sg_no=${vo.sg_no }" style="color:black; font-size: 14pt"><fmt:formatNumber pattern="#,###" value="${vo.price }"/>원<p>
+	              </span>
 	              <c:if test="${vo.rate!=0.0}">
 	              	  <p>
 		              <img src="images/star.png" width="18px" height="18px"><span style="color: #FF8C00; font-size: 13pt;">${vo.rate }</span>

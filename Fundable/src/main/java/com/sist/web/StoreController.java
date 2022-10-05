@@ -44,7 +44,7 @@ public class StoreController {
 		
 		//===== sort
 		if(no == null)
-			no = "1";
+			no = "2";
 		
 		String column = "";
 		
