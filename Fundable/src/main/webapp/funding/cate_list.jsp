@@ -148,10 +148,10 @@
             </div>
           </div>
           <div style="height: 50px"></div>
-          <div style="text-align: center;">
-            <button v-on:click="prev()">이전</button>
-			  {{curpage}} page / {{totalpage}} pages
-            <button v-on:click="next()">다음</button>
+          <div style="text-align: center; font-weight: 600;">
+            <button v-on:click="prev()" style="background-color: white; color: black; border: 1px solid black; border-radius: 20px; padding: 3px 10px;">&lt;</button>
+			  &nbsp;{{curpage}} page / {{totalpage}} pages &nbsp;
+            <button v-on:click="next()" style="background-color: white; color: black; border: 1px solid black; border-radius: 20px; padding: 3px 10px;">&gt;</button>
           </div>
         </div>
       </div>
