@@ -68,7 +68,8 @@ public class StoreRestController {
 			int k = 0;
 			for(StoreVO vo : list) {
 				JSONObject obj = new JSONObject(); // {"no":1, "name":"ddd"}
-				obj.put("sg_no", vo.getSg_no());
+				obj.put("sg_no", vo.getSg_no()); // 값을 넘겨주는 부분 => 상세페이지 => 안 넘겨주면 undefined 뜸
+				obj.put("sc_no", vo.getSc_no());
 				obj.put("title", vo.getTitle());
 				obj.put("img", vo.getImg());
 				obj.put("id", vo.getId());

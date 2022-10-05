@@ -420,7 +420,7 @@ public class StoreController {
      }
 	 
 	 @GetMapping("store/find.do")
-	 public String store_find(Model model)
+	 public String store_find(Model model, String sc_no)
 	 {
 		 model.addAttribute("store_main_jsp", "../store/find.jsp");
 
