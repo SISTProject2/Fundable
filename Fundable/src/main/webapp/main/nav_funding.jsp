@@ -82,12 +82,12 @@ $(function(){
                         <li class='MultiItem' id="store">
                             <a class="MultiLink" href='../store/store_main.do' style="font-size: 20px; cursor: pointer;">스토어</a>                           
                         </li>
-                        <li style="display: flex; float: right">
+                        <!-- <li style="display: flex; float: right">
 					     <input class="form-control mr-sm-2" type="search" placeholder="검색어를 입력해주세요." aria-label="Search" width=30px>
 						 <button type="submit" class="searchButton">
 					        <i class="fa fa-search"></i>
 					     </button>
-						</li>					     
+						</li> -->					     
                     </ul>                   
                 </span>
                 <div class='' id="cate" style="display:none; position: relative; z-index:1;">

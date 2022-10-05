@@ -108,7 +108,7 @@ p:not(.u-text-variant) {
     <c:forEach var="vo" items="${list2 }">
       <div class="col-md-3">
         <div class="thumbnail" style="border: none;">
-          <a href="../funding/detail.do?fg_no=${vo.fg_no }&fc_no=${vo.fc_no }">
+          <a href="../funding/detail_before.do?fg_no=${vo.fg_no }&fc_no=${vo.fc_no }">
             <img src="${vo.img }" alt="Lights" style="width:100%">
             <div class="caption" style="padding: 9px 0px;">
               <p style="color: gray; font-weight: 500; font-size: 14px; margin-top: 10px;">${vo.category} | ${vo.id }</p>
@@ -126,7 +126,7 @@ p:not(.u-text-variant) {
     <c:forEach var="vo" items="${list3 }">
       <div class="col-md-3">
         <div class="thumbnail" style="border: none;">
-          <a href="../funding/detail.do?fg_no=${vo.fg_no }&fc_no=${vo.fc_no }">
+          <a href="../funding/detail_before.do?fg_no=${vo.fg_no }&fc_no=${vo.fc_no }">
             <img src="${vo.img }" alt="Lights" style="width:100%">
             <div class="caption" style="padding: 9px 0px;">
               <p style="color: gray; font-weight: 500; font-size: 14px; margin-top: 10px;">${vo.category} | ${vo.id }</p>
