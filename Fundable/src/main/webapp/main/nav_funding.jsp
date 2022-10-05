@@ -46,7 +46,7 @@ $(function(){
     <div class="rt-container" style="width: 100%;">
           <div class="col-rt-12">
              <nav>
-                <span class='MultiLevelMenu depth-1' style="padding-left: 100px; padding-right: 30px; height: 60px;">
+                <span class='MultiLevelMenu depth-1' style="padding-left: 70px; padding-right: 150px; height: 60px;">
                     <ul class='menu' style="max-width: 100%;">
                         <li class='MultiItem'>
                             <span class="MultiLink" style="display: flex; font-size: 20px; cursor: pointer;" id="cateBtn"> 카테고리</span>
