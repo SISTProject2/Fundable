@@ -1,8 +1,10 @@
 package com.sist.web;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -339,6 +341,17 @@ public class StoreController {
 		
 		StoreVO vo = dao.storeDetailData(sg_no);
 		model.addAttribute("vo", vo);
+		
+		
+		//==== 상세 이미지 자르기
+		List<String> iList = new ArrayList<String>();
+		String sub_img = vo.getSub_img();
+		StringTokenizer st = new StringTokenizer(sub_img, "^");
+		while(st.hasMoreTokens())
+		{
+			iList.add(st.nextToken());
+		}
+		model.addAttribute("iList", iList);
 		
 		
 		//===== 비슷한 프로젝트

@@ -143,11 +143,11 @@ function payment(data) {
 		<article>
 			<div class="goods_h1">상세 이미지</div>
 			<section>
-				<c:forTokens items="${vo.sub_img }" delims="^" var="image">
+				<c:forEach var="image" items="${iList }">
 					<td>
 						<img src="${image }">
 					</td>
-				</c:forTokens>
+				</c:forEach>
 			</section>
 
 		</article>

@@ -176,7 +176,7 @@
 		methods:{
 			send:function(){
 				let _this=this;
-				axios.get("http://localhost:8080/web/funding/cate_list.do",{
+				axios.get("http://http://43.200.58.204/funding/cate_list.do",{
 					params:{
 						page:_this.curpage,
 						ord:_this.ord,

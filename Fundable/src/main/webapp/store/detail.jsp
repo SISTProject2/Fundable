@@ -333,15 +333,22 @@ a {
 		  <div class="tab-panels">
 		    <section id="marzen" class="tab-panel">
 				<!-- 상세 이미지 -->      
-				<c:forTokens items="${vo.sub_img }" delims="^" var="image">
+				<c:forEach var="image" items="${iList }">
 					<td>
 						<img src="${image }">
 					</td>
-				</c:forTokens>
+				</c:forEach>
 
 		  </section>
 		    <section id="rauchbier" class="tab-panel">
 				<!-- 댓글 -->
+					<c:if test="${sessionScope.user_no==null }">
+						<span style="display: flex; font-size: 15pt">
+							<textarea name="content" placeholder="댓글을 쓰시려면 로그인 하세요." readonly></textarea><div style="width: 15px"></div>
+							<input type="submit" value="댓글" class="button button5"></input>
+						</span>
+					</c:if>
+				
 				  <form method="post" action="insert_ok.do?sg_no=${vo.sg_no }&sc_no=1">
 				  	<c:if test="${sessionScope.user_no!=null }"> <!-- 로그인 한 사람만 댓글 작성 -->
 						<span style="display: flex; font-size: 15pt">

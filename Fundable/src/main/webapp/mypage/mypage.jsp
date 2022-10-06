@@ -913,7 +913,7 @@ p:not(.u-text-variant) {
     		_this.display3='none';
     		_this.display4='none';
     		_this.display5='none';
-    		axios.get("http://localhost:8080/web/mypage/profile.do",{
+    		axios.get("http://43.200.58.204/mypage/profile.do",{
     			params:{
     				id:_this.id
     			}
@@ -969,7 +969,7 @@ p:not(.u-text-variant) {
     				_this.$refs.email.focus();
     				retrun;
     			}
-    			axios.get("http://localhost:8080/web/user/email_update.do",{
+    			axios.get("http://43.200.58.204/user/email_update.do",{
     				params:{
     					email:_this.email,
     					id:'${id}'
@@ -992,7 +992,7 @@ p:not(.u-text-variant) {
     				_this.$refs.tel3.focus();
     				retrun;
     			} 
-    			axios.get("http://localhost:8080/web/user/tel_update.do",{
+    			axios.get("http://43.200.58.204/user/tel_update.do",{
     				params:{
     					tel1:_this.tel1,
     					tel2:_this.tel2,
@@ -1013,7 +1013,7 @@ p:not(.u-text-variant) {
     				_this.$refs.nowpwd.focus();
     				retrun;
     			}
-    			axios.get("http://localhost:8080/web/user/pwd_update.do",{
+    			axios.get("http://43.200.58.204/user/pwd_update.do",{
     				params:{
     					pwd:_this.pwd,
     					nowpwd:_this.nowpwd,
@@ -1065,7 +1065,7 @@ p:not(.u-text-variant) {
     				_this.$refs.bday.focus();
     				retrun;
     			} 
-    			axios.get("http://localhost:8080/web/user/card_update.do",{
+    			axios.get("http://43.200.58.204/user/card_update.do",{
     				params:{
     					bank_name:_this.bank_name,
     					cn1:_this.cn1,
@@ -1083,7 +1083,7 @@ p:not(.u-text-variant) {
     		},
     		cardDelete:function(){
     			let _this=this;
-    			axios.get("http://localhost:8080/web/user/card_delete.do",{
+    			axios.get("http://43.200.58.204/user/card_delete.do",{
     				params:{
     					id:'${id}'
     				}
@@ -1097,7 +1097,7 @@ p:not(.u-text-variant) {
     				oncomplete:function(data)
     				{	
     					console.log(data);
-    					axios.get("http://localhost:8080/web/user/deli_update.do",{
+    					axios.get("http://43.200.58.204/user/deli_update.do",{
     						params:{
 		    					zipcode:data.zonecode,
 		    					addr:data.address,
@@ -1113,7 +1113,7 @@ p:not(.u-text-variant) {
     		},
     		deliDelete:function(){
     			let _this=this;
-    			axios.get("http://localhost:8080/web/user/deli_delete.do",{
+    			axios.get("http://43.200.58.204/user/deli_delete.do",{
     				params:{
     					id:'${id}'
     				}
@@ -1123,7 +1123,7 @@ p:not(.u-text-variant) {
     		},
     		userDelete:function(){
     			let _this=this;
-    			axios.get("http://localhost:8080/web/user/user_delete.do",{
+    			axios.get("http://43.200.58.204/user/user_delete.do",{
     				params:{
     					nowpwd:_this.nowpwd2,
     					id:'${id}'
@@ -1167,7 +1167,7 @@ p:not(.u-text-variant) {
     	 methods:{
     		 send:function(){
     			 let _this=this;
-        		 axios.get("http://localhost:8080/web/mypage/project.do",{
+        		 axios.get("http://43.200.58.204/mypage/project.do",{
         			 params:{
         				 page:_this.curpage,
         				 user_no:_this.user_no
@@ -1182,7 +1182,7 @@ p:not(.u-text-variant) {
     		 },
     		 send2:function(){
     			let _this=this;
-    			axios.get("http://localhost:8080/web/mypage/paying.do",{
+    			axios.get("http://43.200.58.204/mypage/paying.do",{
     				params:{
     					user_no:_this.user_no
     				}
@@ -1194,7 +1194,7 @@ p:not(.u-text-variant) {
     		 },
     		 send3:function(){
     			let _this=this;
-    			axios.get("http://localhost:8080/web/mypage/payingfin.do",{
+    			axios.get("http://43.200.58.204/mypage/payingfin.do",{
     				params:{
     					user_no:_this.user_no
     				}
@@ -1206,7 +1206,7 @@ p:not(.u-text-variant) {
     		 },
     		 send4:function(){
      			let _this=this;
-     			axios.get("http://localhost:8080/web/mypage/bell.do",{
+     			axios.get("http://43.200.58.204/mypage/bell.do",{
      				params:{
      					user_no:_this.user_no
      				}
@@ -1218,7 +1218,7 @@ p:not(.u-text-variant) {
      		 },
      		 send5:function(){
       			let _this=this;
-      			axios.get("http://localhost:8080/web/mypage/like.do",{
+      			axios.get("http://43.200.58.204/mypage/like.do",{
       				params:{
       					user_no:_this.user_no
       				}
@@ -1238,7 +1238,7 @@ p:not(.u-text-variant) {
  			},
 			bellOff:function(){
 				let _this=this;
-				axios.get("http://localhost:8080/web/funding/bellOff.do",{
+				axios.get("http://43.200.58.204/funding/bellOff.do",{
 					params:{
 						fg_no:event.target.getAttribute('data-no'),
     					user_no:'${user_no}'
@@ -1250,7 +1250,7 @@ p:not(.u-text-variant) {
 			},
 			bellOn:function(){
 				let _this=this;
-				axios.get("http://localhost:8080/web/funding/bellOn.do",{
+				axios.get("http://43.200.58.204/funding/bellOn.do",{
 					params:{
 						fg_no:event.target.getAttribute('data-no'),
 						user_no:'${user_no}'

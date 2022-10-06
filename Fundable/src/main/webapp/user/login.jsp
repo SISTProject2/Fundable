@@ -107,10 +107,10 @@ function kakaoLogout() {
 				<div style="height: 10px;"></div>
 				<div id="naver_id_login" style="display: inline;"></div>
 				<script type="text/javascript">
-				  	var naver_id_login = new naver_id_login("uhNmhIO3APAf6c9w50Vt", "http://localhost:8080/naverLogin");
+				  	var naver_id_login = new naver_id_login("uhNmhIO3APAf6c9w50Vt", "http://43.200.58.204//naverLogin");
 				  	var state = naver_id_login.getUniqState();
 				  	naver_id_login.setButton("green", 3, 48);
-				  	naver_id_login.setDomain("http://localhost:8080");
+				  	naver_id_login.setDomain("http://43.200.58.204");
 				  	naver_id_login.setState(state);
 				  	naver_id_login.setPopup();
 				  	naver_id_login.init_naver_id_login();
@@ -137,7 +137,7 @@ function kakaoLogout() {
     	},
     	mounted:function(){
     		let _this=this;
-    		axios.get("http://localhost:8080/web/user/login.do",{
+    		axios.get("http://43.200.58.204/user/login.do",{
 				params:{
 				}    			
     		}).then(function(result){
@@ -159,7 +159,7 @@ function kakaoLogout() {
     				return;
     			}
 				
-    			axios.get("http://localhost:8080/web/user/login_ok.do",{
+    			axios.get("http://43.200.58.204/user/login_ok.do",{
     				params:{
     					id:this.id,
     					pwd:this.pwd,

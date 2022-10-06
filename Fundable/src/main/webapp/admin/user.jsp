@@ -133,7 +133,7 @@ $(function() {
 		methods:{
 			// 반복되면 함수화
 			send:function(){
-				axios.get('http://localhost:8080/web/admin/user_list.do',{
+				axios.get('http://43.200.58.204/admin/user_list.do',{
 					params:{
 						ss : this.ss,
 						page : this.curpage

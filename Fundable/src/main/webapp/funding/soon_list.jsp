@@ -147,7 +147,7 @@
 		methods:{
 			send:function(){
 				let _this=this;
-				axios.get("http://localhost:8080/web/funding/soon_list.do",{
+				axios.get("http://43.200.58.204/funding/soon_list.do",{
 					params:{
 						page:_this.curpage,
 						ord:_this.ord

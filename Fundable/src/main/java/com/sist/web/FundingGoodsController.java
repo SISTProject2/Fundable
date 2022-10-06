@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -151,6 +152,17 @@ public class FundingGoodsController {
 		
 		
 		model.addAttribute("fc_no", fc_no);
+		
+		//==== 상세 이미지 자르기
+		List<String> iList = new ArrayList<String>();
+		String sub_img = vo.getSub_img();
+		StringTokenizer st = new StringTokenizer(sub_img, "^");
+		while(st.hasMoreTokens())
+		{
+			iList.add(st.nextToken());
+		}
+		model.addAttribute("iList", iList);
+		
 		
 		String category=dao.fundingCategoryData(vo.getFc_no());
 		model.addAttribute("cvo", category);
